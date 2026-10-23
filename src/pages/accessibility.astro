@@ -1,0 +1,37 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import site from '@content/site.json';
+---
+
+<LegalLayout
+  title="Accessibility Statement"
+  description="Commitment to WCAG 2.2 Level AA digital accessibility across Talkera Desk web properties."
+  currentSlug="accessibility"
+  lastUpdated="October 2026"
+>
+  <div class="space-y-6 text-xs sm:text-sm text-slate leading-relaxed">
+    <p class="italic text-ink font-semibold">
+      Talkera Desk is committed to ensuring digital accessibility for people with disabilities, targeting adherence to WCAG 2.2 Level AA accessibility standards.
+    </p>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">1. Accessibility Measures</h3>
+      <p>
+        We implement thoughtful engineering practices to ensure our site and user interfaces remain navigable and readable for everyone:
+      </p>
+      <ul class="list-disc pl-4 space-y-1.5 mt-2">
+        <li><strong>Full Keyboard Operability:</strong> Interactive elements, tabs, audio players, and sliders can be fully navigated and operated using standard keyboard controls without mouse dependence.</li>
+        <li><strong>Transcripts for All Audio:</strong> Every recorded demo call includes a synchronized, collapsible text transcript directly beneath the player for screen readers and deaf/hard-of-hearing users.</li>
+        <li><strong>WCAG 2.2 Contrast Standards:</strong> High contrast color pairings across deep green, ink deep, and paper backgrounds tested against AA contrast ratios.</li>
+        <li><strong>Reduced Motion Compliance:</strong> When users enable <code>prefers-reduced-motion</code> in their operating systems, CSS marquee scrolling and animations halt into clean static layouts.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">2. Feedback and Assistance</h3>
+      <p>
+        If you encounter accessibility barriers or have difficulty operating any feature on this website, please email our engineering team at <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline font-semibold">{site.supportEmail}</a> or message WhatsApp at {site.whatsappFormatted}. We investigate and resolve reported accessibility issues promptly.
+      </p>
+    </div>
+  </div>
+</LegalLayout>

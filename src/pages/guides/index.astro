@@ -1,0 +1,85 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import FinalCta from '../../components/home/FinalCta.astro';
+
+const guides = [
+  {
+    slug: "how-much-does-a-missed-call-cost-a-restoration-company",
+    title: "How much does a missed call cost a restoration company?",
+    description: "An empirical breakdown of lead value, competitor callback behavior, and the true revenue loss of an unanswered call at 2 AM.",
+    date: "October 2026",
+    readTime: "6 min read",
+    author: "Ayush Raj"
+  },
+  {
+    slug: "ai-receptionist-vs-answering-service-vs-hiring",
+    title: "AI receptionist vs answering service vs hiring: what each really costs",
+    description: "Comparing real total monthly costs, training requirements, error rates, and booking ability across software, call centers, and in-house staff.",
+    date: "October 2026",
+    readTime: "8 min read",
+    author: "Ayush Raj"
+  },
+  {
+    slug: "ten-questions-to-ask-before-you-sign-with-any-ai-receptionist",
+    title: "Ten questions to ask before you sign with any AI receptionist",
+    description: "A business owner's evaluation checklist covering data ownership, concurrency limits, emergency life-safety protocols, and hidden overage fees.",
+    date: "October 2026",
+    readTime: "7 min read",
+    author: "Ayush Raj"
+  }
+];
+---
+
+<MainLayout
+  title="Home Service Dispatch & AI Answering Guides | Talkera Desk"
+  description="Practical research, cost calculators, and technical evaluations for owners of restoration, plumbing, HVAC and electrical businesses."
+  canonicalUrl="https://talkeradesk.com/guides"
+>
+  <div class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
+          Industry Research & Field Analysis
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink-deep tracking-tight mb-4">
+          Guides for trade business owners
+        </h1>
+        <p class="text-base sm:text-lg text-slate leading-relaxed">
+          Transparent analysis on call economics, answering services, and automation. Answer-first, sourced with third-party benchmarks, zero marketing fluff.
+        </p>
+      </div>
+
+      <!-- Guides List -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        {guides.map((g) => (
+          <a
+            href={`/guides/${g.slug}`}
+            class="group p-8 rounded-panel bg-paper border border-sky-blue hover:border-deep-green/60 shadow-tactile hover:-translate-y-1 transition-all flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono text-slate mb-4">
+                <span>{g.date}</span>
+                <span class="text-brand-green font-semibold">{g.readTime}</span>
+              </div>
+              <h2 class="font-heading font-extrabold text-xl text-ink-deep group-hover:text-deep-green transition-colors mb-3 leading-snug">
+                {g.title}
+              </h2>
+              <p class="text-xs text-slate leading-relaxed mb-6">
+                {g.description}
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-sky-blue/60 flex items-center justify-between text-xs font-mono font-semibold text-deep-green">
+              <span>Read complete guide</span>
+              <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </div>
+
+  <FinalCta />
+</MainLayout>

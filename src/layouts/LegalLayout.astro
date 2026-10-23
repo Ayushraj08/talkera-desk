@@ -1,0 +1,90 @@
+---
+import MainLayout from './MainLayout.astro';
+import site from '@content/site.json';
+
+interface Props {
+  title: string;
+  description: string;
+  currentSlug: string;
+  lastUpdated?: string;
+}
+
+const {
+  title,
+  description,
+  currentSlug,
+  lastUpdated = "October 2026"
+} = Astro.props;
+
+const legalLinks = [
+  { name: "Legal & Registration", slug: "legal" },
+  { name: "Terms of Service", slug: "terms" },
+  { name: "Privacy Policy", slug: "privacy" },
+  { name: "AI & Recording Notice", slug: "ai-and-recording" },
+  { name: "Data Processing Addendum", slug: "dpa" },
+  { name: "Sub-processors", slug: "sub-processors" },
+  { name: "Cancellation Policy", slug: "cancellation" },
+  { name: "Cookie Policy", slug: "cookies" },
+  { name: "Accessibility Statement", slug: "accessibility" }
+];
+---
+
+<MainLayout title={title} description={description} canonicalUrl={`https://talkeradesk.com/${currentSlug}`}>
+  <div class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Legal Header -->
+      <div class="border-b border-sky-blue/70 pb-8 mb-12">
+        <div class="flex items-center gap-2 text-xs font-mono text-slate mb-3">
+          <a href="/" class="hover:text-deep-green">Home</a>
+          <span>/</span>
+          <span class="text-deep-green font-bold">Legal & Governance</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-2">
+          {title}
+        </h1>
+        <div class="text-xs font-mono text-slate">
+          Last Updated: <span class="text-ink font-semibold">{lastUpdated}</span> &bull; DRUVA GROUP &bull; GSTIN: <span class="text-ink font-semibold">{site.gstin}</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Sidebar Legal Navigation -->
+        <aside class="lg:col-span-3 sticky top-24">
+          <div class="p-4 rounded-2xl bg-paper border border-sky-blue">
+            <div class="text-[11px] font-mono uppercase text-slate font-bold mb-3 px-2 tracking-wider">
+              Legal Documents
+            </div>
+            <nav class="space-y-1">
+              {legalLinks.map((link) => (
+                <a
+                  href={`/${link.slug}`}
+                  class={`block px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    currentSlug === link.slug
+                      ? 'bg-deep-green text-white font-bold shadow-2xs'
+                      : 'text-slate hover:text-ink-deep hover:bg-light-blue/50'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+
+            <div class="mt-6 pt-4 border-t border-sky-blue/60 text-[11px] font-mono text-slate px-2">
+              <div>Questions:</div>
+              <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline font-bold mt-0.5 block">{site.supportEmail}</a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Main Document Content Area -->
+        <main class="lg:col-span-9 prose prose-slate max-w-none text-xs sm:text-sm text-slate leading-relaxed">
+          <slot />
+        </main>
+
+      </div>
+
+    </div>
+  </div>
+</MainLayout>

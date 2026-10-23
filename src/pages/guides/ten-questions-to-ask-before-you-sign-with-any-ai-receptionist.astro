@@ -1,0 +1,166 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import FinalCta from '../../components/home/FinalCta.astro';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Ten questions to ask before you sign with any AI receptionist",
+  "author": {
+    "@type": "Person",
+    "name": "Ayush Raj"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Talkera Desk",
+    "url": "https://talkeradesk.com"
+  },
+  "datePublished": "2026-10-18",
+  "dateModified": "2026-10-23"
+};
+---
+
+<MainLayout
+  title="10 Questions to Ask Before Signing With Any AI Receptionist | Talkera Desk"
+  description="Don't sign with an AI voice vendor without asking these ten essential questions about data ownership, concurrency limits, contracts, and emergency safety."
+  canonicalUrl="https://talkeradesk.com/guides/ten-questions-to-ask-before-you-sign-with-any-ai-receptionist"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <article class="py-16 lg:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Article Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
+          Buyer Checklist &bull; Due Diligence
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-4 leading-tight">
+          Ten questions to ask before you sign with any AI receptionist
+        </h1>
+        
+        <!-- Answer in the first two lines -->
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-base sm:text-lg text-ink-deep font-medium leading-relaxed mb-6">
+          Before committing to any AI phone service, contractors must verify data ownership, legal disclosure practices, simultaneous call concurrency limits, emergency life-safety protocols, and contract cancellation terms. Asking these ten questions protects your business from hidden costs and legal liability.
+        </div>
+
+        <div class="flex items-center gap-4 text-xs font-mono text-slate border-b border-sky-blue/50 pb-6">
+          <span>By <strong>Ayush Raj</strong></span>
+          <span>&bull;</span>
+          <span>Updated October 2026</span>
+          <span>&bull;</span>
+          <span>7 min read</span>
+        </div>
+      </div>
+
+      <!-- 10 Questions Checklist -->
+      <div class="space-y-8 text-sm sm:text-base text-slate leading-relaxed">
+        
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            1. Does the voice agent disclose that it is an AI at the start of every call?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            Wiretapping regulations and consumer protection statutes across US states, the UK, the EU, Canada, and Australia require clear disclosure and two-party recording consent. Never deploy an agent that impersonates a human.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            2. Who owns my phone number and customer call recordings?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            Demand written confirmation that your phone number is fully portable and that your business retains exclusive ownership over all audio recordings, transcripts, and customer contact data with rapid export rights.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            3. Does the agent book appointments directly into my existing calendar or CRM?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            Answering a call without creating a job ticket or booking a time slot provides minimal value. Verify whether the agent writes two-way appointments into ServiceTitan, Jobber, Housecall Pro, or Google Calendar.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            4. How many calls can the system handle at the exact same moment?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            Clarify your concurrency capacity. If two customers call at the same moment, does the second caller encounter a busy signal or a voicemail? Talkera Desk provides dedicated concurrent channels by plan (1, 2, 4, or up to 8).
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            5. Are there burst penalties or surcharge fees during weather rushes?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            Many vendors penalize sudden call rushes with steep fees. Ensure your provider charges zero burst fees and handles capacity overflows with courteous automated text holding.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            6. What exact protocol does the agent follow during a life-safety emergency?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            If a homeowner reports electrical sparks near standing water or smelling natural gas, the agent must instruct the caller to dial 911 immediately and simultaneously alert your on-call supervisor.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            7. How long are audio recordings and customer transcripts stored?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            Indefinite storage of customer voice data violates GDPR and modern privacy standards. High-trust providers establish fixed 15 to 60 day retention schedules followed by permanent automated deletion.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            8. Do you use my customer calls to train public AI models?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            Verify that your contract forbids the vendor and its underlying infrastructure providers from using your private customer phone calls and transcripts to train general commercial language models.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            9. Who configures, tests, and tunes the prompt logic?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            Determine whether you are purchasing raw self-serve software that requires you to engineer prompts, or hiring a managed technical team that builds, tunes, tests, and monitors your agent on an ongoing basis.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <h2 class="text-xl font-heading font-extrabold text-ink-deep mb-2">
+            10. Is the plan month-to-month, or am I locked into an annual contract?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate">
+            Never sign an annual lock-in before testing an AI phone agent on your real call volume. Insist on transparent month-to-month billing with the freedom to cancel or pause anytime.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-panel bg-light-blue/50 border border-sky-blue text-center mt-12">
+          <h3 class="font-heading font-bold text-xl text-ink-deep mb-2">Ready to test Talkera Desk?</h3>
+          <p class="text-xs sm:text-sm text-slate mb-6">Explore our month-to-month plans starting from $59 a month.</p>
+          <a
+            href="/pricing"
+            class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-deep-green text-white text-xs font-bold hover:bg-brand-green transition-all shadow"
+          >
+            Explore Transparent Pricing &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </article>
+
+  <FinalCta />
+</MainLayout>

@@ -1,0 +1,69 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import site from '@content/site.json';
+---
+
+<LegalLayout
+  title="Data Processing Addendum (DPA)"
+  description="Data Processing Addendum between Customer (Controller) and Ayush Raj trading as DRUVA GROUP (Processor)."
+  currentSlug="dpa"
+  lastUpdated="October 2026"
+>
+  <div class="space-y-6 text-xs sm:text-sm text-slate leading-relaxed">
+    <p class="italic text-ink font-semibold">
+      This Data Processing Addendum forms an integral component of the commercial Terms between the Customer ("Controller") and Ayush Raj, trading as {site.enterpriseName} ("Processor").
+    </p>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">1. Scope and Roles</h3>
+      <p>
+        The Customer acts as the Data Controller of customer call audio, transcripts, and contact records. Talkera Desk acts as Data Processor processing personal data solely upon documented Controller instructions as set forth in the Terms, the active plan, and approved integration settings.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">2. Subject Matter and Processing Scope</h3>
+      <p>
+        <strong>Categories of Data:</strong> Caller names, telephone numbers, service addresses, call audio recordings, automated text transcripts, and dispatch notes.
+      </p>
+      <p class="mt-2">
+        <strong>Categories of Data Subjects:</strong> Customer callers, service clients, and designated field technicians. No special category, biometric, or protected health information is processed without an executed addendum.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">3. Confidentiality and Security Standards</h3>
+      <p>
+        All engineering personnel and sub-processors with administrative access to customer data are bound by strict contractual confidentiality obligations. We maintain rigorous administrative and technical safeguards including HTTPS/TLS 1.3 encryption in transit, isolated database environments, and least-privilege role-based access.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">4. Sub-processors</h3>
+      <p>
+        Controller grants general authorization for the engagement of infrastructure and telephony sub-processors listed on our Sub-processors page. We provide 30 days prior written notice of new sub-processors, allowing Controller reasonable opportunity to object on valid data-protection grounds.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">5. Security Breach Notification</h3>
+      <p>
+        Processor shall notify Controller without undue delay, and in any case within 72 hours of confirming any security incident leading to unauthorized disclosure or destruction of Controller personal data, providing details necessary for Controller to meet regulatory obligations.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">6. Return and Permanent Deletion</h3>
+      <p>
+        Upon termination of service or upon Controller request, Processor shall provide a complete export of stored call data within 7 business days and permanently delete all remaining active data within 30 days, retaining only records required by applicable statutory tax laws.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">7. International Transfers (SCCs & CCPA)</h3>
+      <p>
+        Where personal data originates from the EU or UK and is transferred to Processor facilities in India or the US, the European Commission Standard Contractual Clauses (Module 2: Controller to Processor) and UK Addendum are incorporated by reference. For California residents, Processor operates strictly as a "Service Provider" under the CCPA.
+      </p>
+    </div>
+  </div>
+</LegalLayout>

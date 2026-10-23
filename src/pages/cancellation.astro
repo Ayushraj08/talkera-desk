@@ -1,0 +1,59 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import site from '@content/site.json';
+---
+
+<LegalLayout
+  title="Cancellation and Account Pause Policy"
+  description="Transparent month-to-month cancellation terms, account pause rules, data export rights, and refund exceptions."
+  currentSlug="cancellation"
+  lastUpdated="October 2026"
+>
+  <div class="space-y-6 text-xs sm:text-sm text-slate leading-relaxed">
+    <p class="italic text-ink font-semibold">
+      Talkera Desk operates strictly month to month. We do not lock contractors into long-term contracts, auto-renewal traps, or cancellation penalties.
+    </p>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">1. Cancel Anytime</h3>
+      <p>
+        You may cancel or pause your subscription at any time directly through your dashboard settings or by sending an email notice to <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline font-semibold">{site.supportEmail}</a>.
+      </p>
+      <p class="mt-2">
+        Once canceled, your service remains fully operational through the conclusion of your current prepaid monthly billing cycle. At the end of the paid month, billing ceases permanently, and your account does not renew.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">2. Complimentary 30-Day Setup & Number Hold</h3>
+      <p>
+        After your subscription ends, we retain your custom voice prompts, calendar integrations, and allocated telephone numbers for <strong>30 days at zero charge</strong>. If you decide to restart your service within this window, we reactivate your existing system immediately with zero setup fees.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">3. Seasonal Account Pause ($39 / month)</h3>
+      <p>
+        If your business encounters quiet seasonal transitions, you can park your configuration, telephone lines, and trained voice prompts for <strong>$39 per month</strong> for up to 3 months. When your peak season begins, your system switches live with zero onboarding downtime.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">4. Complete Data Export on Exit</h3>
+      <p>
+        You own all of your business call data. Within 7 days of service termination, our engineering team will provide a complete export of your call logs, transcripts, and configuration files, and will assist in porting your phone numbers to any carrier of your choice.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">5. Prorated Refund Exceptions</h3>
+      <p>
+        Because monthly fees are prepaid and month-to-month, standard monthly subscription fees are non-refundable once billed. However, two explicit exceptions exist where prorated refunds of unused days are issued:
+      </p>
+      <ul class="list-disc pl-4 space-y-1.5 mt-2">
+        <li><strong>Unresolved 72-Hour Defect:</strong> If an operational problem on our side cannot be resolved within 72 hours under our SLA, you may cancel immediately with a full prorated refund of remaining days.</li>
+        <li><strong>Corporate Entity Transfer:</strong> If you object to the transfer of operations to a private limited company under Section 19 of our Terms, you may cancel prior to the transfer date and receive a prorated refund of remaining days.</li>
+      </ul>
+    </div>
+  </div>
+</LegalLayout>

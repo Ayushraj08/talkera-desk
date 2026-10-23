@@ -1,0 +1,90 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import site from '@content/site.json';
+---
+
+<LegalLayout
+  title="Legal & Registration Details"
+  description="Official registration, proprietor information, GSTIN 10FGTPR7427G1Z0, and Udyam credentials for DRUVA GROUP."
+  currentSlug="legal"
+  lastUpdated="October 2026"
+>
+  <div class="space-y-6">
+    <div class="p-4 rounded-xl bg-paper border border-sky-blue text-xs text-ink-deep leading-relaxed">
+      <strong>Who we are:</strong> Talkera Desk is an operational brand of <strong>{site.enterpriseName}</strong>, a sole proprietorship owned by Ayush Raj, registered in India. When you purchase services from Talkera Desk, your contract is directly with Ayush Raj, trading as DRUVA GROUP. Our team works remotely from Kolkata and other cities in India. DRUVA GROUP commenced operations on 15 April 2026 (the official date on its Udyam certificate). Talkera Desk launched on 1 September 2026.
+    </div>
+
+    <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-2xs font-mono text-xs">
+      <table class="min-w-full divide-y divide-sky-blue/60">
+        <tbody class="divide-y divide-gray-100 text-slate">
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep w-1/3">Brand</td>
+            <td class="py-3.5 px-5">{site.brandName} ({site.domain})</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Legal Business Name</td>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">{site.enterpriseName}</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Legal Form</td>
+            <td class="py-3.5 px-5">Sole proprietorship. Proprietor: {site.proprietor}</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Country of Registration</td>
+            <td class="py-3.5 px-5">India</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Udyam Registration Number</td>
+            <td class="py-3.5 px-5">
+              <span class="font-bold text-ink-deep">{site.udyamNumber}</span>
+              <span class="text-slate block text-[11px] font-sans mt-0.5">Micro enterprise, major activity: Services. Verify at udyamregistration.gov.in</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Date of Registration</td>
+            <td class="py-3.5 px-5">10 October 2025</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Udyam Registration Date</td>
+            <td class="py-3.5 px-5">{site.udyamRegistrationDate}</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Business Commenced</td>
+            <td class="py-3.5 px-5">{site.businessCommencedDate}</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Registered Office Address</td>
+            <td class="py-3.5 px-5 font-sans text-xs">{site.registeredAddress}</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Operational Base</td>
+            <td class="py-3.5 px-5 font-sans text-xs">{site.teamLocations}</td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Goods & Services Tax (GST)</td>
+            <td class="py-3.5 px-5">
+              <span class="font-bold text-emerald-700">{site.gstin}</span>
+              <span class="text-slate block text-[11px] font-sans mt-0.5">Active and issued. Exports of services are invoiced without IGST under a Letter of Undertaking (LUT).</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="py-3.5 px-5 font-bold text-ink-deep">Contact</td>
+            <td class="py-3.5 px-5">
+              <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline">{site.supportEmail}</a> &bull; WhatsApp: {site.whatsappFormatted}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-xs text-slate space-y-3 leading-relaxed">
+      <h3 class="font-heading font-bold text-base text-ink-deep">Background Verification Protocol</h3>
+      <p>
+        Udyam is an official registration with the Ministry of Micro, Small and Medium Enterprises, Government of India. It represents legal business registration and is not a government endorsement or professional license.
+      </p>
+      <p>
+        For enterprise clients conducting corporate vendor diligence, email <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline font-semibold">{site.supportEmail}</a> and we will provide the official Udyam certificate, active GST registration certificate, and bank verification documents directly.
+      </p>
+    </div>
+  </div>
+</LegalLayout>

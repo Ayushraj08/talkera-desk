@@ -1,0 +1,49 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import site from '@content/site.json';
+---
+
+<LegalLayout
+  title="Cookie Policy"
+  description="Talkera Desk cookie practices: zero advertising trackers, cookieless analytics, strictly essential functional storage."
+  currentSlug="cookies"
+  lastUpdated="October 2026"
+>
+  <div class="space-y-6 text-xs sm:text-sm text-slate leading-relaxed">
+    <p class="italic text-ink font-semibold">
+      Effective October 2026. This policy explains our minimal, privacy-centric approach to browser storage.
+    </p>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">1. Zero Advertising or Tracking Cookies</h3>
+      <p>
+        Talkera Desk does not employ third-party advertising cookies, behavioral tracking pixels, or cross-site tracking scripts. We do not partner with ad networks to monitor your web activity across the internet.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">2. Cookieless Web Analytics</h3>
+      <p>
+        Our website utilizes privacy-preserving, cookieless analytics to understand aggregate traffic volume, device screen sizes, and referring search engines. This analytics approach does not generate persistent browser identifiers or track individuals across sessions.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">3. Strictly Essential Local Storage</h3>
+      <p>
+        Our site uses local browser storage solely to preserve essential functional state during your active visit:
+      </p>
+      <ul class="list-disc pl-4 space-y-1.5 mt-2">
+        <li>Remembering active demo audio filter selections (Voice, Accent, Trade) while navigating demo cards.</li>
+        <li>Protecting lead inquiry forms against spam and automated abuse.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">4. Third-Party Links</h3>
+      <p>
+        When you click external links to external meeting schedulers, government verification portals, or social networks, those third-party services operate under their own independent cookie policies.
+      </p>
+    </div>
+  </div>
+</LegalLayout>

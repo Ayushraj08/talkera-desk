@@ -1,0 +1,124 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import site from '@content/site.json';
+---
+
+<LegalLayout
+  title="Terms of Service"
+  description="Master Terms of Service for business clients of Talkera Desk (DRUVA GROUP)."
+  currentSlug="terms"
+  lastUpdated="October 2026"
+>
+  <div class="space-y-6 text-xs sm:text-sm text-slate leading-relaxed">
+    <p class="italic text-ink font-semibold">
+      Effective October 2026. These terms govern commercial services provided to business clients. We do not sell to consumers.
+    </p>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">1. Who We Are and Contracting Entity</h3>
+      <p>
+        "Talkera Desk", "we", "our" and "us" mean Ayush Raj, trading as DRUVA GROUP, a sole proprietorship registered in India (Udyam: {site.udyamNumber}, Active GSTIN: {site.gstin}). "You" and "Customer" mean the business organization that signs up for our services. Talkera Desk operates as a registered brand of DRUVA GROUP. The contract is formed directly with the sole proprietor personally.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">2. What We Provide</h3>
+      <p>
+        We build, connect, run, review, and support an AI voice phone agent for your service business as outlined on our website and in your plan. The service answers inbound phone calls, gathers customer intake details, books appointments into connected calendars or CRMs, dispatches text message updates to your callers and field personnel, and initiates warm call transfers under your approved escalation rules.
+      </p>
+      <p class="mt-2">
+        We target having your agent live within up to 3 days from the time we receive all onboarding information from you. This timeline is a service target dependent on client feedback, not a promise. We do not provide emergency 911 dispatch, legal advice, medical advice, or any financial promise of jobs or revenue.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">3. Plans, Fees and Billing</h3>
+      <p>
+        Prices are stated in US Dollars ($) and listed on our Pricing page. Monthly fees are charged in advance and are due whether or not you utilize the service. Each plan remains valid for the billing period paid for. There is no trial period or free sample period.
+      </p>
+      <p class="mt-2">
+        <strong>Billing Pulse:</strong> Minutes are billed in 60-second pulses: every started minute counts as a full minute. Calls under 10 seconds are free of charge. Included plan minutes are consumed first. Extra minutes beyond plan allowances cost $0.60 per minute across every plan. On Pay As You Go, minutes cost $0.60 per minute billed monthly in arrears to your payment method on file.
+      </p>
+      <p class="mt-2">
+        <strong>Rollover:</strong> Unused included plan minutes carry over to the next billing period once, up to 20% of your plan's included minutes. Rollover minutes possess zero cash value and expire upon plan termination.
+      </p>
+      <p class="mt-2">
+        <strong>Text Allowances:</strong> Automated SMS messages to callers and technicians are included up to your monthly plan quota (Core 600, Growth 1,500, Command 3,500 for US and Canada numbers). Excess texts and Pay As You Go texts bill at $0.035 each.
+      </p>
+      <p class="mt-2">
+        <strong>Taxes:</strong> We charge zero credit card surcharges. Exports of services to international clients outside India are zero-rated for Goods and Services Tax (GST) under a valid Letter of Undertaking (LUT) pursuant to Indian GST law (GSTIN: {site.gstin}). Any domestic taxes or withholdings applicable in your country remain your sole responsibility.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">4. Price Stability</h3>
+      <p>
+        While you maintain an active uninterrupted plan, we will not increase your base monthly plan fee, your included minute allocation, or your extra-minute rate. We reserve the right to pass through third-party carrier or telephony cost increases exceeding 10% upon 30 days prior written notice. If you do not accept the pass-through change, you may cancel without penalty prior to its effective date.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">5. Term, Cancellation and Account Pause</h3>
+      <p>
+        All agreements are strictly month to month. You may cancel or pause your subscription at any time from your account settings or by email to <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline">{site.supportEmail}</a>. Your subscription remains active through the end of your prepaid period, then terminates without further charges. We do not provide refunds for the unused portion of a paid period.
+      </p>
+      <p class="mt-2">
+        Following cancellation, we retain your configuration, custom prompts, and phone numbers for 30 days at zero charge so you may easily reactivate. You may extend this hold status for $39 monthly for up to 3 months. Two specific exceptions apply where prorated refunds of unused days are issued: failure to resolve an operational fault on our side within 72 hours (Section 6), or client objection to corporate transfer (Section 19).
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">6. Support, Fixes and Credit Policy</h3>
+      <p>
+        When you submit an issue report, our team begins diagnosis immediately and works to resolve the defect as quickly as possible, up to 72 hours maximum. If the cause is determined to be on our side and the resolution takes longer than 24 hours, each additional day (rounded up to a whole day) is added directly to your plan as a service credit.
+      </p>
+      <p class="mt-2">
+        "Our side" includes our codebase, prompt architecture, integration logic, and direct operational delays. It excludes third-party carrier downtime, cellular network failures, client software outages, or client delays in responding to support inquiries. We request clients respond within 2 to 3 hours during business hours, and our support resolution clock pauses while waiting for client replies.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">7. Client Responsibilities & Emergency Rules</h3>
+      <p>
+        You are responsible for supplying accurate business hours, service catalogs, and emergency transfer phone numbers. You represent that your business holds a valid lawful basis for receiving customer calls and recording audio under your local laws.
+      </p>
+      <p class="mt-2">
+        The AI agent is not an emergency dispatcher. Callers reporting immediate physical danger are instructed by the voice model to hang up and dial emergency services (such as 911). You agree to keep your destination numbers and CRM credentials active and in good standing.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">8. Acceptable Use Policy</h3>
+      <p>
+        You agree not to utilize Talkera Desk to initiate unlawful telemarketing, deceptive robocalls, or harassment. You must never instruct the agent to claim it is a human when asked directly. You must not use the system to collect credit card numbers, government IDs, or protected health records unless executed under a separate addendum.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">9. Data Ownership & Exit Rights</h3>
+      <p>
+        You retain full, exclusive ownership of your business data, customer records, call audio recordings, and transcripts. We retain ownership of our core software, underlying agent architectures, and proprietary templates. Upon request within 7 days of termination, we provide a complete export of your customer call data and assist with porting your telephone number.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">10. Moving to a Private Limited Company (Section 19)</h3>
+      <p>
+        Talkera Desk operates today under DRUVA GROUP, a registered sole proprietorship. We plan to transfer business operations into a private limited company (Pvt Ltd). When this transfer occurs:
+      </p>
+      <ul class="list-disc pl-4 space-y-1.5 mt-2">
+        <li>We will provide you at least 30 days prior written notice with full corporate registration details.</li>
+        <li>Your active agreement, plan pricing, prepaid balance, and data rights transfer to the company entity with zero interruption.</li>
+        <li>The company assumes all duties and responsibilities under these Terms and our Data Processing Addendum.</li>
+        <li>If you object to continuing with the company entity, you may notify us prior to the transfer date and receive a prompt refund of any unused prepaid days.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">11. Governing Law & Dispute Resolution</h3>
+      <p>
+        These terms are governed by the laws of India. Any controversy or dispute arising out of or relating to this agreement shall first be addressed through 30 days of good-faith negotiation. If unresolved, disputes shall be finally settled by binding arbitration before a sole arbitrator in accordance with the Arbitration and Conciliation Act, 1996, conducted in the English language with online hearings permitted.
+      </p>
+    </div>
+  </div>
+</LegalLayout>

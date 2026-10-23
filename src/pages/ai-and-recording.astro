@@ -1,0 +1,55 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import site from '@content/site.json';
+---
+
+<LegalLayout
+  title="AI and Call Recording Notice"
+  description="Mandatory disclosure regarding automated AI phone answering, call recording, and data processing."
+  currentSlug="ai-and-recording"
+  lastUpdated="October 2026"
+>
+  <div class="space-y-6 text-xs sm:text-sm text-slate leading-relaxed">
+    <p class="italic text-ink font-semibold">
+      This notice outlines operational protocols when placing a call to any business powered by Talkera Desk.
+    </p>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">1. AI Voice Disclosure</h3>
+      <p>
+        When you dial a company using Talkera Desk, an artificial intelligence voice agent answers the phone. The agent states clearly at the beginning of the call that it is an automated AI assistant and that the conversation may be recorded and transcribed for dispatch verification.
+      </p>
+      <p class="mt-2">
+        The agent is engineered to converse naturally, ask relevant triage questions, schedule appointments, and dispatch text message confirmations.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">2. Speaking with a Human Team Member</h3>
+      <p>
+        If at any point during a conversation you prefer to speak directly with a human representative, state your request to the agent. The agent will either initiate an immediate live transfer to an on-call team member or schedule a priority callback based on the business's operating rules.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">3. Not an Emergency 911 Service</h3>
+      <p>
+        Talkera Desk is not an emergency dispatch provider. If you, your property, or any individuals are facing immediate life-threatening physical danger, electrical hazards near floodwaters, or gas leaks, please hang up immediately and dial your local emergency services number (e.g. 911 in the US/Canada, 999 in the UK, 000 in Australia, or 112 in Europe).
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">4. Data Routing and Audio Retention</h3>
+      <p>
+        Audio streams and text transcripts are processed through secure telephony and language intelligence providers listed on our Sub-processors page. Audio recordings are stored temporarily for 15, 30, 45, or 60 days depending on the business's selected service tier, after which they are permanently deleted.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">5. Compliance Information for Business Owners</h3>
+      <p>
+        Call recording regulations and biometric/AI disclosure requirements vary across US states and international jurisdictions. Talkera Desk enables automated disclosure by default to satisfy two-party consent mandates. Business clients remain responsible for ensuring their specific operational rules comply with local industry statutes.
+      </p>
+    </div>
+  </div>
+</LegalLayout>

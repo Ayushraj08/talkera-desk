@@ -1,0 +1,63 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import site from '@content/site.json';
+---
+
+<LegalLayout
+  title="Privacy Policy"
+  description="How Talkera Desk (DRUVA GROUP) collects, processes, and protects business and visitor data."
+  currentSlug="privacy"
+  lastUpdated="October 2026"
+>
+  <div class="space-y-6 text-xs sm:text-sm text-slate leading-relaxed">
+    <p class="italic text-ink font-semibold">
+      Effective October 2026. This policy governs how Talkera Desk collects, uses, and safeguards personal data of website visitors and business customer account holders.
+    </p>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">1. Who Is Responsible</h3>
+      <p>
+        The data controller for website visitors and business client account records is Ayush Raj, trading as {site.enterpriseName} (brand: Talkera Desk), a sole proprietorship registered in India (Udyam: {site.udyamNumber}, Active GSTIN: {site.gstin}). Contact: <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline">{site.supportEmail}</a>.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">2. What We Collect</h3>
+      <p>
+        <strong>Information you supply:</strong> Name, business name, email address, telephone number, and onboarding notes provided when submitting forms, booking calls, or communicating with our team.
+      </p>
+      <p class="mt-2">
+        <strong>Automatic visit data:</strong> Aggregated, privacy-friendly visit statistics (pages viewed, device type, referring URL) collected via cookieless analytics tools. We do not use third-party advertising tracking pixels or retargeting scripts.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">3. Calls Handled for Business Customers</h3>
+      <p>
+        When Talkera Desk answers an inbound call on behalf of a contractor or business customer, that customer serves as the <strong>Data Controller</strong>, and Talkera Desk acts strictly as a <strong>Data Processor</strong> operating under documented client instructions.
+      </p>
+      <p class="mt-2">
+        Inquiries regarding specific caller records, audio recordings, or requests for data deletion should be directed to the business that was called. Our AI & Recording Notice governs caller-facing call processing.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">4. Retention Schedules</h3>
+      <ul class="list-disc pl-4 space-y-1.5 mt-2">
+        <li><strong>Customer Account & Tax Records:</strong> Retained while you maintain an active account and as required under applicable commercial tax laws.</li>
+        <li><strong>Call Audio & Transcripts:</strong> Automatically deleted after 15 days (Pay As You Go), 30 days (Core), 45 days (Growth), or 60 days (Command).</li>
+        <li><strong>Call Metadata Logs:</strong> Basic timestamps, durations, and routing results are kept up to 12 months for billing audits and aggregate reporting.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-heading font-bold text-base text-ink-deep mb-2">5. International Data Transfers & Rights</h3>
+      <p>
+        Our core engineering and support operations are located in India, with telephony and cloud infrastructure hosted in the United States and global data centers. Transfers of European and UK data incorporate Standard Contractual Clauses (SCCs).
+      </p>
+      <p class="mt-2">
+        Depending on your location, you hold rights to access, correct, delete, or export your personal information under the GDPR, UK GDPR, CCPA, and India's Digital Personal Data Protection Act (DPDP). To exercise these rights, email <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline">{site.supportEmail}</a>. We respond to verified requests within 30 days.
+      </p>
+    </div>
+  </div>
+</LegalLayout>
