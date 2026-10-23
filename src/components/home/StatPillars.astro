@@ -150,7 +150,7 @@ import stats from '@content/stats.json';
               </div>
             </div>
 
-            <!-- Input 2: Expected Total Inbound Calls Per Day (10 to 40) -->
+            <!-- Input 2: Expected Total Inbound Calls Per Day (3 to 40) -->
             <div>
               <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
                 <span>Total Expected Calls per Day</span>
@@ -159,17 +159,17 @@ import stats from '@content/stats.json';
               <input
                 id="input-total-calls"
                 type="range"
-                min="10"
+                min="3"
                 max="40"
                 step="1"
                 value="15"
                 class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
               />
               <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
-                <span>10 / day</span>
-                <span>20 / day</span>
-                <span>30 / day</span>
-                <span>40 / day</span>
+                <span>3 / day (PAYG)</span>
+                <span>6 / day (Starter)</span>
+                <span>15 / day (Pro)</span>
+                <span>30+ / day (Growth)</span>
               </div>
               <div class="text-[11px] text-slate font-mono mt-1" id="sub-total-monthly">
                 &approx; 450 total calls / month (used to suggest your best plan)
@@ -213,12 +213,12 @@ import stats from '@content/stats.json';
             </div>
           </div>
 
-          <!-- Right: Monthly Impact & True Net Profit Card -->
+          <!-- Right: Monthly Impact & True Net Recovered Value Card -->
           <div class="lg:col-span-5 bg-paper border border-sky-blue rounded-2xl p-6 flex flex-col justify-between shadow-sm">
             <div>
               <div class="flex items-center justify-between">
                 <div class="text-[11px] uppercase font-mono tracking-wider text-slate font-bold">
-                  Estimated Net Monthly Profit
+                  Estimated Net Recovered Value
                 </div>
                 <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">
                   Monthly Impact
@@ -228,12 +228,34 @@ import stats from '@content/stats.json';
               <div class="text-4xl sm:text-5xl font-extrabold font-heading text-deep-green tracking-tight tabular my-2" id="res-net-profit">
                 +$7,717
               </div>
-              <div class="text-xs text-slate font-medium mb-5">
-                Pure monthly profit into your business after Talkera Desk charges.
+              <div class="text-xs text-slate font-medium mb-4">
+                Net monthly value recovered after subtracting Talkera Desk plan charge.
+              </div>
+
+              <!-- Interactive Plan Selector Pills -->
+              <div class="mb-4 pt-3 border-t border-sky-blue/50">
+                <div class="flex items-center justify-between text-[10px] font-mono uppercase text-slate font-bold mb-1.5">
+                  <span>Selected / Suggested Plan:</span>
+                  <span id="plan-mode-label" class="text-deep-green font-bold">Auto-Matched</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1 text-[11px] font-mono" id="plan-pills">
+                  <button type="button" data-plan="payg" class="plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
+                    PAYG ($59)
+                  </button>
+                  <button type="button" data-plan="starter" class="plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
+                    Starter ($293)
+                  </button>
+                  <button type="button" data-plan="pro" class="plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
+                    Pro ($563)
+                  </button>
+                  <button type="button" data-plan="growth" class="plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
+                    Growth ($1,293)
+                  </button>
+                </div>
               </div>
 
               <!-- Step-by-Step Transparent Monthly Breakdown -->
-              <div class="space-y-2.5 py-4 border-t border-b border-sky-blue/70 text-xs text-slate font-mono">
+              <div class="space-y-2.5 py-3 border-t border-b border-sky-blue/70 text-xs text-slate font-mono">
                 <div class="flex justify-between">
                   <span>Missed Calls Handled:</span>
                   <span class="text-ink font-semibold tabular" id="res-monthly-missed">240 calls / mo</span>
@@ -247,10 +269,10 @@ import stats from '@content/stats.json';
                   <span class="text-emerald-700 font-bold tabular" id="res-gross-recovered">+$8,280 / mo</span>
                 </div>
 
-                <!-- Recommended Plan Row -->
+                <!-- Plan Deduction Row -->
                 <div class="pt-2 border-t border-sky-blue/50">
                   <div class="flex items-center justify-between text-ink-deep font-sans">
-                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate">Suggested Plan:</span>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate">Active Plan:</span>
                     <a href="/pricing" id="link-rec-plan" class="text-xs font-mono font-bold text-deep-green hover:underline flex items-center gap-1">
                       <span id="badge-rec-plan">Pro Plan ($563/mo)</span>
                       <span>&rarr;</span>
@@ -258,16 +280,22 @@ import stats from '@content/stats.json';
                   </div>
                   <div class="flex justify-between text-[11px] text-gray-500 mt-1">
                     <span>Plan Charge Deducted:</span>
-                    <span class="text-red-700 font-bold tabular" id="res-plan-cost">-$563 / mo</span>
+                    <span class="font-bold tabular" id="res-plan-cost">-$563 / mo</span>
                   </div>
                   <p class="text-[10px] text-gray-500 mt-1 leading-snug" id="res-plan-explanation">
                     Deducted from gross recovery to show true take-home profit.
                   </p>
                 </div>
+
+                <!-- Final Net Recovered Value Row (Requested by User) -->
+                <div class="pt-2.5 mt-2 border-t border-sky-blue/80 flex justify-between items-center text-xs bg-light-blue/40 -mx-2 px-2.5 py-1.5 rounded-lg">
+                  <span class="font-bold text-ink-deep font-sans">Net Recovered Value:</span>
+                  <span class="font-bold font-mono text-deep-green text-sm tabular" id="res-net-recovered-line">+$7,717 / mo</span>
+                </div>
               </div>
             </div>
 
-            <div class="mt-6 space-y-2">
+            <div class="mt-5 space-y-2">
               <a
                 href="/pricing"
                 id="btn-pricing-cta"
@@ -313,8 +341,53 @@ import stats from '@content/stats.json';
     const badgePlan = document.getElementById('badge-rec-plan');
     const resPlanCost = document.getElementById('res-plan-cost');
     const resPlanExp = document.getElementById('res-plan-explanation');
+    const resNetRecoveredLine = document.getElementById('res-net-recovered-line');
     const linkRecPlan = document.getElementById('link-rec-plan') as HTMLAnchorElement | null;
     const btnPricingCta = document.getElementById('btn-pricing-cta') as HTMLAnchorElement | null;
+    const planModeLabel = document.getElementById('plan-mode-label');
+    const pills = document.querySelectorAll('.plan-pill');
+
+    let manualSelectedPlan: 'payg' | 'starter' | 'pro' | 'growth' | null = null;
+
+    function getPlanDetails(planKey: 'payg' | 'starter' | 'pro' | 'growth') {
+      if (planKey === 'payg') {
+        return {
+          name: 'Pay As You Go ($59 base)',
+          cost: 0,
+          costText: '$0 (Not Deducted)',
+          costClass: 'text-slate font-bold tabular',
+          anchor: '/pricing',
+          explanation: 'Why not deducted: In Pay As You Go, you only pay $0.60/min as calls occur. No bundled monthly plan fee is prepaid, so $0 is deducted from recovery.'
+        };
+      } else if (planKey === 'starter') {
+        return {
+          name: 'Starter Plan ($293/mo)',
+          cost: 293,
+          costText: '-$293 / mo',
+          costClass: 'text-red-700 font-bold tabular',
+          anchor: '/pricing',
+          explanation: 'Starter tier (up to ~165 calls). Monthly plan fee deducted from gross recovery.'
+        };
+      } else if (planKey === 'pro') {
+        return {
+          name: 'Pro Plan ($563/mo)',
+          cost: 563,
+          costText: '-$563 / mo',
+          costClass: 'text-red-700 font-bold tabular',
+          anchor: '/pricing',
+          explanation: 'Most popular tier (up to ~330 calls). Monthly plan fee deducted from gross recovery.'
+        };
+      } else {
+        return {
+          name: 'Growth Plan ($1,293/mo)',
+          cost: 1293,
+          costText: '-$1,293 / mo',
+          costClass: 'text-red-700 font-bold tabular',
+          anchor: '/pricing',
+          explanation: 'High-volume tier (up to ~830 calls). Monthly plan fee deducted from gross recovery.'
+        };
+      }
+    }
 
     function update() {
       if (!missedInput || !ticketInput) return;
@@ -338,46 +411,62 @@ import stats from '@content/stats.json';
       const jobsSaved = Math.round(monthlyMissed * 0.15);
       const grossRecovered = jobsSaved * ticketVal;
 
-      // Recommended Plan logic based on total monthly call volume
-      // 10-15 calls/day (300-450/mo) -> Pro Plan covers 1,000 mins (~330 calls)
-      // 16-40 calls/day (480-1,200/mo) -> Growth Plan covers 2,500 mins (~830 calls)
-      // Under 165 calls/mo -> Starter Plan ($293)
-      let planName = 'Pro Plan ($563/mo)';
-      let planCost = 563;
-      let planAnchor = '/pricing#pro';
-      let planExplanation = 'Deducted from gross recovery to show true take-home profit.';
-
-      if (monthlyTotal <= 165) {
-        planName = 'Starter Plan ($293/mo)';
-        planCost = 293;
-        planAnchor = '/pricing#starter';
-        planExplanation = 'Ideal for low volume (up to 5 calls/day). Deducted from monthly profit.';
-      } else if (monthlyTotal <= 350) {
-        planName = 'Pro Plan ($563/mo)';
-        planCost = 563;
-        planAnchor = '/pricing#pro';
-        planExplanation = 'Most popular tier (up to ~330 calls). Deducted from monthly profit.';
+      // Determine active plan
+      let activePlanKey: 'payg' | 'starter' | 'pro' | 'growth';
+      if (manualSelectedPlan) {
+        activePlanKey = manualSelectedPlan;
+        if (planModeLabel) planModeLabel.textContent = 'Selected';
       } else {
-        planName = 'Growth Plan ($1,293/mo)';
-        planCost = 1293;
-        planAnchor = '/pricing#growth';
-        planExplanation = 'High-volume tier (up to ~830 calls). Deducted from monthly profit.';
+        if (planModeLabel) planModeLabel.textContent = 'Auto-Matched';
+        if (monthlyTotal <= 90) {
+          activePlanKey = 'payg';
+        } else if (monthlyTotal <= 210) {
+          activePlanKey = 'starter';
+        } else if (monthlyTotal <= 500) {
+          activePlanKey = 'pro';
+        } else {
+          activePlanKey = 'growth';
+        }
       }
 
-      const netProfit = grossRecovered - planCost;
+      // Update pills styling
+      pills.forEach((p) => {
+        const key = (p as HTMLElement).dataset.plan;
+        if (key === activePlanKey) {
+          p.className = 'plan-pill py-1 px-1 rounded border border-deep-green text-center bg-deep-green text-white font-bold transition-all shadow-sm';
+        } else {
+          p.className = 'plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all';
+        }
+      });
+
+      const planInfo = getPlanDetails(activePlanKey);
+      const netProfit = grossRecovered - planInfo.cost;
 
       if (resMonthlyMissed) resMonthlyMissed.textContent = `${monthlyMissed} calls / mo`;
       if (resJobs) resJobs.textContent = `${jobsSaved} jobs / mo`;
       if (resGross) resGross.textContent = `+$${grossRecovered.toLocaleString()} / mo`;
 
-      if (badgePlan) badgePlan.textContent = planName;
-      if (resPlanCost) resPlanCost.textContent = `-$${planCost.toLocaleString()} / mo`;
-      if (resPlanExp) resPlanExp.textContent = planExplanation;
+      if (badgePlan) badgePlan.textContent = planInfo.name;
+      if (resPlanCost) {
+        resPlanCost.textContent = planInfo.costText;
+        resPlanCost.className = planInfo.costClass;
+      }
+      if (resPlanExp) resPlanExp.textContent = planInfo.explanation;
 
-      if (linkRecPlan) linkRecPlan.href = planAnchor;
+      if (resNetRecoveredLine) {
+        if (netProfit >= 0) {
+          resNetRecoveredLine.textContent = `+$${netProfit.toLocaleString()} / mo`;
+          resNetRecoveredLine.className = 'font-bold font-mono text-deep-green text-sm tabular';
+        } else {
+          resNetRecoveredLine.textContent = `-$${Math.abs(netProfit).toLocaleString()} / mo`;
+          resNetRecoveredLine.className = 'font-bold font-mono text-red-700 text-sm tabular';
+        }
+      }
+
+      if (linkRecPlan) linkRecPlan.href = planInfo.anchor;
       if (btnPricingCta) {
-        btnPricingCta.href = planAnchor;
-        btnPricingCta.innerHTML = `<span>View ${planName.split(' (')[0]} on Pricing Page</span> <span class="ml-1.5">&rarr;</span>`;
+        btnPricingCta.href = planInfo.anchor;
+        btnPricingCta.innerHTML = `<span>View ${planInfo.name.split(' (')[0]} on Pricing Page</span> <span class="ml-1.5">&rarr;</span>`;
       }
 
       if (resNet) {
@@ -391,9 +480,25 @@ import stats from '@content/stats.json';
       }
     }
 
-    if (missedInput) missedInput.addEventListener('input', update);
-    if (totalInput) totalInput.addEventListener('input', update);
-    if (ticketInput) ticketInput.addEventListener('input', update);
+    pills.forEach((p) => {
+      p.addEventListener('click', () => {
+        const key = (p as HTMLElement).dataset.plan as 'payg' | 'starter' | 'pro' | 'growth';
+        if (manualSelectedPlan === key) {
+          manualSelectedPlan = null; // Toggle back to auto-match
+        } else {
+          manualSelectedPlan = key;
+        }
+        update();
+      });
+    });
+
+    if (missedInput) missedInput.addEventListener('input', () => { update(); });
+    if (totalInput) totalInput.addEventListener('input', () => {
+      manualSelectedPlan = null;
+      update();
+    });
+    if (ticketInput) ticketInput.addEventListener('input', () => { update(); });
+
     update();
   }
 
