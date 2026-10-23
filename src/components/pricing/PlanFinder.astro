@@ -315,7 +315,7 @@ import pricing from '@content/pricing.json';
         extraMin: 0,
         extraCost: 0,
         effectiveRate: match.effectiveRate,
-        extraText: match.id === 'payg' ? '$0.60 / min as used' : '$0 (Within allowance)'
+        extraText: match.id === 'payg' ? '$0.60 / min as used' : '$0.60 / min beyond permitted allowance'
       };
     }
 
@@ -341,7 +341,7 @@ import pricing from '@content/pricing.json';
           extraMin,
           extraCost,
           effectiveRate: rateStr,
-          extraText: extraMin > 0 ? `$${Math.round(extraCost)} (${extraMin} mins @ $0.60)` : (plan.id === 'payg' ? '$0.60 / min as used' : '$0 (Within allowance)')
+          extraText: extraMin > 0 ? `+$${Math.round(extraCost)} (${extraMin} mins @ $0.60 / min)` : (plan.id === 'payg' ? '$0.60 / min as used' : '$0.60 / min beyond permitted allowance')
         };
       }
     });
@@ -352,7 +352,7 @@ import pricing from '@content/pricing.json';
       extraMin: 0,
       extraCost: 0,
       effectiveRate: '0.563',
-      extraText: '$0 (Within allowance)'
+      extraText: '$0.60 / min beyond permitted allowance'
     };
   }
 
