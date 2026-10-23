@@ -1,0 +1,224 @@
+---
+import site from '@content/site.json';
+---
+
+<section class="hero-stage text-white pt-12 pb-24 lg:pt-16 lg:pb-32 relative noise-overlay">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Left Column: Editorial Headline & Actions -->
+      <div class="lg:col-span-7 flex flex-col justify-center">
+        <!-- Label Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md w-max mb-6">
+          <span class="w-2 h-2 rounded-full bg-lime-accent animate-ping"></span>
+          <span class="text-xs font-semibold text-lime-accent tracking-wide uppercase font-mono">In-House AI Phone Team</span>
+        </div>
+
+        <!-- H1 Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.04] mb-6">
+          Go offline.<br class="hidden sm:inline" /> Your phone won't.
+        </h1>
+
+        <!-- Subhead -->
+        <p class="text-lg sm:text-xl text-gray-200 leading-relaxed font-normal max-w-2xl mb-8">
+          Talkera Desk is your in-house phone team. We build it, run it and fix it. It answers your calls 24/7, books the job into your calendar or CRM, and keeps your caller, your crew and you updated by text. Weekends, holidays, 2 a.m.
+        </p>
+
+        <!-- Trust Chips -->
+        <div class="flex flex-wrap gap-2.5 mb-10">
+          {site.trustChips.map((chip) => (
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-gray-200">
+              <svg class="w-3.5 h-3.5 text-lime-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span>{chip}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-6">
+          <a
+            href="#demos"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-bold bg-lime-accent text-ink hover:bg-[#E5FAA0] transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-lime-accent/20"
+          >
+            <span>Hear it work</span>
+            <svg class="w-4 h-4 ml-2 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a
+            href="mailto:support@talkeradesk.com"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold text-white border border-white/30 hover:bg-white/10 transition-all"
+          >
+            Book a 15 min call
+          </a>
+        </div>
+
+        <!-- Footnote Disclaimer -->
+        <p class="text-xs text-gray-400 leading-normal max-w-xl">
+          {site.disclaimerShort}
+        </p>
+      </div>
+
+      <!-- Right Column: Mercury Double-Bezel Shell + Interactive Live Simulation Stage -->
+      <div class="lg:col-span-5">
+        <div class="mercury-shell-dark">
+          <div class="mercury-inner bg-[#0B3528] border border-white/10 p-5 sm:p-6 text-white">
+            
+            <!-- Stage Header: Incoming Call Simulator Banner -->
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+              <div class="flex items-center gap-2.5">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </span>
+                <div>
+                  <div class="text-xs font-mono font-bold text-white uppercase tracking-wider">Simulated Inbound Call</div>
+                  <div class="text-[11px] text-gray-400">Caller: John &bull; 02:14 AM &bull; Burst Pipe</div>
+                </div>
+              </div>
+              <div class="font-mono text-xs px-2.5 py-1 rounded bg-white/10 text-lime-accent font-semibold tabular">
+                00:<span id="call-timer">18</span>
+              </div>
+            </div>
+
+            <!-- Call Transcript Window -->
+            <div class="space-y-3.5 mb-6 min-h-[140px]">
+              <!-- Agent Message -->
+              <div class="flex items-start gap-2.5">
+                <div class="w-6 h-6 rounded-md bg-lime-accent/20 text-lime-accent flex items-center justify-center text-[10px] font-bold font-mono shrink-0 mt-0.5">
+                  AI
+                </div>
+                <div class="bg-white/10 border border-white/10 rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-xs text-gray-200 leading-relaxed max-w-xs sm:max-w-sm">
+                  "Hi John, I'm Talkera Desk, an AI assistant for Apex Restoration. This call is recorded. Is anyone in physical danger?"
+                </div>
+              </div>
+
+              <!-- Caller Message -->
+              <div class="flex items-start gap-2.5 justify-end">
+                <div class="bg-brand-green/40 border border-emerald-500/30 rounded-2xl rounded-tr-sm px-3.5 py-2.5 text-xs text-white leading-relaxed max-w-xs sm:max-w-sm">
+                  "No danger, but a pipe burst upstairs at 42 Oak St and water is coming through the ceiling!"
+                </div>
+                <div class="w-6 h-6 rounded-md bg-white/20 text-white flex items-center justify-center text-[10px] font-bold font-mono shrink-0 mt-0.5">
+                  Caller
+                </div>
+              </div>
+
+              <!-- Agent Action -->
+              <div class="flex items-start gap-2.5">
+                <div class="w-6 h-6 rounded-md bg-lime-accent/20 text-lime-accent flex items-center justify-center text-[10px] font-bold font-mono shrink-0 mt-0.5">
+                  AI
+                </div>
+                <div class="bg-white/10 border border-white/10 rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-xs text-gray-200 leading-relaxed max-w-xs sm:max-w-sm">
+                  "Main shutoff advised. I've secured our emergency slot and dispatched Mike, our on-call tech, to your address."
+                </div>
+              </div>
+            </div>
+
+            <!-- Legora-Style Glassmorphic Action Verification Pills (State Machine) -->
+            <div class="space-y-2 pt-2 border-t border-white/10">
+              <div class="text-[11px] font-mono text-gray-400 uppercase tracking-wider mb-2 font-semibold">Automated Workflow Executed</div>
+              
+              <div class="action-pill flex items-center justify-between p-2 rounded-xl bg-white/5 border border-white/10 text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold">&check;</span>
+                  <span class="text-gray-200">AI & Recording Disclosed</span>
+                </div>
+                <span class="font-mono text-[10px] text-gray-400 tabular">00:03</span>
+              </div>
+
+              <div class="action-pill flex items-center justify-between p-2 rounded-xl bg-white/5 border border-white/10 text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold">&check;</span>
+                  <span class="text-gray-200">Life-Safety Triage Checked</span>
+                </div>
+                <span class="font-mono text-[10px] text-gray-400 tabular">00:18</span>
+              </div>
+
+              <div class="action-pill flex items-center justify-between p-2 rounded-xl bg-white/5 border border-white/10 text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold">&check;</span>
+                  <span class="text-gray-200">Urgent Slot Booked in Calendar</span>
+                </div>
+                <span class="font-mono text-[10px] text-gray-400 tabular">00:52</span>
+              </div>
+
+              <div class="action-pill flex items-center justify-between p-2 rounded-xl bg-white/5 border border-white/10 text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[10px] font-bold">&check;</span>
+                  <span class="text-gray-200">SMS Dispatched to Caller & Tech</span>
+                </div>
+                <span class="font-mono text-[10px] text-gray-400 tabular">01:08</span>
+              </div>
+            </div>
+
+            <!-- Walkthrough Video Card Trigger -->
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <div class="text-xs text-gray-300">
+                <span class="font-bold text-white">Full Walkthrough:</span> 90-105s video overview
+              </div>
+              <a
+                href="#demos"
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-lime-accent hover:underline"
+              >
+                <span>Watch video</span>
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Section 2: Overlapping Warm Off-White (#F4F2EC) Trust Panel -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 lg:mt-16 relative z-20">
+    <div class="bg-paper text-ink rounded-panel p-6 sm:p-8 shadow-elevated border border-sky-blue/80 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-deep-green text-lime-accent flex items-center justify-center shrink-0 shadow-sm">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <div>
+          <h2 class="font-heading font-extrabold text-base sm:text-lg text-ink-deep">
+            Government Registered & Publicly Auditable
+          </h2>
+          <p class="text-xs sm:text-sm text-slate mt-0.5">
+            Talkera Desk by {site.enterpriseName} &bull; Udyam: <span class="font-mono text-ink font-semibold">{site.udyamNumber}</span> &bull; GSTIN: <span class="font-mono text-ink font-semibold">{site.gstin}</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 shrink-0">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Active GSTIN
+        </span>
+        <a
+          href="https://udyamregistration.gov.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs font-bold text-deep-green hover:underline flex items-center gap-1"
+        >
+          <span>Verify registration</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call Timer Loop Script -->
+<script>
+  let seconds = 18;
+  const timerEl = document.getElementById('call-timer');
+  if (timerEl) {
+    setInterval(() => {
+      seconds = (seconds + 1) % 60;
+      timerEl.textContent = seconds < 10 ? '0' + seconds : String(seconds);
+    }, 1000);
+  }
+</script>

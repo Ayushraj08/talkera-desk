@@ -1,0 +1,91 @@
+---
+import tools from '@content/tools.json';
+---
+
+<section id="tools" class="py-20 lg:py-24 bg-white border-b border-sky-blue/50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
+      Ecosystem Compatibility
+    </div>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-deep tracking-tight mb-3">
+      {tools.heading}
+    </h2>
+    <p class="text-xs sm:text-sm text-slate max-w-2xl mx-auto leading-relaxed">
+      {tools.caption}
+    </p>
+  </div>
+
+  <!-- Marquee Container Row 1 (80s Left) -->
+  <div class="marquee-container py-2 mb-4" tabindex="0" aria-label="Tool integrations row 1">
+    <div class="marquee-track animate-marquee-a">
+      <!-- Original Row A Items -->
+      {tools.rowA.map((tool) => (
+        <div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-white border border-sky-blue shadow-2xs shrink-0">
+          <div class="w-7 h-7 rounded-lg bg-light-blue/80 text-deep-green flex items-center justify-center text-xs font-bold font-mono">
+            {tool.name.slice(0, 2).toUpperCase()}
+          </div>
+          <div>
+            <div class="font-medium text-[15px] text-ink-deep leading-tight">{tool.name}</div>
+            <div class="text-[10px] text-slate font-mono uppercase tracking-wider mt-0.5">{tool.category} &bull; <span class={tool.status === 'live' ? 'text-brand-green font-semibold' : 'text-slate'}>{tool.status}</span></div>
+          </div>
+        </div>
+      ))}
+      <div class="flex items-center px-6 py-3 rounded-xl bg-paper border border-sky-blue text-xs font-bold font-mono text-deep-green shrink-0">
+        & more integrations...
+      </div>
+
+      <!-- Duplicate Row A for Continuous Infinite Loop -->
+      {tools.rowA.map((tool) => (
+        <div aria-hidden="true" class="flex items-center gap-3 px-5 py-3 rounded-xl bg-white border border-sky-blue shadow-2xs shrink-0">
+          <div class="w-7 h-7 rounded-lg bg-light-blue/80 text-deep-green flex items-center justify-center text-xs font-bold font-mono">
+            {tool.name.slice(0, 2).toUpperCase()}
+          </div>
+          <div>
+            <div class="font-medium text-[15px] text-ink-deep leading-tight">{tool.name}</div>
+            <div class="text-[10px] text-slate font-mono uppercase tracking-wider mt-0.5">{tool.category} &bull; <span class={tool.status === 'live' ? 'text-brand-green font-semibold' : 'text-slate'}>{tool.status}</span></div>
+          </div>
+        </div>
+      ))}
+      <div aria-hidden="true" class="flex items-center px-6 py-3 rounded-xl bg-paper border border-sky-blue text-xs font-bold font-mono text-deep-green shrink-0">
+        & more integrations...
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee Container Row 2 (95s Reverse Right) -->
+  <div class="marquee-container py-2" tabindex="0" aria-label="Tool integrations row 2">
+    <div class="marquee-track animate-marquee-b">
+      <!-- Original Row B Items -->
+      {tools.rowB.map((tool) => (
+        <div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-white border border-sky-blue shadow-2xs shrink-0">
+          <div class="w-7 h-7 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center text-xs font-bold font-mono">
+            {tool.name.slice(0, 2).toUpperCase()}
+          </div>
+          <div>
+            <div class="font-medium text-[15px] text-ink-deep leading-tight">{tool.name}</div>
+            <div class="text-[10px] text-slate font-mono uppercase tracking-wider mt-0.5">{tool.category} &bull; <span class={tool.status === 'live' ? 'text-brand-green font-semibold' : 'text-slate'}>{tool.status}</span></div>
+          </div>
+        </div>
+      ))}
+      <div class="flex items-center px-6 py-3 rounded-xl bg-paper border border-sky-blue text-xs font-bold font-mono text-deep-green shrink-0">
+        & custom webhooks...
+      </div>
+
+      <!-- Duplicate Row B for Continuous Infinite Loop -->
+      {tools.rowB.map((tool) => (
+        <div aria-hidden="true" class="flex items-center gap-3 px-5 py-3 rounded-xl bg-white border border-sky-blue shadow-2xs shrink-0">
+          <div class="w-7 h-7 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center text-xs font-bold font-mono">
+            {tool.name.slice(0, 2).toUpperCase()}
+          </div>
+          <div>
+            <div class="font-medium text-[15px] text-ink-deep leading-tight">{tool.name}</div>
+            <div class="text-[10px] text-slate font-mono uppercase tracking-wider mt-0.5">{tool.category} &bull; <span class={tool.status === 'live' ? 'text-brand-green font-semibold' : 'text-slate'}>{tool.status}</span></div>
+          </div>
+        </div>
+      ))}
+      <div aria-hidden="true" class="flex items-center px-6 py-3 rounded-xl bg-paper border border-sky-blue text-xs font-bold font-mono text-deep-green shrink-0">
+        & custom webhooks...
+      </div>
+    </div>
+  </div>
+</section>

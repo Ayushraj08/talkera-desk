@@ -1,0 +1,118 @@
+[
+  {
+    "id": "demo-us-female-restoration",
+    "title": "Burst Pipe Emergency at 02:14 AM",
+    "voice": "Female",
+    "accent": "US",
+    "trade": "Restoration",
+    "scenario": "Burst pipe water damage triage & dispatch",
+    "durationSec": 94,
+    "durationFormatted": "01:34",
+    "audio": "/demos/burst-pipe-restoration-us.mp3",
+    "badge": "Water Damage",
+    "result": "Booked: Emergency slot held for 3:00 AM. Life-safety check passed. Alert sent to on-call tech Mike.",
+    "snippet": "Agent: I'm Talkera Desk, an AI assistant for Apex Restoration. If anyone is in danger, please dial 911 now. Is anyone in danger?",
+    "transcript": [
+      { "speaker": "Agent", "text": "Hi, thank you for calling Apex Restoration. I'm Talkera Desk, an AI phone assistant, and this call is recorded for quality. If anyone is in immediate physical danger, please dial 911 now. Is everyone safe?", "time": "00:03" },
+      { "speaker": "Caller", "text": "Everyone is safe, but we have a massive pipe burst in the upstairs bathroom and water is pouring through the ceiling into our living room!", "time": "00:14" },
+      { "speaker": "Agent", "text": "Understood, John. Do you know where the main water shut-off valve is located in your house to stop the flow right now?", "time": "00:22" },
+      { "speaker": "Caller", "text": "Yes, I just turned the main lever off in the basement, but there's at least two inches of water pooling across the hardwood floors.", "time": "00:31" },
+      { "speaker": "Agent", "text": "Great job shutting off the main. I have your address as 42 Oak Street from caller ID, is that correct?", "time": "00:39" },
+      { "speaker": "Caller", "text": "Yes, 42 Oak Street, Austin.", "time": "00:43" },
+      { "speaker": "Agent", "text": "I am holding our emergency extraction dispatch slot. I can text you a live tracking link and dispatch Mike, our lead on-call technician, who can be on site within 45 minutes. May I text your confirmation to this number?", "time": "00:54" },
+      { "speaker": "Caller", "text": "Yes, please text me immediately. Thank you so much.", "time": "01:04" },
+      { "speaker": "Agent", "text": "Confirmation and dispatch dispatched. Mike has your notes. Please stay clear of any sagging ceiling areas until he arrives.", "time": "01:14" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "demo-uk-male-plumbing",
+    "title": "Severe Boiler Breakdown & No Heat",
+    "voice": "Male",
+    "accent": "UK",
+    "trade": "Plumbing",
+    "scenario": "Winter boiler failure after-hours booking",
+    "durationSec": 88,
+    "durationFormatted": "01:28",
+    "audio": "/demos/boiler-breakdown-uk.mp3",
+    "badge": "Plumbing & Heating",
+    "result": "Booked: Priority morning slot 08:00 to 10:00 AM. Confirmation text sent to homeowner.",
+    "snippet": "Agent: I'm Talkera Desk, an AI assistant for Surrey Heating. We can secure an emergency boiler engineer for first thing in the morning.",
+    "transcript": [
+      { "speaker": "Agent", "text": "Hello, you've reached Surrey Heating. I'm Talkera Desk, an AI assistant for the team. Calls may be recorded for dispatch notes. How can we help you tonight?", "time": "00:04" },
+      { "speaker": "Caller", "text": "Hello, our combi boiler has completely shut down with an F22 error code and the radiators are stone cold. We have two young children in the house.", "time": "00:15" },
+      { "speaker": "Agent", "text": "I'm sorry to hear that. An F22 code usually indicates low water pressure. Since there is no gas smell or danger, I can allocate our first priority morning engineer slot between 8 and 10 AM. Would that work?", "time": "00:29" },
+      { "speaker": "Caller", "text": "Yes, 8 AM would be brilliant.", "time": "00:35" },
+      { "speaker": "Agent", "text": "Splendid. May I confirm your address and mobile number to text you the technician's arrival window?", "time": "00:44" },
+      { "speaker": "Caller", "text": "14 Meadow Close, Guildford, and this mobile is fine.", "time": "00:51" },
+      { "speaker": "Agent", "text": "Booked for 8:00 AM. I've sent confirmation to your phone and assigned our gas safe engineer David. Good night.", "time": "01:02" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "demo-us-male-hvac",
+    "title": "AC Compressor Failed During Heatwave",
+    "voice": "Male",
+    "accent": "US",
+    "trade": "HVAC",
+    "scenario": "Same-day cooling diagnostic booking",
+    "durationSec": 76,
+    "durationFormatted": "01:16",
+    "audio": "/demos/ac-failure-us.mp3",
+    "badge": "HVAC Cooling",
+    "result": "Booked: Diagnostic window tomorrow 10:00 AM to 12:00 PM. Jobber updated.",
+    "snippet": "Agent: Thanks for calling CoolTech HVAC. I'm Talkera Desk, an AI assistant. I can lock in tomorrow's 10 to 12 diagnostic window right now.",
+    "transcript": [
+      { "speaker": "Agent", "text": "Hi, thanks for calling CoolTech HVAC. I'm Talkera Desk, an AI assistant. This call is recorded. What cooling issue are you experiencing?", "time": "00:03" },
+      { "speaker": "Caller", "text": "Our AC condenser outside is humming loudly and blowing warm air. The thermostat is set to 72 but inside it's 84 degrees.", "time": "00:12" },
+      { "speaker": "Agent", "text": "Got it. That sounds like a potential capacitor or fan motor failure. We have our technician Chris in your neighborhood tomorrow with a diagnostic window between 10 AM and 12 PM. Shall I book that for you?", "time": "00:26" },
+      { "speaker": "Caller", "text": "Yes please, earlier is better.", "time": "00:31" },
+      { "speaker": "Agent", "text": "Done! Chris is scheduled for 10 AM tomorrow. I've sent your text confirmation with a tracking link to this number. Have a good evening.", "time": "00:45" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "demo-canadian-female-electrical",
+    "title": "Main Breaker Tripping & Burning Smell",
+    "voice": "Female",
+    "accent": "Canada",
+    "trade": "Electrical",
+    "scenario": "Safety triage & immediate warm transfer to master electrician",
+    "durationSec": 82,
+    "durationFormatted": "01:22",
+    "audio": "/demos/breaker-trip-canada.mp3",
+    "badge": "Safety Warm Transfer",
+    "result": "Warm Transfer: Immediate transfer to on-call master electrician Sarah after burning odor detected.",
+    "snippet": "Agent: Because you noticed a burning odor near the panel, our safety protocol requires connecting you directly to our master electrician.",
+    "transcript": [
+      { "speaker": "Agent", "text": "Hello, thank you for calling Northern Electric. I'm Talkera Desk, an AI assistant. This call is recorded. How can we help you today?", "time": "00:03" },
+      { "speaker": "Caller", "text": "Hi, half our lights went out and when I opened the breaker panel in the garage there was a faint burning plastic smell.", "time": "00:13" },
+      { "speaker": "Agent", "text": "Safety warning: because you detect a burning odor near your electrical panel, please step away from the panel and do not touch any switches. I am initiating an immediate warm transfer to our on-call master electrician Sarah right now. Please hold while I connect you.", "time": "00:28" },
+      { "speaker": "System", "text": "[Audio chime: Transferring call to Sarah (Master Electrician)]", "time": "00:36" },
+      { "speaker": "Sarah", "text": "Hi this is Sarah with Northern Electric. The AI alerted me to the panel odor. Are you safely away from the panel?", "time": "00:44" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "demo-au-female-quote",
+    "title": "Commercial Drain Jetting Estimate",
+    "voice": "Female",
+    "accent": "AU",
+    "trade": "Plumbing",
+    "scenario": "Commercial after-hours quote request & scope intake",
+    "durationSec": 72,
+    "durationFormatted": "01:12",
+    "audio": "/demos/drain-quote-au.mp3",
+    "badge": "Estimate Intake",
+    "result": "Estimate Booked: Site visit scheduled Thursday 09:30 AM. Scope notes dispatched to estimating team.",
+    "snippet": "Agent: G'day, Talkera Desk here for Coastal Commercial Plumbing. I've captured your grease trap specs and scheduled Thursday morning.",
+    "transcript": [
+      { "speaker": "Agent", "text": "G'day, thanks for calling Coastal Commercial Plumbing. I'm Talkera Desk, an AI phone assistant, and this call is recorded. What work can we scope for you?", "time": "00:04" },
+      { "speaker": "Caller", "text": "Hi, we operate a cafe in Manly and need an after-hours hydro-jetting cleanout for our grease interceptor line before our health audit next week.", "time": "00:16" },
+      { "speaker": "Agent", "text": "Understood. For commercial grease traps, our senior estimator conducts an on-site scope inspection. I have an opening this Thursday at 9:30 AM. Would that suit your schedule?", "time": "00:30" },
+      { "speaker": "Caller", "text": "Thursday at 9:30 AM works nicely.", "time": "00:34" },
+      { "speaker": "Agent", "text": "Locked in for Thursday 9:30 AM. I've dispatched the job summary to our commercial team and texted your calendar invite. Cheers!", "time": "00:46" }
+    ],
+    "featured": false
+  }
+]

@@ -1,0 +1,272 @@
+---
+import '../styles/global.css';
+import site from '@content/site.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = "Talkera Desk: AI Call Answering That Books Jobs | No Contract",
+  description = "AI phone team for home service & restoration businesses. Answers calls 24/7, books jobs into your CRM, and keeps your caller and crew updated by text. No contract.",
+  canonicalUrl = site.canonicalUrl,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E4D3A'/%3E%3Cpath d='M9 12a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-5l-4 3v-3H12a3 3 0 0 1-3-3v-8z' fill='%23D9F25C'/%3E%3C/svg%3E" />
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={site.brandName} />
+
+    <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": site.brandName,
+      "alternateName": ["Talkera Desk AI", "talkeradesk.com"],
+      "url": site.canonicalUrl,
+      "logo": "https://talkeradesk.com/logo.png",
+      "sameAs": [site.socials.linkedin, site.socials.youtube],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": site.supportEmail,
+        "telephone": site.whatsapp,
+        "contactType": "customer service",
+        "areaServed": ["US", "GB", "CA", "AU", "EU"],
+        "availableLanguage": "English"
+      }
+    })} />
+  </head>
+  <body class="bg-white text-ink antialiased selection:bg-brand-green selection:text-white">
+    <!-- Top Sticky Blur Navbar (64px) -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/90 border-b border-sky-blue/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <!-- Logo Lockup -->
+        <a href="/" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-deep-green flex items-center justify-center text-lime-accent shadow-sm group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+              <circle cx="8" cy="10" r="1.5" />
+              <circle cx="12" cy="10" r="1.5" />
+              <circle cx="16" cy="10" r="1.5" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading font-extrabold text-lg text-ink-deep tracking-tight leading-none">Talkera<span class="text-brand-green">Desk</span></span>
+            <span class="text-[10px] text-slate tracking-wider font-mono uppercase mt-0.5">In-House AI Phone Team</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-slate">
+          <a href="/#how-it-works" class="hover:text-deep-green transition-colors">How it works</a>
+          <a href="/pricing" class="hover:text-deep-green transition-colors">Pricing</a>
+          
+          <!-- Industries Dropdown -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-deep-green transition-colors py-2 focus:outline-none" aria-expanded="false">
+              <span>Industries</span>
+              <svg class="w-4 h-4 transition-transform group-hover:rotate-180 text-slate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </button>
+            <div class="absolute top-full left-0 w-72 bg-white rounded-2xl shadow-mercury border border-sky-blue p-2.5 hidden group-hover:block transition-all z-50">
+              <a href="/#scenarios" class="flex items-start gap-3 p-3 rounded-xl hover:bg-light-blue/70 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-deep-green/10 text-deep-green flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-sm text-ink-deep">Water Damage & Restoration</div>
+                  <div class="text-xs text-slate mt-0.5">24/7 emergency water triage and priority dispatch</div>
+                </div>
+              </a>
+              <a href="/#scenarios" class="flex items-start gap-3 p-3 rounded-xl hover:bg-light-blue/70 transition-colors">
+                <div class="w-8 h-8 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-semibold text-sm text-ink-deep">Plumbing, HVAC & Electrical</div>
+                  <div class="text-xs text-slate mt-0.5">After-hours diagnostics, warm handoffs & bookings</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <a href="/#tools" class="hover:text-deep-green transition-colors">Integrations</a>
+          <a href="/#faq" class="hover:text-deep-green transition-colors">FAQ</a>
+        </nav>
+
+        <!-- Right CTA Buttons -->
+        <div class="hidden sm:flex items-center gap-4">
+          <a href="/#demos" class="text-sm font-semibold text-slate hover:text-ink-deep transition-colors">
+            Demo Library
+          </a>
+          <a href="#demos" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-bold bg-deep-green text-white hover:bg-brand-green transition-all shadow-sm hover:shadow active:scale-95">
+            Hear it work
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 text-ink-deep hover:bg-light-blue rounded-xl focus:outline-none" aria-label="Toggle mobile menu">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Full-Screen Dropdown Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-sky-blue px-6 py-6 transition-all">
+        <div class="flex flex-col gap-4 text-base font-semibold text-ink-deep">
+          <a href="/#how-it-works" class="py-2 border-b border-gray-100">How it works</a>
+          <a href="/pricing" class="py-2 border-b border-gray-100">Pricing</a>
+          <a href="/#scenarios" class="py-2 border-b border-gray-100">Water Damage Restoration</a>
+          <a href="/#scenarios" class="py-2 border-b border-gray-100">Plumbing & HVAC</a>
+          <a href="/#tools" class="py-2 border-b border-gray-100">Integrations</a>
+          <a href="/#faq" class="py-2 border-b border-gray-100">FAQ</a>
+        </div>
+        <div class="mt-6 flex flex-col gap-3">
+          <a href="#demos" class="w-full text-center py-3 rounded-full text-sm font-bold bg-deep-green text-white shadow">
+            Hear it work
+          </a>
+          <a href="mailto:support@talkeradesk.com" class="w-full text-center py-3 rounded-full text-sm font-bold border border-sky-blue text-slate hover:bg-light-blue">
+            Book a 15 min call
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container with Nav clearance -->
+    <main class="pt-16 min-h-screen">
+      <slot />
+    </main>
+
+    <!-- Sticky Mobile Bottom Bar (Phones Only) -->
+    <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-sky-blue px-4 py-3 flex items-center gap-3">
+      <a href="#demos" class="flex-1 text-center py-2.5 px-3 rounded-full text-xs font-bold bg-deep-green text-white shadow-sm">
+        Hear it work
+      </a>
+      <a href="mailto:support@talkeradesk.com" class="flex-1 text-center py-2.5 px-3 rounded-full text-xs font-bold border border-sky-blue text-ink bg-light-blue/40">
+        Book a 15 min call
+      </a>
+    </div>
+
+    <!-- Deep Green Architectural Footer (#0E4D3A) -->
+    <footer class="bg-deep-green text-white relative noise-overlay pt-20 pb-16 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
+          <!-- Col 1: Brand & Tagline -->
+          <div class="lg:col-span-2">
+            <div class="flex items-center gap-2.5 mb-4">
+              <div class="w-9 h-9 rounded-xl bg-lime-accent text-ink-deep flex items-center justify-center font-bold">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                </svg>
+              </div>
+              <span class="font-heading font-extrabold text-2xl tracking-tight">Talkera<span class="text-lime-accent">Desk</span></span>
+            </div>
+            <p class="font-heading font-bold text-lg text-lime-accent tracking-tight mb-2">
+              {site.tagline}
+            </p>
+            <p class="text-sm text-gray-300 leading-relaxed max-w-sm mb-6">
+              Your in-house phone team for home service and restoration businesses. We build your voice agent, connect your calendar or CRM, run it 24/7, review calls, and keep your crew and callers updated by text.
+            </p>
+            <div class="space-y-2 text-xs text-gray-300 font-mono">
+              <div class="flex items-center gap-2">
+                <span class="text-lime-accent font-semibold">Email:</span>
+                <a href={`mailto:${site.supportEmail}`} class="hover:underline">{site.supportEmail}</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-lime-accent font-semibold">WhatsApp:</span>
+                <a href={`https://wa.me/${site.whatsapp.replace(/[^0-9]/g, '')}`} class="hover:underline">{site.whatsappFormatted}</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 2: Product -->
+          <div>
+            <h4 class="font-heading text-xs uppercase tracking-wider text-lime-accent font-bold mb-4">Product</h4>
+            <ul class="space-y-2.5 text-sm text-gray-300">
+              <li><a href="/#how-it-works" class="hover:text-white transition-colors">How it works</a></li>
+              <li><a href="/pricing" class="hover:text-white transition-colors">Pricing & Plans</a></li>
+              <li><a href="/#demos" class="hover:text-white transition-colors">Recorded Demo Calls</a></li>
+              <li><a href="/#calculator" class="hover:text-white transition-colors">Revenue Calculator</a></li>
+              <li><a href="/#tools" class="hover:text-white transition-colors">Tool Integrations</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Industries -->
+          <div>
+            <h4 class="font-heading text-xs uppercase tracking-wider text-lime-accent font-bold mb-4">Industries</h4>
+            <ul class="space-y-2.5 text-sm text-gray-300">
+              <li><a href="/#scenarios" class="hover:text-white transition-colors">Water Damage Restoration</a></li>
+              <li><a href="/#scenarios" class="hover:text-white transition-colors">Fire & Smoke Damage</a></li>
+              <li><a href="/#scenarios" class="hover:text-white transition-colors">Emergency Plumbing</a></li>
+              <li><a href="/#scenarios" class="hover:text-white transition-colors">HVAC & Cooling</a></li>
+              <li><a href="/#scenarios" class="hover:text-white transition-colors">Electrical Dispatch</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Company & Legal -->
+          <div>
+            <h4 class="font-heading text-xs uppercase tracking-wider text-lime-accent font-bold mb-4">Company & Legal</h4>
+            <ul class="space-y-2.5 text-sm text-gray-300">
+              <li><a href="/#founder" class="hover:text-white transition-colors">About DRUVA GROUP</a></li>
+              <li><a href="/#faq" class="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="/pricing#sla" class="hover:text-white transition-colors">72-Hour Fix Credit SLA</a></li>
+              <li><span class="text-gray-400">GSTIN: {site.gstin}</span></li>
+              <li><span class="text-gray-400">Udyam: {site.udyamNumber}</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Line Legal Transparency -->
+        <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+          <p class="text-center md:text-left leading-relaxed max-w-2xl">
+            <strong class="text-gray-200">Talkera Desk</strong> is a brand of <strong class="text-gray-200">{site.enterpriseName}</strong>, a sole proprietorship registered in India (Udyam: <span class="font-mono text-gray-300">{site.udyamNumber}</span>, Active GSTIN: <span class="font-mono text-gray-300">{site.gstin}</span>). {site.teamLocations}
+          </p>
+          <div class="flex items-center gap-6">
+            <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-lime-accent transition-colors">LinkedIn</a>
+            <a href={site.socials.youtube} target="_blank" rel="noopener noreferrer" class="hover:text-lime-accent transition-colors">YouTube</a>
+            <span>&copy; {new Date().getFullYear()} Talkera Desk</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+---
+import site from '@content/site.json';
+---
+
+<section id="founder" class="py-20 lg:py-28 bg-white border-b border-sky-blue/50">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="mercury-shell-light">
+      <div class="mercury-inner bg-paper border border-sky-blue p-8 sm:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          
+          <!-- Avatar & Badge -->
+          <div class="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left">
+            <div class="w-24 h-24 rounded-3xl bg-deep-green text-lime-accent flex items-center justify-center font-heading font-extrabold text-3xl shadow-md mb-4 border-2 border-white">
+              AR
+            </div>
+            <h3 class="font-heading font-extrabold text-xl text-ink-deep">
+              Ayush Raj
+            </h3>
+            <div class="text-xs font-mono text-brand-green font-semibold mt-0.5">
+              Founder &bull; {site.enterpriseName}
+            </div>
+            <div class="text-[11px] text-slate mt-1 font-mono">
+              Remote team in Kolkata & India
+            </div>
+          </div>
+
+          <!-- Editorial Transparency Copy -->
+          <div class="md:col-span-8 space-y-4 text-xs sm:text-sm text-slate leading-relaxed">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-deep-green/10 text-deep-green text-xs font-mono font-bold">
+              Complete Transparency
+            </div>
+            <h4 class="font-heading font-bold text-lg text-ink-deep leading-snug">
+              Why we state our registration and India-based team plainly.
+            </h4>
+            <p>
+              Talkera Desk is a specialized brand of <strong class="text-ink-deep">{site.enterpriseName}</strong>, a registered sole proprietorship founded by Ayush Raj. DRUVA GROUP began operations on 15 April 2026, and Talkera Desk was launched on 1 September 2026 to serve home service and restoration businesses in the US, UK, Canada, Australia, and Europe.
+            </p>
+            <p>
+              Our engineering and operations team works from Kolkata and other Indian tech hubs. Working directly with our technical team means you get handcrafted voice prompt engineering, dedicated call audits, and direct support without the inflated pricing of US middleman vendors.
+            </p>
+
+            <!-- Verification Table -->
+            <div class="pt-4 border-t border-sky-blue/70 grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
+              <div class="p-3 rounded-xl bg-white border border-sky-blue">
+                <span class="text-gray-400 block text-[10px] uppercase">Udyam Registration</span>
+                <span class="font-bold text-ink-deep">{site.udyamNumber}</span>
+                <a href="https://udyamregistration.gov.in" target="_blank" rel="noopener noreferrer" class="block text-[11px] text-deep-green underline mt-0.5">Verify at Government Portal &rarr;</a>
+              </div>
+              <div class="p-3 rounded-xl bg-white border border-sky-blue">
+                <span class="text-gray-400 block text-[10px] uppercase">Active Issued GSTIN</span>
+                <span class="font-bold text-ink-deep">{site.gstin}</span>
+                <span class="block text-[11px] text-emerald-700 font-semibold mt-0.5">Active &bull; Verified Goods & Services Tax</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,102 @@
+{
+  "headline": "The call is the start. Talkera Desk keeps everyone updated until the job is done.",
+  "subhead": "Real-time automated communication across both sides of the job. Your homeowners get calm certainty; your field technicians get clear dispatched notes.",
+  "steps": [
+    {
+      "step": 1,
+      "id": "booked",
+      "label": "1. Booked",
+      "title": "Immediate Booking Confirmation",
+      "callerMessage": {
+        "sender": "Talkera Desk for Apex Restoration",
+        "time": "02:16 AM",
+        "text": "Hi John, your emergency extraction is confirmed for tomorrow morning 8:30 AM at 42 Oak St. Tech Mike has been assigned. Reply HELP if you need assistance."
+      },
+      "teamMessage": {
+        "sender": "Talkera Dispatch -> Tech Mike & Owner",
+        "time": "02:16 AM",
+        "text": "[NEW JOB DISPATCH] John - 42 Oak St. Water pipe burst in upper bath; shut-off turned. Time: 8:30 AM tomorrow. Status: Hold urgent extraction slot."
+      }
+    },
+    {
+      "step": 2,
+      "id": "checkin",
+      "label": "2. 3-Hr Check-In",
+      "title": "Automated Pre-Arrival Verification",
+      "callerMessage": {
+        "sender": "Talkera Desk for Apex Restoration",
+        "time": "05:30 AM",
+        "text": "Good morning John! Tech Mike is scheduled to arrive between 8:30 and 9:00 AM. Are you still good for this window? Reply YES or RESCHEDULE."
+      },
+      "teamMessage": {
+        "sender": "Talkera Dispatch -> Tech Mike",
+        "time": "05:32 AM",
+        "text": "[PRE-CHECK VERIFIED] John at 42 Oak St replied 'YES'. Route cleared for 8:30 AM arrival."
+      }
+    },
+    {
+      "step": 3,
+      "id": "reschedule",
+      "label": "3. Reschedule",
+      "title": "Zero-Touch Schedule Adjustment",
+      "callerMessage": {
+        "sender": "Talkera Desk for Apex Restoration",
+        "time": "07:15 AM",
+        "text": "Got it John. We have rescheduled your inspection to 11:30 AM today. Tech Mike has been updated with the change."
+      },
+      "teamMessage": {
+        "sender": "Talkera Dispatch -> Calendar & Tech",
+        "time": "07:15 AM",
+        "text": "[SCHEDULE UPDATED] 42 Oak St moved from 8:30 AM to 11:30 AM per homeowner SMS request. Calendar slot updated automatically."
+      }
+    },
+    {
+      "step": 4,
+      "id": "emergency",
+      "label": "4. Emergency",
+      "title": "Urgent Triage & Live Push",
+      "callerMessage": {
+        "sender": "Talkera Desk for Apex Restoration",
+        "time": "11:42 PM",
+        "text": "[URGENT] We have received your emergency water damage report. Our on-call crew leader Mike has been alerted. Please ensure main water remains shut off."
+      },
+      "teamMessage": {
+        "sender": "Talkera Dispatch -> On-Call Cell",
+        "time": "11:42 PM",
+        "text": "[PRIORITY 1 CALL] Active ceiling leak at 42 Oak St. Caller: John. Main shut off. Emergency extraction needed. Calling your phone now."
+      }
+    },
+    {
+      "step": 5,
+      "id": "completed",
+      "label": "5. Job Done & Rating",
+      "title": "Post-Service Review Capture",
+      "callerMessage": {
+        "sender": "Talkera Desk for Apex Restoration",
+        "time": "02:45 PM",
+        "text": "Thank you for trusting Apex Restoration today! Tech Mike has completed the extraction work. How did we do? Reply with a rating from 1 to 5 stars."
+      },
+      "teamMessage": {
+        "sender": "Talkera Dispatch -> Owner Feed",
+        "time": "02:50 PM",
+        "text": "[5-STAR REVIEW RECEIVED] John rated job #4288 5/5 stars: 'Mike was prompt, professional, and saved our flooring!' Added to CRM summary."
+      }
+    },
+    {
+      "step": 6,
+      "id": "summary",
+      "label": "6. Weekly Summary",
+      "title": "Executive Performance Audit",
+      "callerMessage": {
+        "sender": "System",
+        "time": "Sunday 6:00 PM",
+        "text": "(End of job lifecycle. No further promotional messages sent. Caller privacy preserved.)"
+      },
+      "teamMessage": {
+        "sender": "Talkera Executive Summary",
+        "time": "Sunday 6:00 PM",
+        "text": "[WEEKLY DISPATCH REPORT] 48 calls answered (100% triage rate), 19 emergency jobs booked ($28.4k pipeline), 7 spam calls filtered, 0 missed after-hours calls."
+      }
+    }
+  ]
+}

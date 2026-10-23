@@ -1,0 +1,46 @@
+[
+  {
+    "id": "invoca-human-reach",
+    "value": "52%",
+    "label": "Only 52% of callers reach a person",
+    "detail": "Over 70 million calls analyzed across home services and restoration. Nearly half of callers never speak to anyone.",
+    "source": "Invoca Home Services Lead Conversion Benchmarks Report",
+    "year": "2026",
+    "url": "https://www.invoca.com/reports/the-invoca-home-services-lead-conversion-benchmarks-report-2026",
+    "lastVerified": "2026-10-17",
+    "pillarTheme": "deep-green"
+  },
+  {
+    "id": "callrail-competitor",
+    "value": "82%",
+    "label": "Call a competitor if you do not answer",
+    "detail": "When an emergency or service call is missed, 82% of homeowners will dial your competitor instead of waiting.",
+    "source": "CallRail Survey of 1,000 US Consumers",
+    "year": "2025",
+    "url": "https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever",
+    "lastVerified": "2026-10-17",
+    "pillarTheme": "emerald"
+  },
+  {
+    "id": "callrail-immediate-call",
+    "value": "21%",
+    "label": "Call another business immediately",
+    "detail": "One in five homeowners immediately dial another service business the second your phone stops ringing without pickup.",
+    "source": "CallRail Survey of 1,000 US Consumers",
+    "year": "2025",
+    "url": "https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever",
+    "lastVerified": "2026-10-17",
+    "pillarTheme": "sky-blue"
+  },
+  {
+    "id": "callrail-afterhours-ai",
+    "value": "52%",
+    "label": "Value after-hours AI answering",
+    "detail": "Consumers state that companies using responsive after-hours AI assistants project superior, reliable customer service.",
+    "source": "CallRail Survey of 1,000 US Consumers",
+    "year": "2025",
+    "url": "https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever",
+    "lastVerified": "2026-10-17",
+    "pillarTheme": "light-blue"
+  }
+]

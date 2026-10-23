@@ -1,0 +1,33 @@
+{
+  "heading": "We connect to the tools you already use, and build the rest on request.",
+  "caption": "Direct connections, Zapier connections and webhook connections vary by plan. Logos belong to their owners. No endorsement or affiliation is implied.",
+  "rowA": [
+    { "name": "ServiceTitan", "category": "Field Service", "status": "live", "icon": "wrench" },
+    { "name": "Jobber", "category": "Field Service", "status": "live", "icon": "briefcase" },
+    { "name": "Google Calendar", "category": "Booking", "status": "live", "icon": "calendar" },
+    { "name": "Housecall Pro", "category": "Field Service", "status": "live", "icon": "home" },
+    { "name": "Twilio", "category": "Telephony", "status": "live", "icon": "phone" },
+    { "name": "Workiz", "category": "Field Service", "status": "zapier", "icon": "tool" },
+    { "name": "Slack", "category": "Alerts", "status": "live", "icon": "message" },
+    { "name": "HubSpot", "category": "CRM", "status": "zapier", "icon": "users" },
+    { "name": "Zapier", "category": "Automation", "status": "live", "icon": "zap" },
+    { "name": "Microsoft Outlook", "category": "Booking", "status": "live", "icon": "mail" },
+    { "name": "CallRail", "category": "Tracking", "status": "live", "icon": "bar-chart" },
+    { "name": "DASH", "category": "Restoration", "status": "request", "icon": "database" },
+    { "name": "Airtable", "category": "CRM", "status": "zapier", "icon": "table" }
+  ],
+  "rowB": [
+    { "name": "Albi", "category": "Restoration ERP", "status": "live", "icon": "droplet" },
+    { "name": "GoHighLevel", "category": "CRM", "status": "live", "icon": "trending-up" },
+    { "name": "Google Sheets", "category": "Data", "status": "live", "icon": "grid" },
+    { "name": "FieldEdge", "category": "Field Service", "status": "zapier", "icon": "cpu" },
+    { "name": "Telnyx", "category": "Telephony", "status": "live", "icon": "radio" },
+    { "name": "Cal.com", "category": "Booking", "status": "live", "icon": "clock" },
+    { "name": "Make", "category": "Automation", "status": "live", "icon": "layers" },
+    { "name": "RingCentral", "category": "Telephony", "status": "zapier", "icon": "phone-call" },
+    { "name": "Service Fusion", "category": "Field Service", "status": "request", "icon": "activity" },
+    { "name": "JobNimbus", "category": "Contractor CRM", "status": "zapier", "icon": "clipboard" },
+    { "name": "QuickBooks", "category": "Accounting", "status": "zapier", "icon": "dollar-sign" },
+    { "name": "Microsoft Teams", "category": "Alerts", "status": "zapier", "icon": "send" }
+  ]
+}

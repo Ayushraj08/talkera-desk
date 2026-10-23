@@ -1,0 +1,92 @@
+[
+  {
+    "id": "new-job",
+    "slug": "/new-job",
+    "name": "New Job",
+    "title": "Standard Booking (AC Stopped Cooling)",
+    "workingHours": "Books directly into your calendar or CRM, texts the caller to confirm, and alerts both you and the assigned technician.",
+    "afterHours": "Books the earliest open morning slot, sends text confirmation, and logs the job for the morning dispatch run.",
+    "callerPrompt": "Hi, my AC stopped cooling and it's blowing lukewarm air.",
+    "agentResponse": "Hi John, I'm Talkera Desk, an AI assistant for Cool Air Services. I can book a technician. What is your address?",
+    "callerFollowup": "42 Oak Street.",
+    "agentResolution": "Thanks. Tomorrow between 10 AM and 12 PM is open. Shall I book that slot?",
+    "systemOutput": {
+      "status": "Booked",
+      "action": "Calendar event created in Jobber",
+      "dispatch": "SMS confirmation sent to John; job pushed to tech Mike",
+      "leadTag": "AC Diagnostic ($180 est)"
+    }
+  },
+  {
+    "id": "emergency-2am",
+    "slug": "/emergency-2am",
+    "name": "Emergency 2 AM",
+    "title": "Life-Safety & Property Triage (Ceiling Water Leak)",
+    "workingHours": "Conducts immediate life-safety check, connects caller directly to office dispatch, and holds urgent slot.",
+    "afterHours": "Conducts life-safety triage. If in danger, instructs 911. Alerts on-call tech by simultaneous phone ring and priority SMS.",
+    "callerPrompt": "There's water pouring through my ceiling right now!",
+    "agentResponse": "I'm Talkera Desk, an AI assistant. If anyone is in physical danger, please hang up and call 911 now. Is anyone in danger?",
+    "callerFollowup": "No danger, but it's getting worse quickly.",
+    "agentResolution": "Understood. I am alerting our on-call technician Mike right now, holding an urgent slot, and texting you details.",
+    "systemOutput": {
+      "status": "Emergency Dispatched",
+      "action": "On-call technician phone rung + urgent SMS dispatch",
+      "dispatch": "SMS sent to caller; owner notified via priority webhook",
+      "leadTag": "Emergency Extraction (Priority 1)"
+    }
+  },
+  {
+    "id": "afterhours-quote",
+    "slug": "/afterhours-quote",
+    "name": "After-Hours Quote",
+    "title": "Quote Request (Water Heater Replacement)",
+    "workingHours": "Answers pre-approved pricing ranges or schedules an estimator site visit.",
+    "afterHours": "Captures homeowner scope details, checks unit specs, and books a scheduled callback or estimate visit for opening time.",
+    "callerPrompt": "I'd like to get an estimate for replacing a 50-gallon water heater.",
+    "agentResponse": "Happy to help. Our office opens at 8 AM. I can book an on-site estimate visit or schedule our estimator to call you at 9 AM.",
+    "callerFollowup": "A call back at 9 AM would be perfect.",
+    "agentResolution": "You got it. Callback confirmed for 9:00 AM. I have captured your water heater notes and texted confirmation.",
+    "systemOutput": {
+      "status": "Callback Scheduled",
+      "action": "Task logged in ServiceTitan for 09:00 AM",
+      "dispatch": "SMS sent to caller with scheduled call time",
+      "leadTag": "Water Heater Replacement ($2,400 est)"
+    }
+  },
+  {
+    "id": "warm-transfer",
+    "slug": "/warm-transfer",
+    "name": "Warm Transfer to Sarah",
+    "title": "Caller Requests Specific Team Member",
+    "workingHours": "Attempts live warm transfer. If unanswered after 4 rings, takes detailed message and creates callback task.",
+    "afterHours": "Explains team member hours, logs caller inquiry, and schedules prioritized first-morning callback task.",
+    "callerPrompt": "Can I please speak to Sarah regarding our commercial invoice?",
+    "agentResponse": "Of course, connecting you with Sarah now. [Sarah line rings 4x - no answer] Sarah is assisting another client. I will take your note and have her call you back this afternoon.",
+    "callerFollowup": "Yes, please ask her to check invoice #1042.",
+    "agentResolution": "Noted! Sarah has received your note regarding invoice #1042. I will send you a text confirming the request.",
+    "systemOutput": {
+      "status": "Warm Handoff Task",
+      "action": "High-priority message sent to Sarah's Slack & CRM",
+      "dispatch": "SMS confirmation delivered to caller",
+      "leadTag": "Billing & Account Review"
+    }
+  },
+  {
+    "id": "spam-blocked",
+    "slug": "/spam-blocked",
+    "name": "Spam Blocked",
+    "title": "Spam, Sales & Robocall Filtering",
+    "workingHours": "Politely screens out solicitations, terminates call within seconds, logs to spam report with zero team disruption.",
+    "afterHours": "Identifies robotic sales pitches, provides polite rejection, hangs up cleanly with zero technician alerts.",
+    "callerPrompt": "We have an exclusive offer to lower your commercial merchant processing rates.",
+    "agentResponse": "Thank you, but this company does not accept unsolicited commercial offers. Have a great day. Goodbye.",
+    "callerFollowup": "[Call ended in 7 seconds]",
+    "agentResolution": "Call screened and terminated. Filtered entry logged in weekly summary report.",
+    "systemOutput": {
+      "status": "Spam Screened",
+      "action": "Call ended (0 alerts generated, zero technician sleep lost)",
+      "dispatch": "Logged silently to analytics dashboard",
+      "leadTag": "Telemarketing / Solicitations"
+    }
+  }
+]

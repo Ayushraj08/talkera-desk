@@ -1,0 +1,255 @@
+---
+import demos from '@content/demos.json';
+---
+
+<section id="demos" class="py-20 lg:py-28 bg-white border-b border-sky-blue/50 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
+        Lovart-Style Audio Command Bar
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-4">
+        Hear how your callers will experience it
+      </h2>
+      <p class="text-base sm:text-lg text-slate leading-relaxed">
+        Listen to real recorded test calls handled by Talkera Desk across different trade verticals, voices, and accents. We never use robotic voice clips or artificial audio filters.
+      </p>
+    </div>
+
+    <!-- Lovart-Style Interactive Filter Chips Bar -->
+    <div class="mb-10 space-y-4">
+      <!-- Trade Filter -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-mono font-bold text-slate uppercase mr-2">Trade:</span>
+        <button type="button" data-filter-type="trade" data-filter-val="all" class="filter-btn active-filter px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-deep-green text-white border-deep-green">
+          All Trades
+        </button>
+        <button type="button" data-filter-type="trade" data-filter-val="Restoration" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+          Restoration
+        </button>
+        <button type="button" data-filter-type="trade" data-filter-val="Plumbing" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+          Plumbing
+        </button>
+        <button type="button" data-filter-type="trade" data-filter-val="HVAC" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+          HVAC
+        </button>
+        <button type="button" data-filter-type="trade" data-filter-val="Electrical" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+          Electrical
+        </button>
+      </div>
+
+      <!-- Accent Filter -->
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="text-xs font-mono font-bold text-slate uppercase mr-2">Accent:</span>
+        <button type="button" data-filter-type="accent" data-filter-val="all" class="filter-btn active-filter-accent px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-deep-green text-white border-deep-green">
+          All Accents
+        </button>
+        <button type="button" data-filter-type="accent" data-filter-val="US" class="filter-btn px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+          US
+        </button>
+        <button type="button" data-filter-type="accent" data-filter-val="UK" class="filter-btn px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+          UK
+        </button>
+        <button type="button" data-filter-type="accent" data-filter-val="Canada" class="filter-btn px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+          Canada
+        </button>
+        <button type="button" data-filter-type="accent" data-filter-val="AU" class="filter-btn px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+          Australia
+        </button>
+      </div>
+    </div>
+
+    <!-- Demo Cards Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="demos-grid">
+      {demos.map((dm) => (
+        <div
+          data-trade={dm.trade}
+          data-accent={dm.accent}
+          data-voice={dm.voice}
+          class="demo-card mercury-shell-light"
+        >
+          <div class="mercury-inner bg-white border border-sky-blue p-6 sm:p-7 flex flex-col justify-between h-full">
+            
+            <!-- Card Header -->
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-3">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-deep-green/10 text-deep-green">
+                  {dm.badge}
+                </span>
+                <span class="text-[11px] font-mono text-gray-500 uppercase tracking-wider">
+                  {dm.accent} Accent &bull; {dm.voice} Voice
+                </span>
+              </div>
+
+              <h3 class="font-heading font-extrabold text-xl text-ink-deep mb-2">
+                {dm.title}
+              </h3>
+              <p class="text-xs text-slate leading-relaxed mb-4">
+                {dm.scenario}
+              </p>
+
+              <!-- Mandatory Disclosure Label -->
+              <div class="inline-block px-2.5 py-1 rounded bg-paper border border-sky-blue/60 text-[10px] text-slate font-mono mb-4">
+                Recorded test call. AI answering for a sample business.
+              </div>
+            </div>
+
+            <!-- Custom SVG Waveform & Player Controls -->
+            <div class="pt-4 border-t border-sky-blue/70">
+              <div class="bg-paper rounded-xl p-3.5 border border-sky-blue flex items-center gap-4 mb-3">
+                <!-- Play Button -->
+                <button
+                  type="button"
+                  data-demo-id={dm.id}
+                  class="play-demo-btn w-10 h-10 rounded-full bg-deep-green text-white hover:bg-brand-green flex items-center justify-center shrink-0 transition-all shadow-sm active:scale-95"
+                  aria-label={`Play audio for ${dm.title}`}
+                >
+                  <svg class="w-4 h-4 fill-current ml-0.5 play-icon" viewBox="0 0 24 24">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                  </svg>
+                  <svg class="w-4 h-4 fill-current pause-icon hidden" viewBox="0 0 24 24">
+                    <rect x="6" y="4" width="4" height="16"/>
+                    <rect x="14" y="4" width="4" height="16"/>
+                  </svg>
+                </button>
+
+                <!-- SVG Waveform Graphic -->
+                <div class="flex-1 flex items-center gap-1 h-8">
+                  <span class="w-1 bg-deep-green rounded-full h-3"></span>
+                  <span class="w-1 bg-deep-green rounded-full h-5"></span>
+                  <span class="w-1 bg-deep-green rounded-full h-7"></span>
+                  <span class="w-1 bg-deep-green rounded-full h-4"></span>
+                  <span class="w-1 bg-deep-green rounded-full h-6"></span>
+                  <span class="w-1 bg-deep-green rounded-full h-8"></span>
+                  <span class="w-1 bg-brand-green rounded-full h-5"></span>
+                  <span class="w-1 bg-brand-green rounded-full h-7"></span>
+                  <span class="w-1 bg-brand-green rounded-full h-3"></span>
+                  <span class="w-1 bg-sky-blue rounded-full h-6"></span>
+                  <span class="w-1 bg-sky-blue rounded-full h-4"></span>
+                  <span class="w-1 bg-sky-blue rounded-full h-7"></span>
+                  <span class="w-1 bg-sky-blue rounded-full h-5"></span>
+                  <span class="w-1 bg-sky-blue rounded-full h-3"></span>
+                </div>
+
+                <!-- Duration Tracker -->
+                <span class="font-mono text-xs font-semibold text-deep-green tabular">
+                  {dm.durationFormatted}
+                </span>
+              </div>
+
+              <!-- Result Notice -->
+              <div class="text-xs font-mono text-slate mb-3">
+                <strong class="text-deep-green">Result:</strong> {dm.result}
+              </div>
+
+              <!-- Collapsible Transcript Button -->
+              <details class="group text-xs text-slate">
+                <summary class="cursor-pointer font-semibold text-deep-green hover:underline flex items-center justify-between py-1 select-none">
+                  <span>View call transcript ({dm.transcript.length} lines)</span>
+                  <span class="group-open:rotate-180 transition-transform">&darr;</span>
+                </summary>
+                <div class="mt-2.5 p-3 rounded-lg bg-paper border border-sky-blue/50 space-y-2 max-h-48 overflow-y-auto">
+                  {dm.transcript.map((line) => (
+                    <div class="flex items-start gap-2 text-[11px] leading-relaxed">
+                      <span class={`font-bold font-mono shrink-0 ${line.speaker === 'Agent' ? 'text-deep-green' : 'text-slate'}`}>
+                        {line.speaker} ({line.time}):
+                      </span>
+                      <span class="text-ink">{line.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </details>
+
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- Filter and Audio State Machine Script -->
+<script>
+  // Filter chips logic
+  const tradeBtns = document.querySelectorAll('[data-filter-type="trade"]');
+  const accentBtns = document.querySelectorAll('[data-filter-type="accent"]');
+  const cards = document.querySelectorAll('.demo-card');
+
+  let activeTrade = 'all';
+  let activeAccent = 'all';
+
+  function applyFilters() {
+    cards.forEach((card) => {
+      const cardTrade = card.getAttribute('data-trade');
+      const cardAccent = card.getAttribute('data-accent');
+
+      const matchesTrade = activeTrade === 'all' || cardTrade === activeTrade;
+      const matchesAccent = activeAccent === 'all' || cardAccent === activeAccent;
+
+      if (matchesTrade && matchesAccent) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  }
+
+  tradeBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      tradeBtns.forEach((b) => {
+        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green');
+        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue');
+      });
+      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green');
+      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue');
+      activeTrade = btn.getAttribute('data-filter-val') || 'all';
+      applyFilters();
+    });
+  });
+
+  accentBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      accentBtns.forEach((b) => {
+        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green');
+        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue');
+      });
+      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green');
+      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue');
+      activeAccent = btn.getAttribute('data-filter-val') || 'all';
+      applyFilters();
+    });
+  });
+
+  // Audio Playback Simulation (only 1 active at a time)
+  let activePlayerBtn: HTMLButtonElement | null = null;
+  const playBtns = document.querySelectorAll('.play-demo-btn');
+
+  playBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const button = btn as HTMLButtonElement;
+      const playIcon = button.querySelector('.play-icon');
+      const pauseIcon = button.querySelector('.pause-icon');
+
+      if (activePlayerBtn === button) {
+        // Toggle off
+        playIcon?.classList.remove('hidden');
+        pauseIcon?.classList.add('hidden');
+        activePlayerBtn = null;
+      } else {
+        // Reset old
+        if (activePlayerBtn) {
+          activePlayerBtn.querySelector('.play-icon')?.classList.remove('hidden');
+          activePlayerBtn.querySelector('.pause-icon')?.classList.add('hidden');
+        }
+        // Activate new
+        playIcon?.classList.add('hidden');
+        pauseIcon?.classList.remove('hidden');
+        activePlayerBtn = button;
+      }
+    });
+  });
+</script>

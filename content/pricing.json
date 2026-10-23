@@ -1,0 +1,138 @@
+{
+  "updatedDate": "October 2026",
+  "datedSentence": "Updated October 2026. Plans start at $59 a month plus $0.60 per minute. Bundled plans run $293 to $1,292 a month.",
+  "currency": "USD",
+  "usdToInr": 95,
+  "pulseSeconds": 60,
+  "freeUnderSeconds": 10,
+  "extraMinuteRate": 0.60,
+  "extraTextRate": 0.035,
+  "rolloverPct": 20,
+  "minutePack": {
+    "minutes": 100,
+    "price": 60,
+    "validDays": 90
+  },
+  "plans": [
+    {
+      "id": "payg",
+      "name": "Pay As You Go",
+      "tagline": "For starting out or low call volume",
+      "monthlyFee": 59,
+      "includedMin": 0,
+      "setupFee": 99,
+      "concurrentCalls": 1,
+      "numbers": 1,
+      "locations": 1,
+      "retentionDays": 15,
+      "textsIncluded": 0,
+      "textModel": "$0.035 each (US & Canada)",
+      "highlight": false,
+      "badge": null,
+      "features": [
+        "Pay for minutes as used ($0.60/min)",
+        "1 call answered at a time",
+        "1 phone number & 1 location",
+        "15 days audio & transcript retention",
+        "Self-serve call log & transcripts",
+        "Text confirmations to caller ($0.035/txt)",
+        "Email & webhook alert dispatch",
+        "Month to month. Cancel anytime."
+      ]
+    },
+    {
+      "id": "core",
+      "name": "Core",
+      "tagline": "For single-crew trade businesses",
+      "monthlyFee": 293,
+      "includedMin": 500,
+      "setupFee": 320,
+      "concurrentCalls": 2,
+      "numbers": 1,
+      "locations": 1,
+      "retentionDays": 30,
+      "textsIncluded": 600,
+      "textModel": "Up to 600 texts / month included",
+      "highlight": false,
+      "badge": null,
+      "features": [
+        "500 included minutes ($0.586/min effective)",
+        "Up to 2 calls at the same time",
+        "Up to 600 text messages included",
+        "1 phone number & 1 location",
+        "30 days audio & transcript retention",
+        "1 included agent workflow change/month",
+        "Monthly performance & review report",
+        "Calendar & CRM direct integration",
+        "Rollover up to 100 unused minutes"
+      ]
+    },
+    {
+      "id": "growth",
+      "name": "Growth",
+      "tagline": "For busy multi-tech service teams",
+      "monthlyFee": 563,
+      "includedMin": 1000,
+      "setupFee": 599,
+      "concurrentCalls": 4,
+      "numbers": 2,
+      "locations": 2,
+      "retentionDays": 45,
+      "textsIncluded": 1500,
+      "textModel": "Up to 1,500 texts / month included",
+      "highlight": true,
+      "badge": "Most Popular",
+      "features": [
+        "1,000 included minutes ($0.563/min effective)",
+        "Up to 4 calls at the same time",
+        "Up to 1,500 text messages included",
+        "Up to 2 numbers & 2 locations",
+        "45 days audio & transcript retention",
+        "2 included agent workflow changes/month",
+        "Weekly review & monthly strategy call",
+        "Real-time call routing & warm handoffs",
+        "Rollover up to 200 unused minutes"
+      ]
+    },
+    {
+      "id": "command",
+      "name": "Command",
+      "tagline": "For high-volume operations & multi-location restoration",
+      "monthlyFee": 1292,
+      "includedMin": 2500,
+      "setupFee": 1562,
+      "concurrentCalls": 8,
+      "numbers": 5,
+      "locations": 5,
+      "retentionDays": 60,
+      "textsIncluded": 3500,
+      "textModel": "Up to 3,500 texts / month included",
+      "highlight": false,
+      "badge": "High Volume",
+      "features": [
+        "2,500 included minutes ($0.517/min effective)",
+        "Up to 8 calls at the same time",
+        "Up to 3,500 text messages included",
+        "Up to 5 numbers & 5 locations",
+        "60 days audio & transcript retention",
+        "Up to 8 workflow changes / month",
+        "Named account manager & bi-weekly review",
+        "Custom CRM & ERP webhook pipelines",
+        "Rollover up to 500 unused minutes"
+      ]
+    }
+  ],
+  "addons": [
+    { "name": "Extra number", "price": "$9 / month", "priceUsd": 9, "priceInr": 855, "desc": "Local or toll-free dedicated business line" },
+    { "name": "Extra location", "price": "$49 / month", "priceUsd": 49, "priceInr": 4655, "desc": "Separate address, service radius, and routing logic" },
+    { "name": "Extra call at the same time", "price": "$29 / month", "priceUsd": 29, "priceInr": 2755, "desc": "Adds 1 permanent concurrent answering lane" },
+    { "name": "Surge pass", "price": "$39 one-time", "priceUsd": 39, "priceInr": 3705, "desc": "Up to 4 extra concurrent calls for up to 7 days during weather events" },
+    { "name": "Extra agent workflow change", "price": "$50 each", "priceUsd": 50, "priceInr": 4750, "desc": "Beyond the monthly allowance included in your plan" },
+    { "name": "Keep setup & number after end", "price": "$39 / month", "priceUsd": 39, "priceInr": 3705, "desc": "Park your numbers, workflows, and tools setup for up to 3 months" }
+  ],
+  "sla": {
+    "resolutionTarget": "Up to 72 hours",
+    "creditPolicy": "If a problem is on our side and takes more than 24 hours to resolve, each additional day is rounded up to a full day and credited to your plan.",
+    "deliveryTime": "Up to 3 days to live"
+  }
+}

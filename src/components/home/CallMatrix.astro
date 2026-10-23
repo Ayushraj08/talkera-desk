@@ -1,0 +1,237 @@
+---
+import scenarios from '@content/scenarios.json';
+---
+
+<section id="scenarios" class="py-20 lg:py-28 bg-white border-b border-sky-blue/50 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
+        Runway-Style Intelligent Call Matrix
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-4">
+        What happens on every kind of call
+      </h2>
+      <p class="text-base sm:text-lg text-slate leading-relaxed">
+        We don't give you a rigid black box. Select any scenario below to inspect how the agent triages homeowner urgency, checks safety protocols, routes calls, and dispatches job records during and after hours.
+      </p>
+    </div>
+
+    <!-- Runway-Style Split-Screen Interactive Workbench -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Scenario Selector Pills (Lovart / Runway Style) -->
+      <div class="lg:col-span-4 space-y-2.5">
+        <div class="text-xs font-mono uppercase text-slate font-bold px-2 mb-2 tracking-wider">
+          Select Call Scenario:
+        </div>
+
+        {scenarios.map((sc, index) => (
+          <button
+            type="button"
+            data-scenario-index={index}
+            class={`scenario-tab-btn w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between group ${
+              index === 0
+                ? 'bg-deep-green text-white border-deep-green shadow-md'
+                : 'bg-paper text-ink border-sky-blue/70 hover:border-brand-green/50 hover:bg-light-blue/40'
+            }`}
+          >
+            <div>
+              <div class="text-xs font-mono uppercase tracking-wider text-lime-accent group-[.bg-paper]:text-brand-green font-semibold">
+                {sc.name}
+              </div>
+              <div class="text-sm font-heading font-bold mt-0.5 text-white group-[.bg-paper]:text-ink-deep">
+                {sc.title}
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-lime-accent group-[.bg-paper]:text-slate group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
+        ))}
+
+        <!-- Safe Defaults Architectural Callout Card -->
+        <div class="mt-6 p-5 rounded-2xl bg-light-blue/60 border border-sky-blue text-xs text-slate space-y-2">
+          <div class="font-bold text-deep-green font-heading uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>Safe Defaults Baked In</span>
+          </div>
+          <p class="leading-relaxed">
+            Unless you tell us otherwise, the voice agent never diagnoses mechanical or structural damage, never gives unsafe DIY instructions, never quotes unapproved prices, and always discloses it is an AI assistant.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Live-Switching Transcript & Routing Workbench -->
+      <div class="lg:col-span-8">
+        <div class="mercury-shell-light">
+          <div class="mercury-inner bg-white border border-sky-blue p-6 sm:p-8">
+            
+            <!-- Workbench Header: Dual Mode Toggle Indicator -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-sky-blue/80 mb-6">
+              <div>
+                <span class="text-xs font-mono uppercase text-brand-green font-bold" id="wb-scenario-name">
+                  {scenarios[0].name}
+                </span>
+                <h3 class="text-xl font-heading font-bold text-ink-deep" id="wb-scenario-title">
+                  {scenarios[0].title}
+                </h3>
+              </div>
+              
+              <!-- Behavior Comparison Indicator -->
+              <div class="inline-flex rounded-xl bg-paper p-1 border border-sky-blue text-xs font-semibold">
+                <span class="px-3 py-1 rounded-lg bg-deep-green text-white shadow-xs">Active Mode</span>
+                <span class="px-3 py-1 text-slate">24/7 Monitored</span>
+              </div>
+            </div>
+
+            <!-- Routing Logic Comparison (Working Hours vs After Hours) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div class="p-4 rounded-xl bg-light-blue/50 border border-sky-blue">
+                <div class="flex items-center gap-2 text-xs font-bold text-deep-green font-heading uppercase tracking-wider mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span>Working Hours Protocol</span>
+                </div>
+                <p class="text-xs text-slate leading-relaxed" id="wb-working-hours">
+                  {scenarios[0].workingHours}
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-paper border border-sky-blue">
+                <div class="flex items-center gap-2 text-xs font-bold text-ink-deep font-heading uppercase tracking-wider mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-slate"></span>
+                  <span>After-Hours Protocol</span>
+                </div>
+                <p class="text-xs text-slate leading-relaxed" id="wb-after-hours">
+                  {scenarios[0].afterHours}
+                </p>
+              </div>
+            </div>
+
+            <!-- Interactive Transcript Simulation Window -->
+            <div class="bg-[#F8FAFC] border border-sky-blue rounded-xl p-5 mb-6 space-y-3.5">
+              <div class="text-[11px] font-mono uppercase text-gray-400 font-bold tracking-wider">
+                Live Dialogue Stream
+              </div>
+
+              <!-- Caller Prompt -->
+              <div class="flex items-start gap-2.5">
+                <div class="w-6 h-6 rounded bg-slate text-white text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  John
+                </div>
+                <div class="bg-white border border-sky-blue/80 rounded-xl rounded-tl-none p-3 text-xs text-ink leading-relaxed shadow-2xs max-w-[90%]" id="wb-caller-prompt">
+                  "{scenarios[0].callerPrompt}"
+                </div>
+              </div>
+
+              <!-- Agent Response -->
+              <div class="flex items-start gap-2.5">
+                <div class="w-6 h-6 rounded bg-deep-green text-lime-accent text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  AI
+                </div>
+                <div class="bg-light-blue/80 border border-sky-blue rounded-xl rounded-tl-none p-3 text-xs text-ink-deep leading-relaxed shadow-2xs max-w-[90%]" id="wb-agent-response">
+                  "{scenarios[0].agentResponse}"
+                </div>
+              </div>
+
+              <!-- Caller Followup -->
+              <div class="flex items-start gap-2.5">
+                <div class="w-6 h-6 rounded bg-slate text-white text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  John
+                </div>
+                <div class="bg-white border border-sky-blue/80 rounded-xl rounded-tl-none p-3 text-xs text-ink leading-relaxed shadow-2xs max-w-[90%]" id="wb-caller-followup">
+                  "{scenarios[0].callerFollowup}"
+                </div>
+              </div>
+
+              <!-- Agent Resolution -->
+              <div class="flex items-start gap-2.5">
+                <div class="w-6 h-6 rounded bg-deep-green text-lime-accent text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                  AI
+                </div>
+                <div class="bg-light-blue/80 border border-sky-blue rounded-xl rounded-tl-none p-3 text-xs text-ink-deep leading-relaxed shadow-2xs max-w-[90%]" id="wb-agent-resolution">
+                  "{scenarios[0].agentResolution}"
+                </div>
+              </div>
+            </div>
+
+            <!-- System Output & Dispatch Payload (Runway Style Architecture) -->
+            <div class="p-4 rounded-xl bg-deep-green text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
+              <div class="space-y-1">
+                <div class="text-lime-accent font-bold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-lime-accent"></span>
+                  <span id="wb-output-status">{scenarios[0].systemOutput.status}</span>
+                </div>
+                <div class="text-gray-300" id="wb-output-action">
+                  {scenarios[0].systemOutput.action}
+                </div>
+                <div class="text-[11px] text-gray-400" id="wb-output-dispatch">
+                  {scenarios[0].systemOutput.dispatch}
+                </div>
+              </div>
+
+              <div class="sm:text-right shrink-0">
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider">Lead Tag</div>
+                <div class="text-lime-accent font-bold text-xs" id="wb-output-tag">
+                  {scenarios[0].systemOutput.leadTag}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Scenarios Interactivity Script -->
+<script define:vars={{ scenarios }}>
+  const tabBtns = document.querySelectorAll('.scenario-tab-btn');
+  const wbName = document.getElementById('wb-scenario-name');
+  const wbTitle = document.getElementById('wb-scenario-title');
+  const wbWorking = document.getElementById('wb-working-hours');
+  const wbAfter = document.getElementById('wb-after-hours');
+  const wbCallerPrompt = document.getElementById('wb-caller-prompt');
+  const wbAgentResponse = document.getElementById('wb-agent-response');
+  const wbCallerFollowup = document.getElementById('wb-caller-followup');
+  const wbAgentResolution = document.getElementById('wb-agent-resolution');
+  const wbOutputStatus = document.getElementById('wb-output-status');
+  const wbOutputAction = document.getElementById('wb-output-action');
+  const wbOutputDispatch = document.getElementById('wb-output-dispatch');
+  const wbOutputTag = document.getElementById('wb-output-tag');
+
+  tabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.getAttribute('data-scenario-index') || '0', 10);
+      const sc = scenarios[idx];
+      if (!sc) return;
+
+      // Update button styling
+      tabBtns.forEach((b) => {
+        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-md');
+        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue/70');
+      });
+      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-md');
+      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue/70');
+
+      // Update workbench content
+      if (wbName) wbName.textContent = sc.name;
+      if (wbTitle) wbTitle.textContent = sc.title;
+      if (wbWorking) wbWorking.textContent = sc.workingHours;
+      if (wbAfter) wbAfter.textContent = sc.afterHours;
+      if (wbCallerPrompt) wbCallerPrompt.textContent = `"${sc.callerPrompt}"`;
+      if (wbAgentResponse) wbAgentResponse.textContent = `"${sc.agentResponse}"`;
+      if (wbCallerFollowup) wbCallerFollowup.textContent = `"${sc.callerFollowup}"`;
+      if (wbAgentResolution) wbAgentResolution.textContent = `"${sc.agentResolution}"`;
+      if (wbOutputStatus) wbOutputStatus.textContent = sc.systemOutput.status;
+      if (wbOutputAction) wbOutputAction.textContent = sc.systemOutput.action;
+      if (wbOutputDispatch) wbOutputDispatch.textContent = sc.systemOutput.dispatch;
+      if (wbOutputTag) wbOutputTag.textContent = sc.systemOutput.leadTag;
+    });
+  });
+</script>

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "almost-every-call",
+    "question": "Why do you say you answer 'almost every call' instead of every call?",
+    "answer": "Being honest with you matters most. While Talkera Desk is online 24/7, no phone system can answer literally every single call. Calls can fail if a caller hangs up within two seconds, if a major cellular carrier experiences a tower outage, or if simultaneous calls exceed your plan's concurrency limit. When a call cannot be connected, we immediately trigger an instant text to the caller and dispatch an alert to you.",
+    "category": "Reliability"
+  },
+  {
+    "id": "ai-disclosure",
+    "question": "Does the voice agent disclose that it is an AI to my callers?",
+    "answer": "Yes, always. The agent explicitly states at the start of every call that it is an AI phone assistant answering on behalf of your business, and that calls may be recorded for dispatch notes. This ensures full compliance with wiretapping and consumer protection laws across US states, the UK, Canada, Australia, and the EU while sounding remarkably natural, courteous, and calm.",
+    "category": "Compliance"
+  },
+  {
+    "id": "setup-time-requirements",
+    "question": "How long does setup take, and what do you need from my team?",
+    "answer": "Your agent is live in up to 3 days. On Day 1, we ingest your public website, service areas, and pricing rules, and start building. Day 2 is dedicated to custom script tuning and edge-case testing. Day 3 connects your calendar or CRM and goes live. All we need from you is your service list, hours, emergency transfer numbers, and basic tool access.",
+    "category": "Onboarding"
+  },
+  {
+    "id": "concurrency-rush",
+    "question": "What happens when multiple callers ring at the exact same moment?",
+    "answer": "Each incoming caller is greeted by their own dedicated AI instance. Depending on your plan, Talkera Desk answers 1, 2, 4, or up to 8 calls at the exact same moment with zero busy tones. If a major storm or freeze creates a spike beyond your plan's lanes, extra callers immediately receive an automated text holding their place and scheduling a prompt callback.",
+    "category": "Capacity"
+  },
+  {
+    "id": "contract-cancellation",
+    "question": "Are there long-term contracts, cancellation penalties, or hidden fees?",
+    "answer": "None. Every Talkera Desk plan is month to month. You can cancel or pause anytime directly from your dashboard or with a quick note to our team. Your plan simply runs until the end of your prepaid monthly billing period and never renews. We also hold your custom agent configuration and phone numbers for 30 days at zero charge in case you wish to restart.",
+    "category": "Billing"
+  }
+]

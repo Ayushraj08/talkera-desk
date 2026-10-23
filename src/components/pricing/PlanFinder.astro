@@ -1,0 +1,478 @@
+---
+import pricing from '@content/pricing.json';
+---
+
+<div id="plan-finder" class="mercury-shell-light max-w-5xl mx-auto my-16">
+  <div class="mercury-inner bg-white border border-sky-blue p-6 sm:p-10">
+    
+    <div class="max-w-2xl mb-8">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-deep-green/10 text-deep-green text-xs font-mono font-bold mb-3">
+        Interactive Calculator
+      </div>
+      <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-ink-deep">
+        Which plan fits your call volume?
+      </h3>
+      <p class="text-xs sm:text-sm text-slate mt-1">
+        Adjust minutes, expected concurrency, or missed call volume. The finder computes the exact lowest-cost plan with zero fluff.
+      </p>
+    </div>
+
+    <!-- Segmented 3-Tab Controller -->
+    <div class="flex items-center gap-2 p-1.5 bg-paper border border-sky-blue rounded-2xl mb-8 max-w-lg">
+      <button
+        type="button"
+        id="tab-btn-minutes"
+        class="finder-tab-btn flex-1 py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all bg-deep-green text-white shadow-xs"
+      >
+        1. Minutes & Calls
+      </button>
+      <button
+        type="button"
+        id="tab-btn-concurrency"
+        class="finder-tab-btn flex-1 py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
+      >
+        2. Calls At Once
+      </button>
+      <button
+        type="button"
+        id="tab-btn-roi"
+        class="finder-tab-btn flex-1 py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
+      >
+        3. Missed Calls ROI
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Tab Inputs (Dynamic) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Tab 1: Minutes & Calls View -->
+        <div id="view-minutes" class="finder-view space-y-6">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono uppercase text-slate font-bold">Input Mode:</span>
+            <div class="flex items-center gap-2 text-xs font-mono">
+              <label class="flex items-center gap-1.5 cursor-pointer">
+                <input type="radio" name="input-mode" value="minutes" checked class="accent-deep-green" id="mode-minutes"/>
+                <span class="font-semibold text-ink">Billed Minutes / Mo</span>
+              </label>
+              <label class="flex items-center gap-1.5 cursor-pointer ml-3">
+                <input type="radio" name="input-mode" value="calls" class="accent-deep-green" id="mode-calls"/>
+                <span class="font-semibold text-ink">Calls / Day</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Slider Container -->
+          <div>
+            <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
+              <span id="slider-label">Total Monthly Billed Minutes</span>
+              <span class="font-mono text-sm px-2.5 py-1 rounded bg-light-blue text-deep-green font-bold tabular" id="finder-val-display">
+                600 mins
+              </span>
+            </div>
+            <input
+              id="finder-slider"
+              type="range"
+              min="20"
+              max="3500"
+              step="20"
+              value="600"
+              class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
+            />
+            <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
+              <span>20 min (Pay As You Go)</span>
+              <span>1,000 min (Growth)</span>
+              <span>2,500+ min (Command)</span>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-light-blue/40 border border-sky-blue text-xs text-slate">
+            <span class="font-bold text-deep-green">Assumption:</span> Average trade calls run &approx; 3.5 minutes. With the 60-second billing pulse, each call bills as 4 minutes.
+          </div>
+        </div>
+
+        <!-- Tab 2: Calls at the Same Time View -->
+        <div id="view-concurrency" class="finder-view hidden space-y-6">
+          <div>
+            <label class="block text-xs font-semibold text-ink-deep mb-2">
+              Maximum Simultaneous Callers (Peak Concurrency)
+            </label>
+            <div class="grid grid-cols-4 gap-3">
+              <button type="button" data-concurrency="1" class="conc-btn p-3 rounded-xl border border-sky-blue bg-paper text-center font-mono font-bold text-sm text-ink-deep hover:bg-light-blue transition-all">
+                1 Call
+                <span class="block text-[10px] text-slate font-normal mt-0.5">Pay As You Go</span>
+              </button>
+              <button type="button" data-concurrency="2" class="conc-btn p-3 rounded-xl border border-deep-green bg-deep-green text-white text-center font-mono font-bold text-sm transition-all shadow-xs">
+                2 Calls
+                <span class="block text-[10px] text-lime-accent font-normal mt-0.5">Core</span>
+              </button>
+              <button type="button" data-concurrency="4" class="conc-btn p-3 rounded-xl border border-sky-blue bg-paper text-center font-mono font-bold text-sm text-ink-deep hover:bg-light-blue transition-all">
+                4 Calls
+                <span class="block text-[10px] text-slate font-normal mt-0.5">Growth</span>
+              </button>
+              <button type="button" data-concurrency="8" class="conc-btn p-3 rounded-xl border border-sky-blue bg-paper text-center font-mono font-bold text-sm text-ink-deep hover:bg-light-blue transition-all">
+                8 Calls
+                <span class="block text-[10px] text-slate font-normal mt-0.5">Command</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-paper border border-sky-blue text-xs text-slate" id="concurrency-explanation">
+            Covered: Core handles up to 2 calls at the exact same moment. Extra callers get an instant text and callback holding.
+          </div>
+        </div>
+
+        <!-- Tab 3: Missed Calls ROI View (The Honest Result) -->
+        <div id="view-roi" class="finder-view hidden space-y-5">
+          <div>
+            <div class="flex justify-between text-xs font-semibold text-ink-deep mb-1">
+              <span>Missed Calls per Day:</span>
+              <span class="font-mono text-deep-green font-bold tabular" id="roi-missed-display">5 calls / day</span>
+            </div>
+            <input
+              id="roi-missed-slider"
+              type="range"
+              min="0.5"
+              max="15"
+              step="0.5"
+              value="5"
+              class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
+            />
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-semibold text-ink-deep mb-1">
+              <span>Average Job Ticket Value ($):</span>
+              <span class="font-mono text-deep-green font-bold tabular" id="roi-ticket-display">$400</span>
+            </div>
+            <input
+              id="roi-ticket-slider"
+              type="range"
+              min="100"
+              max="2000"
+              step="50"
+              value="400"
+              class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
+            />
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-semibold text-ink-deep mb-1">
+              <span>Profit Margin on Job (%):</span>
+              <span class="font-mono text-deep-green font-bold tabular" id="roi-margin-display">30%</span>
+            </div>
+            <input
+              id="roi-margin-slider"
+              type="range"
+              min="10"
+              max="60"
+              step="5"
+              value="30"
+              class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
+            />
+          </div>
+
+          <div class="text-[11px] text-gray-500 italic">
+            Calculated at 15% booking benchmark floor. Genuine customer calls only.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Ramp-Style Suggested Plan Calculation Card -->
+      <div class="lg:col-span-5 bg-paper border border-sky-blue rounded-2xl p-6 sm:p-7 shadow-sm">
+        <div class="text-xs font-mono uppercase tracking-wider text-slate font-bold mb-1">
+          Lowest Cost Recommended Plan
+        </div>
+        
+        <div class="flex items-baseline gap-2 my-2">
+          <span class="text-3xl sm:text-4xl font-extrabold font-heading text-ink-deep" id="rec-plan-name">
+            Core
+          </span>
+          <span class="text-xs font-mono px-2 py-0.5 rounded bg-lime-accent text-ink font-bold" id="rec-plan-badge">
+            Optimal Fit
+          </span>
+        </div>
+
+        <div class="text-3xl sm:text-4xl font-extrabold font-heading text-deep-green tabular my-2" id="rec-plan-cost">
+          $353
+          <span class="text-xs text-slate font-mono font-normal">/ month est.</span>
+        </div>
+
+        <!-- Breakdown Details -->
+        <div class="space-y-2 py-4 border-t border-b border-sky-blue/70 text-xs text-slate font-mono my-4">
+          <div class="flex justify-between">
+            <span>Base Monthly Fee:</span>
+            <span class="text-ink font-semibold tabular" id="rec-base-fee">$293</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Extra Minutes Charge:</span>
+            <span class="text-ink font-semibold tabular" id="rec-extra-fee">$60 (100 mins @ $0.60)</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Effective Per-Min Cost:</span>
+            <span class="text-brand-green font-bold tabular" id="rec-effective-rate">$0.588 / min</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Included SMS Allowance:</span>
+            <span class="text-ink font-semibold tabular" id="rec-sms-allowance">Up to 600 texts</span>
+          </div>
+        </div>
+
+        <!-- ROI Specific Net Calculation Box (Shown in Tab 3) -->
+        <div id="roi-result-box" class="hidden p-3.5 rounded-xl bg-white border border-sky-blue text-xs font-mono mb-4">
+          <div class="flex justify-between mb-1">
+            <span class="text-slate">Extra Profit Generated:</span>
+            <span class="text-ink font-bold tabular" id="roi-extra-profit">+$2,700</span>
+          </div>
+          <div class="flex justify-between mb-2">
+            <span class="text-slate">Talkera Desk Cost:</span>
+            <span class="text-slate tabular" id="roi-desk-cost">-$353</span>
+          </div>
+          <div class="pt-2 border-t border-sky-blue/60 flex justify-between font-bold text-sm">
+            <span>Net Monthly Gain:</span>
+            <span class="text-emerald-700 tabular" id="roi-net-gain">+$2,347</span>
+          </div>
+          <div id="roi-warning" class="hidden text-[10px] text-warning mt-2 leading-tight">
+            At these numbers Talkera Desk costs more than it brings back. Pay As You Go may fit better, or wait until you miss more calls.
+          </div>
+        </div>
+
+        <a
+          href="/#demos"
+          class="w-full inline-flex items-center justify-center py-3 px-4 rounded-full bg-deep-green text-white text-xs font-bold hover:bg-brand-green transition-all shadow"
+        >
+          Hear how Talkera Desk answers
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Plan Finder Interactive Computation Script -->
+<script define:vars={{ pricing }}>
+  let activeTab = 'minutes';
+  let totalBilledMinutes = 600;
+  let selectedConcurrency = 2;
+
+  // ROI Inputs
+  let roiMissed = 5;
+  let roiTicket = 400;
+  let roiMargin = 0.30;
+
+  // DOM Elements
+  const tabBtnMin = document.getElementById('tab-btn-minutes');
+  const tabBtnConc = document.getElementById('tab-btn-concurrency');
+  const tabBtnRoi = document.getElementById('tab-btn-roi');
+  const viewMin = document.getElementById('view-minutes');
+  const viewConc = document.getElementById('view-concurrency');
+  const viewRoi = document.getElementById('view-roi');
+  const slider = document.getElementById('finder-slider');
+  const sliderDisplay = document.getElementById('finder-val-display');
+  const sliderLabel = document.getElementById('slider-label');
+  const modeMinutes = document.getElementById('mode-minutes');
+  const modeCalls = document.getElementById('mode-calls');
+
+  const concButtons = document.querySelectorAll('.conc-btn');
+  const concExplanation = document.getElementById('concurrency-explanation');
+
+  const roiMissedSlider = document.getElementById('roi-missed-slider');
+  const roiTicketSlider = document.getElementById('roi-ticket-slider');
+  const roiMarginSlider = document.getElementById('roi-margin-slider');
+  const roiMissedDisplay = document.getElementById('roi-missed-display');
+  const roiTicketDisplay = document.getElementById('roi-ticket-display');
+  const roiMarginDisplay = document.getElementById('roi-margin-display');
+  const roiBox = document.getElementById('roi-result-box');
+  const roiProfitEl = document.getElementById('roi-extra-profit');
+  const roiDeskCostEl = document.getElementById('roi-desk-cost');
+  const roiNetEl = document.getElementById('roi-net-gain');
+  const roiWarningEl = document.getElementById('roi-warning');
+
+  const planNameEl = document.getElementById('rec-plan-name');
+  const planCostEl = document.getElementById('rec-plan-cost');
+  const baseFeeEl = document.getElementById('rec-base-fee');
+  const extraFeeEl = document.getElementById('rec-extra-fee');
+  const effectiveRateEl = document.getElementById('rec-effective-rate');
+  const smsAllowanceEl = document.getElementById('rec-sms-allowance');
+
+  function calculateCheapestPlan(minutes, concurrency) {
+    // Plans: PAYG (1 call), Core (2 calls), Growth (4 calls), Command (8 calls)
+    const candidates = [
+      { id: 'payg', name: 'Pay As You Go', minConc: 1, base: 59, inc: 0, sms: '$0.035 each' },
+      { id: 'core', name: 'Core', minConc: 2, base: 293, inc: 500, sms: 'Up to 600 texts' },
+      { id: 'growth', name: 'Growth', minConc: 4, base: 563, inc: 1000, sms: 'Up to 1,500 texts' },
+      { id: 'command', name: 'Command', minConc: 8, base: 1292, inc: 2500, sms: 'Up to 3,500 texts' },
+    ];
+
+    // Filter by concurrency
+    const eligible = candidates.filter(c => c.minConc >= concurrency);
+
+    let best = null;
+    let minCost = Infinity;
+
+    eligible.forEach(plan => {
+      const extraMin = Math.max(0, minutes - plan.inc);
+      const cost = plan.base + (extraMin * 0.60);
+      if (cost < minCost) {
+        minCost = cost;
+        best = { plan, cost, extraMin, extraCost: extraMin * 0.60 };
+      }
+    });
+
+    return best || { plan: candidates[3], cost: 1292, extraMin: 0, extraCost: 0 };
+  }
+
+  function render() {
+    const result = calculateCheapestPlan(totalBilledMinutes, selectedConcurrency);
+
+    if (planNameEl) planNameEl.textContent = result.plan.name;
+    if (planCostEl) planCostEl.innerHTML = `$${Math.round(result.cost)} <span class="text-xs text-slate font-mono font-normal">/ month est.</span>`;
+    if (baseFeeEl) baseFeeEl.textContent = `$${result.plan.base}`;
+    if (extraFeeEl) extraFeeEl.textContent = result.extraMin > 0 ? `$${Math.round(result.extraCost)} (${result.extraMin} mins @ $0.60)` : '$0 (Within allowance)';
+    if (effectiveRateEl) {
+      const rate = totalBilledMinutes > 0 ? (result.cost / totalBilledMinutes).toFixed(3) : '0.600';
+      effectiveRateEl.textContent = `$${rate} / min`;
+    }
+    if (smsAllowanceEl) smsAllowanceEl.textContent = result.plan.sms;
+
+    // ROI Calculations
+    if (activeTab === 'roi') {
+      if (roiBox) roiBox.classList.remove('hidden');
+      const jobsSaved = roiMissed * 30 * 0.15;
+      const extraRev = jobsSaved * roiTicket;
+      const extraProfit = extraRev * roiMargin;
+      const net = extraProfit - result.cost;
+
+      if (roiProfitEl) roiProfitEl.textContent = `+$${Math.round(extraProfit).toLocaleString()}`;
+      if (roiDeskCostEl) roiDeskCostEl.textContent = `-$${Math.round(result.cost).toLocaleString()}`;
+      
+      if (roiNetEl) {
+        if (net >= 0) {
+          roiNetEl.textContent = `+$${Math.round(net).toLocaleString()}`;
+          roiNetEl.className = 'text-emerald-700 tabular';
+          if (roiWarningEl) roiWarningEl.classList.add('hidden');
+        } else {
+          roiNetEl.textContent = `-$${Math.abs(Math.round(net)).toLocaleString()}`;
+          roiNetEl.className = 'text-warning tabular';
+          if (roiWarningEl) roiWarningEl.classList.remove('hidden');
+        }
+      }
+    } else {
+      if (roiBox) roiBox.classList.add('hidden');
+    }
+  }
+
+  // Switch tabs
+  function setTab(tab) {
+    activeTab = tab;
+    [tabBtnMin, tabBtnConc, tabBtnRoi].forEach(b => {
+      b?.classList.remove('bg-deep-green', 'text-white', 'shadow-xs');
+      b?.classList.add('text-slate');
+    });
+
+    [viewMin, viewConc, viewRoi].forEach(v => v?.classList.add('hidden'));
+
+    if (tab === 'minutes') {
+      tabBtnMin?.classList.add('bg-deep-green', 'text-white', 'shadow-xs');
+      tabBtnMin?.classList.remove('text-slate');
+      viewMin?.classList.remove('hidden');
+    } else if (tab === 'concurrency') {
+      tabBtnConc?.classList.add('bg-deep-green', 'text-white', 'shadow-xs');
+      tabBtnConc?.classList.remove('text-slate');
+      viewConc?.classList.remove('hidden');
+    } else if (tab === 'roi') {
+      tabBtnRoi?.classList.add('bg-deep-green', 'text-white', 'shadow-xs');
+      tabBtnRoi?.classList.remove('text-slate');
+      viewRoi?.classList.remove('hidden');
+      totalBilledMinutes = roiMissed * 30 * 4;
+    }
+    render();
+  }
+
+  tabBtnMin?.addEventListener('click', () => setTab('minutes'));
+  tabBtnConc?.addEventListener('click', () => setTab('concurrency'));
+  tabBtnRoi?.addEventListener('click', () => setTab('roi'));
+
+  // Slider change
+  slider?.addEventListener('input', (e) => {
+    const val = parseFloat(e.target.value);
+    if (modeCalls?.checked) {
+      // Input is calls per day
+      totalBilledMinutes = Math.round(val * 30 * 4);
+      if (sliderDisplay) sliderDisplay.textContent = `${val} calls/day (${totalBilledMinutes} mins)`;
+    } else {
+      totalBilledMinutes = val;
+      if (sliderDisplay) sliderDisplay.textContent = `${val} mins`;
+    }
+    render();
+  });
+
+  modeMinutes?.addEventListener('change', () => {
+    if (slider) {
+      slider.min = "20";
+      slider.max = "3500";
+      slider.step = "20";
+      slider.value = "600";
+      totalBilledMinutes = 600;
+      if (sliderLabel) sliderLabel.textContent = "Total Monthly Billed Minutes";
+      if (sliderDisplay) sliderDisplay.textContent = "600 mins";
+      render();
+    }
+  });
+
+  modeCalls?.addEventListener('change', () => {
+    if (slider) {
+      slider.min = "1";
+      slider.max = "30";
+      slider.step = "1";
+      slider.value = "5";
+      totalBilledMinutes = 5 * 30 * 4; // 600
+      if (sliderLabel) sliderLabel.textContent = "Inbound Calls per Day (4 min pulse)";
+      if (sliderDisplay) sliderDisplay.textContent = "5 calls/day (600 mins)";
+      render();
+    }
+  });
+
+  // Concurrency buttons
+  concButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      concButtons.forEach(b => {
+        b.classList.remove('bg-deep-green', 'text-white');
+        b.classList.add('bg-paper', 'text-ink-deep');
+      });
+      btn.classList.add('bg-deep-green', 'text-white');
+      btn.classList.remove('bg-paper', 'text-ink-deep');
+
+      selectedConcurrency = parseInt(btn.getAttribute('data-concurrency') || '1', 10);
+      if (concExplanation) {
+        concExplanation.textContent = `Covered: Up to ${selectedConcurrency} calls at the exact same moment. Extra callers receive instant SMS holding.`;
+      }
+      render();
+    });
+  });
+
+  // ROI inputs
+  roiMissedSlider?.addEventListener('input', (e) => {
+    roiMissed = parseFloat(e.target.value);
+    if (roiMissedDisplay) roiMissedDisplay.textContent = `${roiMissed} calls / day`;
+    totalBilledMinutes = Math.round(roiMissed * 30 * 4);
+    render();
+  });
+
+  roiTicketSlider?.addEventListener('input', (e) => {
+    roiTicket = parseFloat(e.target.value);
+    if (roiTicketDisplay) roiTicketDisplay.textContent = `$${roiTicket.toLocaleString()}`;
+    render();
+  });
+
+  roiMarginSlider?.addEventListener('input', (e) => {
+    roiMargin = parseFloat(e.target.value) / 100;
+    if (roiMarginDisplay) roiMarginDisplay.textContent = `${e.target.value}%`;
+    render();
+  });
+
+  render();
+</script>
