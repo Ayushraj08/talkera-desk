@@ -62,9 +62,10 @@ const faqSchema = {
       <div class="space-y-4" id="faq-list">
         {faqs.map((faq, index) => (
           <details
+            name="faq-accordion"
             data-category={faq.category}
             class="faq-item group bg-paper border border-sky-blue rounded-2xl p-6 shadow-2xs open:border-deep-green/60 open:bg-white transition-all"
-            open={index < 3}
+            open={index === 0}
           >
             <summary class="font-heading font-bold text-base sm:text-lg text-ink-deep cursor-pointer flex items-center justify-between select-none group-hover:text-deep-green">
               <span>{faq.question}</span>
@@ -90,8 +91,9 @@ const faqSchema = {
 
 <script>
   const filterBtns = document.querySelectorAll('.faq-filter-btn');
-  const items = document.querySelectorAll('.faq-item');
+  const items = document.querySelectorAll<HTMLDetailsElement>('.faq-item');
 
+  // Filter tabs
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       const selected = btn.getAttribute('data-cat');
@@ -107,6 +109,19 @@ const faqSchema = {
           item.classList.add('hidden');
         }
       });
+    });
+  });
+
+  // Exclusive Accordion behavior: closing other FAQs when one is opened
+  items.forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        items.forEach((other) => {
+          if (other !== detail && other.open) {
+            other.open = false;
+          }
+        });
+      }
     });
   });
 </script>

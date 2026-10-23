@@ -298,16 +298,28 @@ import pricing from '@content/pricing.json';
   const effectiveRateEl = document.getElementById('rec-effective-rate');
   const smsAllowanceEl = document.getElementById('rec-sms-allowance');
 
-  function calculateCheapestPlan(minutes, concurrency) {
-    // Plans: PAYG (1 call), Core (2 calls), Growth (4 calls), Command (8 calls)
-    const candidates = [
-      { id: 'payg', name: 'Pay As You Go', minConc: 1, base: 59, inc: 0, sms: '$0.035 each' },
-      { id: 'core', name: 'Core', minConc: 2, base: 293, inc: 500, sms: 'Up to 600 texts' },
-      { id: 'growth', name: 'Growth', minConc: 4, base: 563, inc: 1000, sms: 'Up to 1,500 texts' },
-      { id: 'command', name: 'Command', minConc: 8, base: 1292, inc: 2500, sms: 'Up to 3,500 texts' },
-    ];
+  const candidates = [
+    { id: 'payg', name: 'Pay As You Go', minConc: 1, base: 59, inc: 0, effectiveRate: '0.600', sms: '$0.035 each' },
+    { id: 'core', name: 'Core', minConc: 2, base: 293, inc: 500, effectiveRate: '0.586', sms: 'Up to 600 texts' },
+    { id: 'growth', name: 'Growth', minConc: 4, base: 563, inc: 1000, effectiveRate: '0.563', sms: 'Up to 1,500 texts' },
+    { id: 'command', name: 'Command', minConc: 8, base: 1292, inc: 2500, effectiveRate: '0.517', sms: 'Up to 3,500 texts' },
+  ];
 
-    // Filter by concurrency
+  function calculateCheapestPlan(minutes, concurrency) {
+    if (activeTab === 'concurrency') {
+      // In Concurrency tab, match the selected concurrency plan directly
+      const match = candidates.find(c => c.minConc === concurrency) || candidates[1];
+      return {
+        plan: match,
+        cost: match.base,
+        extraMin: 0,
+        extraCost: 0,
+        effectiveRate: match.effectiveRate,
+        extraText: match.id === 'payg' ? '$0.60 / min as used' : '$0 (Within allowance)'
+      };
+    }
+
+    // Filter by concurrency for Minutes or ROI tabs
     const eligible = candidates.filter(c => c.minConc >= concurrency);
 
     let best = null;
@@ -315,14 +327,33 @@ import pricing from '@content/pricing.json';
 
     eligible.forEach(plan => {
       const extraMin = Math.max(0, minutes - plan.inc);
-      const cost = plan.base + (extraMin * 0.60);
+      const extraCost = extraMin * 0.60;
+      const cost = plan.base + extraCost;
       if (cost < minCost) {
         minCost = cost;
-        best = { plan, cost, extraMin, extraCost: extraMin * 0.60 };
+        let rateStr = plan.effectiveRate;
+        if (extraMin > 0 && minutes > 0) {
+          rateStr = (cost / minutes).toFixed(3);
+        }
+        best = {
+          plan,
+          cost,
+          extraMin,
+          extraCost,
+          effectiveRate: rateStr,
+          extraText: extraMin > 0 ? `$${Math.round(extraCost)} (${extraMin} mins @ $0.60)` : (plan.id === 'payg' ? '$0.60 / min as used' : '$0 (Within allowance)')
+        };
       }
     });
 
-    return best || { plan: candidates[3], cost: 1292, extraMin: 0, extraCost: 0 };
+    return best || {
+      plan: candidates[2],
+      cost: 563,
+      extraMin: 0,
+      extraCost: 0,
+      effectiveRate: '0.563',
+      extraText: '$0 (Within allowance)'
+    };
   }
 
   function render() {
@@ -331,10 +362,9 @@ import pricing from '@content/pricing.json';
     if (planNameEl) planNameEl.textContent = result.plan.name;
     if (planCostEl) planCostEl.innerHTML = `$${Math.round(result.cost)} <span class="text-xs text-slate font-mono font-normal">/ month est.</span>`;
     if (baseFeeEl) baseFeeEl.textContent = `$${result.plan.base}`;
-    if (extraFeeEl) extraFeeEl.textContent = result.extraMin > 0 ? `$${Math.round(result.extraCost)} (${result.extraMin} mins @ $0.60)` : '$0 (Within allowance)';
+    if (extraFeeEl) extraFeeEl.textContent = result.extraText;
     if (effectiveRateEl) {
-      const rate = totalBilledMinutes > 0 ? (result.cost / totalBilledMinutes).toFixed(3) : '0.600';
-      effectiveRateEl.textContent = `$${rate} / min`;
+      effectiveRateEl.textContent = `$${result.effectiveRate} / min`;
     }
     if (smsAllowanceEl) smsAllowanceEl.textContent = result.plan.sms;
 

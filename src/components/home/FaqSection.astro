@@ -18,10 +18,11 @@ import faqs from '@content/faq.json';
     </div>
 
     <!-- Accordion / Question Cards -->
-    <div class="space-y-4">
+    <div class="space-y-4" id="home-faq-list">
       {faqs.map((faq, index) => (
         <details
-          class="group bg-white border border-sky-blue rounded-2xl p-6 shadow-2xs open:border-deep-green/60 transition-colors"
+          name="home-faq-accordion"
+          class="home-faq-item group bg-white border border-sky-blue rounded-2xl p-6 shadow-2xs open:border-deep-green/60 transition-colors"
           open={index === 0}
         >
           <summary class="font-heading font-bold text-base sm:text-lg text-ink-deep cursor-pointer flex items-center justify-between select-none group-hover:text-deep-green">
@@ -39,3 +40,18 @@ import faqs from '@content/faq.json';
 
   </div>
 </section>
+
+<script>
+  const homeFaqs = document.querySelectorAll<HTMLDetailsElement>('details.home-faq-item');
+  homeFaqs.forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        homeFaqs.forEach((other) => {
+          if (other !== detail && other.open) {
+            other.open = false;
+          }
+        });
+      }
+    });
+  });
+</script>
