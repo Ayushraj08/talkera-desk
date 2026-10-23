@@ -25,36 +25,74 @@ import site from '@content/site.json';
         </p>
       </div>
 
-      <!-- Founder & Team Block -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start my-16">
-        <div class="lg:col-span-5 p-8 rounded-panel bg-paper border border-sky-blue flex flex-col justify-between">
-          <div>
-            <img
-              src="/images/ayush-raj.jpg"
-              alt="Ayush Raj - Founder & Lead Engineer, DRUVA GROUP"
-              class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover object-top shadow-sm mb-4 border-2 border-white ring-2 ring-deep-green/20"
-              loading="lazy"
-            />
-            <h2 class="font-heading font-extrabold text-2xl text-ink-deep">Ayush Raj</h2>
-            <div class="text-xs font-mono text-brand-green font-bold mt-0.5">Proprietor & Lead Engineer</div>
-            <p class="text-xs text-slate mt-4 leading-relaxed">
-              Based in India, Ayush leads engineering, systems integration, and voice model calibration for DRUVA GROUP. Our remote technical team operates from Kolkata and other regional hubs.
-            </p>
-          </div>
-          <div class="pt-6 border-t border-sky-blue/70 mt-6 text-xs font-mono text-slate">
-            <div>Contact: <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline">{site.supportEmail}</a></div>
-            <div class="mt-1">WhatsApp: {site.whatsappFormatted}</div>
-          </div>
-        </div>
+      <!-- Founder & Team Block (Double-Bezel Mercury Container) -->
+      <div class="mercury-shell-light my-16">
+        <div class="mercury-inner bg-paper border border-sky-blue p-8 sm:p-12">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+            
+            <!-- Left Column: Founder Portrait & Identity (stretches full height) -->
+            <div class="lg:col-span-5 flex flex-col justify-between h-full">
+              <div>
+                <img
+                  src="/images/ayush-raj.jpg"
+                  alt="Ayush Raj - Founder & Lead Engineer, DRUVA GROUP"
+                  class="w-44 h-44 sm:w-52 sm:h-52 rounded-3xl object-cover object-top shadow-md mb-5 border-2 border-white ring-2 ring-deep-green/20"
+                  loading="lazy"
+                />
+                <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-ink-deep tracking-tight">Ayush Raj</h2>
+                <div class="text-xs font-mono text-brand-green font-bold mt-1">Proprietor & Lead Engineer</div>
+                <p class="text-xs sm:text-sm text-slate mt-4 leading-relaxed">
+                  Based in India, Ayush leads engineering, systems integration, and voice model calibration for DRUVA GROUP from our operational base in Kolkata.
+                </p>
+              </div>
 
-        <div class="lg:col-span-7 space-y-6 text-sm text-slate leading-relaxed">
-          <h3 class="font-heading font-bold text-2xl text-ink-deep">Why we do not pretend to be a Silicon Valley office</h3>
-          <p>
-            Many AI voice companies set up Delaware shell addresses while outsourcing their configuration to unvetted contractors. We do the exact opposite: we state our identity, our Indian registration, and our physical roots clearly on every page.
-          </p>
-          <p>
-            When you partner with Talkera Desk, you work directly with the engineers building your prompts, monitoring your webhook latency, and auditing your call transcripts. You get high-touch craftsmanship, 24/7 coverage across all US, Canadian, UK, European, and Australian time zones, and transparent rates starting at $59 a month.
-          </p>
+              <!-- Contact & Direct Details (Pinned to bottom) -->
+              <div class="pt-6 border-t border-sky-blue/70 mt-8 font-mono text-xs text-slate space-y-1.5">
+                <div>Contact: <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline font-semibold">{site.supportEmail}</a></div>
+                <div>WhatsApp: <span class="font-semibold text-ink">{site.whatsappFormatted}</span></div>
+              </div>
+            </div>
+
+            <!-- Right Column: Editorial Transparency & Registered Base (stretches full height) -->
+            <div class="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
+              <div>
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-deep-green/10 text-deep-green text-xs font-mono font-bold mb-3">
+                  Direct Engineering & Physical Roots
+                </div>
+                <h3 class="font-heading font-bold text-2xl sm:text-3xl text-ink-deep tracking-tight leading-snug mb-4">
+                  Why we do not pretend to be a Silicon Valley office
+                </h3>
+                <div class="space-y-4 text-xs sm:text-sm text-slate leading-relaxed">
+                  <p>
+                    Many AI voice companies set up Delaware shell addresses while outsourcing their configuration to unvetted contractors. We do the exact opposite: we state our identity, our Indian registration, and our physical roots clearly on every page.
+                  </p>
+                  <p>
+                    When you partner with Talkera Desk, you work directly with the engineers building your prompts, monitoring your webhook latency, and auditing your call transcripts. You get high-touch craftsmanship, 24/7 coverage across all US, Canadian, UK, European, and Australian time zones, and transparent rates starting at $59 a month.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Operational Base & Verification Banner (Bottom aligned flush with left column contact block) -->
+              <div class="pt-6 border-t border-sky-blue/70">
+                <div class="p-4 rounded-xl bg-white border border-sky-blue shadow-2xs font-mono text-xs">
+                  <span class="text-gray-400 block text-[10px] uppercase font-bold tracking-wider mb-1">Operational Base (Udyam Registered)</span>
+                  <div class="text-ink-deep font-medium text-[11px] leading-relaxed">
+                    {site.teamLocations}
+                  </div>
+                  <div class="mt-2.5 pt-2 border-t border-gray-100 flex flex-wrap items-center gap-3 text-[11px]">
+                    <a href={site.udyamVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-deep-green underline font-semibold">
+                      Verify Udyam ({site.udyamNumber}) &rarr;
+                    </a>
+                    <span class="text-gray-300">&bull;</span>
+                    <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-deep-green underline font-semibold">
+                      Verify GSTIN ({site.gstin}) &rarr;
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
