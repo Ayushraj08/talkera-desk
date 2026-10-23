@@ -14,7 +14,7 @@
   {
     "id": "faq-3",
     "question": "How many calls can the agent handle at the same time?",
-    "answer": "Pay As You Go handles 1 call at a time, Core up to 2, Growth up to 4, and Command up to 8 simultaneous calls. Each call is greeted by its own dedicated agent instance, eliminating busy signals for your customers.",
+    "answer": "Pay As You Go handles 1 call at a time, Core 2 calls, Growth 5 calls, and Command 8 simultaneous calls. Each call is greeted by its own dedicated agent instance, eliminating busy signals for your customers.",
     "category": "Capacity"
   },
   {
