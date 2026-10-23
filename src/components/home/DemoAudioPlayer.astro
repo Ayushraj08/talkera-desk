@@ -23,19 +23,19 @@ import demos from '@content/demos.json';
       <!-- Trade Filter -->
       <div class="flex flex-wrap items-center gap-2">
         <span class="text-xs font-mono font-bold text-slate uppercase mr-2">Trade:</span>
-        <button type="button" data-filter-type="trade" data-filter-val="all" class="filter-btn active-filter px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-deep-green text-white border-deep-green">
+        <button type="button" data-filter-type="trade" data-filter-val="all" class="trade-filter-btn filter-pill is-active px-3.5 py-1.5 rounded-full text-xs font-semibold border">
           All Trades
         </button>
-        <button type="button" data-filter-type="trade" data-filter-val="Restoration" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+        <button type="button" data-filter-type="trade" data-filter-val="Restoration" class="trade-filter-btn filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold border">
           Restoration
         </button>
-        <button type="button" data-filter-type="trade" data-filter-val="Plumbing" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+        <button type="button" data-filter-type="trade" data-filter-val="Plumbing" class="trade-filter-btn filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold border">
           Plumbing
         </button>
-        <button type="button" data-filter-type="trade" data-filter-val="HVAC" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+        <button type="button" data-filter-type="trade" data-filter-val="HVAC" class="trade-filter-btn filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold border">
           HVAC
         </button>
-        <button type="button" data-filter-type="trade" data-filter-val="Electrical" class="filter-btn px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+        <button type="button" data-filter-type="trade" data-filter-val="Electrical" class="trade-filter-btn filter-pill px-3.5 py-1.5 rounded-full text-xs font-semibold border">
           Electrical
         </button>
       </div>
@@ -43,19 +43,19 @@ import demos from '@content/demos.json';
       <!-- Accent Filter -->
       <div class="flex flex-wrap items-center gap-2">
         <span class="text-xs font-mono font-bold text-slate uppercase mr-2">Accent:</span>
-        <button type="button" data-filter-type="accent" data-filter-val="all" class="filter-btn active-filter-accent px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-deep-green text-white border-deep-green">
+        <button type="button" data-filter-type="accent" data-filter-val="all" class="accent-filter-btn filter-pill is-active px-3 py-1 rounded-full text-xs font-semibold border">
           All Accents
         </button>
-        <button type="button" data-filter-type="accent" data-filter-val="US" class="filter-btn px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+        <button type="button" data-filter-type="accent" data-filter-val="US" class="accent-filter-btn filter-pill px-3 py-1 rounded-full text-xs font-semibold border">
           US
         </button>
-        <button type="button" data-filter-type="accent" data-filter-val="UK" class="filter-btn px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+        <button type="button" data-filter-type="accent" data-filter-val="UK" class="accent-filter-btn filter-pill px-3 py-1 rounded-full text-xs font-semibold border">
           UK
         </button>
-        <button type="button" data-filter-type="accent" data-filter-val="Canada" class="filter-btn px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+        <button type="button" data-filter-type="accent" data-filter-val="Canada" class="accent-filter-btn filter-pill px-3 py-1 rounded-full text-xs font-semibold border">
           Canada
         </button>
-        <button type="button" data-filter-type="accent" data-filter-val="AU" class="filter-btn px-3 py-1 rounded-full text-xs font-semibold border transition-all bg-paper text-ink border-sky-blue hover:bg-light-blue">
+        <button type="button" data-filter-type="accent" data-filter-val="AU" class="accent-filter-btn filter-pill px-3 py-1 rounded-full text-xs font-semibold border">
           Australia
         </button>
       </div>
@@ -200,12 +200,8 @@ import demos from '@content/demos.json';
 
   tradeBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      tradeBtns.forEach((b) => {
-        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green');
-        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue');
-      });
-      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green');
-      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue');
+      tradeBtns.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
       activeTrade = btn.getAttribute('data-filter-val') || 'all';
       applyFilters();
     });
@@ -213,12 +209,8 @@ import demos from '@content/demos.json';
 
   accentBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      accentBtns.forEach((b) => {
-        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green');
-        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue');
-      });
-      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green');
-      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue');
+      accentBtns.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
       activeAccent = btn.getAttribute('data-filter-val') || 'all';
       applyFilters();
     });

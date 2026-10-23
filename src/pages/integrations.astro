@@ -35,10 +35,8 @@ const categories = ["All", ...Array.from(new Set(allTools.map(t => t.category)))
           <button
             type="button"
             data-category={cat}
-            class={`tool-filter-btn px-4 py-2 rounded-full text-xs font-mono font-semibold border transition-all ${
-              idx === 0
-                ? 'bg-deep-green text-white border-deep-green shadow-xs'
-                : 'bg-paper text-ink border-sky-blue hover:bg-light-blue'
+            class={`tool-filter-btn filter-pill px-4 py-2 rounded-full text-xs font-mono font-semibold border ${
+              idx === 0 ? 'is-active' : ''
             }`}
           >
             {cat}
@@ -113,12 +111,8 @@ const categories = ["All", ...Array.from(new Set(allTools.map(t => t.category)))
     btn.addEventListener('click', () => {
       const selected = btn.getAttribute('data-category');
       
-      filterBtns.forEach(b => {
-        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-xs');
-        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue');
-      });
-      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-xs');
-      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue');
+      filterBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
 
       cards.forEach((card) => {
         const cat = card.getAttribute('data-cat');

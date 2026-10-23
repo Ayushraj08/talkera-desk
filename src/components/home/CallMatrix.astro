@@ -33,8 +33,8 @@ import scenarios from '@content/scenarios.json';
             data-scenario-index={index}
             class={`scenario-tab-btn w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between group ${
               index === 0
-                ? 'bg-deep-green text-white border-deep-green shadow-md'
-                : 'bg-paper text-ink border-sky-blue/70 hover:border-brand-green/50 hover:bg-light-blue/40'
+                ? 'bg-deep-green text-white border-deep-green shadow-md hover:bg-brand-green'
+                : 'bg-paper text-ink border-sky-blue/70 hover:border-brand-green hover:bg-white'
             }`}
           >
             <div>
@@ -213,11 +213,11 @@ import scenarios from '@content/scenarios.json';
 
       // Update button styling
       tabBtns.forEach((b) => {
-        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-md');
-        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue/70');
+        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-md', 'hover:bg-brand-green');
+        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue/70', 'hover:border-brand-green', 'hover:bg-white');
       });
-      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-md');
-      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue/70');
+      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-md', 'hover:bg-brand-green');
+      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue/70', 'hover:border-brand-green', 'hover:bg-white');
 
       // Update workbench content
       if (wbName) wbName.textContent = sc.name;

@@ -129,20 +129,21 @@ import stats from '@content/stats.json';
             <div>
               <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
                 <span>Missed Inbound Calls per Week</span>
-                <span class="font-mono text-sm px-2 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-missed-display">7 calls</span>
+                <span class="font-mono text-sm px-2 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-missed-display">35 calls/wk</span>
               </div>
               <input
                 id="input-missed-calls"
                 type="range"
                 min="1"
-                max="35"
-                value="7"
+                max="140"
+                value="35"
                 class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
               />
               <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
                 <span>1/wk</span>
-                <span>15/wk</span>
                 <span>35/wk</span>
+                <span>70/wk</span>
+                <span>140/wk</span>
               </div>
             </div>
 
@@ -150,19 +151,20 @@ import stats from '@content/stats.json';
             <div>
               <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
                 <span>Average Job Ticket Value ($)</span>
-                <span class="font-mono text-sm px-2 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-ticket-display">$450</span>
+                <span class="font-mono text-sm px-2 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-ticket-display">$230</span>
               </div>
               <input
                 id="input-ticket-value"
                 type="range"
-                min="150"
+                min="50"
                 max="3500"
-                step="50"
-                value="450"
+                step="10"
+                value="230"
                 class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
               />
               <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
                 <span>$150 (Service)</span>
+                <span>$450 (Standard)</span>
                 <span>$1,500 (HVAC)</span>
                 <span>$3,500 (Restoration)</span>
               </div>
@@ -188,24 +190,24 @@ import stats from '@content/stats.json';
                 Estimated Monthly Recovered Pipeline
               </div>
               <div class="text-4xl sm:text-5xl font-extrabold font-heading text-deep-green tracking-tight tabular my-2" id="res-monthly-recovered">
-                $2,025
+                $5,198
               </div>
               <div class="text-xs text-slate font-medium mb-6">
-                Based on <span class="font-bold text-ink" id="res-jobs-saved">4.5 extra booked jobs</span> / month.
+                Based on <span class="font-bold text-ink" id="res-jobs-saved">22.6 extra booked jobs</span> / month.
               </div>
 
               <div class="space-y-2.5 py-4 border-t border-b border-sky-blue/70 text-xs text-slate font-mono">
                 <div class="flex justify-between">
                   <span>Monthly Inbound:</span>
-                  <span class="text-ink font-semibold tabular" id="res-monthly-calls">30 calls</span>
+                  <span class="text-ink font-semibold tabular" id="res-monthly-calls">151 calls</span>
                 </div>
                 <div class="flex justify-between">
                   <span>Booking Floor (15%):</span>
-                  <span class="text-ink font-semibold tabular" id="res-calc-floor">4.5 jobs</span>
+                  <span class="text-ink font-semibold tabular" id="res-calc-floor">22.6 jobs</span>
                 </div>
                 <div class="flex justify-between">
                   <span>Annualized Impact:</span>
-                  <span class="text-brand-green font-bold tabular" id="res-annual-impact">$24,300 / yr</span>
+                  <span class="text-brand-green font-bold tabular" id="res-annual-impact">$62,376 / yr</span>
                 </div>
               </div>
             </div>

@@ -27,8 +27,8 @@ import updates from '@content/updates.json';
             data-step-idx={idx}
             class={`phone-timeline-btn px-4 py-2 rounded-full text-xs font-bold font-mono transition-all flex items-center gap-1.5 ${
               idx === 0
-                ? 'bg-deep-green text-white shadow-sm'
-                : 'text-slate hover:text-ink-deep hover:bg-light-blue/50'
+                ? 'bg-deep-green text-white shadow-sm hover:bg-brand-green'
+                : 'text-slate hover:text-deep-green hover:bg-white hover:shadow-2xs'
             }`}
           >
             <span class="w-2 h-2 rounded-full bg-lime-accent group-[.bg-deep-green]:bg-lime-accent"></span>
@@ -217,11 +217,11 @@ import updates from '@content/updates.json';
       if (!data) return;
 
       timelineBtns.forEach((b) => {
-        b.classList.remove('bg-deep-green', 'text-white', 'shadow-sm');
-        b.classList.add('text-slate');
+        b.classList.remove('bg-deep-green', 'text-white', 'shadow-sm', 'hover:bg-brand-green');
+        b.classList.add('text-slate', 'hover:text-deep-green', 'hover:bg-white', 'hover:shadow-2xs');
       });
-      btn.classList.add('bg-deep-green', 'text-white', 'shadow-sm');
-      btn.classList.remove('text-slate');
+      btn.classList.add('bg-deep-green', 'text-white', 'shadow-sm', 'hover:bg-brand-green');
+      btn.classList.remove('text-slate', 'hover:text-deep-green', 'hover:bg-white', 'hover:shadow-2xs');
 
       if (phoneATime) phoneATime.textContent = `Today ${data.callerMessage.time}`;
       if (phoneAText) phoneAText.textContent = data.callerMessage.text;

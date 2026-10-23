@@ -49,10 +49,8 @@ const faqSchema = {
           <button
             type="button"
             data-cat={cat}
-            class={`faq-filter-btn px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold border transition-all ${
-              idx === 0
-                ? 'bg-deep-green text-white border-deep-green shadow-xs'
-                : 'bg-paper text-ink border-sky-blue hover:bg-light-blue'
+            class={`faq-filter-btn filter-pill px-3.5 py-1.5 rounded-full text-xs font-mono font-semibold border ${
+              idx === 0 ? 'is-active' : ''
             }`}
           >
             {cat}
@@ -98,12 +96,8 @@ const faqSchema = {
     btn.addEventListener('click', () => {
       const selected = btn.getAttribute('data-cat');
       
-      filterBtns.forEach(b => {
-        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-xs');
-        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue');
-      });
-      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-xs');
-      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue');
+      filterBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
 
       items.forEach((item) => {
         const cat = item.getAttribute('data-category');

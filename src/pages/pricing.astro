@@ -26,7 +26,7 @@ import pricing from '@content/pricing.json';
           {pricing.datedSentence}
         </p>
         <p class="text-xs text-gray-500 font-mono mt-2">
-          Exchange rate benchmark: 1 USD = ₹{pricing.usdToInr}. Zero card surcharges. Zero GST charged on export of services.
+          Zero card surcharges. Zero GST charged on international exports under valid LUT.
         </p>
       </div>
 
@@ -36,8 +36,8 @@ import pricing from '@content/pricing.json';
           <div
             class={`rounded-panel p-7 flex flex-col justify-between transition-all duration-300 relative ${
               pl.highlight
-                ? 'bg-deep-green text-white shadow-xl ring-2 ring-lime-accent'
-                : 'bg-paper text-ink border border-sky-blue shadow-tactile hover:-translate-y-1'
+                ? 'bg-deep-green text-white shadow-xl ring-2 ring-lime-accent hover:-translate-y-2 hover:shadow-2xl dark-glass-bezel'
+                : 'bg-paper text-ink border border-sky-blue shadow-tactile hover:-translate-y-2 hover:border-deep-green hover:shadow-xl glass-bezel'
             }`}
           >
             {pl.badge && (
@@ -54,45 +54,52 @@ import pricing from '@content/pricing.json';
                 <span class={`text-4xl font-extrabold font-heading tabular tracking-tight ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>
                   ${pl.monthlyFee}
                 </span>
-                <span class={`text-xs font-mono ${pl.highlight ? 'text-white/80' : 'text-slate'}`}>
-                  / mo (₹{(pl.monthlyFee * pricing.usdToInr).toLocaleString()})
+                <span class={`text-xs font-mono ${pl.highlight ? 'text-white' : 'text-slate'}`}>
+                  / month
                 </span>
               </div>
-              <p class={`text-xs mb-6 ${pl.highlight ? 'text-white/90' : 'text-slate'}`}>
+              <p class={`text-xs mb-6 ${pl.highlight ? 'text-white' : 'text-slate'}`}>
                 {pl.tagline}
               </p>
 
-              <!-- Detailed Metrics Spec Table -->
+              <!-- Detailed Metrics Spec Table (Left text, Right numbers strictly aligned) -->
               <div class={`space-y-2 py-4 border-t border-b text-xs font-mono mb-6 ${pl.highlight ? 'border-white/20' : 'border-sky-blue/60'}`}>
-                <div class="flex justify-between">
-                  <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Included Minutes:</span>
-                  <span class={`font-bold tabular ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.includedMin === 0 ? 'Pay as used' : `${pl.includedMin} mins`}</span>
+                <div class="flex justify-between items-baseline gap-2 py-0.5">
+                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Included Minutes:</span>
+                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.includedMin === 0 ? 'Pay as used' : `${pl.includedMin} mins`}</span>
                 </div>
-                <div class="flex justify-between">
-                  <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Effective Per-Min:</span>
-                  <span class={`font-bold tabular ${pl.highlight ? 'text-lime-accent' : 'text-brand-green'}`}>
+                <div class="flex justify-between items-baseline gap-2 py-0.5">
+                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Estimated Calls:</span>
+                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.estimatedCalls}</span>
+                </div>
+                <div class="flex justify-between items-baseline gap-2 py-0.5">
+                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Effective Per-Min:</span>
+                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-lime-accent' : 'text-brand-green'}`}>
                     {pl.includedMin === 0 ? '$0.600 / min' : `$${(pl.monthlyFee / pl.includedMin).toFixed(3)} / min`}
                   </span>
                 </div>
-                <div class="flex justify-between">
-                  <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Extra Minutes:</span>
-                  <span class={`font-bold tabular ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>$0.60 / min</span>
+                <div class="flex justify-between items-baseline gap-2 py-0.5">
+                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Extra Minutes:</span>
+                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>$0.60 / min</span>
                 </div>
-                <div class="flex justify-between">
-                  <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Calls At Once:</span>
-                  <span class={`font-bold tabular ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.concurrentCalls === 1 ? '1 call' : `Up to ${pl.concurrentCalls} calls`}</span>
+                <div class="flex justify-between items-baseline gap-2 py-0.5">
+                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Calls At Once:</span>
+                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.concurrentCalls === 1 ? '1 call' : `Up to ${pl.concurrentCalls} calls`}</span>
                 </div>
-                <div class="flex justify-between">
-                  <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Setup Fee (One-Time):</span>
-                  <span class={`font-bold tabular ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>${pl.setupFee} (₹{(pl.setupFee * pricing.usdToInr).toLocaleString()})</span>
+                <div class="flex justify-between items-baseline gap-2 py-0.5">
+                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Setup (One-Time):</span>
+                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>${pl.setupFee}</span>
                 </div>
-                <div class="flex justify-between">
-                  <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Included SMS:</span>
-                  <span class={`font-bold tabular ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.textModel}</span>
+                <div class="flex justify-between items-start gap-2 py-0.5">
+                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Included SMS:</span>
+                  <span class={`font-bold tabular text-right ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.textModel}</span>
                 </div>
-                <div class="flex justify-between">
-                  <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Audio Retention:</span>
-                  <span class={`font-bold tabular ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.retentionDays} days</span>
+                <div class="flex justify-between items-baseline gap-2 py-0.5">
+                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Audio Retention:</span>
+                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.retentionDays} days</span>
+                </div>
+                <div class={`text-[10px] pt-1.5 border-t ${pl.highlight ? 'border-white/10 text-white font-medium' : 'border-sky-blue/40 text-slate/80'} italic`}>
+                  * Calls estimated at ~3 mins average duration.
                 </div>
               </div>
 
@@ -111,7 +118,7 @@ import pricing from '@content/pricing.json';
               href={`mailto:support@talkeradesk.com?subject=Inquiry%20regarding%20Talkera%20Desk%20${encodeURIComponent(pl.name)}%20Plan`}
               class={`w-full py-3.5 px-4 rounded-full text-xs font-bold text-center transition-all ${
                 pl.highlight
-                  ? 'bg-lime-accent text-ink hover:bg-[#E5FAA0] shadow'
+                  ? 'bg-lime-accent text-ink-deep hover:bg-[#E5FAA0] shadow'
                   : 'bg-deep-green text-white hover:bg-brand-green'
               }`}
             >
@@ -144,7 +151,6 @@ import pricing from '@content/pricing.json';
               <tr>
                 <th class="py-4 px-6 text-left">Add-on Item</th>
                 <th class="py-4 px-6 text-left">US Dollar Rate</th>
-                <th class="py-4 px-6 text-left">INR Equivalent (@ ₹95)</th>
                 <th class="py-4 px-6 text-left">Description</th>
               </tr>
             </thead>
@@ -153,7 +159,6 @@ import pricing from '@content/pricing.json';
                 <tr class="hover:bg-light-blue/20 transition-colors">
                   <td class="py-4 px-6 font-bold text-ink-deep font-sans">{add.name}</td>
                   <td class="py-4 px-6 font-bold text-deep-green">{add.price}</td>
-                  <td class="py-4 px-6 text-gray-500">₹{add.priceInr.toLocaleString()}</td>
                   <td class="py-4 px-6 font-sans text-xs">{add.desc}</td>
                 </tr>
               ))}

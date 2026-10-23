@@ -99,21 +99,21 @@ import pricing from '@content/pricing.json';
               Maximum Simultaneous Callers (Peak Concurrency)
             </label>
             <div class="grid grid-cols-4 gap-3">
-              <button type="button" data-concurrency="1" class="conc-btn p-3 rounded-xl border border-sky-blue bg-paper text-center font-mono font-bold text-sm text-ink-deep hover:bg-light-blue transition-all">
-                1 Call
-                <span class="block text-[10px] text-slate font-normal mt-0.5">Pay As You Go</span>
+              <button type="button" data-concurrency="1" class="conc-btn conc-card p-3 rounded-xl text-center font-mono font-bold text-sm">
+                <span>1 Call</span>
+                <span class="block text-[10px] font-medium mt-0.5 conc-subtext">Pay As You Go</span>
               </button>
-              <button type="button" data-concurrency="2" class="conc-btn p-3 rounded-xl border border-deep-green bg-deep-green text-white text-center font-mono font-bold text-sm transition-all shadow-xs">
-                2 Calls
-                <span class="block text-[10px] text-lime-accent font-normal mt-0.5">Core</span>
+              <button type="button" data-concurrency="2" class="conc-btn conc-card is-active p-3 rounded-xl text-center font-mono font-bold text-sm">
+                <span>2 Calls</span>
+                <span class="block text-[10px] font-semibold mt-0.5 conc-subtext">Core</span>
               </button>
-              <button type="button" data-concurrency="4" class="conc-btn p-3 rounded-xl border border-sky-blue bg-paper text-center font-mono font-bold text-sm text-ink-deep hover:bg-light-blue transition-all">
-                4 Calls
-                <span class="block text-[10px] text-slate font-normal mt-0.5">Growth</span>
+              <button type="button" data-concurrency="4" class="conc-btn conc-card p-3 rounded-xl text-center font-mono font-bold text-sm">
+                <span>4 Calls</span>
+                <span class="block text-[10px] font-medium mt-0.5 conc-subtext">Growth</span>
               </button>
-              <button type="button" data-concurrency="8" class="conc-btn p-3 rounded-xl border border-sky-blue bg-paper text-center font-mono font-bold text-sm text-ink-deep hover:bg-light-blue transition-all">
-                8 Calls
-                <span class="block text-[10px] text-slate font-normal mt-0.5">Command</span>
+              <button type="button" data-concurrency="8" class="conc-btn conc-card p-3 rounded-xl text-center font-mono font-bold text-sm">
+                <span>8 Calls</span>
+                <span class="block text-[10px] font-medium mt-0.5 conc-subtext">Command</span>
               </button>
             </div>
           </div>
@@ -144,15 +144,15 @@ import pricing from '@content/pricing.json';
           <div>
             <div class="flex justify-between text-xs font-semibold text-ink-deep mb-1">
               <span>Average Job Ticket Value ($):</span>
-              <span class="font-mono text-deep-green font-bold tabular" id="roi-ticket-display">$400</span>
+              <span class="font-mono text-deep-green font-bold tabular" id="roi-ticket-display">$230</span>
             </div>
             <input
               id="roi-ticket-slider"
               type="range"
-              min="100"
-              max="2000"
-              step="50"
-              value="400"
+              min="50"
+              max="3500"
+              step="10"
+              value="230"
               class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
             />
           </div>
@@ -260,7 +260,7 @@ import pricing from '@content/pricing.json';
 
   // ROI Inputs
   let roiMissed = 5;
-  let roiTicket = 400;
+  let roiTicket = 230;
   let roiMargin = 0.30;
 
   // DOM Elements
@@ -439,12 +439,8 @@ import pricing from '@content/pricing.json';
   // Concurrency buttons
   concButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      concButtons.forEach(b => {
-        b.classList.remove('bg-deep-green', 'text-white');
-        b.classList.add('bg-paper', 'text-ink-deep');
-      });
-      btn.classList.add('bg-deep-green', 'text-white');
-      btn.classList.remove('bg-paper', 'text-ink-deep');
+      concButtons.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
 
       selectedConcurrency = parseInt(btn.getAttribute('data-concurrency') || '1', 10);
       if (concExplanation) {
