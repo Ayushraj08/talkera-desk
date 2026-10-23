@@ -238,8 +238,8 @@ const {
               <li><a href="/#founder" class="hover:text-white transition-colors">About DRUVA GROUP</a></li>
               <li><a href="/#faq" class="hover:text-white transition-colors">FAQ</a></li>
               <li><a href="/pricing#sla" class="hover:text-white transition-colors">72-Hour Fix Credit SLA</a></li>
-              <li><span class="text-gray-400">GSTIN: {site.gstin}</span></li>
-              <li><span class="text-gray-400">Udyam: {site.udyamNumber}</span></li>
+              <li><a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">GSTIN: {site.gstin} (Verify)</a></li>
+              <li><a href="https://udyamregistration.gov.in" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors">Udyam: {site.udyamNumber} (Verify)</a></li>
             </ul>
           </div>
         </div>
@@ -247,7 +247,7 @@ const {
         <!-- Bottom Line Legal Transparency -->
         <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p class="text-center md:text-left leading-relaxed max-w-2xl">
-            <strong class="text-gray-200">Talkera Desk</strong> is a brand of <strong class="text-gray-200">{site.enterpriseName}</strong>, a sole proprietorship registered in India (Udyam: <span class="font-mono text-gray-300">{site.udyamNumber}</span>, Active GSTIN: <span class="font-mono text-gray-300">{site.gstin}</span>). {site.teamLocations}
+            <strong class="text-gray-200">Talkera Desk</strong> is a brand of <strong class="text-gray-200">{site.enterpriseName}</strong>, a sole proprietorship registered in India (Udyam: <span class="font-mono text-gray-300">{site.udyamNumber}</span>, Active GSTIN: <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="font-mono text-gray-300 underline hover:text-white">{site.gstin}</a>). {site.teamLocations}
           </p>
           <div class="flex items-center gap-6">
             <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-lime-accent transition-colors">LinkedIn</a>

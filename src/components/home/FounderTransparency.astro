@@ -50,7 +50,7 @@ import site from '@content/site.json';
               <div class="p-3 rounded-xl bg-white border border-sky-blue">
                 <span class="text-gray-400 block text-[10px] uppercase">Active Issued GSTIN</span>
                 <span class="font-bold text-ink-deep">{site.gstin}</span>
-                <span class="block text-[11px] text-emerald-700 font-semibold mt-0.5">Active &bull; Verified Goods & Services Tax</span>
+                <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="block text-[11px] text-deep-green underline mt-0.5">Verify at GST Portal &rarr;</a>
               </div>
             </div>
 

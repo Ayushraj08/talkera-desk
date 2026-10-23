@@ -93,7 +93,10 @@ import site from '@content/site.json';
               </tr>
               <tr class="hover:bg-light-blue/20">
                 <td class="py-3.5 px-6 font-bold text-ink-deep">Active Issued GSTIN</td>
-                <td class="py-3.5 px-6 font-bold text-emerald-700">{site.gstin}</td>
+                <td class="py-3.5 px-6 font-bold text-emerald-700">
+                  <span>{site.gstin}</span>
+                  <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-deep-green underline font-normal text-xs ml-3">Verify at GST Portal &rarr;</a>
+                </td>
               </tr>
               <tr class="hover:bg-light-blue/20">
                 <td class="py-3.5 px-6 font-bold text-ink-deep">Date Business Commenced</td>
@@ -120,7 +123,7 @@ import site from '@content/site.json';
       <div class="my-16 p-8 rounded-panel bg-paper border border-sky-blue">
         <h3 class="font-heading font-bold text-xl text-ink-deep mb-2">Where we are heading: Private Limited Transition</h3>
         <p class="text-xs sm:text-sm text-slate leading-relaxed">
-          Talkera Desk operates today as a brand of DRUVA GROUP, a sole proprietorship. As our international client base grows, we plan to transfer operations into an Indian private limited company. When we execute this corporate transition, all clients will receive at least 30 days advance written notice with registration details. All active agreements, pricing, number setups, and data rights transfer seamlessly with zero interruption and zero cost. If any client prefers not to continue under the company entity, we provide a full prorated refund of any unused days.
+          Talkera Desk operates today as a brand of DRUVA GROUP, a sole proprietorship. As our international client base grows, we plan to transfer operations into an Indian private limited company. When we execute this corporate transition, all clients will receive at least 30 days advance written notice with registration details. All active agreements, pricing, number setups, and data rights transfer smoothly with zero interruption and zero cost. If any client prefers not to continue under the company entity, we provide a full prorated refund of any unused days.
         </p>
       </div>
 

@@ -1,5 +1,6 @@
 ---
 import tools from '@content/tools.json';
+import ToolLogo from '../common/ToolLogo.astro';
 ---
 
 <section id="tools" class="py-20 lg:py-24 bg-white border-b border-sky-blue/50 overflow-hidden">
@@ -21,8 +22,8 @@ import tools from '@content/tools.json';
       <!-- Original Row A Items -->
       {tools.rowA.map((tool) => (
         <div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-white border border-sky-blue shadow-2xs shrink-0">
-          <div class="w-7 h-7 rounded-lg bg-light-blue/80 text-deep-green flex items-center justify-center text-xs font-bold font-mono">
-            {tool.name.slice(0, 2).toUpperCase()}
+          <div class="w-8 h-8 rounded-lg bg-paper border border-sky-blue/80 flex items-center justify-center shrink-0 p-1 shadow-2xs">
+            <ToolLogo name={tool.name} className="w-5 h-5" />
           </div>
           <div>
             <div class="font-medium text-[15px] text-ink-deep leading-tight">{tool.name}</div>
@@ -37,8 +38,8 @@ import tools from '@content/tools.json';
       <!-- Duplicate Row A for Continuous Infinite Loop -->
       {tools.rowA.map((tool) => (
         <div aria-hidden="true" class="flex items-center gap-3 px-5 py-3 rounded-xl bg-white border border-sky-blue shadow-2xs shrink-0">
-          <div class="w-7 h-7 rounded-lg bg-light-blue/80 text-deep-green flex items-center justify-center text-xs font-bold font-mono">
-            {tool.name.slice(0, 2).toUpperCase()}
+          <div class="w-8 h-8 rounded-lg bg-paper border border-sky-blue/80 flex items-center justify-center shrink-0 p-1 shadow-2xs">
+            <ToolLogo name={tool.name} className="w-5 h-5" />
           </div>
           <div>
             <div class="font-medium text-[15px] text-ink-deep leading-tight">{tool.name}</div>
@@ -58,8 +59,8 @@ import tools from '@content/tools.json';
       <!-- Original Row B Items -->
       {tools.rowB.map((tool) => (
         <div class="flex items-center gap-3 px-5 py-3 rounded-xl bg-white border border-sky-blue shadow-2xs shrink-0">
-          <div class="w-7 h-7 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center text-xs font-bold font-mono">
-            {tool.name.slice(0, 2).toUpperCase()}
+          <div class="w-8 h-8 rounded-lg bg-paper border border-sky-blue/80 flex items-center justify-center shrink-0 p-1 shadow-2xs">
+            <ToolLogo name={tool.name} className="w-5 h-5" />
           </div>
           <div>
             <div class="font-medium text-[15px] text-ink-deep leading-tight">{tool.name}</div>
@@ -74,8 +75,8 @@ import tools from '@content/tools.json';
       <!-- Duplicate Row B for Continuous Infinite Loop -->
       {tools.rowB.map((tool) => (
         <div aria-hidden="true" class="flex items-center gap-3 px-5 py-3 rounded-xl bg-white border border-sky-blue shadow-2xs shrink-0">
-          <div class="w-7 h-7 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center text-xs font-bold font-mono">
-            {tool.name.slice(0, 2).toUpperCase()}
+          <div class="w-8 h-8 rounded-lg bg-paper border border-sky-blue/80 flex items-center justify-center shrink-0 p-1 shadow-2xs">
+            <ToolLogo name={tool.name} className="w-5 h-5" />
           </div>
           <div>
             <div class="font-medium text-[15px] text-ink-deep leading-tight">{tool.name}</div>

@@ -44,49 +44,49 @@ import pricing from '@content/pricing.json';
           )}
 
           <div>
-            <div class="text-xs font-mono uppercase tracking-wider mb-2 font-semibold text-brand-green group-[.bg-deep-green]:text-lime-accent">
+            <div class={`text-xs font-mono uppercase tracking-wider mb-2 font-semibold ${pl.highlight ? 'text-lime-accent' : 'text-brand-green'}`}>
               {pl.name}
             </div>
             <div class="flex items-baseline gap-1 my-3">
-              <span class="text-3xl sm:text-4xl font-extrabold font-heading tabular tracking-tight">
+              <span class={`text-3xl sm:text-4xl font-extrabold font-heading tabular tracking-tight ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>
                 ${pl.monthlyFee}
               </span>
-              <span class="text-xs text-slate group-[.bg-deep-green]:text-gray-300 font-mono">
+              <span class={`text-xs font-mono ${pl.highlight ? 'text-white/80' : 'text-slate'}`}>
                 / month
               </span>
             </div>
-            <p class="text-xs text-slate group-[.bg-deep-green]:text-gray-200 mb-6">
+            <p class={`text-xs mb-6 ${pl.highlight ? 'text-white/90' : 'text-slate'}`}>
               {pl.tagline}
             </p>
 
             <!-- Metrics Spec -->
-            <div class="space-y-2 py-4 border-t border-b border-sky-blue/60 group-[.bg-deep-green]:border-white/10 text-xs font-mono mb-6">
+            <div class={`space-y-2 py-4 border-t border-b text-xs font-mono mb-6 ${pl.highlight ? 'border-white/20' : 'border-sky-blue/60'}`}>
               <div class="flex justify-between">
-                <span class="text-slate group-[.bg-deep-green]:text-gray-300">Included Minutes:</span>
-                <span class="font-bold tabular">{pl.includedMin === 0 ? 'Pay as used' : `${pl.includedMin} mins`}</span>
+                <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Included Minutes:</span>
+                <span class={`font-bold tabular ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.includedMin === 0 ? 'Pay as used' : `${pl.includedMin} mins`}</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-slate group-[.bg-deep-green]:text-gray-300">Effective Rate:</span>
-                <span class="font-bold text-brand-green group-[.bg-deep-green]:text-lime-accent tabular">
+                <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Effective Rate:</span>
+                <span class={`font-bold tabular ${pl.highlight ? 'text-lime-accent' : 'text-brand-green'}`}>
                   {pl.includedMin === 0 ? '$0.600/min' : `$${(pl.monthlyFee / pl.includedMin).toFixed(3)}/min`}
                 </span>
               </div>
               <div class="flex justify-between">
-                <span class="text-slate group-[.bg-deep-green]:text-gray-300">Concurrency:</span>
-                <span class="font-bold tabular">{pl.concurrentCalls === 1 ? '1 call' : `Up to ${pl.concurrentCalls} calls`}</span>
+                <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Concurrency:</span>
+                <span class={`font-bold tabular ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.concurrentCalls === 1 ? '1 call' : `Up to ${pl.concurrentCalls} calls`}</span>
               </div>
               <div class="flex justify-between">
-                <span class="text-slate group-[.bg-deep-green]:text-gray-300">Setup (1-time):</span>
-                <span class="font-bold tabular">${pl.setupFee}</span>
+                <span class={pl.highlight ? 'text-white/80' : 'text-slate'}>Setup (1-time):</span>
+                <span class={`font-bold tabular ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>${pl.setupFee}</span>
               </div>
             </div>
 
             <!-- Features List -->
-            <ul class="space-y-2 text-xs text-slate group-[.bg-deep-green]:text-gray-200 mb-8">
+            <ul class="space-y-2 text-xs mb-8">
               {pl.features.slice(0, 5).map((f) => (
                 <li class="flex items-start gap-2">
-                  <span class="text-brand-green group-[.bg-deep-green]:text-lime-accent font-bold mt-0.5">&check;</span>
-                  <span>{f}</span>
+                  <span class={`font-bold mt-0.5 ${pl.highlight ? 'text-lime-accent' : 'text-brand-green'}`}>&check;</span>
+                  <span class={pl.highlight ? 'text-white' : 'text-slate'}>{f}</span>
                 </li>
               ))}
             </ul>

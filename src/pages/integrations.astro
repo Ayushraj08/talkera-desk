@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import FinalCta from '../components/home/FinalCta.astro';
+import ToolLogo from '../components/common/ToolLogo.astro';
 import tools from '@content/tools.json';
 
 const allTools = [...tools.rowA, ...tools.rowB];
@@ -54,8 +55,8 @@ const categories = ["All", ...Array.from(new Set(allTools.map(t => t.category)))
           >
             <div>
               <div class="flex items-center justify-between mb-4">
-                <div class="w-10 h-10 rounded-xl bg-white border border-sky-blue/80 text-deep-green font-mono font-bold text-sm flex items-center justify-center shadow-xs">
-                  {tool.name.slice(0, 2).toUpperCase()}
+                <div class="w-10 h-10 rounded-xl bg-white border border-sky-blue/80 flex items-center justify-center shadow-xs shrink-0 p-2">
+                  <ToolLogo name={tool.name} className="w-6 h-6" />
                 </div>
                 <span
                   class={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider ${
