@@ -1,5 +1,42 @@
-node_modules/
+# Build and distribution directories
 dist/
+build/
 .astro/
-.system_generated/
+node_modules/
+
+# Environment variables and secrets (Strict Security)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+
+# Operating System files
 .DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Logs and debug artifacts
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Internal system and cache folders
+.system_generated/
+.tempmediaStorage/
+.temp/
+tmp/
+scratch/
+
+# IDE and Editor configurations
+.idea/
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json

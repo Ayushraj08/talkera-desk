@@ -31,21 +31,19 @@ import scenarios from '@content/scenarios.json';
           <button
             type="button"
             data-scenario-index={index}
-            class={`scenario-tab-btn w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between group ${
-              index === 0
-                ? 'bg-deep-green text-white border-deep-green shadow-md hover:bg-brand-green'
-                : 'bg-paper text-ink border-sky-blue/70 hover:border-brand-green hover:bg-white'
+            class={`scenario-tab-btn w-full p-4 rounded-2xl flex items-center justify-between ${
+              index === 0 ? 'is-active' : ''
             }`}
           >
             <div>
-              <div class="text-xs font-mono uppercase tracking-wider text-lime-accent group-[.bg-paper]:text-brand-green font-semibold">
+              <div class="scenario-tag text-xs font-mono uppercase tracking-wider font-semibold">
                 {sc.name}
               </div>
-              <div class="text-sm font-heading font-bold mt-0.5 text-white group-[.bg-paper]:text-ink-deep">
+              <div class="scenario-title text-sm font-heading font-bold mt-0.5">
                 {sc.title}
               </div>
             </div>
-            <svg class="w-5 h-5 text-lime-accent group-[.bg-paper]:text-slate group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg class="scenario-arrow w-5 h-5 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="m9 18 6-6-6-6"/>
             </svg>
           </button>
@@ -212,12 +210,8 @@ import scenarios from '@content/scenarios.json';
       if (!sc) return;
 
       // Update button styling
-      tabBtns.forEach((b) => {
-        b.classList.remove('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-md', 'hover:bg-brand-green');
-        b.classList.add('bg-paper', 'text-ink', 'border-sky-blue/70', 'hover:border-brand-green', 'hover:bg-white');
-      });
-      btn.classList.add('bg-deep-green', 'text-white', 'border-deep-green', 'shadow-md', 'hover:bg-brand-green');
-      btn.classList.remove('bg-paper', 'text-ink', 'border-sky-blue/70', 'hover:border-brand-green', 'hover:bg-white');
+      tabBtns.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
 
       // Update workbench content
       if (wbName) wbName.textContent = sc.name;
