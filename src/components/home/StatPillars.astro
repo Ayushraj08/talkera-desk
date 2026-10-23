@@ -107,11 +107,11 @@ import stats from '@content/stats.json';
     </div>
 
     <!-- Ramp-Style Interactive Missed-Call Revenue Calculator (Split Card) -->
-    <div class="mercury-shell-light max-w-5xl mx-auto">
+    <div id="calculator" class="mercury-shell-light max-w-5xl mx-auto">
       <div class="mercury-inner bg-white border border-sky-blue p-6 sm:p-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          <!-- Left: Sliders & Controls -->
+          <!-- Left: Simple Daily Sliders & Plain-Language Conversion -->
           <div class="lg:col-span-7 space-y-6">
             <div>
               <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-deep-green/10 text-deep-green text-xs font-mono font-bold mb-2">
@@ -121,107 +121,166 @@ import stats from '@content/stats.json';
                 Missed-Call Revenue Calculator
               </h3>
               <p class="text-xs sm:text-sm text-slate mt-1">
-                Enter your average call volume and ticket size to compute potential pipeline recovered.
+                Enter your typical daily calls to see your estimated monthly pipeline and true net profit after Talkera Desk costs.
               </p>
             </div>
 
-            <!-- Input 1: Missed Calls Per Week -->
+            <!-- Input 1: Missed Calls Per Day (5 to 15) -->
             <div>
               <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
-                <span>Missed Inbound Calls per Week</span>
-                <span class="font-mono text-sm px-2 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-missed-display">35 calls/wk</span>
+                <span>Missed Calls per Day</span>
+                <span class="font-mono text-sm px-2.5 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-missed-display">8 calls / day</span>
               </div>
               <input
                 id="input-missed-calls"
                 type="range"
-                min="1"
-                max="140"
-                value="35"
+                min="5"
+                max="15"
+                step="1"
+                value="8"
                 class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
               />
               <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
-                <span>1/wk</span>
-                <span>35/wk</span>
-                <span>70/wk</span>
-                <span>140/wk</span>
+                <span>5 / day (low)</span>
+                <span>10 / day (average)</span>
+                <span>15 / day (busy)</span>
+              </div>
+              <div class="text-[11px] text-slate font-mono mt-1" id="sub-missed-monthly">
+                &approx; 240 missed calls every month
               </div>
             </div>
 
-            <!-- Input 2: Average Job Value -->
+            <!-- Input 2: Expected Total Inbound Calls Per Day (10 to 40) -->
+            <div>
+              <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
+                <span>Total Expected Calls per Day</span>
+                <span class="font-mono text-sm px-2.5 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-total-display">15 calls / day</span>
+              </div>
+              <input
+                id="input-total-calls"
+                type="range"
+                min="10"
+                max="40"
+                step="1"
+                value="15"
+                class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
+              />
+              <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
+                <span>10 / day</span>
+                <span>20 / day</span>
+                <span>30 / day</span>
+                <span>40 / day</span>
+              </div>
+              <div class="text-[11px] text-slate font-mono mt-1" id="sub-total-monthly">
+                &approx; 450 total calls / month (used to suggest your best plan)
+              </div>
+            </div>
+
+            <!-- Input 3: Average Job Value ($) -->
             <div>
               <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
                 <span>Average Job Ticket Value ($)</span>
-                <span class="font-mono text-sm px-2 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-ticket-display">$230</span>
+                <span class="font-mono text-sm px-2.5 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-ticket-display">$230</span>
               </div>
               <input
                 id="input-ticket-value"
                 type="range"
                 min="50"
-                max="3500"
+                max="2500"
                 step="10"
                 value="230"
                 class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
               />
               <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
                 <span>$150 (Service)</span>
-                <span>$450 (Standard)</span>
-                <span>$1,500 (HVAC)</span>
-                <span>$3,500 (Restoration)</span>
+                <span>$350 (Standard)</span>
+                <span>$800 (HVAC)</span>
+                <span>$1,500+ (Restoration)</span>
               </div>
             </div>
 
-            <!-- Fixed Benchmark Rate Notice -->
-            <div class="p-3 rounded-xl bg-light-blue/50 border border-sky-blue text-xs text-slate flex items-start gap-2">
-              <svg class="w-4 h-4 text-brand-green shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                <line x1="12" y1="8" x2="12" y2="12" stroke-width="2"/>
-                <line x1="12" y1="16" x2="12.01" y2="16" stroke-width="2"/>
-              </svg>
-              <span>
-                Calculated using the conservative <strong class="text-ink">15% booking benchmark</strong> (Invoca 2026 reports 38% marketing calls are leads with 45% closing rate &approx; 17%, rounded down to 15% as a reliable floor).
-              </span>
+            <!-- Simple Plain-Language Disclaimer Card -->
+            <div class="p-3.5 rounded-xl bg-light-blue/40 border border-sky-blue text-xs text-slate space-y-1.5">
+              <div class="flex items-center gap-2 font-bold text-ink-deep">
+                <svg class="w-4 h-4 text-brand-green shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>How we calculate this (15% conversion floor):</span>
+              </div>
+              <p class="leading-relaxed text-[11px]">
+                Out of every 100 missed calls answered by your AI agent, we conservatively assume only <strong>15 calls (15%)</strong> turn into a paying, booked job. The remaining calls are price checks, spam, or non-bookings.
+              </p>
             </div>
           </div>
 
-          <!-- Right: Ramp-Style Computation Output Box -->
+          <!-- Right: Monthly Impact & True Net Profit Card -->
           <div class="lg:col-span-5 bg-paper border border-sky-blue rounded-2xl p-6 flex flex-col justify-between shadow-sm">
             <div>
-              <div class="text-xs uppercase font-mono tracking-wider text-slate font-bold mb-1">
-                Estimated Monthly Recovered Pipeline
+              <div class="flex items-center justify-between">
+                <div class="text-[11px] uppercase font-mono tracking-wider text-slate font-bold">
+                  Estimated Net Monthly Profit
+                </div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">
+                  Monthly Impact
+                </span>
               </div>
-              <div class="text-4xl sm:text-5xl font-extrabold font-heading text-deep-green tracking-tight tabular my-2" id="res-monthly-recovered">
-                $5,198
+              
+              <div class="text-4xl sm:text-5xl font-extrabold font-heading text-deep-green tracking-tight tabular my-2" id="res-net-profit">
+                +$7,717
               </div>
-              <div class="text-xs text-slate font-medium mb-6">
-                Based on <span class="font-bold text-ink" id="res-jobs-saved">22.6 extra booked jobs</span> / month.
+              <div class="text-xs text-slate font-medium mb-5">
+                Pure monthly profit into your business after Talkera Desk charges.
               </div>
 
+              <!-- Step-by-Step Transparent Monthly Breakdown -->
               <div class="space-y-2.5 py-4 border-t border-b border-sky-blue/70 text-xs text-slate font-mono">
                 <div class="flex justify-between">
-                  <span>Monthly Inbound:</span>
-                  <span class="text-ink font-semibold tabular" id="res-monthly-calls">151 calls</span>
+                  <span>Missed Calls Handled:</span>
+                  <span class="text-ink font-semibold tabular" id="res-monthly-missed">240 calls / mo</span>
                 </div>
                 <div class="flex justify-between">
-                  <span>Booking Floor (15%):</span>
-                  <span class="text-ink font-semibold tabular" id="res-calc-floor">22.6 jobs</span>
+                  <span>Extra Booked Jobs (15%):</span>
+                  <span class="text-ink font-bold tabular" id="res-jobs-saved">36 jobs / mo</span>
                 </div>
                 <div class="flex justify-between">
-                  <span>Annualized Impact:</span>
-                  <span class="text-brand-green font-bold tabular" id="res-annual-impact">$62,376 / yr</span>
+                  <span>Gross Recovered Value:</span>
+                  <span class="text-emerald-700 font-bold tabular" id="res-gross-recovered">+$8,280 / mo</span>
+                </div>
+
+                <!-- Recommended Plan Row -->
+                <div class="pt-2 border-t border-sky-blue/50">
+                  <div class="flex items-center justify-between text-ink-deep font-sans">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate">Suggested Plan:</span>
+                    <a href="/pricing" id="link-rec-plan" class="text-xs font-mono font-bold text-deep-green hover:underline flex items-center gap-1">
+                      <span id="badge-rec-plan">Pro Plan ($563/mo)</span>
+                      <span>&rarr;</span>
+                    </a>
+                  </div>
+                  <div class="flex justify-between text-[11px] text-gray-500 mt-1">
+                    <span>Plan Charge Deducted:</span>
+                    <span class="text-red-700 font-bold tabular" id="res-plan-cost">-$563 / mo</span>
+                  </div>
+                  <p class="text-[10px] text-gray-500 mt-1 leading-snug" id="res-plan-explanation">
+                    Deducted from gross recovery to show true take-home profit.
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div class="mt-6">
+            <div class="mt-6 space-y-2">
               <a
-                href="#demos"
+                href="/pricing"
+                id="btn-pricing-cta"
                 class="w-full inline-flex items-center justify-center py-3 px-4 rounded-full bg-deep-green text-white text-xs font-bold hover:bg-brand-green transition-all shadow"
               >
-                Hear how we answer
+                <span>View Recommended Plan on Pricing Page</span>
+                <span class="ml-1.5">&rarr;</span>
               </a>
-              <p class="text-[10px] text-gray-500 text-center mt-2 leading-tight">
-                Formula: (Calls/wk &times; 4.3) &times; 15% &times; Ticket Value. Estimate, not a promise.
-              </p>
+              <div class="text-center">
+                <a href="#demos" class="text-[11px] text-slate underline hover:text-ink-deep">
+                  Or hear recorded demo calls below
+                </a>
+              </div>
             </div>
 
           </div>
@@ -236,40 +295,106 @@ import stats from '@content/stats.json';
 <script>
   function setupCalculator() {
     const missedInput = document.getElementById('input-missed-calls') as HTMLInputElement | null;
+    const totalInput = document.getElementById('input-total-calls') as HTMLInputElement | null;
     const ticketInput = document.getElementById('input-ticket-value') as HTMLInputElement | null;
+
     const missedDisplay = document.getElementById('val-missed-display');
+    const totalDisplay = document.getElementById('val-total-display');
     const ticketDisplay = document.getElementById('val-ticket-display');
-    const resMonthly = document.getElementById('res-monthly-recovered');
+
+    const subMissed = document.getElementById('sub-missed-monthly');
+    const subTotal = document.getElementById('sub-total-monthly');
+
+    const resNet = document.getElementById('res-net-profit');
+    const resMonthlyMissed = document.getElementById('res-monthly-missed');
     const resJobs = document.getElementById('res-jobs-saved');
-    const resCalls = document.getElementById('res-monthly-calls');
-    const resFloor = document.getElementById('res-calc-floor');
-    const resAnnual = document.getElementById('res-annual-impact');
+    const resGross = document.getElementById('res-gross-recovered');
+
+    const badgePlan = document.getElementById('badge-rec-plan');
+    const resPlanCost = document.getElementById('res-plan-cost');
+    const resPlanExp = document.getElementById('res-plan-explanation');
+    const linkRecPlan = document.getElementById('link-rec-plan') as HTMLAnchorElement | null;
+    const btnPricingCta = document.getElementById('btn-pricing-cta') as HTMLAnchorElement | null;
 
     function update() {
       if (!missedInput || !ticketInput) return;
-      const missedWeekly = parseFloat(missedInput.value);
-      const ticketVal = parseFloat(ticketInput.value);
+      const missedDaily = parseInt(missedInput.value, 10);
+      const totalDaily = totalInput ? parseInt(totalInput.value, 10) : 15;
+      const ticketVal = parseInt(ticketInput.value, 10);
 
-      if (missedDisplay) missedDisplay.textContent = `${missedWeekly} calls/wk`;
+      // Display inputs
+      if (missedDisplay) missedDisplay.textContent = `${missedDaily} calls / day`;
+      if (totalDisplay) totalDisplay.textContent = `${totalDaily} calls / day`;
       if (ticketDisplay) ticketDisplay.textContent = `$${ticketVal.toLocaleString()}`;
 
-      const monthlyCalls = Math.round(missedWeekly * 4.3);
-      const jobsSaved = +(monthlyCalls * 0.15).toFixed(1);
-      const monthlyRecovered = Math.round(jobsSaved * ticketVal);
-      const annualRecovered = monthlyRecovered * 12;
+      // Monthly conversions (30 days/month)
+      const monthlyMissed = missedDaily * 30;
+      const monthlyTotal = totalDaily * 30;
 
-      if (resCalls) resCalls.textContent = `${monthlyCalls} calls`;
-      if (resFloor) resFloor.textContent = `${jobsSaved} jobs`;
-      if (resMonthly) resMonthly.textContent = `$${monthlyRecovered.toLocaleString()}`;
-      if (resJobs) resJobs.textContent = `${jobsSaved} extra booked jobs`;
-      if (resAnnual) resAnnual.textContent = `$${annualRecovered.toLocaleString()} / yr`;
+      if (subMissed) subMissed.textContent = `≈ ${monthlyMissed.toLocaleString()} missed calls every month`;
+      if (subTotal) subTotal.textContent = `≈ ${monthlyTotal.toLocaleString()} total calls / month (used to suggest plan)`;
+
+      // Conservative 15% booking benchmark
+      const jobsSaved = Math.round(monthlyMissed * 0.15);
+      const grossRecovered = jobsSaved * ticketVal;
+
+      // Recommended Plan logic based on total monthly call volume
+      // 10-15 calls/day (300-450/mo) -> Pro Plan covers 1,000 mins (~330 calls)
+      // 16-40 calls/day (480-1,200/mo) -> Growth Plan covers 2,500 mins (~830 calls)
+      // Under 165 calls/mo -> Starter Plan ($293)
+      let planName = 'Pro Plan ($563/mo)';
+      let planCost = 563;
+      let planAnchor = '/pricing#pro';
+      let planExplanation = 'Deducted from gross recovery to show true take-home profit.';
+
+      if (monthlyTotal <= 165) {
+        planName = 'Starter Plan ($293/mo)';
+        planCost = 293;
+        planAnchor = '/pricing#starter';
+        planExplanation = 'Ideal for low volume (up to 5 calls/day). Deducted from monthly profit.';
+      } else if (monthlyTotal <= 350) {
+        planName = 'Pro Plan ($563/mo)';
+        planCost = 563;
+        planAnchor = '/pricing#pro';
+        planExplanation = 'Most popular tier (up to ~330 calls). Deducted from monthly profit.';
+      } else {
+        planName = 'Growth Plan ($1,293/mo)';
+        planCost = 1293;
+        planAnchor = '/pricing#growth';
+        planExplanation = 'High-volume tier (up to ~830 calls). Deducted from monthly profit.';
+      }
+
+      const netProfit = grossRecovered - planCost;
+
+      if (resMonthlyMissed) resMonthlyMissed.textContent = `${monthlyMissed} calls / mo`;
+      if (resJobs) resJobs.textContent = `${jobsSaved} jobs / mo`;
+      if (resGross) resGross.textContent = `+$${grossRecovered.toLocaleString()} / mo`;
+
+      if (badgePlan) badgePlan.textContent = planName;
+      if (resPlanCost) resPlanCost.textContent = `-$${planCost.toLocaleString()} / mo`;
+      if (resPlanExp) resPlanExp.textContent = planExplanation;
+
+      if (linkRecPlan) linkRecPlan.href = planAnchor;
+      if (btnPricingCta) {
+        btnPricingCta.href = planAnchor;
+        btnPricingCta.innerHTML = `<span>View ${planName.split(' (')[0]} on Pricing Page</span> <span class="ml-1.5">&rarr;</span>`;
+      }
+
+      if (resNet) {
+        if (netProfit >= 0) {
+          resNet.textContent = `+$${netProfit.toLocaleString()}`;
+          resNet.className = 'text-4xl sm:text-5xl font-extrabold font-heading text-deep-green tracking-tight tabular my-2';
+        } else {
+          resNet.textContent = `-$${Math.abs(netProfit).toLocaleString()}`;
+          resNet.className = 'text-4xl sm:text-5xl font-extrabold font-heading text-red-700 tracking-tight tabular my-2';
+        }
+      }
     }
 
-    if (missedInput && ticketInput) {
-      missedInput.addEventListener('input', update);
-      ticketInput.addEventListener('input', update);
-      update();
-    }
+    if (missedInput) missedInput.addEventListener('input', update);
+    if (totalInput) totalInput.addEventListener('input', update);
+    if (ticketInput) ticketInput.addEventListener('input', update);
+    update();
   }
 
   setupCalculator();
