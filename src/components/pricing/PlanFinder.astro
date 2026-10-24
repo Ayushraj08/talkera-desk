@@ -17,26 +17,26 @@ import pricing from '@content/pricing.json';
       </p>
     </div>
 
-    <!-- Segmented 3-Tab Controller -->
-    <div class="flex items-center gap-2 p-1.5 bg-paper border border-sky-blue rounded-2xl mb-8 max-w-lg">
+    <!-- Segmented 3-Tab Controller (Adaptive 1-col on mobile, 3-col on tablet/desktop) -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-1.5 p-1.5 bg-paper border border-sky-blue rounded-2xl mb-8 max-w-xl">
       <button
         type="button"
         id="tab-btn-minutes"
-        class="finder-tab-btn flex-1 py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all bg-deep-green text-white shadow-xs"
+        class="finder-tab-btn py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all bg-deep-green text-white shadow-xs text-center"
       >
         1. Minutes & Calls
       </button>
       <button
         type="button"
         id="tab-btn-concurrency"
-        class="finder-tab-btn flex-1 py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
+        class="finder-tab-btn py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep text-center"
       >
         2. Calls At Once
       </button>
       <button
         type="button"
         id="tab-btn-roi"
-        class="finder-tab-btn flex-1 py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
+        class="finder-tab-btn py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep text-center"
       >
         3. Missed Calls ROI
       </button>
@@ -49,14 +49,14 @@ import pricing from '@content/pricing.json';
         
         <!-- Tab 1: Minutes & Calls View -->
         <div id="view-minutes" class="finder-view space-y-6">
-          <div class="flex items-center justify-between">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <span class="text-xs font-mono uppercase text-slate font-bold">Input Mode:</span>
-            <div class="flex items-center gap-2 text-xs font-mono">
+            <div class="flex items-center gap-3 text-xs font-mono">
               <label class="flex items-center gap-1.5 cursor-pointer">
                 <input type="radio" name="input-mode" value="minutes" checked class="accent-deep-green" id="mode-minutes"/>
                 <span class="font-semibold text-ink">Billed Minutes / Mo</span>
               </label>
-              <label class="flex items-center gap-1.5 cursor-pointer ml-3">
+              <label class="flex items-center gap-1.5 cursor-pointer ml-1 sm:ml-3">
                 <input type="radio" name="input-mode" value="calls" class="accent-deep-green" id="mode-calls"/>
                 <span class="font-semibold text-ink">Calls / Day</span>
               </label>
@@ -80,8 +80,8 @@ import pricing from '@content/pricing.json';
               value="600"
               class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
             />
-            <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
-              <span>20 min (Pay As You Go)</span>
+            <div class="flex justify-between text-[10px] sm:text-[11px] text-gray-400 mt-1 font-mono">
+              <span>20 min (PAYG)</span>
               <span>1,000 min (Growth)</span>
               <span>2,500+ min (Command)</span>
             </div>
@@ -98,7 +98,7 @@ import pricing from '@content/pricing.json';
             <label class="block text-xs font-semibold text-ink-deep mb-2">
               Maximum Simultaneous Callers (Peak Concurrency)
             </label>
-            <div class="grid grid-cols-4 gap-3">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
               <button type="button" data-concurrency="1" class="conc-btn conc-card p-3 rounded-xl text-center font-mono font-bold text-sm">
                 <span>1 Call</span>
                 <span class="block text-[10px] font-medium mt-0.5 conc-subtext">Pay As You Go</span>

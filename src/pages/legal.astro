@@ -14,11 +14,17 @@ import site from '@content/site.json';
       <strong>Who we are:</strong> Talkera Desk is an operational brand of <strong>{site.enterpriseName}</strong>, a sole proprietorship owned by Ayush Raj, registered in India. When you purchase services from Talkera Desk, your contract is directly with Ayush Raj, trading as DRUVA GROUP. Our operational base is located at {site.teamLocations}. DRUVA GROUP commenced operations on 15 April 2026 (the official date on its Udyam certificate). Talkera Desk launched on 1 September 2026.
     </div>
 
-    <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-2xs font-mono text-xs">
-      <table class="min-w-full divide-y divide-sky-blue/60">
+    <!-- Mobile horizontal scroll hint -->
+    <div class="sm:hidden flex items-center justify-between text-[11px] font-mono text-slate bg-paper px-3 py-1.5 rounded-lg border border-sky-blue/60">
+      <span>Scroll horizontally to view legal records &rarr;</span>
+      <span class="text-deep-green font-bold">&bull; Swipe</span>
+    </div>
+
+    <div class="table-responsive-wrapper border border-sky-blue rounded-2xl bg-white shadow-2xs font-mono text-xs">
+      <table class="w-full min-w-[560px] divide-y divide-sky-blue/60">
         <tbody class="divide-y divide-gray-100 text-slate">
           <tr>
-            <td class="py-3.5 px-5 font-bold text-ink-deep w-1/3">Brand</td>
+            <td class="py-3.5 px-5 font-bold text-ink-deep w-1/3 min-w-[170px]">Brand</td>
             <td class="py-3.5 px-5">{site.brandName} ({site.domain})</td>
           </tr>
           <tr>
@@ -63,8 +69,8 @@ import site from '@content/site.json';
           <tr>
             <td class="py-3.5 px-5 font-bold text-ink-deep">Goods & Services Tax (GST)</td>
             <td class="py-3.5 px-5">
-              <span class="font-bold text-emerald-700">{site.gstin}</span>
-              <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-deep-green underline font-normal text-xs ml-3">Verify at GST Portal &rarr;</a>
+              <span class="font-bold text-emerald-700 font-mono whitespace-nowrap">{site.gstin}</span>
+              <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-deep-green underline font-normal text-xs ml-3 whitespace-nowrap">Verify at GST Portal &rarr;</a>
               <span class="text-slate block text-[11px] font-sans mt-0.5">Active and issued. Exports of services are invoiced without IGST under a Letter of Undertaking (LUT).</span>
             </td>
           </tr>

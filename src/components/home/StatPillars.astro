@@ -5,8 +5,8 @@ import stats from '@content/stats.json';
 <section id="calculator" class="py-20 lg:py-28 bg-[#F8FAFC] border-b border-sky-blue/60 relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Section Header -->
-    <div class="max-w-3xl mb-16">
+    <!-- Section Header (Centered) -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
         Industry Benchmark Research
       </div>
@@ -18,12 +18,12 @@ import stats from '@content/stats.json';
       </p>
     </div>
 
-    <!-- Ada.cx Style Asymmetrical Stat Pillars (Colour-Blocked Architectural Pillars) -->
+    <!-- Ada.cx Style Asymmetrical Stat Pillars (Centered Text Alignment) -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
       <!-- Pillar 1: 52% (Deep Green) -->
-      <div class="bg-deep-green text-white rounded-panel p-8 sm:p-10 flex flex-col justify-between min-h-[360px] shadow-tactile relative overflow-hidden group hover:-translate-y-1 transition-transform">
+      <div class="bg-deep-green text-white rounded-panel p-6 sm:p-8 lg:p-10 flex flex-col justify-between items-center text-center min-h-[320px] sm:min-h-[360px] shadow-tactile relative overflow-hidden group hover:-translate-y-1 transition-transform">
         <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
-        <div>
+        <div class="flex flex-col items-center">
           <div class="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-heading text-lime-accent tracking-tighter tabular mb-3">
             52%
           </div>
@@ -34,12 +34,12 @@ import stats from '@content/stats.json';
             Across 70 million+ home service and restoration calls, nearly half of all callers never reach anyone.
           </p>
         </div>
-        <div class="pt-6 border-t border-white/10 mt-6">
+        <div class="w-full pt-6 border-t border-white/10 mt-6 flex justify-center">
           <a
             href="https://www.invoca.com/reports/the-invoca-home-services-lead-conversion-benchmarks-report-2026"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-xs text-lime-accent hover:underline flex items-center gap-1 font-mono"
+            class="text-xs text-lime-accent hover:underline flex items-center justify-center gap-1 font-mono"
           >
             <span>Invoca Report (2026)</span>
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -48,9 +48,9 @@ import stats from '@content/stats.json';
       </div>
 
       <!-- Pillar 2: 82% (Emerald Green) -->
-      <div class="bg-brand-green text-white rounded-panel p-8 sm:p-10 flex flex-col justify-between min-h-[360px] shadow-tactile relative overflow-hidden group hover:-translate-y-1 transition-transform">
+      <div class="bg-brand-green text-white rounded-panel p-6 sm:p-8 lg:p-10 flex flex-col justify-between items-center text-center min-h-[320px] sm:min-h-[360px] shadow-tactile relative overflow-hidden group hover:-translate-y-1 transition-transform">
         <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
-        <div>
+        <div class="flex flex-col items-center">
           <div class="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-heading text-white tracking-tighter tabular mb-3">
             82%
           </div>
@@ -61,12 +61,12 @@ import stats from '@content/stats.json';
             Homeowners facing a burst pipe, broken heater, or sewage backup move straight down search results until someone answers.
           </p>
         </div>
-        <div class="pt-6 border-t border-white/20 mt-6">
+        <div class="w-full pt-6 border-t border-white/20 mt-6 flex justify-center">
           <a
             href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-xs text-white underline hover:text-lime-accent flex items-center gap-1 font-mono"
+            class="text-xs text-white underline hover:text-lime-accent flex items-center justify-center gap-1 font-mono"
           >
             <span>CallRail Survey (2025)</span>
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -75,8 +75,8 @@ import stats from '@content/stats.json';
       </div>
 
       <!-- Pillar 3: 21% (Sky Light Blue) -->
-      <div class="bg-light-blue text-ink rounded-panel p-8 sm:p-10 flex flex-col justify-between min-h-[360px] border border-sky-blue shadow-tactile group hover:-translate-y-1 transition-transform">
-        <div>
+      <div class="bg-light-blue text-ink rounded-panel p-6 sm:p-8 lg:p-10 flex flex-col justify-between items-center text-center min-h-[320px] sm:min-h-[360px] border border-sky-blue shadow-tactile group hover:-translate-y-1 transition-transform">
+        <div class="flex flex-col items-center">
           <div class="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-heading text-deep-green tracking-tighter tabular mb-3">
             21%
           </div>
@@ -87,12 +87,12 @@ import stats from '@content/stats.json';
             One in five callers will not even wait 30 seconds for a callback. They immediately redial the next competitor.
           </p>
         </div>
-        <div class="pt-6 border-t border-sky-blue mt-6">
+        <div class="w-full pt-6 border-t border-sky-blue mt-6 flex justify-center">
           <a
             href="https://www.callrail.com/blog/missed-calls-cost-businesses-more-than-ever"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-xs text-deep-green hover:underline flex items-center gap-1 font-mono font-semibold"
+            class="text-xs text-deep-green hover:underline flex items-center justify-center gap-1 font-mono font-semibold"
           >
             <span>CallRail Survey (2025)</span>
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -238,17 +238,17 @@ import stats from '@content/stats.json';
                   <span>Selected / Suggested Plan:</span>
                   <span id="plan-mode-label" class="text-deep-green font-bold">Auto-Matched</span>
                 </div>
-                <div class="grid grid-cols-4 gap-1 text-[11px] font-mono" id="plan-pills">
-                  <button type="button" data-plan="payg" class="plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-[11px] font-mono" id="plan-pills">
+                  <button type="button" data-plan="payg" class="plan-pill py-1.5 px-2 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
                     PAYG ($59)
                   </button>
-                  <button type="button" data-plan="starter" class="plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
+                  <button type="button" data-plan="starter" class="plan-pill py-1.5 px-2 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
                     Starter ($293)
                   </button>
-                  <button type="button" data-plan="pro" class="plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
+                  <button type="button" data-plan="pro" class="plan-pill py-1.5 px-2 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
                     Pro ($563)
                   </button>
-                  <button type="button" data-plan="growth" class="plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
+                  <button type="button" data-plan="growth" class="plan-pill py-1.5 px-2 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
                     Growth ($1,293)
                   </button>
                 </div>
@@ -305,8 +305,8 @@ import stats from '@content/stats.json';
                 <span class="ml-1.5">&rarr;</span>
               </a>
               <div class="text-center">
-                <a href="#demos" class="text-[11px] text-slate underline hover:text-ink-deep">
-                  Or hear recorded demo calls below
+                <a href="/demo" class="text-[11px] text-slate underline hover:text-ink-deep">
+                  Or listen to recorded voice demos &rarr;
                 </a>
               </div>
             </div>

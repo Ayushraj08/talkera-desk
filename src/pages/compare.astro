@@ -12,7 +12,8 @@ import FinalCta from '../components/home/FinalCta.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Page Header -->
-      <div class="max-w-3xl mb-12">
+      <!-- Page Header (Centered) -->
+      <div class="max-w-3xl mx-auto text-center mb-12">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
           Market Comparison
         </div>
@@ -26,16 +27,20 @@ import FinalCta from '../components/home/FinalCta.astro';
 
       <!-- Section 1: Direct AI Competitor Breakdown (ElevenLabs, Smith.ai, Bland AI, First Call, Voco vs Talkera Desk) -->
       <div class="mb-20">
+        <div class="md:hidden flex items-center gap-1.5 text-[11px] font-mono text-slate mb-2.5 px-1">
+          <svg class="w-3.5 h-3.5 text-brand-green shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span>Scroll horizontally to compare all solutions &rarr;</span>
+        </div>
         <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-tactile font-sans text-xs">
-          <div class="overflow-x-auto">
+          <div class="table-responsive-wrapper">
             <table class="min-w-full divide-y divide-sky-blue/60">
               <thead class="bg-paper text-ink-deep font-heading font-bold">
                 <tr>
                   <th class="py-4 px-4 text-left text-slate uppercase tracking-wider text-[11px] min-w-[150px]">Solution</th>
-                  <th class="py-4 px-3 text-left text-slate font-medium min-w-[130px]">Pricing & Per-Min</th>
-                  <th class="py-4 px-3 text-left text-slate font-medium min-w-[160px]">What They Provide</th>
-                  <th class="py-4 px-3 text-left text-slate font-medium min-w-[170px]">What Is Missing (The Gap)</th>
-                  <th class="py-4 px-4 text-left bg-deep-green text-lime-accent font-extrabold text-xs min-w-[200px]">
+                  <th class="py-4 px-3 text-left text-slate font-medium min-w-[140px]">Pricing & Per-Min</th>
+                  <th class="py-4 px-3 text-left text-slate font-medium min-w-[170px]">What They Provide</th>
+                  <th class="py-4 px-3 text-left text-slate font-medium min-w-[180px]">What Is Missing (The Gap)</th>
+                  <th class="py-4 px-4 text-left bg-deep-green text-lime-accent font-extrabold text-xs min-w-[210px]">
                     Talkera Desk Advantage
                   </th>
                 </tr>
@@ -323,43 +328,49 @@ import FinalCta from '../components/home/FinalCta.astro';
         </div>
 
         <!-- Structural Pitfalls Table -->
+        <div class="md:hidden flex items-center gap-1.5 text-[11px] font-mono text-slate mb-2.5 px-1">
+          <svg class="w-3.5 h-3.5 text-brand-green shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span>Scroll horizontally to view all columns &rarr;</span>
+        </div>
         <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-tactile font-sans text-xs mb-6">
-          <table class="min-w-full divide-y divide-sky-blue/60">
-            <thead class="bg-paper text-ink-deep font-heading font-bold">
-              <tr>
-                <th class="py-3.5 px-4 text-left font-bold text-slate uppercase tracking-wider text-[11px] w-1/4">Operational Factor</th>
-                <th class="py-3.5 px-4 text-left text-slate font-medium w-1/4">In-House Local Employee</th>
-                <th class="py-3.5 px-4 text-left text-slate font-medium w-1/4">Offshore Freelancer</th>
-                <th class="py-3.5 px-4 text-left bg-deep-green/5 text-deep-green font-bold w-1/4">Talkera Desk AI Team</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-100 text-slate">
-              <tr>
-                <td class="py-3.5 px-4 font-bold text-ink">The Scaling Ceiling</td>
-                <td class="py-3.5 px-4">Can only take 1 call at a time. Simultaneous callers go to voicemail and call another contractor.</td>
-                <td class="py-3.5 px-4">Can only take 1 call at a time. High nocturnal fatigue during US/UK business hours.</td>
-                <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">Multi-line capacity (2, 5, or 8 simultaneous calls). Zero busy signals or voicemails.</td>
-              </tr>
-              <tr>
-                <td class="py-3.5 px-4 font-bold text-ink">Data Security & Privacy</td>
-                <td class="py-3.5 px-4">Controlled on company-owned equipment under domestic jurisdiction.</td>
-                <td class="py-3.5 px-4 text-red-600">Vulnerable: Personal home laptops, residential Wi-Fi, and lack of enterprise security controls.</td>
-                <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">Direct CRM API sync, SOC2-compliant telephony, prompt safety guardrails.</td>
-              </tr>
-              <tr>
-                <td class="py-3.5 px-4 font-bold text-ink">Infrastructure Reliability</td>
-                <td class="py-3.5 px-4">Demands physical desk, workstation, laptop, and office utility overhead.</td>
-                <td class="py-3.5 px-4">Prone to local brownouts, power cuts, and spotty residential internet connections.</td>
-                <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">Cloud carrier telephony with 24/7 carrier redundancy and failover routing.</td>
-              </tr>
-              <tr>
-                <td class="py-3.5 px-4 font-bold text-ink">Management Burden</td>
-                <td class="py-3.5 px-4">High HR friction, performance reviews, sick days, vacations, and payroll processing.</td>
-                <td class="py-3.5 px-4 text-red-600">High turnover. If an independent freelancer quits abruptly, phones go dark immediately.</td>
-                <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">We build, tune, audit, and support your agent. Zero HR friction on your desk.</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive-wrapper">
+            <table class="min-w-full divide-y divide-sky-blue/60">
+              <thead class="bg-paper text-ink-deep font-heading font-bold">
+                <tr>
+                  <th class="py-3.5 px-4 text-left font-bold text-slate uppercase tracking-wider text-[11px] min-w-[140px]">Operational Factor</th>
+                  <th class="py-3.5 px-4 text-left text-slate font-medium min-w-[160px]">In-House Local Employee</th>
+                  <th class="py-3.5 px-4 text-left text-slate font-medium min-w-[160px]">Offshore Freelancer</th>
+                  <th class="py-3.5 px-4 text-left bg-deep-green/5 text-deep-green font-bold min-w-[170px]">Talkera Desk AI Team</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100 text-slate">
+                <tr>
+                  <td class="py-3.5 px-4 font-bold text-ink">The Scaling Ceiling</td>
+                  <td class="py-3.5 px-4">Can only take 1 call at a time. Simultaneous callers go to voicemail and call another contractor.</td>
+                  <td class="py-3.5 px-4">Can only take 1 call at a time. High nocturnal fatigue during US/UK business hours.</td>
+                  <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">Multi-line capacity (2, 5, or 8 simultaneous calls). Zero busy signals or voicemails.</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-bold text-ink">Data Security & Privacy</td>
+                  <td class="py-3.5 px-4">Controlled on company-owned equipment under domestic jurisdiction.</td>
+                  <td class="py-3.5 px-4 text-red-600">Vulnerable: Personal home laptops, residential Wi-Fi, and lack of enterprise security controls.</td>
+                  <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">Direct CRM API sync, SOC2-compliant telephony, prompt safety guardrails.</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-bold text-ink">Infrastructure Reliability</td>
+                  <td class="py-3.5 px-4">Demands physical desk, workstation, laptop, and office utility overhead.</td>
+                  <td class="py-3.5 px-4">Prone to local brownouts, power cuts, and spotty residential internet connections.</td>
+                  <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">Cloud carrier telephony with 24/7 carrier redundancy and failover routing.</td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4 font-bold text-ink">Management Burden</td>
+                  <td class="py-3.5 px-4">High HR friction, performance reviews, sick days, vacations, and payroll processing.</td>
+                  <td class="py-3.5 px-4 text-red-600">High turnover. If an independent freelancer quits abruptly, phones go dark immediately.</td>
+                  <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">We build, tune, audit, and support your agent. Zero HR friction on your desk.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <!-- Cost Context & Hidden Trade-offs Disclaimer -->
@@ -369,19 +380,23 @@ import FinalCta from '../components/home/FinalCta.astro';
       </div>
 
       <!-- Comprehensive Comparison Matrix (Spec C6) -->
-      <div class="overflow-x-auto mb-20">
-        <div class="inline-block min-w-full align-middle">
-          <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-tactile">
+      <div class="mb-20">
+        <div class="md:hidden flex items-center gap-1.5 text-[11px] font-mono text-slate mb-2.5 px-1">
+          <svg class="w-3.5 h-3.5 text-brand-green shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span>Scroll horizontally to view 6 comparison columns &rarr;</span>
+        </div>
+        <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-tactile">
+          <div class="table-responsive-wrapper">
             <table class="min-w-full divide-y divide-sky-blue/60 text-xs">
               <thead class="bg-paper text-ink-deep font-heading font-bold">
                 <tr>
-                  <th class="py-4 px-5 text-left font-bold text-slate uppercase tracking-wider text-[11px]">Feature / Factor</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium">Voicemail</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium">Human Answering</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium">Self-Serve AI</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium">FSM Add-On</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium">Enterprise AI</th>
-                  <th class="py-4 px-5 text-left bg-deep-green text-lime-accent font-extrabold text-sm border-l border-r border-deep-green">
+                  <th class="py-4 px-5 text-left font-bold text-slate uppercase tracking-wider text-[11px] min-w-[150px]">Feature / Factor</th>
+                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[120px]">Voicemail</th>
+                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[130px]">Human Answering</th>
+                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[130px]">Self-Serve AI</th>
+                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[120px]">FSM Add-On</th>
+                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[130px]">Enterprise AI</th>
+                  <th class="py-4 px-5 text-left bg-deep-green text-lime-accent font-extrabold text-sm border-l border-r border-deep-green min-w-[170px]">
                     Talkera Desk
                   </th>
                 </tr>
@@ -483,7 +498,7 @@ import FinalCta from '../components/home/FinalCta.astro';
 
       <!-- Section: What Is Missing Elsewhere -->
       <div class="my-20">
-        <div class="max-w-2xl mb-10">
+        <div class="max-w-2xl mx-auto text-center mb-10">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-mono font-bold text-deep-green uppercase tracking-wider mb-2">
             Market Frustrations
           </div>
@@ -496,42 +511,42 @@ import FinalCta from '../components/home/FinalCta.astro';
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
             <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Nobody Owns the Result</h3>
             <p class="text-xs text-slate leading-relaxed">
               Software vendors sell per-minute bundles or software access, but when a call drops or an address is booked incorrectly, there is no one accountable for tuning the system.
             </p>
           </div>
 
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
             <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Wrong Bookings & Technical Errors</h3>
             <p class="text-xs text-slate leading-relaxed">
               Generic bots schedule appointments in the middle of travel routes or book water restoration extractions when crews only handle HVAC diagnostics.
             </p>
           </div>
 
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
             <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Surprise Bills & Per-Minute Hikes</h3>
             <p class="text-xs text-slate leading-relaxed">
               Complicated overage formulas and sudden burst penalties when severe weather strikes make monthly bills unpredictable.
             </p>
           </div>
 
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
             <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Weak Escalation Handoffs</h3>
             <p class="text-xs text-slate leading-relaxed">
               When a desperate homeowner needs an immediate emergency crew, automated tools often loop or deliver dead silence instead of dialing on-call staff.
             </p>
           </div>
 
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
             <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Annual Contract Lock-in</h3>
             <p class="text-xs text-slate leading-relaxed">
               Enterprise platforms force trades companies into expensive 12-month commitments before proving performance on real customer calls.
             </p>
           </div>
 
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
+          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
             <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Data & Number Hostage</h3>
             <p class="text-xs text-slate leading-relaxed">
               Many services hold onto the telephone numbers or refuse clean data exports when a contractor decides to take their dispatch in-house.

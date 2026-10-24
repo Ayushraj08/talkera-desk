@@ -1,0 +1,136 @@
+---
+// HomeHub.astro - Compact, centered navigation hub replacing lengthy duplicate sections on the home page
+---
+
+<section class="py-20 lg:py-24 bg-white border-b border-sky-blue/50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header (Centered) -->
+    <div class="max-w-3xl mx-auto text-center mb-14">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
+        Platform Architecture
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-4">
+        Everything you need to know.
+      </h2>
+      <p class="text-base sm:text-lg text-slate leading-relaxed">
+        We don't give you telephone software you have to configure alone. Explore how we build it, connect your tools, keep pricing transparent, and back your business.
+      </p>
+    </div>
+
+    <!-- 4 Centered Exploration Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      
+      <!-- Card 1: How It Works -->
+      <a href="/how-it-works" class="group p-7 rounded-panel bg-paper border border-sky-blue shadow-tactile hover:border-deep-green hover:shadow-xl transition-all flex flex-col justify-between items-center text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-2xl bg-deep-green/10 text-deep-green flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-wider font-bold text-brand-green mb-2">
+            Done-For-You Delivery
+          </span>
+          <h3 class="font-heading font-bold text-xl text-ink-deep mb-2 group-hover:text-deep-green transition-colors">
+            How It Works
+          </h3>
+          <p class="text-xs text-slate leading-relaxed">
+            Live in up to 3 days. We pull your service lists, tune natural voice tone, connect your tools, and review real calls.
+          </p>
+        </div>
+        <div class="w-full mt-6 pt-4 border-t border-sky-blue/50 text-xs font-mono font-bold text-deep-green text-center group-hover:translate-x-1 transition-transform">
+          See 10-Step Workflow &rarr;
+        </div>
+      </a>
+
+      <!-- Card 2: Pricing & Plans -->
+      <a href="/pricing" class="group p-7 rounded-panel bg-paper border border-sky-blue shadow-tactile hover:border-deep-green hover:shadow-xl transition-all flex flex-col justify-between items-center text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-2xl bg-brand-green/10 text-brand-green flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-wider font-bold text-brand-green mb-2">
+            Month-to-Month &bull; No Lock-In
+          </span>
+          <h3 class="font-heading font-bold text-xl text-ink-deep mb-2 group-hover:text-deep-green transition-colors">
+            From $59 / Month
+          </h3>
+          <p class="text-xs text-slate leading-relaxed">
+            Clear per-minute tiers with bundled minutes, pooled concurrency, seasonal pauses, and an interactive Plan Finder.
+          </p>
+        </div>
+        <div class="w-full mt-6 pt-4 border-t border-sky-blue/50 text-xs font-mono font-bold text-deep-green text-center group-hover:translate-x-1 transition-transform">
+          Calculate Your Plan &rarr;
+        </div>
+      </a>
+
+      <!-- Card 3: Recorded Demos -->
+      <a href="/demo" class="group p-7 rounded-panel bg-paper border border-sky-blue shadow-tactile hover:border-deep-green hover:shadow-xl transition-all flex flex-col justify-between items-center text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-2xl bg-sky-blue text-deep-green flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-wider font-bold text-brand-green mb-2">
+            Unfiltered Audio Library
+          </span>
+          <h3 class="font-heading font-bold text-xl text-ink-deep mb-2 group-hover:text-deep-green transition-colors">
+            Recorded Demos
+          </h3>
+          <p class="text-xs text-slate leading-relaxed">
+            Listen to genuine test calls across US, UK, and Australian accents handling freeze bursts, sewer clogs, and quotes.
+          </p>
+        </div>
+        <div class="w-full mt-6 pt-4 border-t border-sky-blue/50 text-xs font-mono font-bold text-deep-green text-center group-hover:translate-x-1 transition-transform">
+          Hear Call Recordings &rarr;
+        </div>
+      </a>
+
+      <!-- Card 4: How We Compare -->
+      <a href="/compare" class="group p-7 rounded-panel bg-paper border border-sky-blue shadow-tactile hover:border-deep-green hover:shadow-xl transition-all flex flex-col justify-between items-center text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-2xl bg-deep-green text-lime-accent flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-wider font-bold text-brand-green mb-2">
+            Market Benchmarking
+          </span>
+          <h3 class="font-heading font-bold text-xl text-ink-deep mb-2 group-hover:text-deep-green transition-colors">
+            How We Compare
+          </h3>
+          <p class="text-xs text-slate leading-relaxed">
+            Why trade companies choose a managed engineering department over raw self-serve APIs or rigid answering services.
+          </p>
+        </div>
+        <div class="w-full mt-6 pt-4 border-t border-sky-blue/50 text-xs font-mono font-bold text-deep-green text-center group-hover:translate-x-1 transition-transform">
+          Compare Market Solutions &rarr;
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Centered Quick Links Sub-Bar -->
+    <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center text-xs font-mono text-slate">
+      <div>
+        <strong class="text-ink-deep">CRMs & Calendars:</strong>
+        <a href="/integrations" class="ml-1.5 text-deep-green font-bold underline hover:text-brand-green">
+          Explore ServiceTitan, Jobber & Calendar Integrations &rarr;
+        </a>
+      </div>
+      <div class="hidden sm:block text-sky-blue">&bull;</div>
+      <div>
+        <strong class="text-ink-deep">Questions Answered:</strong>
+        <a href="/faq" class="ml-1.5 text-deep-green font-bold underline hover:text-brand-green">
+          Read all 19 Direct Answer FAQs &rarr;
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

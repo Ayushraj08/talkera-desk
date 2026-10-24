@@ -30,22 +30,26 @@
   }
 
   body {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     body {
-      font-size: 17px;
+      font-size: 15.5px;
+      line-height: 1.55;
     }
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     letter-spacing: -0.03em;
-    line-height: 1.05;
+    line-height: 1.1;
     font-weight: 700;
+    overflow-wrap: break-word;
   }
 
   .tabular {
@@ -333,3 +337,46 @@
     width: 100%;
   }
 }
+
+/* Responsive Table Wrapper with Visual Edge Indicators */
+.table-responsive-wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.table-responsive-wrapper::-webkit-scrollbar-track {
+  background: #F4F2EC;
+  border-radius: 9999px;
+}
+.table-responsive-wrapper::-webkit-scrollbar-thumb {
+  background: #BFE0F5;
+  border-radius: 9999px;
+}
+.table-responsive-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #1C7C5B;
+}
+
+/* Ensure images and SVGs scale responsively within their containers */
+img, svg, video, iframe {
+  max-width: 100%;
+}
+
+/* Touch target sizing and default centered alignment for interactive buttons */
+button, [role="button"], .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  button, [role="button"], .btn {
+    min-height: 42px;
+  }
+}
+

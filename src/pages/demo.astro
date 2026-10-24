@@ -26,8 +26,8 @@ import site from '@content/site.json';
       </div>
 
       <!-- Video Walkthrough Stage -->
-      <div class="mercury-shell-light max-w-4xl mx-auto mb-20">
-        <div class="mercury-inner bg-deep-green text-white p-6 sm:p-10 noise-overlay">
+      <div class="mercury-shell-light max-w-4xl mx-auto mb-16 sm:mb-20">
+        <div class="mercury-inner bg-deep-green text-white p-5 sm:p-8 md:p-10 noise-overlay">
           <div class="max-w-2xl mb-6">
             <span class="inline-block px-2.5 py-1 rounded bg-lime-accent text-ink-deep text-xs font-mono font-bold uppercase mb-2">
               90-105s Walkthrough
@@ -46,12 +46,12 @@ import site from '@content/site.json';
             <button
               type="button"
               id="play-walkthrough-btn"
-              class="relative z-10 w-20 h-20 rounded-full bg-lime-accent text-ink-deep flex items-center justify-center font-bold shadow-2xl hover:scale-105 transition-transform"
+              class="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-lime-accent text-ink-deep flex items-center justify-center font-bold shadow-2xl hover:scale-105 transition-transform"
               aria-label="Play Walkthrough Video"
             >
-              <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <svg class="w-6 h-6 sm:w-8 sm:h-8 fill-current ml-1" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             </button>
-            <div class="absolute bottom-4 left-4 right-4 text-center text-xs text-gray-300 font-mono">
+            <div class="absolute bottom-3 sm:bottom-4 left-3 right-3 sm:left-4 sm:right-4 text-center text-[10px] sm:text-xs text-gray-300 font-mono">
               Click to load walkthrough video &bull; Audio with English subtitles
             </div>
           </div>
@@ -62,9 +62,9 @@ import site from '@content/site.json';
       <DemoAudioPlayer />
 
       <!-- 4-Field Lead Form & Booking Link (Spec 5.8) -->
-      <div id="contact" class="my-24 max-w-4xl mx-auto">
+      <div id="contact" class="my-16 sm:my-24 max-w-4xl mx-auto">
         <div class="mercury-shell-light">
-          <div class="mercury-inner bg-paper border border-sky-blue p-8 sm:p-12">
+          <div class="mercury-inner bg-paper border border-sky-blue p-5 sm:p-8 md:p-12">
             <div class="max-w-xl mx-auto text-center mb-8">
               <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-deep-green/10 text-deep-green text-xs font-mono font-bold mb-3">
                 No Pressure Evaluation
@@ -129,7 +129,7 @@ import site from '@content/site.json';
               <div class="pt-2">
                 <button
                   type="submit"
-                  class="w-full py-4 rounded-full bg-deep-green text-white font-bold text-sm hover:bg-brand-green transition-all shadow-md active:scale-98"
+                  class="w-full py-3.5 sm:py-4 px-4 rounded-full bg-deep-green text-white font-bold text-xs sm:text-sm hover:bg-brand-green transition-all shadow-md active:scale-98"
                 >
                   Send Details & Get Custom Call Demo
                 </button>
@@ -143,11 +143,11 @@ import site from '@content/site.json';
             </form>
 
             <!-- Direct 15 Min Booking Link -->
-            <div class="mt-8 pt-6 border-t border-sky-blue/60 text-center">
+            <div class="mt-8 pt-6 border-t border-sky-blue/60 text-center flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
               <span class="text-xs text-slate">Prefer to speak directly with our team?</span>
               <a
                 href={`mailto:${site.supportEmail}?subject=Schedule%2015%20Min%20Call`}
-                class="ml-2 text-xs font-bold text-deep-green hover:underline"
+                class="text-xs font-bold text-deep-green hover:underline"
               >
                 Book a 15 min call &rarr;
               </a>

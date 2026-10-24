@@ -6,8 +6,8 @@ import site from '@content/site.json';
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="mercury-shell-light">
-      <div class="mercury-inner bg-paper border border-sky-blue p-8 sm:p-12">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-stretch">
+      <div class="mercury-inner bg-paper border border-sky-blue p-5 sm:p-8 md:p-12">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-stretch">
           
           <!-- Avatar & Badge (Left Col - stretches full height) -->
           <div class="md:col-span-4 flex flex-col justify-between items-center md:items-start text-center md:text-left h-full">
@@ -15,7 +15,7 @@ import site from '@content/site.json';
               <img
                 src="/images/ayush-raj.jpg"
                 alt="Ayush Raj - Founder, DRUVA GROUP"
-                class="w-44 h-44 sm:w-52 sm:h-52 rounded-3xl object-cover object-top shadow-md mb-4 border-2 border-white ring-2 ring-deep-green/20"
+                class="w-36 h-36 sm:w-48 sm:h-48 md:w-52 md:h-52 rounded-3xl object-cover object-top shadow-md mb-4 border-2 border-white ring-2 ring-deep-green/20"
                 loading="lazy"
               />
               <h3 class="font-heading font-extrabold text-2xl text-ink-deep">
@@ -58,12 +58,12 @@ import site from '@content/site.json';
             <div class="pt-4 border-t border-sky-blue/70 grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
               <div class="p-3.5 rounded-xl bg-white border border-sky-blue shadow-2xs">
                 <span class="text-gray-400 block text-[10px] uppercase font-bold">Udyam Registration</span>
-                <span class="font-bold text-ink-deep text-sm">{site.udyamNumber}</span>
+                <span class="font-bold text-ink-deep text-sm font-mono whitespace-nowrap">{site.udyamNumber}</span>
                 <a href={site.udyamVerificationUrl} target="_blank" rel="noopener noreferrer" class="block text-[11px] text-deep-green underline font-semibold mt-1">Verify at Government Portal &rarr;</a>
               </div>
               <div class="p-3.5 rounded-xl bg-white border border-sky-blue shadow-2xs">
                 <span class="text-gray-400 block text-[10px] uppercase font-bold">Active Issued GSTIN</span>
-                <span class="font-bold text-ink-deep text-sm">{site.gstin}</span>
+                <span class="font-bold text-ink-deep text-sm font-mono whitespace-nowrap">{site.gstin}</span>
                 <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="block text-[11px] text-deep-green underline font-semibold mt-1">Verify at GST Portal &rarr;</a>
               </div>
             </div>

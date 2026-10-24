@@ -5,8 +5,8 @@ import updates from '@content/updates.json';
 <section id="how-it-works" class="py-20 lg:py-28 bg-[#F4F8FA] border-b border-sky-blue/60 relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Section Header -->
-    <div class="max-w-3xl mb-12">
+    <!-- Section Header (Centered) -->
+    <div class="max-w-3xl mx-auto text-center mb-12">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
         End-to-End Automation Loop
       </div>
@@ -19,7 +19,12 @@ import updates from '@content/updates.json';
     </div>
 
     <!-- 6-Step Interactive Timeline Scrubber -->
-    <div class="mb-12 overflow-x-auto pb-4">
+    <div class="sm:hidden flex items-center justify-between text-[11px] font-mono text-slate bg-paper px-3 py-1.5 rounded-lg border border-sky-blue/60 mb-3">
+      <span>Swipe & tap steps to preview loop &rarr;</span>
+      <span class="text-deep-green font-bold">&bull; 6 Steps</span>
+    </div>
+
+    <div class="mb-12 overflow-x-auto pb-3 flex justify-start sm:justify-center">
       <div class="flex items-center gap-2 min-w-max p-1.5 bg-white border border-sky-blue rounded-full shadow-xs">
         {updates.steps.map((st, idx) => (
           <button
@@ -42,25 +47,25 @@ import updates from '@content/updates.json';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
       
       <!-- Phone A: Homeowner / Caller SMS Thread -->
-      <div class="flex flex-col items-center">
-        <div class="text-xs font-mono uppercase text-slate font-bold mb-3 tracking-wider flex items-center gap-2">
-          <svg class="w-4 h-4 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <div class="flex flex-col items-center w-full">
+        <div class="text-xs font-mono uppercase text-slate font-bold mb-3 tracking-wider flex items-center gap-2 text-center justify-center">
+          <svg class="w-4 h-4 text-brand-green shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
           </svg>
-          <span>Phone A: Homeowner's SMS Thread</span>
+          <span class="truncate">Phone A: Homeowner's SMS Thread</span>
         </div>
 
         <!-- iPhone CSS Bezel -->
-        <div class="w-full max-w-[340px] rounded-[44px] bg-[#121212] p-3 shadow-2xl border-4 border-[#2C2C2E] relative">
+        <div class="w-full max-w-[340px] rounded-[38px] sm:rounded-[44px] bg-[#121212] p-2.5 sm:p-3 shadow-2xl border-4 border-[#2C2C2E] relative mx-auto">
           <!-- Dynamic Island / Speaker notch -->
-          <div class="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-20 flex items-center justify-center">
-            <div class="w-2.5 h-2.5 rounded-full bg-[#1A1A1A] mr-3"></div>
+          <div class="absolute top-4 sm:top-5 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-3.5 sm:h-4 bg-black rounded-full z-20 flex items-center justify-center">
+            <div class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#1A1A1A] mr-2.5 sm:mr-3"></div>
             <div class="w-1.5 h-1.5 rounded-full bg-[#0D2818]"></div>
           </div>
 
           <!-- Screen Container -->
-          <div class="bg-white rounded-[34px] overflow-hidden min-h-[460px] flex flex-col justify-between pt-8 pb-4 px-4 text-ink">
+          <div class="bg-white rounded-[28px] sm:rounded-[34px] overflow-hidden min-h-[440px] sm:min-h-[460px] flex flex-col justify-between pt-7 sm:pt-8 pb-4 px-3.5 sm:px-4 text-ink">
             <!-- Messages Header -->
             <div class="text-center pb-3 border-b border-gray-100">
               <div class="w-10 h-10 rounded-full bg-deep-green text-white font-bold text-xs flex items-center justify-center mx-auto mb-1">
@@ -78,7 +83,7 @@ import updates from '@content/updates.json';
 
               <!-- SMS Bubble -->
               <div class="bg-light-blue/80 border border-sky-blue/70 text-ink-deep text-xs rounded-2xl rounded-tl-sm p-3.5 leading-relaxed shadow-2xs">
-                <p id="phone-a-text">
+                <p id="phone-a-text" class="break-words">
                   {updates.steps[0].callerMessage.text}
                 </p>
               </div>
@@ -102,25 +107,25 @@ import updates from '@content/updates.json';
       </div>
 
       <!-- Phone B: Technician & Business Owner Dispatch Feed -->
-      <div class="flex flex-col items-center">
-        <div class="text-xs font-mono uppercase text-slate font-bold mb-3 tracking-wider flex items-center gap-2">
-          <svg class="w-4 h-4 text-deep-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <div class="flex flex-col items-center w-full">
+        <div class="text-xs font-mono uppercase text-slate font-bold mb-3 tracking-wider flex items-center gap-2 text-center justify-center">
+          <svg class="w-4 h-4 text-deep-green shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
           </svg>
-          <span>Phone B: Field Crew & Owner Dispatch Feed</span>
+          <span class="truncate">Phone B: Field Crew & Owner Dispatch Feed</span>
         </div>
 
         <!-- iPhone CSS Bezel -->
-        <div class="w-full max-w-[340px] rounded-[44px] bg-[#121212] p-3 shadow-2xl border-4 border-[#2C2C2E] relative">
+        <div class="w-full max-w-[340px] rounded-[38px] sm:rounded-[44px] bg-[#121212] p-2.5 sm:p-3 shadow-2xl border-4 border-[#2C2C2E] relative mx-auto">
           <!-- Dynamic Island / Speaker notch -->
-          <div class="absolute top-5 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-20 flex items-center justify-center">
-            <div class="w-2.5 h-2.5 rounded-full bg-[#1A1A1A] mr-3"></div>
+          <div class="absolute top-4 sm:top-5 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-3.5 sm:h-4 bg-black rounded-full z-20 flex items-center justify-center">
+            <div class="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#1A1A1A] mr-2.5 sm:mr-3"></div>
             <div class="w-1.5 h-1.5 rounded-full bg-[#0D2818]"></div>
           </div>
 
           <!-- Screen Container -->
-          <div class="bg-[#0B1E17] text-white rounded-[34px] overflow-hidden min-h-[460px] flex flex-col justify-between pt-8 pb-4 px-4">
+          <div class="bg-[#0B1E17] text-white rounded-[28px] sm:rounded-[34px] overflow-hidden min-h-[440px] sm:min-h-[460px] flex flex-col justify-between pt-7 sm:pt-8 pb-4 px-3.5 sm:px-4">
             <!-- Messages Header -->
             <div class="text-center pb-3 border-b border-white/10">
               <div class="w-10 h-10 rounded-full bg-lime-accent text-ink-deep font-bold text-xs flex items-center justify-center mx-auto mb-1">
@@ -142,7 +147,7 @@ import updates from '@content/updates.json';
                   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                   <span id="phone-b-title">{updates.steps[0].title}</span>
                 </div>
-                <p class="text-xs text-gray-200" id="phone-b-text">
+                <p class="text-xs text-gray-200 break-words" id="phone-b-text">
                   {updates.steps[0].teamMessage.text}
                 </p>
               </div>
@@ -153,9 +158,9 @@ import updates from '@content/updates.json';
             </div>
 
             <!-- Fake Tech Action Button -->
-            <div class="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
-              <span class="text-[11px]">Route: Austin Central</span>
-              <span class="px-2.5 py-1 rounded-md bg-lime-accent text-ink font-bold text-[10px]">Acknowledge</span>
+            <div class="pt-2 border-t border-white/10 flex items-center justify-between gap-1 text-xs text-gray-400">
+              <span class="text-[11px] truncate">Route: Austin Central</span>
+              <span class="px-2.5 py-1 rounded-md bg-lime-accent text-ink font-bold text-[10px] shrink-0">Acknowledge</span>
             </div>
           </div>
         </div>

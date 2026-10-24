@@ -25,26 +25,26 @@ import FinalCta from '../components/home/FinalCta.astro';
       </div>
 
       <!-- Trade-Specific Tabs (Plumbing, HVAC, Electrical) -->
-      <div class="my-16">
-        <div class="flex items-center gap-2 p-1.5 bg-paper border border-sky-blue rounded-2xl mb-8 max-w-md">
+      <div class="my-12 sm:my-16">
+        <div class="grid grid-cols-3 gap-1.5 p-1.5 bg-paper border border-sky-blue rounded-2xl mb-8 max-w-md w-full">
           <button
             type="button"
             data-trade-tab="plumbing"
-            class="trade-nav-btn flex-1 py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all bg-deep-green text-white shadow-xs"
+            class="trade-nav-btn py-2.5 px-2 text-center rounded-xl text-xs font-bold font-mono transition-all bg-deep-green text-white shadow-xs"
           >
             Plumbing
           </button>
           <button
             type="button"
             data-trade-tab="hvac"
-            class="trade-nav-btn flex-1 py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
+            class="trade-nav-btn py-2.5 px-2 text-center rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
           >
             HVAC
           </button>
           <button
             type="button"
             data-trade-tab="electrical"
-            class="trade-nav-btn flex-1 py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
+            class="trade-nav-btn py-2.5 px-2 text-center rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
           >
             Electrical
           </button>
@@ -53,19 +53,19 @@ import FinalCta from '../components/home/FinalCta.astro';
         <!-- Trade Content Panels -->
         <!-- Plumbing Panel -->
         <div id="panel-plumbing" class="trade-panel space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="p-8 rounded-panel bg-paper border border-sky-blue">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
               <span class="text-xs font-mono font-bold text-deep-green uppercase">Urgent Flow</span>
-              <h3 class="font-heading font-bold text-xl text-ink-deep my-2">Sewer Backups & Freeze Bursts</h3>
+              <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Sewer Backups & Freeze Bursts</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 The agent determines if water is actively overflowing, instructs on shutoff locations, holds the earliest emergency slot, and immediately dials on-call plumbers.
               </p>
               <div class="text-xs font-mono text-brand-green font-semibold">Holds Urgent Dispatch Slot</div>
             </div>
 
-            <div class="p-8 rounded-panel bg-paper border border-sky-blue">
+            <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
               <span class="text-xs font-mono font-bold text-slate uppercase">Routine Quote Flow</span>
-              <h3 class="font-heading font-bold text-xl text-ink-deep my-2">Water Heater & Repiping Estimates</h3>
+              <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Water Heater & Repiping Estimates</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Collects tank gallon size, fuel type (gas vs electric), accessibility details, and books scheduled estimator visits directly into your CRM.
               </p>
@@ -76,19 +76,19 @@ import FinalCta from '../components/home/FinalCta.astro';
 
         <!-- HVAC Panel -->
         <div id="panel-hvac" class="trade-panel hidden space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="p-8 rounded-panel bg-paper border border-sky-blue">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
               <span class="text-xs font-mono font-bold text-deep-green uppercase">Heatwave Emergency</span>
-              <h3 class="font-heading font-bold text-xl text-ink-deep my-2">Total AC Cooling Failure</h3>
+              <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Total AC Cooling Failure</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Identifies elderly occupants or children in high heat, gathers condenser error codes, and books immediate 2-hour diagnostic arrival windows.
               </p>
               <div class="text-xs font-mono text-brand-green font-semibold">Heatwave Surge Protection</div>
             </div>
 
-            <div class="p-8 rounded-panel bg-paper border border-sky-blue">
+            <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
               <span class="text-xs font-mono font-bold text-slate uppercase">Preventative Tune-Ups</span>
-              <h3 class="font-heading font-bold text-xl text-ink-deep my-2">Seasonal Maintenance Booking</h3>
+              <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Seasonal Maintenance Booking</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Answers pre-approved promotional tune-up pricing, locks off-peak schedule slots, and confirms homeowner availability via text.
               </p>
@@ -99,19 +99,19 @@ import FinalCta from '../components/home/FinalCta.astro';
 
         <!-- Electrical Panel -->
         <div id="panel-electrical" class="trade-panel hidden space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="p-8 rounded-panel bg-paper border border-sky-blue">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
               <span class="text-xs font-mono font-bold text-deep-green uppercase">Panel Hazards</span>
-              <h3 class="font-heading font-bold text-xl text-ink-deep my-2">Breaker Trips & Burning Odors</h3>
+              <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Breaker Trips & Burning Odors</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Warns homeowner to step back from the panel, assesses fire hazards, and triggers an immediate warm transfer to your master electrician.
               </p>
               <div class="text-xs font-mono text-brand-green font-semibold">Safety Warm Handoff First</div>
             </div>
 
-            <div class="p-8 rounded-panel bg-paper border border-sky-blue">
+            <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
               <span class="text-xs font-mono font-bold text-slate uppercase">Commercial & Rewires</span>
-              <h3 class="font-heading font-bold text-xl text-ink-deep my-2">EV Charger & Service Upgrades</h3>
+              <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">EV Charger & Service Upgrades</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Collects electrical service amperage (100A vs 200A), vehicle charger model, and schedules an on-site master electrician consultation.
               </p>
@@ -122,7 +122,7 @@ import FinalCta from '../components/home/FinalCta.astro';
       </div>
 
       <!-- Seasonal Pause Rule ($39/mo Option) -->
-      <div class="my-20 p-8 rounded-panel bg-paper border border-sky-blue max-w-4xl mx-auto">
+      <div class="my-16 sm:my-20 p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue max-w-4xl mx-auto">
         <div class="flex items-start gap-4">
           <div class="w-10 h-10 rounded-xl bg-deep-green text-lime-accent flex items-center justify-center font-bold shrink-0">
             &bull;

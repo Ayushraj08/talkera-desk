@@ -66,7 +66,7 @@ import scenarios from '@content/scenarios.json';
       <!-- Right Column: Live-Switching Transcript & Routing Workbench -->
       <div class="lg:col-span-8">
         <div class="mercury-shell-light">
-          <div class="mercury-inner bg-white border border-sky-blue p-6 sm:p-8">
+          <div class="mercury-inner bg-white border border-sky-blue p-5 sm:p-8">
             
             <!-- Workbench Header: Dual Mode Toggle Indicator -->
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-sky-blue/80 mb-6">
@@ -80,7 +80,7 @@ import scenarios from '@content/scenarios.json';
               </div>
               
               <!-- Behavior Comparison Indicator -->
-              <div class="inline-flex rounded-xl bg-paper p-1 border border-sky-blue text-xs font-semibold">
+              <div class="inline-flex rounded-xl bg-paper p-1 border border-sky-blue text-xs font-semibold self-start sm:self-auto">
                 <span class="px-3 py-1 rounded-lg bg-deep-green text-white shadow-xs">Active Mode</span>
                 <span class="px-3 py-1 text-slate">24/7 Monitored</span>
               </div>
@@ -110,7 +110,7 @@ import scenarios from '@content/scenarios.json';
             </div>
 
             <!-- Interactive Transcript Simulation Window -->
-            <div class="bg-[#F8FAFC] border border-sky-blue rounded-xl p-5 mb-6 space-y-3.5">
+            <div class="bg-[#F8FAFC] border border-sky-blue rounded-xl p-4 sm:p-5 mb-6 space-y-3.5">
               <div class="text-[11px] font-mono uppercase text-gray-400 font-bold tracking-wider">
                 Live Dialogue Stream
               </div>
@@ -120,7 +120,7 @@ import scenarios from '@content/scenarios.json';
                 <div class="w-6 h-6 rounded bg-slate text-white text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                   John
                 </div>
-                <div class="bg-white border border-sky-blue/80 rounded-xl rounded-tl-none p-3 text-xs text-ink leading-relaxed shadow-2xs max-w-[90%]" id="wb-caller-prompt">
+                <div class="bg-white border border-sky-blue/80 rounded-xl rounded-tl-none p-3 text-xs text-ink leading-relaxed shadow-2xs max-w-[90%] break-words" id="wb-caller-prompt">
                   "{scenarios[0].callerPrompt}"
                 </div>
               </div>
@@ -130,7 +130,7 @@ import scenarios from '@content/scenarios.json';
                 <div class="w-6 h-6 rounded bg-deep-green text-lime-accent text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                   AI
                 </div>
-                <div class="bg-light-blue/80 border border-sky-blue rounded-xl rounded-tl-none p-3 text-xs text-ink-deep leading-relaxed shadow-2xs max-w-[90%]" id="wb-agent-response">
+                <div class="bg-light-blue/80 border border-sky-blue rounded-xl rounded-tl-none p-3 text-xs text-ink-deep leading-relaxed shadow-2xs max-w-[90%] break-words" id="wb-agent-response">
                   "{scenarios[0].agentResponse}"
                 </div>
               </div>
@@ -140,7 +140,7 @@ import scenarios from '@content/scenarios.json';
                 <div class="w-6 h-6 rounded bg-slate text-white text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                   John
                 </div>
-                <div class="bg-white border border-sky-blue/80 rounded-xl rounded-tl-none p-3 text-xs text-ink leading-relaxed shadow-2xs max-w-[90%]" id="wb-caller-followup">
+                <div class="bg-white border border-sky-blue/80 rounded-xl rounded-tl-none p-3 text-xs text-ink leading-relaxed shadow-2xs max-w-[90%] break-words" id="wb-caller-followup">
                   "{scenarios[0].callerFollowup}"
                 </div>
               </div>
@@ -150,7 +150,7 @@ import scenarios from '@content/scenarios.json';
                 <div class="w-6 h-6 rounded bg-deep-green text-lime-accent text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
                   AI
                 </div>
-                <div class="bg-light-blue/80 border border-sky-blue rounded-xl rounded-tl-none p-3 text-xs text-ink-deep leading-relaxed shadow-2xs max-w-[90%]" id="wb-agent-resolution">
+                <div class="bg-light-blue/80 border border-sky-blue rounded-xl rounded-tl-none p-3 text-xs text-ink-deep leading-relaxed shadow-2xs max-w-[90%] break-words" id="wb-agent-resolution">
                   "{scenarios[0].agentResolution}"
                 </div>
               </div>
