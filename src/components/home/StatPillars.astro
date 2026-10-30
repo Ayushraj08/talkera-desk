@@ -1,16 +1,16 @@
 ---
-import stats from '@content/stats.json';
+// Section: Industry Benchmark Research (A voicemail is not a booked job)
 ---
 
-<section id="calculator" class="py-20 lg:py-28 bg-[#F8FAFC] border-b border-sky-blue/60 relative">
+<section id="research" class="py-16 lg:py-24 bg-[#F8FAFC] border-b border-sky-blue/60 relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header (Centered) -->
-    <div class="max-w-3xl mx-auto text-center mb-16">
+    <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
         Industry Benchmark Research
       </div>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-4">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-4 font-heading">
         A voicemail is not a booked job.
       </h2>
       <p class="text-base sm:text-lg text-slate leading-relaxed">
@@ -18,10 +18,11 @@ import stats from '@content/stats.json';
       </p>
     </div>
 
-    <!-- Ada.cx Style Asymmetrical Stat Pillars (Centered Text Alignment) -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+    <!-- 3 Research Stat Pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      
       <!-- Pillar 1: 52% (Deep Green) -->
-      <div class="bg-deep-green text-white rounded-panel p-6 sm:p-8 lg:p-10 flex flex-col justify-between items-center text-center min-h-[320px] sm:min-h-[360px] shadow-tactile relative overflow-hidden group hover:-translate-y-1 transition-transform">
+      <div class="bg-deep-green text-white rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between items-center text-center min-h-[320px] shadow-tactile relative overflow-hidden group hover:-translate-y-1 transition-transform">
         <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
         <div class="flex flex-col items-center">
           <div class="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-heading text-lime-accent tracking-tighter tabular mb-3">
@@ -47,8 +48,8 @@ import stats from '@content/stats.json';
         </div>
       </div>
 
-      <!-- Pillar 2: 82% (Emerald Green) -->
-      <div class="bg-brand-green text-white rounded-panel p-6 sm:p-8 lg:p-10 flex flex-col justify-between items-center text-center min-h-[320px] sm:min-h-[360px] shadow-tactile relative overflow-hidden group hover:-translate-y-1 transition-transform">
+      <!-- Pillar 2: 82% (Brand Green) -->
+      <div class="bg-brand-green text-white rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between items-center text-center min-h-[320px] shadow-tactile relative overflow-hidden group hover:-translate-y-1 transition-transform">
         <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
         <div class="flex flex-col items-center">
           <div class="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-heading text-white tracking-tighter tabular mb-3">
@@ -74,8 +75,8 @@ import stats from '@content/stats.json';
         </div>
       </div>
 
-      <!-- Pillar 3: 21% (Sky Light Blue) -->
-      <div class="bg-light-blue text-ink rounded-panel p-6 sm:p-8 lg:p-10 flex flex-col justify-between items-center text-center min-h-[320px] sm:min-h-[360px] border border-sky-blue shadow-tactile group hover:-translate-y-1 transition-transform">
+      <!-- Pillar 3: 21% (Light Blue) -->
+      <div class="bg-light-blue text-ink rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between items-center text-center min-h-[320px] border border-sky-blue shadow-tactile group hover:-translate-y-1 transition-transform">
         <div class="flex flex-col items-center">
           <div class="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-heading text-deep-green tracking-tighter tabular mb-3">
             21%
@@ -99,408 +100,13 @@ import stats from '@content/stats.json';
           </a>
         </div>
       </div>
+
     </div>
 
-    <!-- Clarification Note -->
-    <div class="text-center text-xs text-slate mb-14">
+    <!-- Required Disclaimer Under Cards -->
+    <p class="text-xs text-slate text-center font-mono max-w-2xl mx-auto leading-relaxed">
       Both companies sell call tools. These are their findings, not promises from us. Calculate your business's numbers below.
-    </div>
-
-    <!-- Ramp-Style Interactive Missed-Call Revenue Calculator (Split Card) -->
-    <div id="calculator" class="mercury-shell-light max-w-5xl mx-auto">
-      <div class="mercury-inner bg-white border border-sky-blue p-6 sm:p-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
-          <!-- Left: Simple Daily Sliders & Plain-Language Conversion -->
-          <div class="lg:col-span-7 space-y-6">
-            <div>
-              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-deep-green/10 text-deep-green text-xs font-mono font-bold mb-2">
-                Interactive Model
-              </div>
-              <h3 class="font-heading font-extrabold text-2xl text-ink-deep">
-                Missed-Call Revenue Calculator
-              </h3>
-              <p class="text-xs sm:text-sm text-slate mt-1">
-                Enter your typical daily calls to see your estimated monthly pipeline and true net profit after Talkera Desk costs.
-              </p>
-            </div>
-
-            <!-- Input 1: Missed Calls Per Day (5 to 15) -->
-            <div>
-              <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
-                <span>Missed Calls per Day</span>
-                <span class="font-mono text-sm px-2.5 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-missed-display">8 calls / day</span>
-              </div>
-              <input
-                id="input-missed-calls"
-                type="range"
-                min="5"
-                max="15"
-                step="1"
-                value="8"
-                class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
-              />
-              <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
-                <span>5 / day (low)</span>
-                <span>10 / day (average)</span>
-                <span>15 / day (busy)</span>
-              </div>
-              <div class="text-[11px] text-slate font-mono mt-1" id="sub-missed-monthly">
-                &approx; 240 missed calls every month
-              </div>
-            </div>
-
-            <!-- Input 2: Expected Total Inbound Calls Per Day (3 to 40) -->
-            <div>
-              <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
-                <span>Total Expected Calls per Day</span>
-                <span class="font-mono text-sm px-2.5 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-total-display">15 calls / day</span>
-              </div>
-              <input
-                id="input-total-calls"
-                type="range"
-                min="3"
-                max="40"
-                step="1"
-                value="15"
-                class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
-              />
-              <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
-                <span>3 / day (PAYG)</span>
-                <span>6 / day (Starter)</span>
-                <span>15 / day (Pro)</span>
-                <span>30+ / day (Growth)</span>
-              </div>
-              <div class="text-[11px] text-slate font-mono mt-1" id="sub-total-monthly">
-                &approx; 450 total calls / month (used to suggest your best plan)
-              </div>
-            </div>
-
-            <!-- Input 3: Average Job Value ($) -->
-            <div>
-              <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
-                <span>Average Job Ticket Value ($)</span>
-                <span class="font-mono text-sm px-2.5 py-0.5 rounded bg-light-blue text-deep-green tabular font-bold" id="val-ticket-display">$230</span>
-              </div>
-              <input
-                id="input-ticket-value"
-                type="range"
-                min="50"
-                max="2500"
-                step="10"
-                value="230"
-                class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
-              />
-              <div class="flex justify-between text-[11px] text-gray-400 mt-1 font-mono">
-                <span>$150 (Service)</span>
-                <span>$350 (Standard)</span>
-                <span>$800 (HVAC)</span>
-                <span>$1,500+ (Restoration)</span>
-              </div>
-            </div>
-
-            <!-- Simple Plain-Language Disclaimer Card -->
-            <div class="p-3.5 rounded-xl bg-light-blue/40 border border-sky-blue text-xs text-slate space-y-1.5">
-              <div class="flex items-center gap-2 font-bold text-ink-deep">
-                <svg class="w-4 h-4 text-brand-green shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>How we calculate this (15% conversion floor):</span>
-              </div>
-              <p class="leading-relaxed text-[11px]">
-                Out of every 100 missed calls answered by your AI agent, we conservatively assume only <strong>15 calls (15%)</strong> turn into a paying, booked job. The remaining calls are price checks, spam, or non-bookings.
-              </p>
-            </div>
-          </div>
-
-          <!-- Right: Monthly Impact & True Net Recovered Value Card -->
-          <div class="lg:col-span-5 bg-paper border border-sky-blue rounded-2xl p-6 flex flex-col justify-between shadow-sm">
-            <div>
-              <div class="flex items-center justify-between">
-                <div class="text-[11px] uppercase font-mono tracking-wider text-slate font-bold">
-                  Estimated Net Recovered Value
-                </div>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">
-                  Monthly Impact
-                </span>
-              </div>
-              
-              <div class="text-4xl sm:text-5xl font-extrabold font-heading text-deep-green tracking-tight tabular my-2" id="res-net-profit">
-                +$7,717
-              </div>
-              <div class="text-xs text-slate font-medium mb-4">
-                Net monthly value recovered after subtracting Talkera Desk plan charge.
-              </div>
-
-              <!-- Interactive Plan Selector Pills -->
-              <div class="mb-4 pt-3 border-t border-sky-blue/50">
-                <div class="flex items-center justify-between text-[10px] font-mono uppercase text-slate font-bold mb-1.5">
-                  <span>Selected / Suggested Plan:</span>
-                  <span id="plan-mode-label" class="text-deep-green font-bold">Auto-Matched</span>
-                </div>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-[11px] font-mono" id="plan-pills">
-                  <button type="button" data-plan="payg" class="plan-pill py-1.5 px-2 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
-                    PAYG ($59)
-                  </button>
-                  <button type="button" data-plan="starter" class="plan-pill py-1.5 px-2 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
-                    Starter ($293)
-                  </button>
-                  <button type="button" data-plan="pro" class="plan-pill py-1.5 px-2 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
-                    Pro ($563)
-                  </button>
-                  <button type="button" data-plan="growth" class="plan-pill py-1.5 px-2 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all">
-                    Growth ($1,293)
-                  </button>
-                </div>
-              </div>
-
-              <!-- Step-by-Step Transparent Monthly Breakdown -->
-              <div class="space-y-2.5 py-3 border-t border-b border-sky-blue/70 text-xs text-slate font-mono">
-                <div class="flex justify-between">
-                  <span>Missed Calls Handled:</span>
-                  <span class="text-ink font-semibold tabular" id="res-monthly-missed">240 calls / mo</span>
-                </div>
-                <div class="flex justify-between">
-                  <span>Extra Booked Jobs (15%):</span>
-                  <span class="text-ink font-bold tabular" id="res-jobs-saved">36 jobs / mo</span>
-                </div>
-                <div class="flex justify-between">
-                  <span>Gross Recovered Value:</span>
-                  <span class="text-emerald-700 font-bold tabular" id="res-gross-recovered">+$8,280 / mo</span>
-                </div>
-
-                <!-- Plan Deduction Row -->
-                <div class="pt-2 border-t border-sky-blue/50">
-                  <div class="flex items-center justify-between text-ink-deep font-sans">
-                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate">Active Plan:</span>
-                    <a href="/pricing" id="link-rec-plan" class="text-xs font-mono font-bold text-deep-green hover:underline flex items-center gap-1">
-                      <span id="badge-rec-plan">Pro Plan ($563/mo)</span>
-                      <span>&rarr;</span>
-                    </a>
-                  </div>
-                  <div class="flex justify-between text-[11px] text-gray-500 mt-1">
-                    <span>Plan Charge Deducted:</span>
-                    <span class="font-bold tabular" id="res-plan-cost">-$563 / mo</span>
-                  </div>
-                  <p class="text-[10px] text-gray-500 mt-1 leading-snug" id="res-plan-explanation">
-                    Deducted from gross recovery to show true take-home profit.
-                  </p>
-                </div>
-
-                <!-- Final Net Recovered Value Row (Requested by User) -->
-                <div class="pt-2.5 mt-2 border-t border-sky-blue/80 flex justify-between items-center text-xs bg-light-blue/40 -mx-2 px-2.5 py-1.5 rounded-lg">
-                  <span class="font-bold text-ink-deep font-sans">Net Recovered Value:</span>
-                  <span class="font-bold font-mono text-deep-green text-sm tabular" id="res-net-recovered-line">+$7,717 / mo</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-5 space-y-2">
-              <a
-                href="/pricing"
-                id="btn-pricing-cta"
-                class="w-full inline-flex items-center justify-center py-3 px-4 rounded-full bg-deep-green text-white text-xs font-bold hover:bg-brand-green transition-all shadow"
-              >
-                <span>View Recommended Plan on Pricing Page</span>
-                <span class="ml-1.5">&rarr;</span>
-              </a>
-              <div class="text-center">
-                <a href="/demo" class="text-[11px] text-slate underline hover:text-ink-deep">
-                  Or listen to recorded voice demos &rarr;
-                </a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
+    </p>
 
   </div>
 </section>
-
-<!-- Calculator Logic -->
-<script>
-  function setupCalculator() {
-    const missedInput = document.getElementById('input-missed-calls') as HTMLInputElement | null;
-    const totalInput = document.getElementById('input-total-calls') as HTMLInputElement | null;
-    const ticketInput = document.getElementById('input-ticket-value') as HTMLInputElement | null;
-
-    const missedDisplay = document.getElementById('val-missed-display');
-    const totalDisplay = document.getElementById('val-total-display');
-    const ticketDisplay = document.getElementById('val-ticket-display');
-
-    const subMissed = document.getElementById('sub-missed-monthly');
-    const subTotal = document.getElementById('sub-total-monthly');
-
-    const resNet = document.getElementById('res-net-profit');
-    const resMonthlyMissed = document.getElementById('res-monthly-missed');
-    const resJobs = document.getElementById('res-jobs-saved');
-    const resGross = document.getElementById('res-gross-recovered');
-
-    const badgePlan = document.getElementById('badge-rec-plan');
-    const resPlanCost = document.getElementById('res-plan-cost');
-    const resPlanExp = document.getElementById('res-plan-explanation');
-    const resNetRecoveredLine = document.getElementById('res-net-recovered-line');
-    const linkRecPlan = document.getElementById('link-rec-plan') as HTMLAnchorElement | null;
-    const btnPricingCta = document.getElementById('btn-pricing-cta') as HTMLAnchorElement | null;
-    const planModeLabel = document.getElementById('plan-mode-label');
-    const pills = document.querySelectorAll('.plan-pill');
-
-    let manualSelectedPlan: 'payg' | 'starter' | 'pro' | 'growth' | null = null;
-
-    function getPlanDetails(planKey: 'payg' | 'starter' | 'pro' | 'growth') {
-      if (planKey === 'payg') {
-        return {
-          name: 'Pay As You Go ($59 base)',
-          cost: 0,
-          costText: '$0 (Not Deducted)',
-          costClass: 'text-slate font-bold tabular',
-          anchor: '/pricing',
-          explanation: 'Why not deducted: In Pay As You Go, you only pay $0.60/min as calls occur. No bundled monthly plan fee is prepaid, so $0 is deducted from recovery.'
-        };
-      } else if (planKey === 'starter') {
-        return {
-          name: 'Starter Plan ($293/mo)',
-          cost: 293,
-          costText: '-$293 / mo',
-          costClass: 'text-red-700 font-bold tabular',
-          anchor: '/pricing',
-          explanation: 'Starter tier (up to ~165 calls). Monthly plan fee deducted from gross recovery.'
-        };
-      } else if (planKey === 'pro') {
-        return {
-          name: 'Pro Plan ($563/mo)',
-          cost: 563,
-          costText: '-$563 / mo',
-          costClass: 'text-red-700 font-bold tabular',
-          anchor: '/pricing',
-          explanation: 'Most popular tier (up to ~330 calls). Monthly plan fee deducted from gross recovery.'
-        };
-      } else {
-        return {
-          name: 'Growth Plan ($1,293/mo)',
-          cost: 1293,
-          costText: '-$1,293 / mo',
-          costClass: 'text-red-700 font-bold tabular',
-          anchor: '/pricing',
-          explanation: 'High-volume tier (up to ~830 calls). Monthly plan fee deducted from gross recovery.'
-        };
-      }
-    }
-
-    function update() {
-      if (!missedInput || !ticketInput) return;
-      const missedDaily = parseInt(missedInput.value, 10);
-      const totalDaily = totalInput ? parseInt(totalInput.value, 10) : 15;
-      const ticketVal = parseInt(ticketInput.value, 10);
-
-      // Display inputs
-      if (missedDisplay) missedDisplay.textContent = `${missedDaily} calls / day`;
-      if (totalDisplay) totalDisplay.textContent = `${totalDaily} calls / day`;
-      if (ticketDisplay) ticketDisplay.textContent = `$${ticketVal.toLocaleString()}`;
-
-      // Monthly conversions (30 days/month)
-      const monthlyMissed = missedDaily * 30;
-      const monthlyTotal = totalDaily * 30;
-
-      if (subMissed) subMissed.textContent = `≈ ${monthlyMissed.toLocaleString()} missed calls every month`;
-      if (subTotal) subTotal.textContent = `≈ ${monthlyTotal.toLocaleString()} total calls / month (used to suggest plan)`;
-
-      // Conservative 15% booking benchmark
-      const jobsSaved = Math.round(monthlyMissed * 0.15);
-      const grossRecovered = jobsSaved * ticketVal;
-
-      // Determine active plan
-      let activePlanKey: 'payg' | 'starter' | 'pro' | 'growth';
-      if (manualSelectedPlan) {
-        activePlanKey = manualSelectedPlan;
-        if (planModeLabel) planModeLabel.textContent = 'Selected';
-      } else {
-        if (planModeLabel) planModeLabel.textContent = 'Auto-Matched';
-        if (monthlyTotal <= 90) {
-          activePlanKey = 'payg';
-        } else if (monthlyTotal <= 210) {
-          activePlanKey = 'starter';
-        } else if (monthlyTotal <= 500) {
-          activePlanKey = 'pro';
-        } else {
-          activePlanKey = 'growth';
-        }
-      }
-
-      // Update pills styling
-      pills.forEach((p) => {
-        const key = (p as HTMLElement).dataset.plan;
-        if (key === activePlanKey) {
-          p.className = 'plan-pill py-1 px-1 rounded border border-deep-green text-center bg-deep-green text-white font-bold transition-all shadow-sm';
-        } else {
-          p.className = 'plan-pill py-1 px-1 rounded border border-sky-blue text-center bg-white text-slate hover:border-deep-green transition-all';
-        }
-      });
-
-      const planInfo = getPlanDetails(activePlanKey);
-      const netProfit = grossRecovered - planInfo.cost;
-
-      if (resMonthlyMissed) resMonthlyMissed.textContent = `${monthlyMissed} calls / mo`;
-      if (resJobs) resJobs.textContent = `${jobsSaved} jobs / mo`;
-      if (resGross) resGross.textContent = `+$${grossRecovered.toLocaleString()} / mo`;
-
-      if (badgePlan) badgePlan.textContent = planInfo.name;
-      if (resPlanCost) {
-        resPlanCost.textContent = planInfo.costText;
-        resPlanCost.className = planInfo.costClass;
-      }
-      if (resPlanExp) resPlanExp.textContent = planInfo.explanation;
-
-      if (resNetRecoveredLine) {
-        if (netProfit >= 0) {
-          resNetRecoveredLine.textContent = `+$${netProfit.toLocaleString()} / mo`;
-          resNetRecoveredLine.className = 'font-bold font-mono text-deep-green text-sm tabular';
-        } else {
-          resNetRecoveredLine.textContent = `-$${Math.abs(netProfit).toLocaleString()} / mo`;
-          resNetRecoveredLine.className = 'font-bold font-mono text-red-700 text-sm tabular';
-        }
-      }
-
-      if (linkRecPlan) linkRecPlan.href = planInfo.anchor;
-      if (btnPricingCta) {
-        btnPricingCta.href = planInfo.anchor;
-        btnPricingCta.innerHTML = `<span>View ${planInfo.name.split(' (')[0]} on Pricing Page</span> <span class="ml-1.5">&rarr;</span>`;
-      }
-
-      if (resNet) {
-        if (netProfit >= 0) {
-          resNet.textContent = `+$${netProfit.toLocaleString()}`;
-          resNet.className = 'text-4xl sm:text-5xl font-extrabold font-heading text-deep-green tracking-tight tabular my-2';
-        } else {
-          resNet.textContent = `-$${Math.abs(netProfit).toLocaleString()}`;
-          resNet.className = 'text-4xl sm:text-5xl font-extrabold font-heading text-red-700 tracking-tight tabular my-2';
-        }
-      }
-    }
-
-    pills.forEach((p) => {
-      p.addEventListener('click', () => {
-        const key = (p as HTMLElement).dataset.plan as 'payg' | 'starter' | 'pro' | 'growth';
-        if (manualSelectedPlan === key) {
-          manualSelectedPlan = null; // Toggle back to auto-match
-        } else {
-          manualSelectedPlan = key;
-        }
-        update();
-      });
-    });
-
-    if (missedInput) missedInput.addEventListener('input', () => { update(); });
-    if (totalInput) totalInput.addEventListener('input', () => {
-      manualSelectedPlan = null;
-      update();
-    });
-    if (ticketInput) ticketInput.addEventListener('input', () => { update(); });
-
-    update();
-  }
-
-  setupCalculator();
-</script>

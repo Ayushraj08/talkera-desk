@@ -1,32 +1,40 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import HeroStage from '../components/home/HeroStage.astro';
-import DualPhoneStage from '../components/home/DualPhoneStage.astro';
+import ThreeProofFacts from '../components/home/ThreeProofFacts.astro';
+import TimelineThreeDays from '../components/home/TimelineThreeDays.astro';
+import LoopVisual from '../components/home/LoopVisual.astro';
 import StatPillars from '../components/home/StatPillars.astro';
-import WhoItsFor from '../components/home/WhoItsFor.astro';
-import HomeHub from '../components/home/HomeHub.astro';
+import PricingGlance from '../components/home/PricingGlance.astro';
+import TrustRow from '../components/home/TrustRow.astro';
 import FinalCta from '../components/home/FinalCta.astro';
 ---
 
 <MainLayout
-  title="Talkera Desk: AI Call Answering That Books Jobs | No Contract"
-  description="AI phone team for home service & restoration businesses. Answers calls 24/7, books jobs, and keeps your caller and crew updated by text. Pay for usage. No contract."
+  title="Talkera Desk | AI voice agents for inbound calls"
+  description="AI phone agent for service businesses. Answers calls 24/7, books jobs, keeps your caller and crew updated by text. One price, no setup fee, no contract."
 >
-  <!-- Section 1: Hero Stage + Overlapping Trust Indicators -->
+  <!-- Section 1: Hero -->
   <HeroStage />
 
-  <!-- Section 2: Mobbin-Style Dual iPhone Stage (Visual Dispatch & SMS Proof) -->
-  <DualPhoneStage />
+  <!-- Section 2: Three Proof Facts -->
+  <ThreeProofFacts />
 
-  <!-- Section 3: Stat Pillars + Interactive Missed-Call Revenue Calculator -->
+  <!-- Section 3: How it works (Three Steps) -->
+  <TimelineThreeDays />
+
+  <!-- Section 4: Everyone stays in the loop (Horizontal Workflow) -->
+  <LoopVisual />
+
+  <!-- Section 5: Industry Benchmark Research & Disclaimer -->
   <StatPillars />
 
-  <!-- Section 4: Who It Is For (Centered Trade Industry Verticals) -->
-  <WhoItsFor />
+  <!-- Section 6: Pricing Teaser -->
+  <PricingGlance />
 
-  <!-- Section 5: Platform Architecture Hub (Compact Centered Exploration of Dedicated Sections) -->
-  <HomeHub />
+  <!-- Section 6: Trust Row -->
+  <TrustRow />
 
-  <!-- Section 6: Final Conversion CTA Block -->
+  <!-- Section 7: Final Call to Action -->
   <FinalCta />
 </MainLayout>

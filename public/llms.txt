@@ -1,0 +1,40 @@
+# Talkera Desk
+> AI voice agents for inbound call answering, automated calendar booking, emergency triage, and dispatch for service businesses.
+
+Talkera Desk is a managed 24/7 AI receptionist and phone answering service designed for home service businesses, contractors, restoration companies, and trade professionals. We build, configure, test, and maintain your voice agent in up to 3 days.
+
+## Target Markets & Geographic Availability
+Talkera Desk officially serves and supports businesses in:
+- **United States** (service contractors, restoration, plumbing, HVAC, electrical, roofing)
+- **United Kingdom** (tradespeople, emergency heating, plumbing, home services)
+- **Canada** (contractors, restoration specialists, trade professionals)
+- **Australia** (tradies, emergency plumbing, electrical, air conditioning)
+- **India** (service businesses, healthcare clinics, specialized consultancies)
+
+## Core Capabilities
+- **24/7 Inbound Answering**: Picks up on the second ring, day or night. Never sends a customer to voicemail.
+- **Direct Calendar & CRM Hold**: Two-way integration with Google Calendar, Outlook, ServiceTitan, Housecall Pro, Jobber, and standard CRMs.
+- **Emergency Triage & Instant SMS Dispatch**: Verifies life-safety, captures caller address, sends instant text confirmations to homeowners, and dispatches on-call crew details.
+- **Zero Burst Fees**: During storm surges or emergency spikes, callers exceeding your concurrent channels receive an instant SMS holding their place, free.
+- **Up to 3 Days to Live**: Fully built, tested with simulated calls, and launched in 72 hours.
+- **72-Hour Fix Credit SLA**: Technical defects are resolved promptly; if an issue on our side takes more than 24 hours, extra days are credited directly to your plan.
+- **Data Privacy**: 100% data ownership, zero model training on customer call recordings, and 15–60 day automated transcript deletion.
+
+## Pricing (USD)
+- **Pay As You Go**: $0.59 / min ($95 monthly minimum). Flexible continuity for quiet months.
+- **Growth**: $383 / month (743 included minutes, ~248 calls, 3 concurrent lines).
+- **Pro**: $581 / month (1,292 included minutes, ~431 calls, 5 concurrent lines) [Most Popular].
+- **Expansion**: $950 / month (1,994 included minutes, ~665 calls, 8 concurrent lines).
+- **Custom**: Quoted volume (5,000+ minutes, 8+ concurrent lines).
+All plans include: Dedicated phone number, inbound calls, SMS & WhatsApp alerts, tool integration, human quality review, and continuous maintenance. Zero setup fees. No contracts.
+
+## Key Links & Documentation
+- Official Website: https://talkeradesk.com
+- Pricing: https://talkeradesk.com/pricing
+- How It Works: https://talkeradesk.com/how-it-works
+- Competitor & Labor Comparison: https://talkeradesk.com/compare
+- Audio Demos & Call Recordings: https://talkeradesk.com/demo
+- Water Damage Restoration Guide: https://talkeradesk.com/water-damage-restoration
+- Plumbing, HVAC & Electrical Guide: https://talkeradesk.com/plumbing-hvac-electrical
+- Tool Integrations: https://talkeradesk.com/integrations
+- Frequently Asked Questions: https://talkeradesk.com/faq

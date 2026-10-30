@@ -1,586 +1,332 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import FinalCta from '../components/home/FinalCta.astro';
+
+// Operational factors for comparison
+const operationalFactors = [
+  {
+    factor: 'The Scaling Ceiling',
+    inHouse: 'Takes 1 call at a time. Extra callers go to voicemail or call a competitor.',
+    offshore: 'Takes 1 call at a time. High nocturnal fatigue during local business hours.',
+    talkera: 'Multi-line capacity (2, 3, 5, or 8+ simultaneous calls). Zero busy signals.'
+  },
+  {
+    factor: 'Data Security & Privacy',
+    inHouse: 'Controlled on office equipment under domestic jurisdiction.',
+    offshore: 'Vulnerable: Personal home laptops, residential Wi-Fi, no enterprise controls.',
+    talkera: 'Direct CRM API sync, SOC2-compliant telephony, prompt safety guardrails.'
+  },
+  {
+    factor: 'Infrastructure Reliability',
+    inHouse: 'Requires physical desk, workstation, and office overhead.',
+    offshore: 'Prone to local brownouts, power cuts, and residential ISP drops.',
+    talkera: 'Cloud carrier telephony with 24/7 carrier redundancy and failover routing.'
+  },
+  {
+    factor: 'Management Burden',
+    inHouse: 'HR friction, performance reviews, sick days, vacations, and payroll processing.',
+    offshore: 'High turnover. If an independent freelancer quits, phones go dark immediately.',
+    talkera: 'We build, tune, audit, and support your agent. Zero HR friction on your desk.'
+  }
+];
+
+// Market Frustrations
+const frustrations = [
+  {
+    title: 'Nobody Owns the Result',
+    desc: 'Software vendors sell per-minute bundles or self-serve access, but when a call drops or an address is booked incorrectly, no one is accountable for tuning it.'
+  },
+  {
+    title: 'Wrong Bookings & Technical Errors',
+    desc: 'Generic bots schedule appointments in the middle of travel routes or book complex extractions when crews only handle standard diagnostics.'
+  },
+  {
+    title: 'Surprise Bills & Surge Fees',
+    desc: 'Complicated overage formulas and sudden burst penalties when severe weather strikes make monthly bills unpredictable.'
+  },
+  {
+    title: 'Weak Escalation Handoffs',
+    desc: 'When an emergency homeowner needs immediate help, automated tools often loop or deliver dead silence instead of dialing on-call staff.'
+  },
+  {
+    title: 'Annual Contract Lock-in',
+    desc: 'Enterprise platforms force trade companies into expensive 12-month commitments before proving performance on real customer calls.'
+  },
+  {
+    title: 'Data & Number Hostage',
+    desc: 'Many services hold onto telephone numbers or refuse clean data exports when a contractor decides to take dispatch in-house.'
+  }
+];
 ---
 
 <MainLayout
-  title="How Talkera Desk Compares | Transparent Market Breakdown"
-  description="Compare Talkera Desk with voicemail, human answering services, self-serve AI receptionists, and field service add-ons. Public prices, verified gaps."
+  title="Compare AI Receptionist Pricing & Labor Models | Talkera Desk"
+  description="Compare published prices and inclusions for Talkera Desk vs competitors, in-house staff, and offshore freelancers. Short, clear, and honest."
   canonicalUrl="https://talkeradesk.com/compare"
 >
   <div class="py-16 lg:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Page Header -->
-      <!-- Page Header (Centered) -->
-      <div class="max-w-3xl mx-auto text-center mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-          Market Comparison
-        </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink-deep tracking-tight mb-4">
-          How Talkera Desk compares,<br />and the gap it fills.
-        </h1>
-        <p class="text-base sm:text-lg text-slate leading-relaxed">
-          Comparing true per-minute costs, setup effort, and the decisive edge trade businesses need: an in-house engineering team that builds and manages your custom agent, not raw software or templates you have to configure alone.
-        </p>
-      </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 lg:space-y-28">
 
-      <!-- Section 1: Direct AI Competitor Breakdown (ElevenLabs, Smith.ai, Bland AI, First Call, Voco vs Talkera Desk) -->
-      <div class="mb-20">
-        <div class="md:hidden flex items-center gap-1.5 text-[11px] font-mono text-slate mb-2.5 px-1">
-          <svg class="w-3.5 h-3.5 text-brand-green shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <span>Scroll horizontally to compare all solutions &rarr;</span>
-        </div>
-        <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-tactile font-sans text-xs">
-          <div class="table-responsive-wrapper">
-            <table class="min-w-full divide-y divide-sky-blue/60">
-              <thead class="bg-paper text-ink-deep font-heading font-bold">
-                <tr>
-                  <th class="py-4 px-4 text-left text-slate uppercase tracking-wider text-[11px] min-w-[150px]">Solution</th>
-                  <th class="py-4 px-3 text-left text-slate font-medium min-w-[140px]">Pricing & Per-Min</th>
-                  <th class="py-4 px-3 text-left text-slate font-medium min-w-[170px]">What They Provide</th>
-                  <th class="py-4 px-3 text-left text-slate font-medium min-w-[180px]">What Is Missing (The Gap)</th>
-                  <th class="py-4 px-4 text-left bg-deep-green text-lime-accent font-extrabold text-xs min-w-[210px]">
-                    Talkera Desk Advantage
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-100 text-slate">
-                <!-- Row 1: ElevenLabs -->
-                <tr class="hover:bg-light-blue/20">
-                  <td class="py-4 px-4 font-bold text-ink">
-                    <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer" class="hover:underline text-ink flex items-center gap-1">
-                      <span>ElevenLabs (DIY)</span>
-                      <span class="text-gray-400 text-[10px]">&nearr;</span>
-                    </a>
-                    <span class="text-[10px] font-mono text-gray-400 font-normal block mt-0.5">Voice Synthesis Platform</span>
-                  </td>
-                  <td class="py-4 px-3 font-mono">
-                    <span class="font-semibold text-ink">~$0.10 to $0.30+/min</span>
-                    <span class="text-[10px] text-gray-500 block">+ API & Twilio costs</span>
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed">
-                    World-class voice synthesis models and raw conversational AI developer APIs.
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed text-red-700">
-                    Pure developer tool. Zero prompt engineering done for you. No CRM sync, no trade workflows, and no human call audits.
-                  </td>
-                  <td class="py-4 px-4 bg-light-blue/30 font-medium text-deep-green leading-relaxed">
-                    <strong>Zero technical hiring:</strong> We build, test, and maintain your voice agent end-to-end. No coding or Twilio wiring required.
-                  </td>
-                </tr>
-
-                <!-- Row 2: Smith.ai -->
-                <tr class="hover:bg-light-blue/20">
-                  <td class="py-4 px-4 font-bold text-ink">
-                    <a href="https://smith.ai/" target="_blank" rel="noopener noreferrer" class="hover:underline text-ink flex items-center gap-1">
-                      <span>Smith.ai</span>
-                      <span class="text-gray-400 text-[10px]">&nearr;</span>
-                    </a>
-                    <span class="text-[10px] font-mono text-gray-400 font-normal block mt-0.5">Hybrid AI + Human Desk</span>
-                  </td>
-                  <td class="py-4 px-3 font-mono">
-                    <span class="font-semibold text-ink">~$285 to $300+/mo</span>
-                    <span class="text-[10px] text-gray-500 block">From $1.50 to $3+/call</span>
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed">
-                    Human receptionist safety net backed by automated lead intake and basic CRM sync.
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed text-red-700">
-                    High per-call penalty fees. Script templates lack deep trade-specific triage (like water extraction urgency or HVAC diagnostic routing).
-                  </td>
-                  <td class="py-4 px-4 bg-light-blue/30 font-medium text-deep-green leading-relaxed">
-                    <strong>Transparent per-minute pricing:</strong> Rates from $0.517 to $0.60/min with custom dispatch logic calibrated directly to your trades.
-                  </td>
-                </tr>
-
-                <!-- Row 3: Bland AI -->
-                <tr class="hover:bg-light-blue/20">
-                  <td class="py-4 px-4 font-bold text-ink">
-                    <a href="https://www.bland.ai/" target="_blank" rel="noopener noreferrer" class="hover:underline text-ink flex items-center gap-1">
-                      <span>Bland AI</span>
-                      <span class="text-gray-400 text-[10px]">&nearr;</span>
-                    </a>
-                    <span class="text-[10px] font-mono text-gray-400 font-normal block mt-0.5">Developer Telephony Infrastructure</span>
-                  </td>
-                  <td class="py-4 px-3 font-mono">
-                    <span class="font-semibold text-ink">From ~$0.09 to $0.14/min</span>
-                    <span class="text-[10px] text-gray-500 block">+ telephony & server setup</span>
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed">
-                    High-speed conversational telephony infrastructure built for software developers.
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed text-red-700">
-                    Platform only. You must program the webhooks, connect your field service calendar, handle server errors, and tune latency yourself.
-                  </td>
-                  <td class="py-4 px-4 bg-light-blue/30 font-medium text-deep-green leading-relaxed">
-                    <strong>Done-for-you technical team:</strong> We craft the prompt logic, manage calendar sync, monitor audio latency, and audit calls regularly.
-                  </td>
-                </tr>
-
-                <!-- Row 4: First Call AI -->
-                <tr class="hover:bg-light-blue/20">
-                  <td class="py-4 px-4 font-bold text-ink">
-                    <a href="https://firstcall-ai.com/" target="_blank" rel="noopener noreferrer" class="hover:underline text-ink flex items-center gap-1">
-                      <span>First Call AI</span>
-                      <span class="text-gray-400 text-[10px]">&nearr;</span>
-                    </a>
-                    <span class="text-[10px] font-mono text-gray-400 font-normal block mt-0.5">Small Business AI Answering</span>
-                  </td>
-                  <td class="py-4 px-3 font-mono">
-                    <span class="font-semibold text-ink">~$149 to $299+/mo</span>
-                    <span class="text-[10px] text-gray-500 block">Tiered minute allotments</span>
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed">
-                    Template-based AI receptionist software with simple onboarding forms.
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed text-red-700">
-                    Rigid templates. No custom prompt calibration, continuous prompt tuning, or scheduled human audits of missed or mishandled calls.
-                  </td>
-                  <td class="py-4 px-4 bg-light-blue/30 font-medium text-deep-green leading-relaxed">
-                    <strong>Custom voice agent (not templates):</strong> Handcrafted rules tailored to your pricing thresholds, crew dispatch, and exact service territory.
-                  </td>
-                </tr>
-
-                <!-- Row 5: Voco AI -->
-                <tr class="hover:bg-light-blue/20">
-                  <td class="py-4 px-4 font-bold text-ink">
-                    <a href="https://vocohq.co.uk/" target="_blank" rel="noopener noreferrer" class="hover:underline text-ink flex items-center gap-1">
-                      <span>Voco AI</span>
-                      <span class="text-gray-400 text-[10px]">&nearr;</span>
-                    </a>
-                    <span class="text-[10px] font-mono text-gray-400 font-normal block mt-0.5">SME Voice Receptionist App</span>
-                  </td>
-                  <td class="py-4 px-3 font-mono">
-                    <span class="font-semibold text-ink">£99 to £249+/mo</span>
-                    <span class="text-[10px] text-gray-500 block">Monthly recurring plans</span>
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed">
-                    Self-serve answering dashboard with basic booking prompts for UK small businesses.
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed text-red-700">
-                    Self-serve software approach. When the bot misunderstands emergency triage or slang, there is no dedicated team reviewing the transcript.
-                  </td>
-                  <td class="py-4 px-4 bg-light-blue/30 font-medium text-deep-green leading-relaxed">
-                    <strong>Full lifecycle partnership:</strong> We audit calls, review transcripts, and continuously improve prompts so your system runs without oversight.
-                  </td>
-                </tr>
-
-                <!-- Row 6: Talkera Desk (Featured) -->
-                <tr class="bg-deep-green/5 border-t-2 border-deep-green">
-                  <td class="py-4 px-4 font-bold text-ink-deep bg-light-blue/40">
-                    <div class="flex items-center gap-1.5">
-                      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                      <span class="font-heading font-extrabold text-sm text-ink-deep">Talkera Desk</span>
-                    </div>
-                    <span class="text-[10px] font-mono text-brand-green font-bold block mt-0.5">Your In-House AI Phone Team</span>
-                  </td>
-                  <td class="py-4 px-3 font-mono bg-light-blue/40">
-                    <span class="font-bold text-deep-green text-sm">$0.517 to $0.60/min</span>
-                    <span class="text-[10px] text-gray-600 block">From $59/mo PAYG or plans</span>
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed bg-light-blue/40">
-                    Custom-engineered voice agent, real-time CRM & calendar booking, SMS updates to crew and callers, and scheduled call reviews.
-                  </td>
-                  <td class="py-4 px-3 leading-relaxed text-slate bg-light-blue/40">
-                    <strong>Zero setup burden on you.</strong> You never write prompts, debug code, connect APIs, or monitor webhooks.
-                  </td>
-                  <td class="py-4 px-4 bg-deep-green text-white font-semibold leading-relaxed">
-                    <strong>An in-house team without the salary:</strong> We build your agent in up to 3 days, run it 24/7, review calls, and keep prompts tuned at no extra charge.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <!-- Section 1: Hero & Competitor Table -->
+      <div>
+        <div class="max-w-3xl mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
+            Transparent Market Comparison
           </div>
-        </div>
-      </div>
-
-      <!-- Section 2: Labor Economics & Hidden Costs (In-House vs Offshore vs Talkera Desk) -->
-      <div class="mb-20">
-        <div class="max-w-3xl mb-8">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-3">
-            True Labor Cost Breakdown
-          </div>
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink-deep tracking-tight mb-2">
-            In-House Staff vs. Offshore Freelancer vs. Talkera Desk
-          </h2>
-          <p class="text-xs sm:text-sm text-slate leading-relaxed">
-            Running an efficient call-answering and CRM lead-capture desk requires looking at <em>true productive talk time</em>. An average inbound trade lead plus post-call CRM logging takes 3 to 5 minutes. Below is the honest per-minute math, baseline minimum rates, and the hidden organizational costs companies absorb.
+          <h1 class="text-4xl sm:text-5xl font-extrabold text-ink-deep tracking-tight font-heading">
+            Compare published plans
+          </h1>
+          <p class="text-base text-slate mt-2 leading-relaxed">
+            Published rates and inclusions from each provider's official pricing page.
           </p>
         </div>
 
-        <!-- 3-Column Per-Minute Cost Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 font-mono text-xs">
-          <!-- Card 1: In-House Employee -->
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] uppercase font-bold text-gray-500 tracking-wider block mb-1">Model 1: Local Employee</span>
-              <h3 class="font-heading font-extrabold text-lg text-ink-deep">In-House Staff</h3>
-              <p class="font-sans text-[11px] text-slate mt-1 mb-4">Based on US Federal Minimum Wage ($7.25/hr + 15% mandatory taxes/FICA = ~$8.34/hr gross).</p>
-              
-              <div class="space-y-2.5 py-3 border-t border-b border-sky-blue/70">
-                <div class="flex justify-between">
-                  <span class="text-slate font-sans">Gross Base Rate:</span>
-                  <span class="font-bold text-ink tabular">$0.087 / min</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate font-sans">Real Utilized Rate (50% Occupancy):</span>
-                  <span class="font-bold text-red-700 tabular">$0.170 / min</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate font-sans">Effective Monthly Labor:</span>
-                  <span class="font-bold text-ink tabular">~$1,334 / mo</span>
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 font-sans text-[11px] text-slate">
-              <strong>The Utilization Reality:</strong> An in-house receptionist is rarely on the phone for the entire duration of an 8-hour shift. At a realistic 50% call occupancy, the effective talk-time cost spikes to $0.17 per minute.
-            </div>
-          </div>
-
-          <!-- Card 2: Offshore Freelancer -->
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] uppercase font-bold text-gray-500 tracking-wider block mb-1">Model 2: Overseas Contractor</span>
-              <h3 class="font-heading font-extrabold text-lg text-ink-deep">Offshore Freelancer</h3>
-              <p class="font-sans text-[11px] text-slate mt-1 mb-4">Based on the minimum viable rate for a dependable, fluent offshore virtual receptionist ($5.00/hr in Philippines or India).</p>
-              
-              <div class="space-y-2.5 py-3 border-t border-b border-sky-blue/70">
-                <div class="flex justify-between">
-                  <span class="text-slate font-sans">Gross Base Rate:</span>
-                  <span class="font-bold text-ink tabular">$0.052 / min</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate font-sans">Real Utilized Rate (50% Occupancy):</span>
-                  <span class="font-bold text-amber-700 tabular">$0.100 / min</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate font-sans">Effective Monthly Labor:</span>
-                  <span class="font-bold text-ink tabular">~$800 / mo</span>
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 font-sans text-[11px] text-slate">
-              <strong>The Utilization Reality:</strong> Independent contractors avoid payroll taxes, but nocturnal fatigue and constant turnover require ongoing recruiting, training, and supervision.
-            </div>
-          </div>
-
-          <!-- Card 3: Talkera Desk -->
-          <div class="p-6 rounded-2xl bg-white border-2 border-deep-green shadow-md flex flex-col justify-between relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-deep-green text-lime-accent text-[9px] uppercase font-bold px-3 py-1 rounded-bl-lg font-mono">
-              Managed AI Phone Team
-            </div>
-            <div>
-              <span class="text-[10px] uppercase font-bold text-deep-green tracking-wider block mb-1">Model 3: Done-For-You AI Team</span>
-              <h3 class="font-heading font-extrabold text-lg text-ink-deep">Talkera Desk</h3>
-              <p class="font-sans text-[11px] text-slate mt-1 mb-4">Pay strictly for active call minutes. Zero payroll, zero idle minutes, zero shift constraints.</p>
-              
-              <div class="space-y-2.5 py-3 border-t border-b border-sky-blue/70">
-                <div class="flex justify-between">
-                  <span class="text-slate font-sans">All-Inclusive Per-Min Rate:</span>
-                  <span class="font-bold text-deep-green tabular">$0.517 to $0.600 / min</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate font-sans">Idle Time Billed:</span>
-                  <span class="font-bold text-emerald-700 tabular">$0.00 (Zero)</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-slate font-sans">Starting Monthly Base:</span>
-                  <span class="font-bold text-ink tabular">From $59 / mo</span>
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 font-sans text-[11px] text-slate">
-              <strong>The Talkera Difference:</strong> You only pay for exact productive call seconds. Multiple concurrent lines answer simultaneously 24/7 with zero management overhead.
-            </div>
-          </div>
+        <!-- Single Benchmark Table (U3) -->
+        <div class="overflow-x-auto border border-sky-blue rounded-2xl shadow-tactile bg-white">
+          <table class="min-w-[960px] w-full text-xs sm:text-sm">
+            <thead class="bg-paper border-b border-sky-blue/70">
+              <tr>
+                <th class="p-4 text-left font-mono font-bold text-slate uppercase text-xs">Feature / Plan</th>
+                <th class="p-4 text-left font-bold text-deep-green bg-light-blue/40 border-x border-sky-blue">Talkera Desk</th>
+                <th class="p-4 text-left font-bold text-ink-deep">Frontdesk</th>
+                <th class="p-4 text-left font-bold text-ink-deep">FirstCall AI</th>
+                <th class="p-4 text-left font-bold text-ink-deep">Voco (UK)</th>
+                <th class="p-4 text-left font-bold text-ink-deep">Smith.ai (AI-first)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-sky-blue/50">
+              {[
+                ['Entry price', 'Pay As You Go $0.59 a minute, $95 monthly minimum', '$99 a month ($79 billed annually), 200 minutes, 100 chats, 400 texts', '$49 a month, 200 minutes, 1 agent', '39p a minute, no monthly fee. Starter £49 for about 136 minutes', 'Free for 25 calls a month. Pro $150 for 75 calls'],
+                ['Bigger plans', 'Growth $383 for 743 minutes, Pro $581 for 1,292, Expansion $950 for 1,994', 'Custom after the one plan', 'Pro $99 for 500 minutes, Business $249 for 1,500', '£99 for 300 minutes, £499 for 1,719', 'Enterprise $500 for 300 calls'],
+                ['Extra minutes', '$0.59, $0.50 or $0.41 by plan', '$0.25 a minute', 'Not stated', '36p, 33p or 29p by plan', 'Billed per call, not per minute: $2.50 on Pro, $2.17 on Enterprise'],
+                ['Texts and WhatsApp alerts', 'In the price, up to the allowance', '400 texts in the price, more billed from credits', 'Not stated', 'Texts and WhatsApp replies on every plan', 'Not stated'],
+                ['Set-up', 'We build it for you in up to 3 days, no fee', 'Not stated', 'Not stated', 'Free', 'Pro: you set it up with their help. Enterprise: they build it'],
+                ['A person reviews your calls', 'Yes, by plan', 'Not stated', 'Not stated', 'Not stated', 'Enterprise: human quality control'],
+                ['Free trial', 'None. Start with Pay As You Go', '7 days', 'Not stated', 'Not stated for phone plans', 'Free plan with 25 calls'],
+                ['Contract', 'None', 'Not stated', 'Not stated', 'None', 'Not stated']
+              ].map((row) => (
+                <tr class="hover:bg-paper/50 transition-colors">
+                  <th class="p-4 text-left font-semibold text-ink-deep align-top">{row[0]}</th>
+                  <td class="p-4 align-top font-semibold text-deep-green bg-light-blue/20 border-x border-sky-blue/60">{row[1]}</td>
+                  <td class="p-4 align-top text-slate">{row[2]}</td>
+                  <td class="p-4 align-top text-slate">{row[3]}</td>
+                  <td class="p-4 align-top text-slate">{row[4]}</td>
+                  <td class="p-4 align-top text-slate">{row[5]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
-        <!-- The Hidden Organizational Costs (The Iceberg) -->
-        <div class="border border-sky-blue rounded-2xl bg-white p-6 sm:p-8 mb-8 shadow-sm">
-          <h3 class="font-heading font-bold text-lg text-ink-deep mb-2">The Hidden "Extra" Costs That Human Labor Demands</h3>
-          <p class="text-xs text-slate mb-6 leading-relaxed">
+        <p class="text-xs text-slate mt-4 font-mono">
+          Prices from each company's own pricing page, checked 23 Oct 2026.
+        </p>
+
+        <!-- Three lines under the table (the only persuasion on the page) -->
+        <div class="max-w-3xl mt-8 space-y-3 text-sm sm:text-base text-ink-deep leading-relaxed font-medium">
+          <p>1. We are not the cheapest per minute, and we say so. If a $99 tool does what you need, buy it.</p>
+          <p>2. Cheaper per minute is not cheaper per booked job. Your price covers a build around your workflow, the number, texts and WhatsApp alerts, the tool connection, upkeep and a person who reviews your calls.</p>
+          <p>3. Many tools sell the agent first and add the rest later. Check what any price really covers.</p>
+        </div>
+      </div>
+
+      <!-- Section 2: True Labor Cost Breakdown (In-House vs Offshore vs Talkera) -->
+      <div>
+        <div class="max-w-3xl mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
+            True Labor Cost Breakdown
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-deep tracking-tight font-heading mb-3">
+            In-House Staff vs. Offshore Freelancer vs. Talkera Desk
+          </h2>
+          <p class="text-sm sm:text-base text-slate leading-relaxed">
+            Running an efficient call-answering desk requires looking at <strong class="text-ink-deep">true productive talk time</strong>. An average inbound trade lead takes 3 to 5 minutes. Below is the honest math and the hidden organizational costs companies absorb.
+          </p>
+        </div>
+
+        <!-- 3 Labor Model Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          
+          <!-- Model 1: Local In-House Staff -->
+          <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
+            <div>
+              <span class="text-xs font-mono font-bold text-slate uppercase tracking-wider">Model 1: Local Employee</span>
+              <h3 class="font-heading font-bold text-xl text-ink-deep mt-2 mb-1">In-House Staff</h3>
+              <p class="text-xs text-slate mb-5">US Federal minimum wage ($7.25/hr + 15% mandatory taxes = ~$8.34/hr gross).</p>
+
+              <dl class="space-y-2 text-xs font-mono border-t border-sky-blue/60 pt-4">
+                <div class="flex justify-between"><dt class="text-slate">Gross Base Rate:</dt><dd class="font-bold text-ink-deep">$0.087 / min</dd></div>
+                <div class="flex justify-between"><dt class="text-slate">Real Rate (50% Occupancy):</dt><dd class="font-bold text-red-600">$0.170 / min</dd></div>
+                <div class="flex justify-between"><dt class="text-slate">Effective Monthly Labor:</dt><dd class="font-bold text-ink-deep">~$1,334 / mo</dd></div>
+              </dl>
+            </div>
+            <p class="text-xs text-slate mt-5 pt-3 border-t border-sky-blue/60 leading-relaxed">
+              <strong class="text-ink-deep">The Reality:</strong> An in-house receptionist is rarely on the phone for an entire 8-hour shift. At realistic 50% call occupancy, the effective cost spikes to $0.17/min plus benefits.
+            </p>
+          </div>
+
+          <!-- Model 2: Offshore Freelancer -->
+          <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
+            <div>
+              <span class="text-xs font-mono font-bold text-slate uppercase tracking-wider">Model 2: Overseas Contractor</span>
+              <h3 class="font-heading font-bold text-xl text-ink-deep mt-2 mb-1">Offshore Freelancer</h3>
+              <p class="text-xs text-slate mb-5">Minimum viable rate for an offshore virtual receptionist ($5.00/hr in Philippines or India).</p>
+
+              <dl class="space-y-2 text-xs font-mono border-t border-sky-blue/60 pt-4">
+                <div class="flex justify-between"><dt class="text-slate">Gross Base Rate:</dt><dd class="font-bold text-ink-deep">$0.052 / min</dd></div>
+                <div class="flex justify-between"><dt class="text-slate">Real Rate (50% Occupancy):</dt><dd class="font-bold text-amber-600">$0.100 / min</dd></div>
+                <div class="flex justify-between"><dt class="text-slate">Effective Monthly Labor:</dt><dd class="font-bold text-ink-deep">~$800 / mo</dd></div>
+              </dl>
+            </div>
+            <p class="text-xs text-slate mt-5 pt-3 border-t border-sky-blue/60 leading-relaxed">
+              <strong class="text-ink-deep">The Reality:</strong> Avoids payroll taxes, but nocturnal fatigue during US/UK/AU business hours and constant turnover require ongoing recruiting, training, and QA.
+            </p>
+          </div>
+
+          <!-- Model 3: Talkera Desk -->
+          <div class="p-6 rounded-2xl bg-white border-2 border-deep-green flex flex-col justify-between shadow-lg relative">
+            <span class="absolute -top-3 right-4 px-2.5 py-0.5 rounded-full bg-deep-green text-lime-accent text-[11px] font-mono font-bold tracking-wide uppercase">
+              Managed AI Phone Team
+            </span>
+            <div>
+              <span class="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">Model 3: Done-For-You AI</span>
+              <h3 class="font-heading font-bold text-xl text-ink-deep mt-2 mb-1">Talkera Desk</h3>
+              <p class="text-xs text-slate mb-5">Pay strictly for active call minutes. Zero payroll, zero idle minutes, zero shift constraints.</p>
+
+              <dl class="space-y-2 text-xs font-mono border-t border-sky-blue/60 pt-4">
+                <div class="flex justify-between"><dt class="text-slate">All-Inclusive Rate:</dt><dd class="font-bold text-deep-green">$0.410 to $0.590 / min</dd></div>
+                <div class="flex justify-between"><dt class="text-slate">Idle Time Billed:</dt><dd class="font-bold text-deep-green">$0.00 (Zero)</dd></div>
+                <div class="flex justify-between"><dt class="text-slate">Starting Monthly Base:</dt><dd class="font-bold text-deep-green">From $95 / mo</dd></div>
+              </dl>
+            </div>
+            <p class="text-xs text-slate mt-5 pt-3 border-t border-sky-blue/60 leading-relaxed">
+              <strong class="text-ink-deep">The Talkera Advantage:</strong> You only pay for exact productive call seconds. Multiple concurrent lines answer simultaneously 24/7 with zero management overhead.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Hidden Costs Strip -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-white border border-sky-blue mb-12 shadow-sm">
+          <h3 class="text-base sm:text-lg font-heading font-bold text-ink-deep mb-2">
+            The Hidden "Extra" Costs That Human Labor Demands
+          </h3>
+          <p class="text-xs sm:text-sm text-slate mb-6">
             Beyond basic wages, businesses must absorb these recurring technical and operational expenses to execute phone answering:
           </p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-sans text-xs">
-            <div class="p-4 rounded-xl bg-paper border border-sky-blue/70">
-              <span class="font-bold text-ink-deep block mb-1 font-mono text-[11px]">1. VOIP Phone Licenses</span>
-              <div class="text-red-700 font-mono font-bold text-xs mb-1">+$20 to $35 / user / mo</div>
-              <p class="text-[11px] text-slate leading-relaxed">System access for RingCentral, Zoom Workplace, or dialer lines for every receptionist.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+            <div class="p-4 rounded-xl bg-paper border border-sky-blue">
+              <div class="font-mono font-bold text-ink-deep mb-1">1. VOIP Licenses</div>
+              <div class="text-red-600 font-mono font-bold mb-1.5">+$20 to $35 / user / mo</div>
+              <p class="text-slate text-[11px] leading-relaxed">Dialer lines and seat licenses for RingCentral or Zoom Workplace.</p>
             </div>
-            <div class="p-4 rounded-xl bg-paper border border-sky-blue/70">
-              <span class="font-bold text-ink-deep block mb-1 font-mono text-[11px]">2. CRM User Seats</span>
-              <div class="text-red-700 font-mono font-bold text-xs mb-1">+$15 to $30 / user / mo</div>
-              <p class="text-[11px] text-slate leading-relaxed">User seat licenses on HubSpot, Zoho, Jobber, or ServiceTitan so staff can enter bookings.</p>
+            <div class="p-4 rounded-xl bg-paper border border-sky-blue">
+              <div class="font-mono font-bold text-ink-deep mb-1">2. CRM User Seats</div>
+              <div class="text-red-600 font-mono font-bold mb-1.5">+$15 to $30 / user / mo</div>
+              <p class="text-slate text-[11px] leading-relaxed">Seat licenses on HubSpot, Jobber, Zoho, or ServiceTitan to enter bookings.</p>
             </div>
-            <div class="p-4 rounded-xl bg-paper border border-sky-blue/70">
-              <span class="font-bold text-ink-deep block mb-1 font-mono text-[11px]">3. SMS Notification Gateways</span>
-              <div class="text-red-700 font-mono font-bold text-xs mb-1">API routing carrier fees</div>
-              <p class="text-[11px] text-slate leading-relaxed">Twilio or Plivo gateways ($0.0079 to $0.011/SMS in US/CA; up to $0.09 international) for dispatch texts.</p>
+            <div class="p-4 rounded-xl bg-paper border border-sky-blue">
+              <div class="font-mono font-bold text-ink-deep mb-1">3. SMS Gateways</div>
+              <div class="text-red-600 font-mono font-bold mb-1.5">API routing carrier fees</div>
+              <p class="text-slate text-[11px] leading-relaxed">Twilio/Plivo fees ($0.0079 to $0.011/SMS) for tech dispatch texts.</p>
             </div>
-            <div class="p-4 rounded-xl bg-paper border border-sky-blue/70">
-              <span class="font-bold text-ink-deep block mb-1 font-mono text-[11px]">4. Platform Taxes & FX Spreads</span>
-              <div class="text-red-700 font-mono font-bold text-xs mb-1">+5% fee + 4% FX spread</div>
-              <p class="text-[11px] text-slate leading-relaxed">Upwork 5% marketplace fee, contract initiation fees ($0.99 to $14.99), and PayPal currency spreads.</p>
+            <div class="p-4 rounded-xl bg-paper border border-sky-blue">
+              <div class="font-mono font-bold text-ink-deep mb-1">4. Taxes & FX Spreads</div>
+              <div class="text-red-600 font-mono font-bold mb-1.5">+5% fee + 4% FX spread</div>
+              <p class="text-slate text-[11px] leading-relaxed">Platform marketplace fees, contract initiation, and currency spreads.</p>
             </div>
           </div>
         </div>
 
-        <!-- Structural Pitfalls Table -->
-        <div class="md:hidden flex items-center gap-1.5 text-[11px] font-mono text-slate mb-2.5 px-1">
-          <svg class="w-3.5 h-3.5 text-brand-green shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <span>Scroll horizontally to view all columns &rarr;</span>
-        </div>
-        <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-tactile font-sans text-xs mb-6">
-          <div class="table-responsive-wrapper">
-            <table class="min-w-full divide-y divide-sky-blue/60">
-              <thead class="bg-paper text-ink-deep font-heading font-bold">
-                <tr>
-                  <th class="py-3.5 px-4 text-left font-bold text-slate uppercase tracking-wider text-[11px] min-w-[140px]">Operational Factor</th>
-                  <th class="py-3.5 px-4 text-left text-slate font-medium min-w-[160px]">In-House Local Employee</th>
-                  <th class="py-3.5 px-4 text-left text-slate font-medium min-w-[160px]">Offshore Freelancer</th>
-                  <th class="py-3.5 px-4 text-left bg-deep-green/5 text-deep-green font-bold min-w-[170px]">Talkera Desk AI Team</th>
+        <!-- Operational Comparison Table -->
+        <div class="overflow-x-auto border border-sky-blue rounded-2xl shadow-tactile bg-white">
+          <table class="min-w-[800px] w-full text-xs sm:text-sm">
+            <thead class="bg-paper border-b border-sky-blue/70">
+              <tr>
+                <th class="p-4 text-left font-mono font-bold text-slate uppercase text-xs w-1/4">Operational Factor</th>
+                <th class="p-4 text-left font-bold text-ink-deep w-1/4">In-House Local Employee</th>
+                <th class="p-4 text-left font-bold text-ink-deep w-1/4">Offshore Freelancer</th>
+                <th class="p-4 text-left font-bold text-deep-green bg-light-blue/40 border-l border-sky-blue w-1/4">Talkera Desk AI Team</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-sky-blue/50">
+              {operationalFactors.map((row) => (
+                <tr class="hover:bg-paper/50 transition-colors">
+                  <th class="p-4 text-left font-bold text-ink-deep align-top">{row.factor}</th>
+                  <td class="p-4 align-top text-slate">{row.inHouse}</td>
+                  <td class="p-4 align-top text-red-700/80">{row.offshore}</td>
+                  <td class="p-4 align-top font-semibold text-deep-green bg-light-blue/20 border-l border-sky-blue/60">{row.talkera}</td>
                 </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-100 text-slate">
-                <tr>
-                  <td class="py-3.5 px-4 font-bold text-ink">The Scaling Ceiling</td>
-                  <td class="py-3.5 px-4">Can only take 1 call at a time. Simultaneous callers go to voicemail and call another contractor.</td>
-                  <td class="py-3.5 px-4">Can only take 1 call at a time. High nocturnal fatigue during US/UK business hours.</td>
-                  <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">Multi-line capacity (2, 5, or 8 simultaneous calls). Zero busy signals or voicemails.</td>
-                </tr>
-                <tr>
-                  <td class="py-3.5 px-4 font-bold text-ink">Data Security & Privacy</td>
-                  <td class="py-3.5 px-4">Controlled on company-owned equipment under domestic jurisdiction.</td>
-                  <td class="py-3.5 px-4 text-red-600">Vulnerable: Personal home laptops, residential Wi-Fi, and lack of enterprise security controls.</td>
-                  <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">Direct CRM API sync, SOC2-compliant telephony, prompt safety guardrails.</td>
-                </tr>
-                <tr>
-                  <td class="py-3.5 px-4 font-bold text-ink">Infrastructure Reliability</td>
-                  <td class="py-3.5 px-4">Demands physical desk, workstation, laptop, and office utility overhead.</td>
-                  <td class="py-3.5 px-4">Prone to local brownouts, power cuts, and spotty residential internet connections.</td>
-                  <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">Cloud carrier telephony with 24/7 carrier redundancy and failover routing.</td>
-                </tr>
-                <tr>
-                  <td class="py-3.5 px-4 font-bold text-ink">Management Burden</td>
-                  <td class="py-3.5 px-4">High HR friction, performance reviews, sick days, vacations, and payroll processing.</td>
-                  <td class="py-3.5 px-4 text-red-600">High turnover. If an independent freelancer quits abruptly, phones go dark immediately.</td>
-                  <td class="py-3.5 px-4 font-bold text-deep-green bg-light-blue/20">We build, tune, audit, and support your agent. Zero HR friction on your desk.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Cost Context & Hidden Trade-offs Disclaimer -->
-        <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 leading-relaxed font-sans">
-          <strong>Cheap is not best (it comes with hidden costs and conditions):</strong> The figures above examine the <em>absolute lowest legal or viable rates possible</em> (US Federal Minimum Wage at $7.25/hr and $5.00/hr overseas freelance labor), not average or high salaries. Low hourly rates come with severe hidden costs: software licenses, payment fees, single-call bottlenecks, and management friction. More critically, a single missed $2,500 water restoration job or $6,000 HVAC replacement while a receptionist is on another call or offline erases an entire year of perceived labor savings.
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <!-- Comprehensive Comparison Matrix (Spec C6) -->
-      <div class="mb-20">
-        <div class="md:hidden flex items-center gap-1.5 text-[11px] font-mono text-slate mb-2.5 px-1">
-          <svg class="w-3.5 h-3.5 text-brand-green shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <span>Scroll horizontally to view 6 comparison columns &rarr;</span>
-        </div>
-        <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-tactile">
-          <div class="table-responsive-wrapper">
-            <table class="min-w-full divide-y divide-sky-blue/60 text-xs">
-              <thead class="bg-paper text-ink-deep font-heading font-bold">
-                <tr>
-                  <th class="py-4 px-5 text-left font-bold text-slate uppercase tracking-wider text-[11px] min-w-[150px]">Feature / Factor</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[120px]">Voicemail</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[130px]">Human Answering</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[130px]">Self-Serve AI</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[120px]">FSM Add-On</th>
-                  <th class="py-4 px-4 text-left text-slate font-medium min-w-[130px]">Enterprise AI</th>
-                  <th class="py-4 px-5 text-left bg-deep-green text-lime-accent font-extrabold text-sm border-l border-r border-deep-green min-w-[170px]">
-                    Talkera Desk
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-100 text-slate">
-                <tr>
-                  <td class="py-4 px-5 font-bold text-ink">Typical Public Price</td>
-                  <td class="py-4 px-4">Free</td>
-                  <td class="py-4 px-4">From ~$300/mo for low calls</td>
-                  <td class="py-4 px-4">From ~$49 to $300/mo</td>
-                  <td class="py-4 px-4">~$29 to $99/mo where listed</td>
-                  <td class="py-4 px-4">Custom quote only</td>
-                  <td class="py-4 px-5 font-bold text-deep-green bg-light-blue/40 border-l border-r border-sky-blue/60">
-                    From $59/mo (PAYG) or $293 to $1,292/mo
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-5 font-bold text-ink">Who Sets It Up</td>
-                  <td class="py-4 px-4">You</td>
-                  <td class="py-4 px-4">Call center team</td>
-                  <td class="py-4 px-4 text-red-600 font-semibold">You configure everything</td>
-                  <td class="py-4 px-4">You configure</td>
-                  <td class="py-4 px-4">Vendor over weeks</td>
-                  <td class="py-4 px-5 font-bold text-deep-green bg-light-blue/40 border-l border-r border-sky-blue/60">
-                    We build & test it in up to 3 days
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-5 font-bold text-ink">Books Into Calendar / CRM</td>
-                  <td class="py-4 px-4 text-red-600">No</td>
-                  <td class="py-4 px-4">Sometimes (extra cost)</td>
-                  <td class="py-4 px-4">Sometimes (via Zapier)</td>
-                  <td class="py-4 px-4">Only its own app</td>
-                  <td class="py-4 px-4">Yes, supported tools</td>
-                  <td class="py-4 px-5 font-bold text-deep-green bg-light-blue/40 border-l border-r border-sky-blue/60">
-                    Yes, direct two-way calendar sync
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-5 font-bold text-ink">Texts Caller & Crew (6-Step Loop)</td>
-                  <td class="py-4 px-4 text-red-600">No</td>
-                  <td class="py-4 px-4 text-red-600">Rarely</td>
-                  <td class="py-4 px-4 text-red-600">Rarely</td>
-                  <td class="py-4 px-4">Limited</td>
-                  <td class="py-4 px-4">Varies</td>
-                  <td class="py-4 px-5 font-bold text-deep-green bg-light-blue/40 border-l border-r border-sky-blue/60">
-                    Yes, booking to 5-star review
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-5 font-bold text-ink">Human Reviews Calls & Fixes Mistakes</td>
-                  <td class="py-4 px-4 text-red-600">n/a</td>
-                  <td class="py-4 px-4">Occasional QA</td>
-                  <td class="py-4 px-4 text-red-600">No (you manage)</td>
-                  <td class="py-4 px-4 text-red-600">No</td>
-                  <td class="py-4 px-4">Often</td>
-                  <td class="py-4 px-5 font-bold text-deep-green bg-light-blue/40 border-l border-r border-sky-blue/60">
-                    Yes, scheduled audits by plan
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-5 font-bold text-ink">Custom Emergency & Transfer Rules</td>
-                  <td class="py-4 px-4 text-red-600">n/a</td>
-                  <td class="py-4 px-4">Yes</td>
-                  <td class="py-4 px-4">Basic</td>
-                  <td class="py-4 px-4">Basic</td>
-                  <td class="py-4 px-4">Yes</td>
-                  <td class="py-4 px-5 font-bold text-deep-green bg-light-blue/40 border-l border-r border-sky-blue/60">
-                    Set your way with life-safety triage
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-5 font-bold text-ink">Contract Term</td>
-                  <td class="py-4 px-4">n/a</td>
-                  <td class="py-4 px-4">Often monthly or 90 days</td>
-                  <td class="py-4 px-4">Monthly subscription</td>
-                  <td class="py-4 px-4">Tied to software plan</td>
-                  <td class="py-4 px-4 text-red-600 font-semibold">Often annual</td>
-                  <td class="py-4 px-5 font-bold text-deep-green bg-light-blue/40 border-l border-r border-sky-blue/60">
-                    Month to month. Cancel anytime.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="py-4 px-5 font-bold text-ink">You Own Number & Call Data</td>
-                  <td class="py-4 px-4">Yes</td>
-                  <td class="py-4 px-4">Varies</td>
-                  <td class="py-4 px-4">Varies</td>
-                  <td class="py-4 px-4">Varies</td>
-                  <td class="py-4 px-4">Varies</td>
-                  <td class="py-4 px-5 font-bold text-deep-green bg-light-blue/40 border-l border-r border-sky-blue/60">
-                    Fully yours. Export within 7 days.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Section: What Is Missing Elsewhere -->
-      <div class="my-20">
-        <div class="max-w-2xl mx-auto text-center mb-10">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-mono font-bold text-deep-green uppercase tracking-wider mb-2">
+      <!-- Section 3: What is Missing from Legacy Tools (Market Frustrations) -->
+      <div>
+        <div class="max-w-3xl mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
             Market Frustrations
           </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-ink-deep">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-deep tracking-tight font-heading mb-3">
             What is missing from legacy tools
           </h2>
-          <p class="text-xs sm:text-sm text-slate mt-1">
-            Contractors frequently share these recurring complaints in trade forums regarding answering tools.
+          <p class="text-sm sm:text-base text-slate leading-relaxed">
+            Contractors frequently share these recurring complaints in trade forums regarding traditional answering services and bot tools.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
-            <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Nobody Owns the Result</h3>
-            <p class="text-xs text-slate leading-relaxed">
-              Software vendors sell per-minute bundles or software access, but when a call drops or an address is booked incorrectly, there is no one accountable for tuning the system.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
-            <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Wrong Bookings & Technical Errors</h3>
-            <p class="text-xs text-slate leading-relaxed">
-              Generic bots schedule appointments in the middle of travel routes or book water restoration extractions when crews only handle HVAC diagnostics.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
-            <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Surprise Bills & Per-Minute Hikes</h3>
-            <p class="text-xs text-slate leading-relaxed">
-              Complicated overage formulas and sudden burst penalties when severe weather strikes make monthly bills unpredictable.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
-            <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Weak Escalation Handoffs</h3>
-            <p class="text-xs text-slate leading-relaxed">
-              When a desperate homeowner needs an immediate emergency crew, automated tools often loop or deliver dead silence instead of dialing on-call staff.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
-            <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Annual Contract Lock-in</h3>
-            <p class="text-xs text-slate leading-relaxed">
-              Enterprise platforms force trades companies into expensive 12-month commitments before proving performance on real customer calls.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-2xl bg-paper border border-sky-blue text-center">
-            <h3 class="font-heading font-bold text-base text-ink-deep mb-2">Data & Number Hostage</h3>
-            <p class="text-xs text-slate leading-relaxed">
-              Many services hold onto the telephone numbers or refuse clean data exports when a contractor decides to take their dispatch in-house.
-            </p>
-          </div>
+          {frustrations.map((item) => (
+            <div class="p-6 rounded-2xl bg-paper border border-sky-blue shadow-2xs flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading font-bold text-base text-ink-deep mb-2">{item.title}</h3>
+                <p class="text-xs sm:text-sm text-slate leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <!-- Trust Card: When Talkera Desk is NOT the right fit -->
-      <div class="my-20 p-8 rounded-panel bg-paper border border-sky-blue max-w-4xl mx-auto shadow-sm">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-xl bg-deep-green text-lime-accent flex items-center justify-center font-bold">
+      <!-- Section 4: When Talkera Desk is NOT the right fit (Clear Qualification) -->
+      <div class="p-8 sm:p-10 rounded-3xl bg-paper border border-sky-blue shadow-sm max-w-4xl">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-xl bg-deep-green text-lime-accent flex items-center justify-center font-bold text-lg shrink-0">
             !
           </div>
           <div>
-            <h3 class="font-heading font-bold text-lg text-ink-deep">
+            <h2 class="text-xl sm:text-2xl font-bold font-heading text-ink-deep">
               When Talkera Desk is NOT the right fit
-            </h3>
-            <p class="text-xs text-slate">We believe in transparent qualification rather than selling you something you don't need.</p>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate mt-0.5">
+              We believe in transparent qualification rather than selling you something you don't need.
+            </p>
           </div>
         </div>
 
-        <ul class="space-y-3 text-xs text-slate border-t border-sky-blue/60 pt-4">
-          <li class="flex items-start gap-2.5">
-            <span class="text-brand-green font-bold">&bull;</span>
-            <span><strong>You only want basic voicemail transcription:</strong> If you receive few calls and just need text logs of voicemails, buy a $49 software tool.</span>
+        <ul class="space-y-4 text-xs sm:text-sm text-slate leading-relaxed">
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-deep-green shrink-0 mt-2"></span>
+            <div>
+              <strong class="text-ink-deep">You are looking for a cheap $49 tool / basic voicemail transcription:</strong>
+              {" "}If you receive very few calls and just need text logs of voicemails, buy a $49 software tool. Talkera Desk is an active, fully managed call-answering service that triages emergencies and books appointments directly.
+            </div>
           </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-brand-green font-bold">&bull;</span>
-            <span><strong>You demand a live human on every call:</strong> If you believe AI voice agents are not right for your brand under any circumstance, use a traditional human call center.</span>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-deep-green shrink-0 mt-2"></span>
+            <div>
+              <strong class="text-ink-deep">You demand a live human on every call:</strong>
+              {" "}If you believe AI voice agents are not right for your brand under any circumstance, use a traditional human call center.
+            </div>
           </li>
-          <li class="flex items-start gap-2.5">
-            <span class="text-brand-green font-bold">&bull;</span>
-            <span><strong>You handle HIPAA health records in the US:</strong> We do not service healthcare triage or medical clinics without a custom signed business associate agreement.</span>
+          <li class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-deep-green shrink-0 mt-2"></span>
+            <div>
+              <strong class="text-ink-deep">You handle HIPAA health records in the US:</strong>
+              {" "}We do not service healthcare triage or medical clinics without a custom signed business associate agreement.
+            </div>
           </li>
         </ul>
       </div>

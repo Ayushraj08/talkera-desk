@@ -1,19 +1,20 @@
 User-agent: *
 Allow: /
 
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: OAI-SearchBot
+# Dedicated AI Answer Engine & LLM Crawlers
+User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
 Allow: /
 
 User-agent: PerplexityBot
@@ -22,4 +23,25 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemaps & Machine-Readable Context
 Sitemap: https://talkeradesk.com/sitemap.xml
+# LLMs context file (AEO Standard)
+# https://talkeradesk.com/llms.txt

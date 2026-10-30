@@ -1,0 +1,27 @@
+---
+import site from '@content/site.json';
+---
+
+<section class="py-6 bg-paper border-b border-sky-blue">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-slate">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white border border-sky-blue text-ink-deep font-bold">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>Verified Sole Proprietorship</span>
+        </span>
+        <span>DRUVA GROUP &bull; Udyam: <strong class="text-ink-deep">{site.udyamNumber}</strong></span>
+        <span>&bull;</span>
+        <span>Active GSTIN: <strong class="text-ink-deep">{site.gstin}</strong></span>
+      </div>
+      <a
+        href={site.gstVerificationUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-deep-green font-bold hover:underline shrink-0"
+      >
+        Verify on Official Government Portal &rarr;
+      </a>
+    </div>
+  </div>
+</section>

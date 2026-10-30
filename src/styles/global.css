@@ -366,8 +366,8 @@ img, svg, video, iframe {
   max-width: 100%;
 }
 
-/* Touch target sizing and default centered alignment for interactive buttons */
-button, [role="button"], .btn {
+/* Touch target sizing and alignment for button components */
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -375,7 +375,7 @@ button, [role="button"], .btn {
 }
 
 @media (max-width: 640px) {
-  button, [role="button"], .btn {
+  .btn {
     min-height: 42px;
   }
 }

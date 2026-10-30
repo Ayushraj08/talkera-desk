@@ -1,504 +1,542 @@
 ---
-import pricing from '@content/pricing.json';
+// Modern, sleek, dynamic Plan Finder & ROI Simulator
 ---
+<section class="my-14 rounded-3xl border border-sky-blue/80 bg-white p-6 sm:p-10 shadow-xl relative overflow-hidden" aria-labelledby="finder-title">
+  <!-- Subtle decorative ambient background glows -->
+  <div class="absolute -top-24 -right-24 w-96 h-96 bg-light-blue/40 rounded-full blur-3xl pointer-events-none -z-0"></div>
+  <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-paper rounded-full blur-3xl pointer-events-none -z-0"></div>
 
-<div id="plan-finder" class="mercury-shell-light max-w-5xl mx-auto my-16">
-  <div class="mercury-inner bg-white border border-sky-blue p-6 sm:p-10">
-    
-    <div class="max-w-2xl mb-8">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-deep-green/10 text-deep-green text-xs font-mono font-bold mb-3">
-        Interactive Calculator
+  <div class="relative z-10">
+    <!-- Header with Live Status Pill -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-deep-green/5 border border-deep-green/15 text-xs font-mono font-bold text-deep-green uppercase tracking-wider mb-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Interactive Plan & ROI Simulator</span>
+        </div>
+        <h2 id="finder-title" class="text-2xl sm:text-3xl font-extrabold text-ink-deep font-heading tracking-tight">
+          Estimate your monthly cost
+        </h2>
+        <p class="text-sm text-slate mt-1 max-w-xl">
+          Move the slider or pick a preset to see your exact rate and expected call capacity.
+        </p>
       </div>
-      <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-ink-deep">
-        Which plan fits your call volume?
-      </h3>
-      <p class="text-xs sm:text-sm text-slate mt-1">
-        Adjust minutes, expected concurrency, or missed call volume. The finder computes the exact lowest-cost plan with zero fluff.
-      </p>
+
+      <!-- Quick Call-Duration Reference Badge -->
+      <div class="px-3.5 py-2 rounded-xl bg-paper border border-sky-blue text-xs font-mono text-slate flex items-center gap-2 self-start sm:self-auto shadow-2xs">
+        <svg class="w-4 h-4 text-brand-green shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>Standard: <strong>3 min</strong> avg call length</span>
+      </div>
     </div>
 
-    <!-- Segmented 3-Tab Controller (Adaptive 1-col on mobile, 3-col on tablet/desktop) -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-1.5 p-1.5 bg-paper border border-sky-blue rounded-2xl mb-8 max-w-xl">
-      <button
-        type="button"
-        id="tab-btn-minutes"
-        class="finder-tab-btn py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all bg-deep-green text-white shadow-xs text-center"
-      >
-        1. Minutes & Calls
-      </button>
-      <button
-        type="button"
-        id="tab-btn-concurrency"
-        class="finder-tab-btn py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep text-center"
-      >
-        2. Calls At Once
-      </button>
-      <button
-        type="button"
-        id="tab-btn-roi"
-        class="finder-tab-btn py-2.5 px-3 rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep text-center"
-      >
-        3. Missed Calls ROI
-      </button>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <!-- Main Grid: Left Inputs vs Right Result Card -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
       
-      <!-- Left Column: Tab Inputs (Dynamic) -->
-      <div class="lg:col-span-7 space-y-6">
+      <!-- Left Column: Volume Slider, Quick Presets & Concurrency (7 Cols) -->
+      <div class="lg:col-span-7 space-y-7">
         
-        <!-- Tab 1: Minutes & Calls View -->
-        <div id="view-minutes" class="finder-view space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <span class="text-xs font-mono uppercase text-slate font-bold">Input Mode:</span>
-            <div class="flex items-center gap-3 text-xs font-mono">
-              <label class="flex items-center gap-1.5 cursor-pointer">
-                <input type="radio" name="input-mode" value="minutes" checked class="accent-deep-green" id="mode-minutes"/>
-                <span class="font-semibold text-ink">Billed Minutes / Mo</span>
-              </label>
-              <label class="flex items-center gap-1.5 cursor-pointer ml-1 sm:ml-3">
-                <input type="radio" name="input-mode" value="calls" class="accent-deep-green" id="mode-calls"/>
-                <span class="font-semibold text-ink">Calls / Day</span>
-              </label>
+        <!-- Volume Control Box -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-paper border border-sky-blue/70 shadow-2xs space-y-4">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <div>
+              <span class="text-xs font-mono font-bold text-slate uppercase tracking-wider block">Monthly Call Volume</span>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span id="minutes-label" class="text-3xl sm:text-4xl font-extrabold text-ink-deep font-heading tabular">600</span>
+                <span class="text-sm font-semibold text-slate">minutes / month</span>
+              </div>
+            </div>
+            
+            <!-- Expected Calls Badge (Dynamic ~M/3 calls) -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-sky-blue text-xs font-mono font-bold text-deep-green shadow-2xs">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span id="calls-label">~200 calls / month</span>
             </div>
           </div>
 
-          <!-- Slider Container -->
-          <div>
-            <div class="flex items-center justify-between text-xs font-semibold text-ink-deep mb-2">
-              <span id="slider-label">Total Monthly Billed Minutes</span>
-              <span class="font-mono text-sm px-2.5 py-1 rounded bg-light-blue text-deep-green font-bold tabular" id="finder-val-display">
-                600 mins
+          <!-- Custom Sleek Range Slider -->
+          <div class="pt-2">
+            <input
+              id="minutes"
+              class="sleek-slider w-full cursor-pointer h-2.5 rounded-full appearance-none bg-sky-blue/80 focus:outline-none"
+              type="range"
+              min="0"
+              max="5000"
+              value="600"
+              step="1"
+              aria-label="Monthly minutes slider"
+            />
+          </div>
+
+          <!-- Quick Volume Preset Chips -->
+          <div class="flex flex-wrap items-center gap-2 pt-1">
+            <span class="text-[11px] font-mono text-slate uppercase mr-1">Presets:</span>
+            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="150">150m (~50 calls)</button>
+            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all active-preset" data-val="600">600m (~200 calls)</button>
+            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="1292">1,292m (~430 calls)</button>
+            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="1994">1,994m (~665 calls)</button>
+            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="5001">5,000+m (Custom)</button>
+          </div>
+
+          <!-- Direct Numeric Input -->
+          <div class="flex items-center gap-3 pt-2">
+            <label for="minutes-number" class="text-xs font-mono text-slate whitespace-nowrap">Exact minutes:</label>
+            <div class="relative flex-1 max-w-[160px]">
+              <input
+                id="minutes-number"
+                class="w-full rounded-xl border border-sky-blue bg-white px-3.5 py-2 text-sm font-mono font-bold text-ink-deep focus:border-deep-green focus:outline-none focus:ring-1 focus:ring-deep-green shadow-2xs"
+                type="number"
+                min="0"
+                value="600"
+                aria-label="Monthly minutes input"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Concurrency Selector -->
+        <div class="p-5 sm:p-6 rounded-2xl bg-paper border border-sky-blue/70 shadow-2xs space-y-3">
+          <div class="flex items-center justify-between">
+            <label for="concurrency" class="block text-xs font-mono font-bold text-slate uppercase tracking-wider">
+              Most Callers Ringing At Once
+            </label>
+            <span class="text-[11px] font-mono text-deep-green">Each caller gets their own AI agent</span>
+          </div>
+
+          <!-- Visual Segmented Button Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2" id="concurrency-pills">
+            <button type="button" data-val="2" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all active-pill">
+              <span class="block text-sm font-bold font-heading text-ink-deep">2 calls</span>
+              <span class="block text-[10px] font-mono text-slate mt-0.5">Pay As You Go</span>
+            </button>
+            <button type="button" data-val="3" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
+              <span class="block text-sm font-bold font-heading text-ink-deep">3 calls</span>
+              <span class="block text-[10px] font-mono text-slate mt-0.5">Growth</span>
+            </button>
+            <button type="button" data-val="5" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
+              <span class="block text-sm font-bold font-heading text-ink-deep">5 calls</span>
+              <span class="block text-[10px] font-mono text-slate mt-0.5">Pro</span>
+            </button>
+            <button type="button" data-val="8" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
+              <span class="block text-sm font-bold font-heading text-ink-deep">8 calls</span>
+              <span class="block text-[10px] font-mono text-slate mt-0.5">Expansion</span>
+            </button>
+            <button type="button" data-val="9" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all col-span-2 sm:col-span-1">
+              <span class="block text-sm font-bold font-heading text-ink-deep">8+ calls</span>
+              <span class="block text-[10px] font-mono text-slate mt-0.5">Custom</span>
+            </button>
+          </div>
+
+          <!-- Hidden Synchronized Select for automated form binding & screen readers -->
+          <select id="concurrency" class="sr-only">
+            <option value="2" selected>Up to 2 callers (Pay As You Go)</option>
+            <option value="3">Up to 3 callers (Growth)</option>
+            <option value="5">Up to 5 callers (Pro)</option>
+            <option value="8">Up to 8 callers (Expansion)</option>
+            <option value="9">More than 8 callers (Custom)</option>
+          </select>
+        </div>
+
+        <!-- Sleek Collapsible Missed-Call ROI Calculator Drawer -->
+        <div class="rounded-2xl border border-sky-blue/80 bg-paper overflow-hidden shadow-2xs">
+          <details id="roi-details" class="group">
+            <summary class="cursor-pointer p-5 flex items-center justify-between text-ink-deep hover:text-deep-green select-none focus:outline-none">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-deep-green/10 text-deep-green flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 14l6-6m0 0l-6-6m6 6H3" />
+                  </svg>
+                </div>
+                <div>
+                  <span class="font-heading font-bold text-sm sm:text-base block">Calculate ROI from missed calls</span>
+                  <span class="text-xs text-slate">Estimate booked jobs and net revenue recovered (15% conversion)</span>
+                </div>
+              </div>
+              <span class="w-7 h-7 rounded-full bg-white border border-sky-blue flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200">
+                <svg class="w-3.5 h-3.5 text-deep-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" />
+                </svg>
+              </span>
+            </summary>
+
+            <div class="p-5 sm:p-6 border-t border-sky-blue/60 bg-white space-y-5">
+              <div class="grid sm:grid-cols-3 gap-4">
+                <div>
+                  <label for="missed" class="block text-xs font-mono font-bold text-slate mb-1">Missed calls / day</label>
+                  <input
+                    id="missed"
+                    class="w-full rounded-xl border border-sky-blue px-3 py-2 text-sm font-mono font-bold text-ink-deep bg-paper focus:bg-white focus:border-deep-green focus:outline-none"
+                    type="number"
+                    min="0"
+                    step="0.5"
+                    value="2"
+                  />
+                  <span class="text-[10px] text-slate font-mono mt-1 block">= 240 mins/mo</span>
+                </div>
+
+                <div>
+                  <label for="job-size" class="block text-xs font-mono font-bold text-slate mb-1">
+                    Avg job size (<span id="job-size-display" class="text-deep-green font-bold">$200</span>)
+                  </label>
+                  <input
+                    id="job-size-slider"
+                    class="sleek-slider w-full cursor-pointer h-2 bg-sky-blue rounded-full mb-1"
+                    type="range"
+                    min="200"
+                    max="10000"
+                    value="200"
+                    step="50"
+                  />
+                  <input
+                    id="job-size"
+                    class="w-full rounded-xl border border-sky-blue px-3 py-1.5 text-xs font-mono font-bold text-ink-deep bg-paper focus:bg-white focus:border-deep-green focus:outline-none"
+                    type="number"
+                    min="0"
+                    value="200"
+                  />
+                </div>
+
+                <div>
+                  <label for="margin" class="block text-xs font-mono font-bold text-slate mb-1">Profit margin (%)</label>
+                  <input
+                    id="margin"
+                    class="w-full rounded-xl border border-sky-blue px-3 py-2 text-sm font-mono font-bold text-ink-deep bg-paper focus:bg-white focus:border-deep-green focus:outline-none"
+                    type="number"
+                    min="0"
+                    max="100"
+                    placeholder="e.g. 35"
+                  />
+                  <span class="text-[10px] text-slate font-mono mt-1 block">Optional for net profit</span>
+                </div>
+              </div>
+
+              <!-- ROI Metric Highlights Grid -->
+              <div class="p-4 rounded-xl bg-paper border border-sky-blue flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                <div class="space-y-1">
+                  <span class="font-mono text-slate text-[11px] uppercase tracking-wider block">Simulator Projection</span>
+                  <p id="roi-result" class="text-sm font-bold text-deep-green leading-snug"></p>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Glassmorphic Elevated Plan Recommendation Card (5 Cols) -->
+      <div class="lg:col-span-5 lg:sticky lg:top-24">
+        <div class="rounded-3xl bg-gradient-to-br from-[#0B3528] via-[#0E4D3A] to-[#07271D] text-white p-7 sm:p-8 shadow-2xl border border-white/10 relative overflow-hidden flex flex-col justify-between min-h-[460px]">
+          
+          <!-- Subtle Glowing Corner Light -->
+          <div class="absolute -top-16 -right-16 w-48 h-48 bg-lime-accent/15 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="relative z-10">
+            <!-- Header Badges -->
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-mono font-bold uppercase tracking-wider text-lime-accent">
+                Lowest Cost Plan
+              </span>
+              <span id="card-call-equiv" class="text-xs font-mono text-gray-300">
+                ~200 calls/mo
               </span>
             </div>
-            <input
-              id="finder-slider"
-              type="range"
-              min="20"
-              max="3500"
-              step="20"
-              value="600"
-              class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
-            />
-            <div class="flex justify-between text-[10px] sm:text-[11px] text-gray-400 mt-1 font-mono">
-              <span>20 min (PAYG)</span>
-              <span>1,000 min (Growth)</span>
-              <span>2,500+ min (Command)</span>
+
+            <h3 id="plan-name" class="text-2xl sm:text-3xl font-extrabold font-heading text-white tracking-tight">
+              Pay As You Go
+            </h3>
+
+            <!-- Price Block -->
+            <div class="mt-3 pb-5 border-b border-white/15">
+              <p id="plan-cost" class="text-4xl sm:text-5xl font-black font-heading text-lime-accent tracking-tight">
+                $354.00
+              </p>
+              <p class="text-xs font-mono text-gray-300 mt-1">
+                Estimated monthly fee (USD)
+              </p>
+            </div>
+
+            <!-- Dynamic Plan Breakdown Specs -->
+            <div class="py-5 space-y-3 text-xs sm:text-sm">
+              <div class="flex items-center justify-between text-gray-200">
+                <span class="text-gray-300 font-mono">Plan Capacity:</span>
+                <span id="spec-capacity" class="font-bold text-white font-mono">600 mins (~200 calls)</span>
+              </div>
+              <div class="flex items-center justify-between text-gray-200">
+                <span class="text-gray-300 font-mono">Rate Structure:</span>
+                <span id="spec-rate" class="font-bold text-white font-mono">$0.59 / min</span>
+              </div>
+              <div class="flex items-center justify-between text-gray-200">
+                <span class="text-gray-300 font-mono">Calls at once:</span>
+                <span id="spec-calls" class="font-bold text-white font-mono">Up to 2 callers</span>
+              </div>
+              <div class="flex items-center justify-between text-gray-200">
+                <span class="text-gray-300 font-mono">Detail note:</span>
+                <span id="plan-detail" class="font-medium text-gray-200 text-right max-w-[65%]"></span>
+              </div>
             </div>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-light-blue/40 border border-sky-blue text-xs text-slate">
-            <span class="font-bold text-deep-green">Assumption:</span> Average trade calls run &approx; 3.5 minutes. With the 60-second billing pulse, each call bills as 4 minutes.
-          </div>
-        </div>
+          <!-- Bottom Actions & Reassurance -->
+          <div class="relative z-10 pt-5 border-t border-white/15 space-y-3">
+            <a
+              href="/demo"
+              class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-full text-sm font-bold bg-lime-accent text-ink-deep hover:bg-[#E5FAA0] transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg font-heading"
+            >
+              <span>Hear it work with real audio</span>
+              <svg class="w-4 h-4 ml-2 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
 
-        <!-- Tab 2: Calls at the Same Time View -->
-        <div id="view-concurrency" class="finder-view hidden space-y-6">
-          <div>
-            <label class="block text-xs font-semibold text-ink-deep mb-2">
-              Maximum Simultaneous Callers (Peak Concurrency)
-            </label>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-              <button type="button" data-concurrency="1" class="conc-btn conc-card p-3 rounded-xl text-center font-mono font-bold text-sm">
-                <span>1 Call</span>
-                <span class="block text-[10px] font-medium mt-0.5 conc-subtext">Pay As You Go</span>
-              </button>
-              <button type="button" data-concurrency="2" class="conc-btn conc-card is-active p-3 rounded-xl text-center font-mono font-bold text-sm">
-                <span>2 Calls</span>
-                <span class="block text-[10px] font-semibold mt-0.5 conc-subtext">Core</span>
-              </button>
-              <button type="button" data-concurrency="5" class="conc-btn conc-card p-3 rounded-xl text-center font-mono font-bold text-sm">
-                <span>5 Calls</span>
-                <span class="block text-[10px] font-medium mt-0.5 conc-subtext">Growth</span>
-              </button>
-              <button type="button" data-concurrency="8" class="conc-btn conc-card p-3 rounded-xl text-center font-mono font-bold text-sm">
-                <span>8 Calls</span>
-                <span class="block text-[10px] font-medium mt-0.5 conc-subtext">Command</span>
-              </button>
+            <div class="flex items-center justify-center gap-3 text-[11px] font-mono text-gray-300 text-center">
+              <span>No contract</span>
+              <span>&bull;</span>
+              <span>No setup fee</span>
+              <span>&bull;</span>
+              <span>Month-to-month</span>
             </div>
+            
+            <p class="text-[10px] text-gray-400 font-mono text-center pt-1">
+              Estimate excludes optional add-ons and taxes. Calculations follow official Talkera Desk formulas.
+            </p>
           </div>
 
-          <div class="p-4 rounded-xl bg-paper border border-sky-blue text-xs text-slate" id="concurrency-explanation">
-            Covered: Core handles 2 calls at the exact same moment. Extra callers get an instant text and callback holding.
-          </div>
         </div>
-
-        <!-- Tab 3: Missed Calls ROI View (The Honest Result) -->
-        <div id="view-roi" class="finder-view hidden space-y-5">
-          <div>
-            <div class="flex justify-between text-xs font-semibold text-ink-deep mb-1">
-              <span>Missed Calls per Day:</span>
-              <span class="font-mono text-deep-green font-bold tabular" id="roi-missed-display">5 calls / day</span>
-            </div>
-            <input
-              id="roi-missed-slider"
-              type="range"
-              min="0.5"
-              max="15"
-              step="0.5"
-              value="5"
-              class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
-            />
-          </div>
-
-          <div>
-            <div class="flex justify-between text-xs font-semibold text-ink-deep mb-1">
-              <span>Average Job Ticket Value ($):</span>
-              <span class="font-mono text-deep-green font-bold tabular" id="roi-ticket-display">$230</span>
-            </div>
-            <input
-              id="roi-ticket-slider"
-              type="range"
-              min="50"
-              max="3500"
-              step="10"
-              value="230"
-              class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
-            />
-          </div>
-
-          <div>
-            <div class="flex justify-between text-xs font-semibold text-ink-deep mb-1">
-              <span>Profit Margin on Job (%):</span>
-              <span class="font-mono text-deep-green font-bold tabular" id="roi-margin-display">30%</span>
-            </div>
-            <input
-              id="roi-margin-slider"
-              type="range"
-              min="10"
-              max="60"
-              step="5"
-              value="30"
-              class="w-full h-2 bg-sky-blue rounded-lg appearance-none cursor-pointer accent-deep-green"
-            />
-          </div>
-
-          <div class="text-[11px] text-gray-500 italic">
-            Calculated at 15% booking benchmark floor. Genuine customer calls only.
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Right Column: Ramp-Style Suggested Plan Calculation Card -->
-      <div class="lg:col-span-5 bg-paper border border-sky-blue rounded-2xl p-6 sm:p-7 shadow-sm">
-        <div class="text-xs font-mono uppercase tracking-wider text-slate font-bold mb-1">
-          Lowest Cost Recommended Plan
-        </div>
-        
-        <div class="flex items-baseline gap-2 my-2">
-          <span class="text-3xl sm:text-4xl font-extrabold font-heading text-ink-deep" id="rec-plan-name">
-            Core
-          </span>
-          <span class="text-xs font-mono px-2 py-0.5 rounded bg-lime-accent text-ink font-bold" id="rec-plan-badge">
-            Optimal Fit
-          </span>
-        </div>
-
-        <div class="text-3xl sm:text-4xl font-extrabold font-heading text-deep-green tabular my-2" id="rec-plan-cost">
-          $353
-          <span class="text-xs text-slate font-mono font-normal">/ month est.</span>
-        </div>
-
-        <!-- Breakdown Details -->
-        <div class="space-y-2 py-4 border-t border-b border-sky-blue/70 text-xs text-slate font-mono my-4">
-          <div class="flex justify-between items-baseline gap-2">
-            <span class="text-left shrink-0">Base Monthly Fee:</span>
-            <span class="text-ink font-semibold tabular text-right" id="rec-base-fee">$293</span>
-          </div>
-          <div class="flex justify-between items-baseline gap-2">
-            <span class="text-left shrink-0 whitespace-nowrap">Extra Minutes Charge:</span>
-            <span class="text-ink font-semibold tabular text-right" id="rec-extra-fee">$0.60 / min</span>
-          </div>
-          <div class="flex justify-between items-baseline gap-2">
-            <span class="text-left shrink-0">Effective Per-Min Cost:</span>
-            <span class="text-brand-green font-bold tabular text-right" id="rec-effective-rate">$0.588 / min</span>
-          </div>
-          <div class="flex justify-between items-baseline gap-2">
-            <span class="text-left shrink-0">Included SMS Allowance:</span>
-            <span class="text-ink font-semibold tabular text-right" id="rec-sms-allowance">600 texts</span>
-          </div>
-        </div>
-
-        <!-- ROI Specific Net Calculation Box (Shown in Tab 3) -->
-        <div id="roi-result-box" class="hidden p-3.5 rounded-xl bg-white border border-sky-blue text-xs font-mono mb-4">
-          <div class="flex justify-between mb-1">
-            <span class="text-slate">Extra Profit Generated:</span>
-            <span class="text-ink font-bold tabular" id="roi-extra-profit">+$2,700</span>
-          </div>
-          <div class="flex justify-between mb-2">
-            <span class="text-slate">Talkera Desk Cost:</span>
-            <span class="text-slate tabular" id="roi-desk-cost">-$353</span>
-          </div>
-          <div class="pt-2 border-t border-sky-blue/60 flex justify-between font-bold text-sm">
-            <span>Net Monthly Gain:</span>
-            <span class="text-emerald-700 tabular" id="roi-net-gain">+$2,347</span>
-          </div>
-          <div id="roi-warning" class="hidden text-[10px] text-warning mt-2 leading-tight">
-            At these numbers Talkera Desk costs more than it brings back. Pay As You Go may fit better, or wait until you miss more calls.
-          </div>
-        </div>
-
-        <a
-          href="/#demos"
-          class="w-full inline-flex items-center justify-center py-3 px-4 rounded-full bg-deep-green text-white text-xs font-bold hover:bg-brand-green transition-all shadow"
-        >
-          Hear how Talkera Desk answers
-        </a>
       </div>
 
     </div>
-
   </div>
-</div>
+</section>
 
-<!-- Plan Finder Interactive Computation Script -->
-<script define:vars={{ pricing }}>
-  let activeTab = 'minutes';
-  let totalBilledMinutes = 600;
-  let selectedConcurrency = 2;
+<!-- Sleek Slider Custom Styles -->
+<style>
+  .sleek-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #DCEAF4;
+    outline: none;
+    transition: background 0.2s;
+  }
+  .sleek-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #0E4D3A;
+    border: 3px solid #D9F25C;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .sleek-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    background: #1C7C5B;
+  }
+  .sleek-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #0E4D3A;
+    border: 3px solid #D9F25C;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .active-preset {
+    background-color: #0E4D3A !important;
+    color: #ffffff !important;
+    border-color: #0E4D3A !important;
+  }
+  .active-pill {
+    background-color: #0E4D3A !important;
+    border-color: #0E4D3A !important;
+    box-shadow: 0 4px 12px rgba(14,77,58,0.15);
+  }
+  .active-pill span:first-child {
+    color: #ffffff !important;
+  }
+  .active-pill span:last-child {
+    color: #D9F25C !important;
+  }
+</style>
 
-  // ROI Inputs
-  let roiMissed = 5;
-  let roiTicket = 230;
-  let roiMargin = 0.30;
-
-  // DOM Elements
-  const tabBtnMin = document.getElementById('tab-btn-minutes');
-  const tabBtnConc = document.getElementById('tab-btn-concurrency');
-  const tabBtnRoi = document.getElementById('tab-btn-roi');
-  const viewMin = document.getElementById('view-minutes');
-  const viewConc = document.getElementById('view-concurrency');
-  const viewRoi = document.getElementById('view-roi');
-  const slider = document.getElementById('finder-slider');
-  const sliderDisplay = document.getElementById('finder-val-display');
-  const sliderLabel = document.getElementById('slider-label');
-  const modeMinutes = document.getElementById('mode-minutes');
-  const modeCalls = document.getElementById('mode-calls');
-
-  const concButtons = document.querySelectorAll('.conc-btn');
-  const concExplanation = document.getElementById('concurrency-explanation');
-
-  const roiMissedSlider = document.getElementById('roi-missed-slider');
-  const roiTicketSlider = document.getElementById('roi-ticket-slider');
-  const roiMarginSlider = document.getElementById('roi-margin-slider');
-  const roiMissedDisplay = document.getElementById('roi-missed-display');
-  const roiTicketDisplay = document.getElementById('roi-ticket-display');
-  const roiMarginDisplay = document.getElementById('roi-margin-display');
-  const roiBox = document.getElementById('roi-result-box');
-  const roiProfitEl = document.getElementById('roi-extra-profit');
-  const roiDeskCostEl = document.getElementById('roi-desk-cost');
-  const roiNetEl = document.getElementById('roi-net-gain');
-  const roiWarningEl = document.getElementById('roi-warning');
-
-  const planNameEl = document.getElementById('rec-plan-name');
-  const planCostEl = document.getElementById('rec-plan-cost');
-  const baseFeeEl = document.getElementById('rec-base-fee');
-  const extraFeeEl = document.getElementById('rec-extra-fee');
-  const effectiveRateEl = document.getElementById('rec-effective-rate');
-  const smsAllowanceEl = document.getElementById('rec-sms-allowance');
-
-  const candidates = [
-    { id: 'payg', name: 'Pay As You Go', minConc: 1, base: 59, inc: 0, effectiveRate: '0.600', sms: '$0.035 each' },
-    { id: 'core', name: 'Core', minConc: 2, base: 293, inc: 500, effectiveRate: '0.586', sms: '600 texts' },
-    { id: 'growth', name: 'Growth', minConc: 5, base: 563, inc: 1000, effectiveRate: '0.563', sms: '1,500 texts' },
-    { id: 'command', name: 'Command', minConc: 8, base: 1292, inc: 2500, effectiveRate: '0.517', sms: '3,500 texts' },
-  ];
-
-  function calculateCheapestPlan(minutes, concurrency) {
-    if (activeTab === 'concurrency') {
-      // In Concurrency tab, match the selected concurrency plan directly
-      const match = candidates.find(c => c.minConc === concurrency) || candidates[1];
-      return {
-        plan: match,
-        cost: match.base,
-        extraMin: 0,
-        extraCost: 0,
-        effectiveRate: match.effectiveRate,
-        extraText: '$0.60 / min'
-      };
+<script>
+  export function calculatePlan(M: number, channels: number) {
+    if (channels > 8 || M > 5000) {
+      return { plan: 'Custom', cost: 0, isCustom: true };
     }
+    const plans = [
+      { name: 'Pay As You Go', channels: 2, cost: Math.max(95, 0.59 * M), base: 95, included: 0, rate: 0.59 },
+      { name: 'Growth', channels: 3, cost: 383 + 0.50 * Math.max(0, M - 743), base: 383, included: 743, rate: 0.50 },
+      { name: 'Pro', channels: 5, cost: 581 + 0.50 * Math.max(0, M - 1292), base: 581, included: 1292, rate: 0.50 },
+      { name: 'Expansion', channels: 8, cost: 950 + 0.41 * Math.max(0, M - 1994), base: 950, included: 1994, rate: 0.41 }
+    ];
 
-    // Filter by concurrency for Minutes or ROI tabs
-    const eligible = candidates.filter(c => c.minConc >= concurrency);
-
-    let best = null;
-    let minCost = Infinity;
-
-    eligible.forEach(plan => {
-      const extraMin = Math.max(0, minutes - plan.inc);
-      const extraCost = extraMin * 0.60;
-      const cost = plan.base + extraCost;
-      if (cost < minCost) {
-        minCost = cost;
-        let rateStr = plan.effectiveRate;
-        if (extraMin > 0 && minutes > 0) {
-          rateStr = (cost / minutes).toFixed(3);
-        }
-        best = {
-          plan,
-          cost,
-          extraMin,
-          extraCost,
-          effectiveRate: rateStr,
-          extraText: extraMin > 0 ? `+$${Math.round(extraCost)} (${extraMin} mins @ $0.60)` : '$0.60 / min'
-        };
+    const eligible = plans.filter((p) => p.channels >= channels);
+    let best = eligible[0];
+    for (let i = 1; i < eligible.length; i++) {
+      if (eligible[i].cost < best.cost) {
+        best = eligible[i];
       }
-    });
-
-    return best || {
-      plan: candidates[2],
-      cost: 563,
-      extraMin: 0,
-      extraCost: 0,
-      effectiveRate: '0.563',
-      extraText: '$0.60 / min'
-    };
+    }
+    return { plan: best.name, cost: best.cost, isCustom: false, detail: best };
   }
 
-  function render() {
-    const result = calculateCheapestPlan(totalBilledMinutes, selectedConcurrency);
+  const minuteSlider = document.querySelector<HTMLInputElement>('#minutes')!;
+  const minuteInput = document.querySelector<HTMLInputElement>('#minutes-number')!;
+  const concurrencyInput = document.querySelector<HTMLSelectElement>('#concurrency')!;
+  const concurrencyPills = document.querySelectorAll<HTMLButtonElement>('.concurrency-pill');
+  const presetBtns = document.querySelectorAll<HTMLButtonElement>('.preset-btn');
+  const missedInput = document.querySelector<HTMLInputElement>('#missed')!;
+  const roiDetails = document.querySelector<HTMLDetailsElement>('#roi-details')!;
+  const jobSizeSlider = document.querySelector<HTMLInputElement>('#job-size-slider')!;
+  const jobSizeInput = document.querySelector<HTMLInputElement>('#job-size')!;
+  const jobSizeDisplay = document.querySelector('#job-size-display')!;
+  const marginInput = document.querySelector<HTMLInputElement>('#margin')!;
+  
+  const planName = document.querySelector('#plan-name')!;
+  const planCost = document.querySelector('#plan-cost')!;
+  const planDetail = document.querySelector('#plan-detail')!;
+  const minutesLabel = document.querySelector('#minutes-label')!;
+  const callsLabel = document.querySelector('#calls-label')!;
+  const cardCallEquiv = document.querySelector('#card-call-equiv')!;
+  const specCapacity = document.querySelector('#spec-capacity')!;
+  const specRate = document.querySelector('#spec-rate')!;
+  const specCalls = document.querySelector('#spec-calls')!;
+  const roiResult = document.querySelector('#roi-result')!;
 
-    if (planNameEl) planNameEl.textContent = result.plan.name;
-    if (planCostEl) planCostEl.innerHTML = `$${Math.round(result.cost)} <span class="text-xs text-slate font-mono font-normal">/ month est.</span>`;
-    if (baseFeeEl) baseFeeEl.textContent = `$${result.plan.base}`;
-    if (extraFeeEl) extraFeeEl.textContent = result.extraText;
-    if (effectiveRateEl) {
-      effectiveRateEl.textContent = `$${result.effectiveRate} / min`;
+  function update() {
+    const isMissedOpen = roiDetails ? roiDetails.open : false;
+    const missedPerDay = Math.max(0, Number(missedInput.value) || 0);
+    const M = isMissedOpen
+      ? missedPerDay * 30 * 4
+      : Math.max(0, Number(minuteInput.value) || 0);
+
+    if (isMissedOpen) {
+      minuteInput.value = String(M);
     }
-    if (smsAllowanceEl) smsAllowanceEl.textContent = result.plan.sms;
+    minuteSlider.value = String(Math.min(5000, M));
+    
+    // Dynamic Slider Fill Background
+    const percent = Math.min(100, Math.max(0, (Number(minuteSlider.value) / 5000) * 100));
+    minuteSlider.style.background = `linear-gradient(to right, #0E4D3A 0%, #0E4D3A ${percent}%, #DCEAF4 ${percent}%, #DCEAF4 100%)`;
 
-    // ROI Calculations
-    if (activeTab === 'roi') {
-      if (roiBox) roiBox.classList.remove('hidden');
-      const jobsSaved = roiMissed * 30 * 0.15;
-      const extraRev = jobsSaved * roiTicket;
-      const extraProfit = extraRev * roiMargin;
-      const net = extraProfit - result.cost;
+    minutesLabel.textContent = M.toLocaleString();
+    const approxCalls = Math.round(M / 3);
+    if (callsLabel) {
+      callsLabel.textContent = `~${approxCalls.toLocaleString()} calls / month`;
+    }
+    if (cardCallEquiv) {
+      cardCallEquiv.textContent = `~${approxCalls.toLocaleString()} calls / mo`;
+    }
 
-      if (roiProfitEl) roiProfitEl.textContent = `+$${Math.round(extraProfit).toLocaleString()}`;
-      if (roiDeskCostEl) roiDeskCostEl.textContent = `-$${Math.round(result.cost).toLocaleString()}`;
+    const currentJobSize = Number(jobSizeInput.value) || 200;
+    jobSizeSlider.value = String(Math.min(10000, Math.max(200, currentJobSize)));
+    if (jobSizeDisplay) {
+      jobSizeDisplay.textContent = `$${currentJobSize.toLocaleString()}`;
+    }
+
+    const channels = Number(concurrencyInput.value);
+    const result = calculatePlan(M, channels);
+
+    if (result.isCustom) {
+      planName.textContent = 'Custom';
+      planCost.textContent = 'Quoted';
+      planDetail.textContent = 'Volume above 5,000 mins or >8 callers at once.';
+      if (specCapacity) specCapacity.textContent = '5,000+ mins (1,600+ calls)';
+      if (specRate) specRate.textContent = 'Custom volume rate';
+      if (specCalls) specCalls.textContent = '8+ callers at once';
+    } else {
+      planName.textContent = result.plan;
+      planCost.textContent = `$${result.cost.toFixed(2)}`;
+      const extraMins = Math.max(0, M - (result.detail?.included ?? 0));
+      planDetail.textContent = result.plan === 'Pay As You Go'
+        ? `${M.toLocaleString()} mins at $0.59/min (subject to $95 monthly minimum).`
+        : `${extraMins.toLocaleString()} extra mins billed at $${(result.detail?.rate ?? 0).toFixed(2)}/min.`;
       
-      if (roiNetEl) {
-        if (net >= 0) {
-          roiNetEl.textContent = `+$${Math.round(net).toLocaleString()}`;
-          roiNetEl.className = 'text-emerald-700 tabular';
-          if (roiWarningEl) roiWarningEl.classList.add('hidden');
-        } else {
-          roiNetEl.textContent = `-$${Math.abs(Math.round(net)).toLocaleString()}`;
-          roiNetEl.className = 'text-warning tabular';
-          if (roiWarningEl) roiWarningEl.classList.remove('hidden');
-        }
+      if (specCapacity) {
+        specCapacity.textContent = `${M.toLocaleString()} mins (~${approxCalls} calls)`;
       }
-    } else {
-      if (roiBox) roiBox.classList.add('hidden');
+      if (specRate) {
+        specRate.textContent = `$${(result.detail?.rate ?? 0.59).toFixed(2)} / min`;
+      }
+      if (specCalls) {
+        specCalls.textContent = `Up to ${result.detail?.channels ?? 2} callers at once`;
+      }
     }
+
+    // ROI Breakdown
+    const jobsSaved = missedPerDay * 30 * 0.15;
+    const revenue = jobsSaved * currentJobSize;
+    const marginEntered = marginInput.value.trim() !== '';
+
+    if (!marginEntered) {
+      roiResult.textContent = isMissedOpen
+        ? `${jobsSaved.toFixed(1)} estimated jobs booked, $${revenue.toFixed(2)} potential revenue.`
+        : '';
+      return;
+    }
+
+    const marginPct = Number(marginInput.value) || 0;
+    const profit = revenue * (marginPct / 100);
+
+    if (result.isCustom) {
+      roiResult.textContent = `${jobsSaved.toFixed(1)} jobs, $${revenue.toFixed(2)} revenue, $${profit.toFixed(2)} profit. Custom plan quote needed for net.`;
+      return;
+    }
+
+    const net = profit - result.cost;
+    const netFormatted = net < 0 ? `-$${Math.abs(net).toFixed(2)}` : `+$${net.toFixed(2)}`;
+    roiResult.textContent = `${jobsSaved.toFixed(1)} jobs, $${revenue.toFixed(2)} revenue, $${profit.toFixed(2)} profit. Net after plan: ${netFormatted}`;
   }
 
-  // Switch tabs
-  function setTab(tab) {
-    activeTab = tab;
-    [tabBtnMin, tabBtnConc, tabBtnRoi].forEach(b => {
-      b?.classList.remove('bg-deep-green', 'text-white', 'shadow-xs');
-      b?.classList.add('text-slate');
-    });
-
-    [viewMin, viewConc, viewRoi].forEach(v => v?.classList.add('hidden'));
-
-    if (tab === 'minutes') {
-      tabBtnMin?.classList.add('bg-deep-green', 'text-white', 'shadow-xs');
-      tabBtnMin?.classList.remove('text-slate');
-      viewMin?.classList.remove('hidden');
-    } else if (tab === 'concurrency') {
-      tabBtnConc?.classList.add('bg-deep-green', 'text-white', 'shadow-xs');
-      tabBtnConc?.classList.remove('text-slate');
-      viewConc?.classList.remove('hidden');
-    } else if (tab === 'roi') {
-      tabBtnRoi?.classList.add('bg-deep-green', 'text-white', 'shadow-xs');
-      tabBtnRoi?.classList.remove('text-slate');
-      viewRoi?.classList.remove('hidden');
-      totalBilledMinutes = roiMissed * 30 * 4;
-    }
-    render();
-  }
-
-  tabBtnMin?.addEventListener('click', () => setTab('minutes'));
-  tabBtnConc?.addEventListener('click', () => setTab('concurrency'));
-  tabBtnRoi?.addEventListener('click', () => setTab('roi'));
-
-  // Slider change
-  slider?.addEventListener('input', (e) => {
-    const val = parseFloat(e.target.value);
-    if (modeCalls?.checked) {
-      // Input is calls per day
-      totalBilledMinutes = Math.round(val * 30 * 4);
-      if (sliderDisplay) sliderDisplay.textContent = `${val} calls/day (${totalBilledMinutes} mins)`;
-    } else {
-      totalBilledMinutes = val;
-      if (sliderDisplay) sliderDisplay.textContent = `${val} mins`;
-    }
-    render();
-  });
-
-  modeMinutes?.addEventListener('change', () => {
-    if (slider) {
-      slider.min = "20";
-      slider.max = "3500";
-      slider.step = "20";
-      slider.value = "600";
-      totalBilledMinutes = 600;
-      if (sliderLabel) sliderLabel.textContent = "Total Monthly Billed Minutes";
-      if (sliderDisplay) sliderDisplay.textContent = "600 mins";
-      render();
-    }
-  });
-
-  modeCalls?.addEventListener('change', () => {
-    if (slider) {
-      slider.min = "1";
-      slider.max = "30";
-      slider.step = "1";
-      slider.value = "5";
-      totalBilledMinutes = 5 * 30 * 4; // 600
-      if (sliderLabel) sliderLabel.textContent = "Inbound Calls per Day (4 min pulse)";
-      if (sliderDisplay) sliderDisplay.textContent = "5 calls/day (600 mins)";
-      render();
-    }
-  });
-
-  // Concurrency buttons
-  concButtons.forEach(btn => {
+  // Preset Buttons Handling
+  presetBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      concButtons.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-
-      selectedConcurrency = parseInt(btn.getAttribute('data-concurrency') || '1', 10);
-      if (concExplanation) {
-        concExplanation.textContent = `Covered: ${selectedConcurrency === 1 ? '1 call' : selectedConcurrency + ' calls'} at the exact same moment. Extra callers receive instant SMS holding.`;
+      const val = btn.getAttribute('data-val');
+      if (val) {
+        minuteSlider.value = val;
+        minuteInput.value = val;
+        presetBtns.forEach((b) => b.classList.remove('active-preset'));
+        btn.classList.add('active-preset');
+        update();
       }
-      render();
     });
   });
 
-  // ROI inputs
-  roiMissedSlider?.addEventListener('input', (e) => {
-    roiMissed = parseFloat(e.target.value);
-    if (roiMissedDisplay) roiMissedDisplay.textContent = `${roiMissed} calls / day`;
-    totalBilledMinutes = Math.round(roiMissed * 30 * 4);
-    render();
+  // Concurrency Pills Handling
+  concurrencyPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const val = pill.getAttribute('data-val');
+      if (val) {
+        concurrencyInput.value = val;
+        concurrencyPills.forEach((p) => p.classList.remove('active-pill'));
+        pill.classList.add('active-pill');
+        update();
+      }
+    });
   });
 
-  roiTicketSlider?.addEventListener('input', (e) => {
-    roiTicket = parseFloat(e.target.value);
-    if (roiTicketDisplay) roiTicketDisplay.textContent = `$${roiTicket.toLocaleString()}`;
-    render();
-  });
+  // Input Listeners
+  [minuteSlider, minuteInput, concurrencyInput, missedInput, jobSizeInput, marginInput, jobSizeSlider]
+    .forEach((field) => field?.addEventListener('input', (e) => {
+      if (e.target === jobSizeSlider) {
+        jobSizeInput.value = jobSizeSlider.value;
+      }
+      if (e.target === minuteSlider) {
+        minuteInput.value = minuteSlider.value;
+        // Clear active presets if customized
+        presetBtns.forEach((b) => b.classList.remove('active-preset'));
+      }
+      if (e.target === minuteInput) {
+        minuteSlider.value = minuteInput.value;
+        presetBtns.forEach((b) => b.classList.remove('active-preset'));
+      }
+      update();
+    }));
 
-  roiMarginSlider?.addEventListener('input', (e) => {
-    roiMargin = parseFloat(e.target.value) / 100;
-    if (roiMarginDisplay) roiMarginDisplay.textContent = `${e.target.value}%`;
-    render();
-  });
-
-  render();
+  roiDetails?.addEventListener('toggle', update);
+  update();
 </script>

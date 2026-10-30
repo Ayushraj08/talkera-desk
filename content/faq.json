@@ -1,116 +1,12 @@
 [
-  {
-    "id": "faq-1",
-    "question": "Is it a person or an AI answering the calls?",
-    "answer": "It is an AI. It explicitly says so at the start of every call, speaks with natural cadence, and immediately transfers the caller to a human team member or rings your on-call phone when your business rules say so.",
-    "category": "Technology"
-  },
-  {
-    "id": "faq-2",
-    "question": "Does it really answer every single inbound call?",
-    "answer": "It is online 24/7 and answers almost every call, but no phone system can answer literally every single one. Calls beyond your plan's simultaneous capacity, quick hang-ups, or telephone carrier outages can occasionally happen. When a call cannot connect, the caller gets an instant text and you get an immediate alert.",
-    "category": "Reliability"
-  },
-  {
-    "id": "faq-3",
-    "question": "How many calls can the agent handle at the same time?",
-    "answer": "Pay As You Go handles 1 call at a time, Core 2 calls, Growth 5 calls, and Command 8 simultaneous calls. Each call is greeted by its own dedicated agent instance, eliminating busy signals for your customers.",
-    "category": "Capacity"
-  },
-  {
-    "id": "faq-4",
-    "question": "What happens if the agent cannot handle a specific caller inquiry?",
-    "answer": "If a caller asks a question outside your approved scope or requests a person, the agent captures the caller's details and immediately sends you an SMS alert, or dials your office phone depending on your transfer rules.",
-    "category": "Operations"
-  },
-  {
-    "id": "faq-5",
-    "question": "What happens when a caller reports an emergency?",
-    "answer": "By default, the agent instructs anyone in immediate physical danger to call their local emergency number first. It simultaneously alerts your team by phone call and priority text, and initiates an immediate warm transfer to your on-call technician.",
-    "category": "Operations"
-  },
-  {
-    "id": "faq-6",
-    "question": "How fast can my company go live with Talkera Desk?",
-    "answer": "Up to 3 days. On Day 1 we ingest your public website, services, and pricing rules to start building. Day 2 is custom tuning and voice calibration. Day 3 connects your tools, conducts test calls, and goes live. We ask for replies within 2 to 3 hours.",
-    "category": "Onboarding"
-  },
-  {
-    "id": "faq-7",
-    "question": "Do I need to change my current business telephone number?",
-    "answer": "No. You can simply forward your existing business number to Talkera Desk, or we can provide a dedicated new local or toll-free number. You own your number, and we help you transfer it if you ever leave.",
-    "category": "Setup"
-  },
-  {
-    "id": "faq-8",
-    "question": "What software tools and calendars does the agent connect to?",
-    "answer": "Direct two-way integration with Google Calendar, ServiceTitan, Jobber, Housecall Pro, and instant SMS or email alerts. Additional CRMs and field service tools connect via webhooks and Zapier as shown on our integrations page.",
-    "category": "Integrations"
-  },
-  {
-    "id": "faq-9",
-    "question": "What does the service really cost, and are there hidden fees?",
-    "answer": "Plans start at $59 a month plus $0.60 per minute on Pay As You Go. Bundled plans run $293 to $1,292 a month. Extra minutes are $0.60 across every plan. Every single charge and add-on is published on our pricing page with zero hidden fees.",
-    "category": "Pricing"
-  },
-  {
-    "id": "faq-10",
-    "question": "Can I test the service without signing up for a large plan?",
-    "answer": "Yes. Pay As You Go is the standard way to begin: $59 a month, $0.60 a minute, $99 one-time setup, and month-to-month billing with no contract. You only pay for minutes as your phone actually uses them.",
-    "category": "Pricing"
-  },
-  {
-    "id": "faq-11",
-    "question": "Can I cancel or pause my plan anytime?",
-    "answer": "Yes. Cancel or pause anytime from your account or with a quick message. Your plan remains active until the end of the monthly period you paid for, then stops without renewing. We hold your setup for 30 days at zero charge so you can restart easily.",
-    "category": "Billing"
-  },
-  {
-    "id": "faq-12",
-    "question": "What is a billing pulse, and what happens during a call burst?",
-    "answer": "Pulse: we bill in 60-second blocks, so every started minute counts as a minute, and calls under 10 seconds are free. Burst: when simultaneous callers exceed your plan lanes, we charge zero burst penalties. Extra callers get an instant text holding their place.",
-    "category": "Billing"
-  },
-  {
-    "id": "faq-13",
-    "question": "Who owns my telephone number and call recordings?",
-    "answer": "You own all of your business data, recordings, transcripts, and phone numbers. If you ever cancel, we provide an export of all your data within 7 days and assist with transferring your phone number to any carrier.",
-    "category": "Data & Privacy"
-  },
-  {
-    "id": "faq-14",
-    "question": "How long are audio recordings and call transcripts kept?",
-    "answer": "Audio and transcripts are retained for 15 days on Pay As You Go, 30 days on Core, 45 days on Growth, and 60 days on Command, then automatically deleted for privacy. We remind you 3 days before scheduled deletion so you can export files.",
-    "category": "Data & Privacy"
-  },
-  {
-    "id": "faq-15",
-    "question": "Are customer phone calls recorded and transcribed?",
-    "answer": "Yes, calls are recorded and transcribed so our team can review conversations and refine call flows. The agent explicitly states this disclosure to every caller at the start of the call to ensure legal compliance.",
-    "category": "Compliance"
-  },
-  {
-    "id": "faq-16",
-    "question": "What happens if a prompt error or tool breakdown occurs?",
-    "answer": "We begin diagnosing immediately and resolve problems as quickly as possible, up to 72 hours max. If the fault is on our side and takes more than 24 hours, each additional day is credited directly to your plan.",
-    "category": "Support"
-  },
-  {
-    "id": "faq-17",
-    "question": "Where is the Talkera Desk engineering team based?",
-    "answer": "India. Talkera Desk is an operating brand of DRUVA GROUP, an Indian sole proprietorship. Our operational base is in Kolkata (2nd floor, Gitanjali Apartment, Kisan Market, East Kolkata Township (E.K.T), Hussainpur Road, Kolkata 700107, WEST BENGAL, KOLKATA). We share this openly so you know exactly who builds and manages your systems.",
-    "category": "Company"
-  },
-  {
-    "id": "faq-18",
-    "question": "Is AI phone answering legal across the US, UK, Canada, and Australia?",
-    "answer": "Yes. Wiretapping and recording regulations vary by jurisdiction. Talkera Desk by default announces that it is an AI assistant and that calls may be recorded, satisfying two-party consent laws. Businesses remain responsible for local industry regulations.",
-    "category": "Compliance"
-  },
-  {
-    "id": "faq-19",
-    "question": "What if the agent books an incorrect appointment slot?",
-    "answer": "Every booking writes directly into your calendar or CRM in real time with customer notes. If an error is spotted, our team reviews the call audio and tunes the prompt logic under our regular review process.",
-    "category": "Operations"
-  }
+{"id":"faq-1","question":"Is it a person or an AI?","answer":"AI. It says so at the start of every call, sounds natural, and connects the caller to a person when your rules say so.","category":"Service"},
+{"id":"faq-2","question":"Does it answer every call?","answer":"Almost every call. More callers at once than your plan allows, a hang-up, a poor line or a carrier outage can get in the way. Then the caller gets a text and you get an alert.","category":"Service"},
+{"id":"faq-3","question":"How fast can I go live?","answer":"Up to 3 days. Day 1 we gather what is public and what you tell us and start building. Day 2 we tune it. Day 3 we test, connect your tools and go live.","category":"Setup"},
+{"id":"faq-4","question":"What does it cost?","answer":"Pay As You Go $0.59 a minute with a $95 monthly minimum, Growth $383, Pro $581, Expansion $950 a month. One price covers the agent, number, calls, texts and WhatsApp alerts, tool connection and upkeep. No setup fee.","category":"Pricing"},
+{"id":"faq-5","question":"What if more calls ring at once?","answer":"The extra caller gets a text and a call back, free. You can add an extra call at the same time for $23 a month.","category":"Service"},
+{"id":"faq-6","question":"Can I pause or cancel?","answer":"Cancel anytime. Your plan runs to the end of the period you paid for, then stops. No refund for unused days. In a quiet month, move to Pay As You Go.","category":"Billing"},
+{"id":"faq-7","question":"Who owns my number and data?","answer":"You do. If you leave, we export your data within 7 days and help you move your number.","category":"Data"},
+{"id":"faq-8","question":"How long do you keep recordings?","answer":"15 days on Pay As You Go, 30 on Growth, 45 on Pro, 60 on Expansion. Then they are deleted. Export before then.","category":"Data"},
+{"id":"faq-9","question":"What if something breaks?","answer":"We start at once and fix it as soon as possible, up to 72 hours. If it is our fault and takes more than a day, each extra day is added to your plan.","category":"Support"},
+{"id":"faq-10","question":"Where are you based?","answer":"India. Talkera Desk is a brand of DRUVA GROUP, a registered sole proprietorship. We serve the US, UK, Canada, Australia and India.","category":"Company"}
 ]

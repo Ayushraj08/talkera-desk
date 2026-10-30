@@ -2,229 +2,251 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import PlanFinder from '../components/pricing/PlanFinder.astro';
 import pricing from '@content/pricing.json';
+
+const allPlans = [
+  ...pricing.plans.map((plan) => ({
+    id: plan.id,
+    name: plan.name,
+    fee: plan.id === 'payg' ? '$0.59 / min' : `$${plan.fee}`,
+    feeSub: plan.id === 'payg' ? '$95 minimum' : '/ month',
+    minutes: plan.id === 'payg' ? 'Pay as you use' : `${plan.minutes.toLocaleString()} mins`,
+    expectedCalls: plan.id === 'payg' ? '~30–50+ calls' : `~${Math.round(plan.minutes / 3)} calls`,
+    perMinutePrice: plan.minutes ? `$${(plan.fee / plan.minutes).toFixed(3)}` : `$${(plan.perMinute ?? 0.59).toFixed(3)}`,
+    extraMinutes: `$${plan.extra.toFixed(2)}`,
+    callsAtOnce: `${plan.calls}`,
+    messages: plan.messages.toLocaleString(),
+    storage: `${plan.retentionDays} days`,
+    highlight: plan.highlight,
+  })),
+  {
+    id: 'custom',
+    name: 'Custom',
+    fee: 'Quoted',
+    feeSub: 'custom volume',
+    minutes: '5,000 and up',
+    expectedCalls: '1,600+ calls',
+    perMinutePrice: 'Quoted',
+    extraMinutes: 'Quoted',
+    callsAtOnce: '8+',
+    messages: 'Quoted',
+    storage: 'Up to 60 days',
+    highlight: false,
+  }
+];
+
+const addonsList = [
+  { name: 'Extra number', price: `$${pricing.addons.number} a month` },
+  { name: 'Extra location', price: `$${pricing.addons.location} a month` },
+  { name: 'Extra call at the same time', price: `$${pricing.addons.extraCall} a month` },
+  { name: 'Connection to a supported tool', price: `$${pricing.addons.toolConnection} one time` },
+  { name: 'Extra change to your agent', price: `$${pricing.addons.change} each` },
+  { name: 'Extra texts', price: `$${pricing.addons.extraText} each` },
+  { name: 'WhatsApp messages', price: `$${pricing.addons.extraWhatsapp} each` },
+];
+
+const policies = [
+  {
+    q: 'Cancel',
+    a: 'Cancel anytime. Your plan runs to the end of the period you paid for, then stops. No refund for unused days. In a quiet month, move to Pay As You Go.'
+  },
+  {
+    q: 'Fixes',
+    a: 'We start at once and fix it as soon as possible, up to 72 hours. If it is our fault and takes more than a day, each extra day is added to your plan.'
+  },
+  {
+    q: 'Storage',
+    a: 'Recordings and transcripts are kept for 15 days on Pay As You Go, 30 on Growth, 45 on Pro, 60 on Expansion, then deleted. Export before then.'
+  },
+  {
+    q: 'Calls at once',
+    a: 'Each caller gets their own agent. Your plan answers up to a set number of callers at once. If one more rings, they get an instant text and a call back, free. If that happens often, add an extra call at the same time for $23 a month.'
+  },
+  {
+    q: 'Billing pulse',
+    a: 'Billing is in 60-second blocks, so a started minute counts as a minute. Calls under 10 seconds are free. Unused minutes do not carry over; for a quiet month use Pay As You Go.'
+  },
+  {
+    q: 'Not listed',
+    a: 'Anything not listed in your plan or here is quoted and approved in writing first.'
+  }
+];
 ---
-
-<MainLayout
-  title="Talkera Desk Pricing | From $59 a Month, No Contract"
-  description="Every plan and charge, in one page. Pay as you go or bundled minutes. Month to month, cancel with 30 days notice."
-  canonicalUrl="https://talkeradesk.com/pricing"
->
-  <div class="py-16 lg:py-24 bg-white">
+<MainLayout title="Talkera Desk Pricing | One price, no setup fee" description="Pay As You Go from $95 a month, or choose Growth, Pro or Expansion. One price covers your agent, number, calls, messages, tool connection and upkeep." canonicalUrl="https://talkeradesk.com/pricing">
+  <section class="py-14 lg:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Top Section Header -->
-      <div class="max-w-3xl mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-          Public Fee Schedule
-        </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink-deep tracking-tight mb-4">
-          Straightforward pricing.<br />No contracts.
-        </h1>
-        
-        <!-- Dated Quotable Sentence -->
-        <p class="text-base sm:text-lg text-slate leading-relaxed font-medium">
-          {pricing.datedSentence}
-        </p>
-        <p class="text-xs text-gray-500 font-mono mt-2">
-          Zero card surcharges. Zero GST charged on international exports under valid LUT.
-        </p>
+      <div class="max-w-3xl mb-10">
+        <p class="text-xs font-mono uppercase tracking-wider text-deep-green mb-3">Pricing</p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-ink-deep tracking-tight mb-4">One price. Everything you need.</h1>
+        <p class="text-base text-slate leading-relaxed">{pricing.datedSentence}</p>
+        <a href="/compare" class="inline-block mt-4 text-sm font-semibold text-deep-green underline">Compare plans and services</a>
       </div>
-
-      <!-- 4 Plan Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        {pricing.plans.map((pl) => (
-          <div
-            class={`rounded-panel p-7 flex flex-col justify-between transition-all duration-300 relative ${
-              pl.highlight
-                ? 'bg-deep-green text-white shadow-xl ring-2 ring-lime-accent hover:-translate-y-2 hover:shadow-2xl dark-glass-bezel'
-                : 'bg-paper text-ink border border-sky-blue shadow-tactile hover:-translate-y-2 hover:border-deep-green hover:shadow-xl glass-bezel'
-            }`}
-          >
-            {pl.badge && (
-              <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-lime-accent text-ink-deep text-[11px] font-mono font-bold tracking-wider uppercase shadow-sm">
-                {pl.badge}
-              </div>
-            )}
-
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-14">
+        {allPlans.map((plan) => (
+          <article class={`rounded-2xl border p-6 flex flex-col justify-between transition-all ${plan.highlight ? 'bg-deep-green text-white border-deep-green shadow-lg ring-1 ring-lime-accent' : 'bg-paper text-ink-deep border-sky-blue hover:border-deep-green/50 shadow-2xs'}`}>
             <div>
-              <div class={`text-xs font-mono uppercase tracking-wider mb-2 font-semibold ${pl.highlight ? 'text-lime-accent' : 'text-brand-green'}`}>
-                {pl.name}
-              </div>
-              <div class="flex items-baseline gap-1 my-3">
-                <span class={`text-4xl font-extrabold font-heading tabular tracking-tight ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>
-                  ${pl.monthlyFee}
-                </span>
-                <span class={`text-xs font-mono ${pl.highlight ? 'text-white' : 'text-slate'}`}>
-                  / month
-                </span>
-              </div>
-              <p class={`text-xs mb-6 ${pl.highlight ? 'text-white' : 'text-slate'}`}>
-                {pl.tagline}
-              </p>
-
-              <!-- Detailed Metrics Spec Table (Left text, Right numbers strictly aligned) -->
-              <div class={`space-y-2 py-4 border-t border-b text-xs font-mono mb-6 ${pl.highlight ? 'border-white/20' : 'border-sky-blue/60'}`}>
-                <div class="flex justify-between items-baseline gap-2 py-0.5">
-                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Included Minutes:</span>
-                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.includedMin === 0 ? 'Pay as used' : `${pl.includedMin} mins`}</span>
+              <p class="text-xs uppercase tracking-wide font-semibold opacity-85">{plan.name}</p>
+              <p class="text-3xl font-extrabold mt-3">{plan.fee}</p>
+              <p class="text-xs opacity-75 mt-0.5">{plan.feeSub}</p>
+              <p class="text-sm mt-3 font-semibold opacity-95">{plan.minutes}</p>
+              
+              <dl class="text-xs sm:text-sm mt-5 space-y-2.5 border-t border-current/15 pt-4">
+                <div class="flex justify-between items-center pb-1 border-b border-current/10">
+                  <dt class="opacity-80">Expected calls (3m avg)</dt>
+                  <dd class="font-bold font-mono">{plan.expectedCalls}</dd>
                 </div>
-                <div class="flex justify-between items-baseline gap-2 py-0.5">
-                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Estimated Calls:</span>
-                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.estimatedCalls}</span>
-                </div>
-                <div class="flex justify-between items-baseline gap-2 py-0.5">
-                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Effective Per-Min:</span>
-                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-lime-accent' : 'text-brand-green'}`}>
-                    {pl.includedMin === 0 ? '$0.600 / min' : `$${(pl.monthlyFee / pl.includedMin).toFixed(3)} / min`}
-                  </span>
-                </div>
-                <div class="flex justify-between items-baseline gap-2 py-0.5">
-                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Extra Minutes:</span>
-                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>$0.60 / min</span>
-                </div>
-                <div class="flex justify-between items-baseline gap-2 py-0.5">
-                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Calls At Once:</span>
-                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.concurrentCalls === 1 ? '1 call' : `${pl.concurrentCalls} calls`}</span>
-                </div>
-                <div class="flex justify-between items-baseline gap-2 py-0.5">
-                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Setup (One-Time):</span>
-                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>${pl.setupFee}</span>
-                </div>
-                <div class="flex justify-between items-baseline gap-2 py-0.5">
-                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Included SMS:</span>
-                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.textModel}</span>
-                </div>
-                <div class="flex justify-between items-baseline gap-2 py-0.5">
-                  <span class={`text-left shrink-0 ${pl.highlight ? 'text-white' : 'text-slate'}`}>Audio Retention:</span>
-                  <span class={`font-bold tabular text-right whitespace-nowrap ${pl.highlight ? 'text-white' : 'text-ink-deep'}`}>{pl.retentionDays} days</span>
-                </div>
-                <div class={`text-[10px] pt-1.5 border-t ${pl.highlight ? 'border-white/10 text-white font-medium' : 'border-sky-blue/40 text-slate/80'} italic`}>
-                  * Calls estimated at ~3 mins average duration.
-                </div>
-              </div>
-
-              <!-- Feature Bullets -->
-              <ul class="space-y-2.5 text-xs mb-8">
-                {pl.features.map((f) => (
-                  <li class="flex items-start gap-2">
-                    <span class={`font-bold mt-0.5 ${pl.highlight ? 'text-lime-accent' : 'text-brand-green'}`}>&check;</span>
-                    <span class={pl.highlight ? 'text-white' : 'text-slate'}>{f}</span>
-                  </li>
-                ))}
-              </ul>
+                <div class="flex justify-between"><dt>Per-minute price</dt><dd class="font-mono">{plan.perMinutePrice}</dd></div>
+                <div class="flex justify-between"><dt>Extra minutes</dt><dd class="font-mono">{plan.extraMinutes}</dd></div>
+                <div class="flex justify-between"><dt>Calls at once</dt><dd class="font-mono">{plan.callsAtOnce}</dd></div>
+                <div class="flex justify-between"><dt>Messages</dt><dd class="font-mono">{plan.messages}</dd></div>
+                <div class="flex justify-between"><dt>Storage</dt><dd class="font-mono">{plan.storage}</dd></div>
+              </dl>
             </div>
-
-            <a
-              href={`mailto:support@talkeradesk.com?subject=Inquiry%20regarding%20Talkera%20Desk%20${encodeURIComponent(pl.name)}%20Plan`}
-              class={`w-full py-3.5 px-4 rounded-full text-xs font-bold text-center transition-all ${
-                pl.highlight
-                  ? 'bg-lime-accent text-ink-deep hover:bg-[#E5FAA0] shadow'
-                  : 'bg-deep-green text-white hover:bg-brand-green'
-              }`}
-            >
-              Get Started with {pl.name}
-            </a>
-          </div>
+            <p class="text-xs mt-5 opacity-80 pt-3 border-t border-current/10 font-mono">One price includes your agent, number, calls, messages, tool connection and upkeep.</p>
+          </article>
         ))}
       </div>
 
-      <!-- Ramp-Style Interactive 3-Tab Plan Finder (Spec C5) -->
       <PlanFinder />
 
-      <!-- Add-Ons Table (Spec C4) -->
-      <div class="my-20">
-        <div class="max-w-2xl mb-8">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-mono font-bold text-deep-green uppercase tracking-wider mb-2">
-            Configurable Add-ons
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-ink-deep font-heading">
-            Add-ons and optional expansions
-          </h2>
-          <p class="text-xs sm:text-sm text-slate mt-1">
-            Anything not included in your base plan is quoted in writing and approved by you before implementation.
-          </p>
-        </div>
-
-        <div class="md:hidden flex items-center gap-1.5 text-[11px] font-mono text-slate mb-2.5 px-1">
-          <svg class="w-3.5 h-3.5 text-brand-green shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          <span>Scroll horizontally to view all add-ons &rarr;</span>
-        </div>
-        <div class="border border-sky-blue rounded-2xl overflow-hidden bg-white shadow-tactile">
-          <div class="table-responsive-wrapper">
-            <table class="min-w-full divide-y divide-sky-blue/60 text-xs">
-              <thead class="bg-paper text-ink-deep font-heading font-bold">
-                <tr>
-                  <th class="py-4 px-5 text-left min-w-[160px]">Add-on Item</th>
-                  <th class="py-4 px-4 text-left min-w-[130px]">US Dollar Rate</th>
-                  <th class="py-4 px-5 text-left min-w-[220px]">Description</th>
+      <div class="mt-14">
+        <h2 class="text-2xl font-bold text-ink-deep mb-5">Add-ons</h2>
+        <div class="overflow-x-auto border border-sky-blue rounded-xl bg-white shadow-2xs">
+          <table class="w-full text-sm">
+            <tbody>
+              {addonsList.map((item) => (
+                <tr class="border-b border-sky-blue/70 last:border-0 hover:bg-paper/50 transition-colors">
+                  <th class="text-left p-4 font-semibold text-ink-deep">{item.name}</th>
+                  <td class="p-4 text-slate font-mono font-medium">{item.price}</td>
                 </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-100 font-mono text-slate">
-                {pricing.addons.map((add) => (
-                  <tr class="hover:bg-light-blue/20 transition-colors">
-                    <td class="py-4 px-5 font-bold text-ink-deep font-sans">{add.name}</td>
-                    <td class="py-4 px-4 font-bold text-deep-green">{add.price}</td>
-                    <td class="py-4 px-5 font-sans text-xs">{add.desc}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="mt-10 p-6 rounded-2xl bg-paper border border-sky-blue shadow-2xs">
+        <h3 class="text-lg font-bold text-ink-deep mb-2">Calls at once</h3>
+        <p class="text-sm text-slate leading-relaxed">Each caller gets their own agent. Your plan answers up to a set number of callers at once. If one more rings, they get an instant text and a call back, free. If that happens often, add an extra call at the same time for $23 a month.</p>
+      </div>
+
+      <!-- Billing Structure & Protection Cards (Image 5) -->
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: 60-Second Pulse -->
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
+          <div>
+            <span class="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">60-Second Pulse</span>
+            <h3 class="font-heading font-bold text-lg text-ink-deep mt-2 mb-2">How We Bill Call Time</h3>
+            <p class="text-xs text-slate leading-relaxed">
+              Our billing pulse is 60 seconds: every started minute counts as a minute. Calls under 10 seconds are zero charge. With trade calls averaging 3.5 minutes, expect roughly 4 billed minutes per call.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Zero Burst Fees -->
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
+          <div>
+            <span class="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">Zero Burst Fees</span>
+            <h3 class="font-heading font-bold text-lg text-ink-deep mt-2 mb-2">Handling Storm Surges</h3>
+            <p class="text-xs text-slate leading-relaxed">
+              Many vendors penalize emergency surges with inflated per-minute fees. We charge zero burst fees. Callers exceeding your concurrent channels get an instant text holding their place.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Quiet Month Protection -->
+        <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
+          <div>
+            <span class="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">Quiet Month Protection</span>
+            <h3 class="font-heading font-bold text-lg text-ink-deep mt-2 mb-2">Flexible Continuity</h3>
+            <p class="text-xs text-slate leading-relaxed">
+              Never forced to cancel or lose your setup for a quiet month. Shift easily to Pay As You Go ($95 monthly minimum) to keep your phone number, trained agent, and alerts active, then move back when volume rises.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Service Level Agreement: The 72-Hour Fix Credit Policy -->
+      <div class="mt-8 p-6 sm:p-8 rounded-3xl bg-deep-green text-white shadow-lg relative overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-lime-accent text-xs font-mono font-semibold uppercase tracking-wider mb-4 border border-white/15">
+          Service Level Agreement
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-3">
+          The 72-Hour Fix Credit Policy
+        </h3>
+        <p class="text-xs sm:text-sm text-gray-200 leading-relaxed max-w-4xl mb-6">
+          When you report a problem, our engineering team begins diagnosing at once and fixes it as soon as possible, up to 72 hours at most. If the cause is on our side and the resolution takes more than 24 hours, each additional day (rounded up to a whole day) is added directly to your plan as a service credit.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-white/15 text-xs font-mono">
+          <div>
+            <span class="text-lime-accent font-bold uppercase tracking-wider block mb-1">What is covered:</span>
+            <span class="text-gray-300">Our setup, our prompt logic, our webhook code, our delays.</span>
+          </div>
+          <div>
+            <span class="text-lime-accent font-bold uppercase tracking-wider block mb-1">Turnaround expectation:</span>
+            <span class="text-gray-300">We ask you to answer verification questions within 2 to 3 hours during your business day.</span>
           </div>
         </div>
       </div>
 
-      <!-- Pulse, Burst, and Rollover Architecture Explainer -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-16">
-        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
-          <div class="text-xs font-mono text-deep-green font-bold uppercase mb-2">60-Second Pulse</div>
-          <h3 class="font-heading font-bold text-lg text-ink-deep mb-2">How We Bill Call Time</h3>
-          <p class="text-xs text-slate leading-relaxed">
-            Our billing pulse is 60 seconds: every started minute counts as a minute. Calls under 10 seconds are zero charge. With trade calls averaging 3.5 minutes, expect roughly 4 billed minutes per call.
-          </p>
+      <!-- Modern, Polished Plan Policies Accordion -->
+      <div class="mt-14" id="policies">
+        <div class="max-w-2xl mb-6">
+          <p class="text-xs uppercase tracking-wider text-deep-green font-mono font-semibold">Policy Details</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-ink-deep font-heading mt-1">Plan policies</h2>
         </div>
-
-        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
-          <div class="text-xs font-mono text-deep-green font-bold uppercase mb-2">Zero Burst Fees</div>
-          <h3 class="font-heading font-bold text-lg text-ink-deep mb-2">Handling Storm Surges</h3>
-          <p class="text-xs text-slate leading-relaxed">
-            Many vendors penalize emergency surges with inflated per-minute fees. We charge zero burst fees. Callers exceeding your concurrent channels get an instant text holding their place.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-2xl bg-paper border border-sky-blue">
-          <div class="text-xs font-mono text-deep-green font-bold uppercase mb-2">20% Minute Rollover</div>
-          <h3 class="font-heading font-bold text-lg text-ink-deep mb-2">Quiet Month Protection</h3>
-          <p class="text-xs text-slate leading-relaxed">
-            Unused included minutes carry over to the next period once, up to 20% of your plan's included minutes (Core 100, Growth 200, Command 500). They roll over automatically.
-          </p>
-        </div>
-      </div>
-
-      <!-- 72-Hour Fix Credit SLA & Support Policy (Spec C4 / Part 0) -->
-      <div id="sla" class="p-8 rounded-panel bg-deep-green text-white noise-overlay relative overflow-hidden my-16 shadow-tactile">
-        <div class="relative z-10 max-w-3xl">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-lime-accent/20 text-lime-accent text-xs font-mono font-bold mb-4">
-            Service Level Agreement
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-3">
-            The 72-Hour Fix Credit Policy
-          </h2>
-          <p class="text-xs sm:text-sm text-gray-200 leading-relaxed mb-6">
-            When you report a problem, our engineering team begins diagnosing at once and fixes it as soon as possible, up to 72 hours at most. If the cause is on our side and the resolution takes more than 24 hours, each additional day (rounded up to a whole day) is added directly to your plan as a service credit.
-          </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-gray-300 pt-4 border-t border-white/20">
-            <div>
-              <strong class="text-lime-accent block mb-0.5">What is covered:</strong>
-              Our setup, our prompt logic, our webhook code, our delays.
+        <div class="space-y-3 max-w-4xl" id="policy-accordion">
+          {policies.map((item, idx) => (
+            <div class="rounded-2xl border border-sky-blue bg-paper transition-all overflow-hidden policy-card shadow-2xs">
+              <button
+                type="button"
+                class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-heading font-bold text-base sm:text-lg text-ink-deep hover:text-deep-green transition-colors focus:outline-none policy-trigger"
+                aria-expanded="false"
+                data-policy={idx}
+              >
+                <span>{item.q}</span>
+                <span class="w-8 h-8 rounded-full bg-white border border-sky-blue flex items-center justify-center shrink-0 transition-transform duration-200 icon-wrapper shadow-2xs">
+                  <svg class="w-4 h-4 text-deep-green transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" />
+                  </svg>
+                </span>
+              </button>
+              <div class="hidden px-5 sm:px-6 pb-6 pt-1 text-sm text-slate leading-relaxed border-t border-sky-blue/40 policy-content">
+                {item.a}
+              </div>
             </div>
-            <div>
-              <strong class="text-lime-accent block mb-0.5">Turnaround expectation:</strong>
-              We ask you to answer verification questions within 2 to 3 hours during your business day.
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-
     </div>
-  </div>
+  </section>
+
+  <script>
+    const cards = document.querySelectorAll('.policy-card');
+    cards.forEach((card) => {
+      const trigger = card.querySelector('.policy-trigger');
+      const content = card.querySelector('.policy-content');
+      const icon = card.querySelector('svg');
+      trigger?.addEventListener('click', () => {
+        const isOpen = !content?.classList.contains('hidden');
+        cards.forEach((c) => {
+          c.querySelector('.policy-content')?.classList.add('hidden');
+          c.querySelector('.policy-trigger')?.setAttribute('aria-expanded', 'false');
+          c.querySelector('svg')?.classList.remove('rotate-180');
+          c.classList.remove('bg-white', 'shadow-sm', 'border-deep-green/40');
+          c.classList.add('bg-paper');
+        });
+        if (!isOpen) {
+          content?.classList.remove('hidden');
+          trigger?.setAttribute('aria-expanded', 'true');
+          icon?.classList.add('rotate-180');
+          card.classList.remove('bg-paper');
+          card.classList.add('bg-white', 'shadow-sm', 'border-deep-green/40');
+        }
+      });
+    });
+  </script>
 </MainLayout>

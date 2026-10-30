@@ -34,16 +34,19 @@ import site from '@content/site.json';
     <div>
       <h3 class="font-heading font-bold text-base text-ink-deep mb-2">3. Plans, Fees and Billing</h3>
       <p>
-        Prices are stated in US Dollars ($) and listed on our Pricing page. Monthly fees are charged in advance and are due whether or not you utilize the service. Each plan remains valid for the billing period paid for. There is no trial period or free sample period.
+        Prices are stated in US Dollars ($) and listed on our Pricing page. Monthly fees are charged in advance and are due whether or not you utilize the service. Each plan remains valid for the billing period paid for. There is no trial period or free sample period. There is no setup fee.
       </p>
       <p class="mt-2">
-        <strong>Billing Pulse:</strong> Minutes are billed in 60-second pulses: every started minute counts as a full minute. Calls under 10 seconds are free of charge. Included plan minutes are consumed first. Extra minutes beyond plan allowances cost $0.60 per minute across every plan. On Pay As You Go, minutes cost $0.60 per minute billed monthly in arrears to your payment method on file.
+        <strong>Billing Pulse:</strong> Minutes are billed in 60-second pulses: every started minute counts as a full minute. Calls under 10 seconds are free of charge. Included plan minutes are consumed first. Extra minutes are $0.59 per minute on Pay As You Go, $0.50 on Growth and Pro, and $0.41 on Expansion. Pay As You Go is $0.59 per minute with a $95 monthly minimum.
       </p>
       <p class="mt-2">
-        <strong>Rollover:</strong> Unused included plan minutes carry over to the next billing period once, up to 20% of your plan's included minutes. Rollover minutes possess zero cash value and expire upon plan termination.
+        Unused included minutes do not carry over.
       </p>
       <p class="mt-2">
-        <strong>Text Allowances:</strong> Automated SMS messages to callers and technicians are included up to your monthly plan quota (Core 600, Growth 1,500, Command 3,500 for US and Canada numbers). Excess texts and Pay As You Go texts bill at $0.035 each.
+        <strong>Text Allowances:</strong> Automated SMS messages to callers and technicians are included up to your monthly plan quota (Pay As You Go 104, Growth 1,040, Pro 1,670, Expansion 2,750). Extra texts are $0.05 each. WhatsApp messages are $0.023 each.
+      </p>
+      <p class="mt-2">
+        <strong>Recording Retention:</strong> Audio recordings are stored for 15 days on Pay As You Go, 30 days on Growth, 45 days on Pro, and 60 days on Expansion, after which they are permanently deleted.
       </p>
       <p class="mt-2">
         <strong>Taxes:</strong> We charge zero credit card surcharges. Exports of services to international clients outside India are zero-rated for Goods and Services Tax (GST) under a valid Letter of Undertaking (LUT) pursuant to Indian GST law (GSTIN: <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-deep-green underline">{site.gstin}</a>). Any domestic taxes or withholdings applicable in your country remain your sole responsibility.
@@ -63,7 +66,7 @@ import site from '@content/site.json';
         All agreements are strictly month to month. You may cancel or pause your subscription at any time from your account settings or by email to <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline">{site.supportEmail}</a>. Your subscription remains active through the end of your prepaid period, then terminates without further charges. We do not provide refunds for the unused portion of a paid period.
       </p>
       <p class="mt-2">
-        Following cancellation, we retain your configuration, custom prompts, and phone numbers for 30 days at zero charge so you may easily reactivate. You may extend this hold status for $39 monthly for up to 3 months. Two specific exceptions apply where prorated refunds of unused days are issued: failure to resolve an operational fault on our side within 72 hours (Section 6), or client objection to corporate transfer (Section 19).
+        Following cancellation, we retain your configuration, custom prompts, and phone numbers for 30 days at zero charge so you may easily reactivate.  Two specific exceptions apply where prorated refunds of unused days are issued: failure to resolve an operational fault on our side within 72 hours (Section 6), or client objection to corporate transfer (Section 19).
       </p>
     </div>
 
@@ -122,3 +125,5 @@ import site from '@content/site.json';
     </div>
   </div>
 </LegalLayout>
+
+

@@ -2,9 +2,9 @@
   "brandName": "Talkera Desk",
   "domain": "talkeradesk.com",
   "canonicalUrl": "https://talkeradesk.com",
-  "tagline": "Turning Missed Calls Into Business.",
-  "heroHeadline": "Go offline. Your phone won't.",
-  "heroSubhead": "Talkera Desk is your in-house phone team. We build it, run it and fix it. It answers your calls 24/7, books the job into your calendar or CRM, and keeps your caller, your crew and you updated by text. Weekends, holidays, 2 a.m.",
+  "tagline": "Turning missed calls into business",
+  "heroHeadline": "AI receptionist that answers every call, 24/7.",
+  "heroSubhead": "Talkera Desk is an AI receptionist for your business. It answers your phone day and night, even when you are asleep, busy or on a job. It books the appointment into your calendar and texts you the details, so the caller never lands in voicemail and then books your competitor. We build it around your business in up to 3 days.",
   "enterpriseName": "DRUVA GROUP",
   "proprietor": "Ayush Raj",
   "legalForm": "Sole proprietorship",
@@ -27,13 +27,13 @@
     "linkedin": "https://linkedin.com/company/talkeradesk",
     "x": "https://x.com/talkeradesk",
     "instagram": "https://instagram.com/talkeradesk",
+    "facebook": "https://www.facebook.com/people/Talkera-Desk/61595579415395/",
     "youtube": "https://youtube.com/@talkeradesk"
   },
   "trustChips": [
-    "24/7 answering",
-    "Books into your calendar or CRM",
-    "Updates by text",
-    "Pay for usage. No contract."
+    "Answers calls 24/7",
+    "Books appointments",
+    "Texts you and your crew"
   ],
   "disclaimerShort": "Answers almost every call. No phone system answers all of them; see why in our FAQ. 24/7 availability depends on phone carriers and platform providers."
 }
