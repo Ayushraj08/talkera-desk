@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import site from '@content/site.json';
 import pricing from '@content/pricing.json';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title?: string;
@@ -423,6 +424,7 @@ const {
         });
       }
     </script>
+    <Analytics />
   </body>
 </html>
 
