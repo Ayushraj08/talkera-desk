@@ -10,17 +10,7 @@
       ],
       "destination": "https://talkeradesk.com/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "talkera-desk.vercel.app"
-        }
-      ],
-      "destination": "https://talkeradesk.com/:path*",
-      "permanent": true
     }
   ]
 }
+
