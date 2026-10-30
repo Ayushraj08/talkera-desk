@@ -95,8 +95,36 @@ const frustrations = [
               </tr>
             </thead>
             <tbody class="divide-y divide-sky-blue/50">
+              <!-- Prominently Highlighted: Per Minute Charges (Replaces Entry Price) -->
+              <tr class="bg-light-blue/40 border-b-2 border-deep-green/30">
+                <th class="p-4 text-left align-top">
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-deep-green text-white font-mono font-bold text-xs uppercase tracking-wider shadow-2xs">
+                    Per minute charges
+                  </div>
+                </th>
+                <td class="p-4 align-top bg-light-blue/60 border-x border-sky-blue">
+                  <div class="text-base sm:text-lg font-extrabold text-deep-green tracking-tight">Talkera Desk Pro - $0.450</div>
+                  <div class="text-xs text-slate mt-0.5">$581 / mo for 1,292 included minutes</div>
+                </td>
+                <td class="p-4 align-top">
+                  <div class="text-base sm:text-lg font-bold text-ink-deep">$0.495</div>
+                  <div class="text-xs text-slate mt-0.5">Frontdesk ($99 for 200 min)</div>
+                </td>
+                <td class="p-4 align-top">
+                  <div class="text-base sm:text-lg font-bold text-ink-deep">FirstCall AI Business: $0.166</div>
+                  <div class="text-xs text-slate mt-0.5">$249 for 1,500 min</div>
+                </td>
+                <td class="p-4 align-top">
+                  <div class="text-base sm:text-lg font-bold text-ink-deep">Voco Enterprise: 29p <span class="text-xs font-normal text-slate">(excl. VAT)</span></div>
+                  <div class="text-xs text-slate mt-0.5">£499 for 1,719 min</div>
+                </td>
+                <td class="p-4 align-top">
+                  <div class="text-base sm:text-lg font-bold text-ink-deep">Smith.ai Enterprise: $1.67 a call</div>
+                  <div class="text-xs text-slate mt-0.5">No per-minute price ($500 for 300 calls)</div>
+                </td>
+              </tr>
+
               {[
-                ['Entry price', 'Pay As You Go $0.59 a minute, $95 monthly minimum', '$99 a month ($79 billed annually), 200 minutes, 100 chats, 400 texts', '$49 a month, 200 minutes, 1 agent', '39p a minute, no monthly fee. Starter £49 for about 136 minutes', 'Free for 25 calls a month. Pro $150 for 75 calls'],
                 ['Bigger plans', 'Growth $383 for 743 minutes, Pro $581 for 1,292, Expansion $950 for 1,994', 'Custom after the one plan', 'Pro $99 for 500 minutes, Business $249 for 1,500', '£99 for 300 minutes, £499 for 1,719', 'Enterprise $500 for 300 calls'],
                 ['Extra minutes', '$0.59, $0.50 or $0.41 by plan', '$0.25 a minute', 'Not stated', '36p, 33p or 29p by plan', 'Billed per call, not per minute: $2.50 on Pro, $2.17 on Enterprise'],
                 ['Texts and WhatsApp alerts', 'In the price, up to the allowance', '400 texts in the price, more billed from credits', 'Not stated', 'Texts and WhatsApp replies on every plan', 'Not stated'],
