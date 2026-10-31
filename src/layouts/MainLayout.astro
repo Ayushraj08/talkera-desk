@@ -107,7 +107,7 @@ const {
               "name": plan.name,
               "priceCurrency": "USD",
               "price": String(plan.monthlyFee),
-              "description": `${plan.minutes} included minutes, ${plan.callsAtOnce} simultaneous calls`,
+              "description": `${plan.includedMin || plan.minutes || 0} included minutes, ${plan.concurrentCalls || plan.calls} simultaneous calls`,
               "url": "https://talkeradesk.com/pricing"
             }))
           }
