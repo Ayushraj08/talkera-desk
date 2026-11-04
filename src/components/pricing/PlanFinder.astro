@@ -97,23 +97,23 @@
 
           <!-- Visual Segmented Button Grid -->
           <div class="grid grid-cols-2 sm:grid-cols-5 gap-2" id="concurrency-pills">
-            <button type="button" data-val="2" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all active-pill">
+            <button type="button" data-val="2" aria-pressed="true" class="concurrency-pill cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-green p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all active-pill">
               <span class="block text-sm font-bold font-sans text-ink-deep">2 calls</span>
               <span class="block text-[10px] font-sans text-slate mt-0.5">Pay As You Go</span>
             </button>
-            <button type="button" data-val="3" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
+            <button type="button" data-val="3" aria-pressed="false" class="concurrency-pill cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-green p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
               <span class="block text-sm font-bold font-sans text-ink-deep">3 calls</span>
               <span class="block text-[10px] font-sans text-slate mt-0.5">Growth</span>
             </button>
-            <button type="button" data-val="5" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
+            <button type="button" data-val="5" aria-pressed="false" class="concurrency-pill cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-green p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
               <span class="block text-sm font-bold font-sans text-ink-deep">5 calls</span>
               <span class="block text-[10px] font-sans text-slate mt-0.5">Pro</span>
             </button>
-            <button type="button" data-val="8" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
+            <button type="button" data-val="8" aria-pressed="false" class="concurrency-pill cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-green p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
               <span class="block text-sm font-bold font-sans text-ink-deep">8 calls</span>
               <span class="block text-[10px] font-sans text-slate mt-0.5">Expansion</span>
             </button>
-            <button type="button" data-val="9" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all col-span-2 sm:col-span-1">
+            <button type="button" data-val="9" aria-pressed="false" class="concurrency-pill cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-green p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all col-span-2 sm:col-span-1">
               <span class="block text-sm font-bold font-sans text-ink-deep">8+ calls</span>
               <span class="block text-[10px] font-sans text-slate mt-0.5">Custom</span>
             </button>
@@ -399,6 +399,7 @@
   const roiResult = document.querySelector('#roi-result')!;
 
   function update() {
+    syncActiveControls();
     const M = Math.max(0, Number(minuteInput.value) || 0);
     const missedPerDay = M / 120;
     const boundedM = Math.min(5000, M);
@@ -513,6 +514,8 @@
       }
     });
   });
+
+  concurrencyInput.addEventListener('change', update);
 
   // Input Listeners
   [minuteSlider, minuteInput, concurrencyInput, missedInput, jobSizeInput, marginInput, jobSizeSlider]
