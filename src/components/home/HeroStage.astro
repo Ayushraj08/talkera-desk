@@ -1,5 +1,4 @@
 ---
-import site from '@content/site.json';
 ---
 
 <section class="hero-stage text-white pt-12 pb-20 lg:pt-16 lg:pb-28 relative noise-overlay">
@@ -37,7 +36,7 @@ import site from '@content/site.json';
             </svg>
           </a>
           <a
-            href={`mailto:${site.supportEmail}?subject=Schedule%2015%20Min%20Call`}
+            href={site.bookingUrl} target="_blank" rel="noopener noreferrer"
             class="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold text-white border border-white/30 hover:bg-white/10 transition-all font-heading"
           >
             Book a 15 min call

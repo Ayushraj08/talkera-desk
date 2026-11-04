@@ -146,7 +146,7 @@ import site from '@content/site.json';
             <div class="mt-8 pt-6 border-t border-sky-blue/60 text-center flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
               <span class="text-xs text-slate">Prefer to speak directly with our team?</span>
               <a
-                href={`mailto:${site.supportEmail}?subject=Schedule%2015%20Min%20Call`}
+                href={site.bookingUrl} target="_blank" rel="noopener noreferrer"
                 class="text-xs font-bold text-deep-green hover:underline"
               >
                 Book a 15 min call &rarr;
