@@ -18,9 +18,6 @@ const categories = ["All", ...Array.from(new Set(allTools.map(t => t.category)))
       
       <!-- Page Header -->
       <div class="max-w-3xl mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-          Software Compatibility
-        </div>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink-deep tracking-tight mb-4">
           Tools we connect to
         </h1>
@@ -35,7 +32,7 @@ const categories = ["All", ...Array.from(new Set(allTools.map(t => t.category)))
           <button
             type="button"
             data-category={cat}
-            class={`tool-filter-btn filter-pill px-4 py-2 rounded-full text-xs font-mono font-semibold border ${
+            class={`tool-filter-btn filter-pill px-4 py-2 rounded-full text-xs font-sans font-semibold border ${
               idx === 0 ? 'is-active' : ''
             }`}
           >
@@ -57,7 +54,7 @@ const categories = ["All", ...Array.from(new Set(allTools.map(t => t.category)))
                   <ToolLogo name={tool.name} className="w-6 h-6" />
                 </div>
                 <span
-                  class={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider ${
+                  class={`px-2.5 py-0.5 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider ${
                     tool.status === 'live'
                       ? 'bg-emerald-100 text-brand-green border border-emerald-200'
                       : tool.status === 'zapier'
@@ -72,7 +69,7 @@ const categories = ["All", ...Array.from(new Set(allTools.map(t => t.category)))
               <h3 class="font-heading font-bold text-lg text-ink-deep mb-1">
                 {tool.name}
               </h3>
-              <p class="text-xs text-slate font-mono">
+              <p class="text-xs text-slate font-sans">
                 Category: {tool.category}
               </p>
             </div>

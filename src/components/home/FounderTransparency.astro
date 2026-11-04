@@ -21,12 +21,12 @@ import site from '@content/site.json';
               <h3 class="font-heading font-extrabold text-2xl text-ink-deep">
                 Ayush Raj
               </h3>
-              <div class="text-xs font-mono text-brand-green font-bold mt-1">
+              <div class="text-xs font-sans text-brand-green font-bold mt-1">
                 Founder &bull; {site.enterpriseName}
               </div>
             </div>
 
-            <div class="w-full mt-6 pt-4 border-t border-sky-blue/70 font-mono text-xs text-slate">
+            <div class="w-full mt-6 pt-4 border-t border-sky-blue/70 font-sans text-xs text-slate">
               <div class="text-ink font-semibold flex items-center justify-center md:justify-start gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
                 <span>Operational Base: Kolkata</span>
@@ -40,7 +40,7 @@ import site from '@content/site.json';
           <!-- Editorial Transparency Copy (Right Col - stretches full height) -->
           <div class="md:col-span-8 flex flex-col justify-between h-full space-y-5 text-xs sm:text-sm text-slate leading-relaxed">
             <div>
-              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-deep-green/10 text-deep-green text-xs font-mono font-bold mb-3">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-deep-green/10 text-deep-green text-xs font-sans font-bold mb-3">
                 Complete Transparency
               </div>
               <h4 class="font-heading font-bold text-xl sm:text-2xl text-ink-deep leading-snug mb-3">
@@ -55,15 +55,15 @@ import site from '@content/site.json';
             </div>
 
             <!-- Verification Table (bottom aligned) -->
-            <div class="pt-4 border-t border-sky-blue/70 grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
+            <div class="pt-4 border-t border-sky-blue/70 grid grid-cols-1 sm:grid-cols-2 gap-3 font-sans text-xs">
               <div class="p-3.5 rounded-xl bg-white border border-sky-blue shadow-2xs">
                 <span class="text-gray-400 block text-[10px] uppercase font-bold">Udyam Registration</span>
-                <span class="font-bold text-ink-deep text-sm font-mono whitespace-nowrap">{site.udyamNumber}</span>
+                <span class="font-bold text-ink-deep text-sm font-sans whitespace-nowrap">{site.udyamNumber}</span>
                 <a href={site.udyamVerificationUrl} target="_blank" rel="noopener noreferrer" class="block text-[11px] text-deep-green underline font-semibold mt-1">Verify at Government Portal &rarr;</a>
               </div>
               <div class="p-3.5 rounded-xl bg-white border border-sky-blue shadow-2xs">
                 <span class="text-gray-400 block text-[10px] uppercase font-bold">Active Issued GSTIN</span>
-                <span class="font-bold text-ink-deep text-sm font-mono whitespace-nowrap">{site.gstin}</span>
+                <span class="font-bold text-ink-deep text-sm font-sans whitespace-nowrap">{site.gstin}</span>
                 <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="block text-[11px] text-deep-green underline font-semibold mt-1">Verify at GST Portal &rarr;</a>
               </div>
             </div>

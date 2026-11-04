@@ -6,7 +6,7 @@ const teaserPlans = [
     name: p.name,
     fee: p.id === 'payg' ? '$0.59 / min' : `$${p.fee}`,
     sub: p.id === 'payg' ? '$95 minimum' : '/ month',
-    detail: p.id === 'payg' ? 'Pay as you use' : `${p.minutes.toLocaleString()} mins (~${Math.round(p.minutes / 3)} calls)`,
+    detail: p.id === 'payg' ? 'Pay as you use' : `${p.minutes.toLocaleString()} mins (~${Math.round(p.minutes / 4)} calls)`,
     highlight: p.highlight
   })),
   {
@@ -23,13 +23,12 @@ const teaserPlans = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
       <div>
-        <p class="text-xs uppercase tracking-wider text-deep-green font-mono font-semibold">Pricing</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-deep tracking-tight font-heading mt-2">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-deep tracking-tight font-heading">
           Clear rates. No setup fee.
         </h2>
       </div>
-      <a href="/pricing" class="text-sm font-semibold text-deep-green hover:underline flex items-center gap-1 font-heading">
-        <span>See full pricing table &rarr;</span>
+      <a href="/pricing" class="text-sm font-semibold text-deep-green hover:underline flex items-center gap-1 font-sans">
+        <span>Full pricing &rarr;</span>
       </a>
     </div>
 
@@ -42,18 +41,13 @@ const teaserPlans = [
             : 'bg-paper text-ink-deep border-sky-blue shadow-2xs hover:border-deep-green'
         }`}>
           <div>
-            <h3 class="text-xs uppercase font-mono font-bold tracking-wider opacity-80">{plan.name}</h3>
-            <p class="text-2xl font-extrabold font-heading mt-2">{plan.fee}</p>
-            <p class="text-[11px] opacity-70 font-mono mt-0.5">{plan.sub}</p>
+            <h3 class="text-xs uppercase font-heading font-bold tracking-wider opacity-80">{plan.name}</h3>
+            <p class="text-2xl font-extrabold font-sans mt-2">{plan.fee}</p>
+            <p class="text-[11px] opacity-70 font-sans mt-0.5">{plan.sub}</p>
             <p class="text-xs mt-3 opacity-90">{plan.detail}</p>
           </div>
         </article>
       ))}
-    </div>
-
-    <div class="mt-6 flex flex-wrap items-center justify-between text-xs text-slate font-mono gap-2">
-      <p>Covers agent, number, calls, texts and upkeep.</p>
-      <a href="/pricing" class="font-bold text-deep-green underline">Calculate your plan on Pricing &rarr;</a>
     </div>
   </div>
 </section>

@@ -70,9 +70,6 @@ const frustrations = [
       <!-- Section 1: Hero & Competitor Table -->
       <div>
         <div class="max-w-3xl mb-10">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-            Transparent Market Comparison
-          </div>
           <h1 class="text-4xl sm:text-5xl font-extrabold text-ink-deep tracking-tight font-heading">
             Compare published plans
           </h1>
@@ -86,10 +83,9 @@ const frustrations = [
           <table class="min-w-[960px] w-full text-xs sm:text-sm">
             <thead class="bg-paper border-b border-sky-blue/70">
               <tr>
-                <th class="p-4 text-left font-mono font-bold text-slate uppercase text-xs">Feature / Plan</th>
-                <th class="p-4 text-left font-bold text-deep-green bg-light-blue/40 border-x border-sky-blue">Talkera Desk</th>
+                <th class="p-4 text-left font-sans font-bold text-slate uppercase text-xs">Feature / Plan</th>
+                <th class="p-4 text-left font-bold text-lime-accent bg-deep-green border-x border-deep-green">Talkera Desk</th>
                 <th class="p-4 text-left font-bold text-ink-deep">Frontdesk</th>
-                <th class="p-4 text-left font-bold text-ink-deep">FirstCall AI</th>
                 <th class="p-4 text-left font-bold text-ink-deep">Voco (UK)</th>
                 <th class="p-4 text-left font-bold text-ink-deep">Smith.ai (AI-first)</th>
               </tr>
@@ -98,21 +94,17 @@ const frustrations = [
               <!-- Prominently Highlighted: Per Minute Charges (Replaces Entry Price) -->
               <tr class="bg-light-blue/40 border-b-2 border-deep-green/30">
                 <th class="p-4 text-left align-top">
-                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-deep-green text-white font-mono font-bold text-xs uppercase tracking-wider shadow-2xs">
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-deep-green text-white font-sans font-bold text-xs uppercase tracking-wider shadow-2xs">
                     Per minute charges
                   </div>
                 </th>
-                <td class="p-4 align-top bg-light-blue/60 border-x border-sky-blue">
-                  <div class="text-base sm:text-lg font-extrabold text-deep-green tracking-tight">Talkera Desk Pro - $0.450</div>
-                  <div class="text-xs text-slate mt-0.5">$581 / mo for 1,292 included minutes</div>
+                <td class="p-4 align-top bg-deep-green border-x border-deep-green">
+                  <div class="text-base sm:text-lg font-extrabold text-lime-accent tracking-tight">Talkera Desk Pro - $0.450</div>
+                  <div class="text-xs text-gray-200 mt-0.5">$581 / mo for 1,292 included minutes</div>
                 </td>
                 <td class="p-4 align-top">
                   <div class="text-base sm:text-lg font-bold text-ink-deep">$0.495</div>
                   <div class="text-xs text-slate mt-0.5">Frontdesk ($99 for 200 min)</div>
-                </td>
-                <td class="p-4 align-top">
-                  <div class="text-base sm:text-lg font-bold text-ink-deep">FirstCall AI Business: $0.166</div>
-                  <div class="text-xs text-slate mt-0.5">$249 for 1,500 min</div>
                 </td>
                 <td class="p-4 align-top">
                   <div class="text-base sm:text-lg font-bold text-ink-deep">Voco Enterprise: 29p <span class="text-xs font-normal text-slate">(excl. VAT)</span></div>
@@ -125,28 +117,27 @@ const frustrations = [
               </tr>
 
               {[
-                ['Bigger plans', 'Growth $383 for 743 minutes, Pro $581 for 1,292, Expansion $950 for 1,994', 'Custom after the one plan', 'Pro $99 for 500 minutes, Business $249 for 1,500', '£99 for 300 minutes, £499 for 1,719', 'Enterprise $500 for 300 calls'],
-                ['Extra minutes', '$0.59, $0.50 or $0.41 by plan', '$0.25 a minute', 'Not stated', '36p, 33p or 29p by plan', 'Billed per call, not per minute: $2.50 on Pro, $2.17 on Enterprise'],
-                ['Texts and WhatsApp alerts', 'In the price, up to the allowance', '400 texts in the price, more billed from credits', 'Not stated', 'Texts and WhatsApp replies on every plan', 'Not stated'],
-                ['Set-up', 'We build it for you in up to 3 days, no fee', 'Not stated', 'Not stated', 'Free', 'Pro: you set it up with their help. Enterprise: they build it'],
-                ['A person reviews your calls', 'Yes, by plan', 'Not stated', 'Not stated', 'Not stated', 'Enterprise: human quality control'],
-                ['Free trial', 'None. Start with Pay As You Go', '7 days', 'Not stated', 'Not stated for phone plans', 'Free plan with 25 calls'],
-                ['Contract', 'None', 'Not stated', 'Not stated', 'None', 'Not stated']
+                ['Bigger plans', 'Growth $383 for 743 minutes, Pro $581 for 1,292, Expansion $950 for 1,994', 'Custom after the one plan', '£99 for 300 minutes, £499 for 1,719', 'Enterprise $500 for 300 calls'],
+                ['Extra minutes', '$0.59, $0.50 or $0.41 by plan', '$0.25 a minute', '36p, 33p or 29p by plan', 'Billed per call, not per minute: $2.50 on Pro, $2.17 on Enterprise'],
+                ['Texts and WhatsApp alerts', 'In the price, up to the allowance', '400 texts in the price, more billed from credits', 'Texts and WhatsApp replies on every plan', 'Not stated'],
+                ['Set-up', 'We build it for you in up to 3 days, no fee', 'Not stated', 'Free', 'Pro: you set it up with their help. Enterprise: they build it'],
+                ['A person reviews your calls', 'Yes, by plan', 'Not stated', 'Not stated', 'Enterprise: human quality control'],
+                ['Trial', 'None. Start with Pay As You Go', '7 days', 'Not stated for phone plans', 'Free plan with 25 calls'],
+                ['Contract', 'None', 'Not stated', 'None', 'Not stated']
               ].map((row) => (
                 <tr class="hover:bg-paper/50 transition-colors">
                   <th class="p-4 text-left font-semibold text-ink-deep align-top">{row[0]}</th>
-                  <td class="p-4 align-top font-semibold text-deep-green bg-light-blue/20 border-x border-sky-blue/60">{row[1]}</td>
+                  <td class="p-4 align-top font-semibold text-deep-green bg-light-blue/40 border-x border-sky-blue">{row[1]}</td>
                   <td class="p-4 align-top text-slate">{row[2]}</td>
                   <td class="p-4 align-top text-slate">{row[3]}</td>
                   <td class="p-4 align-top text-slate">{row[4]}</td>
-                  <td class="p-4 align-top text-slate">{row[5]}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <p class="text-xs text-slate mt-4 font-mono">
+        <p class="text-xs text-slate mt-4 font-sans">
           Prices from each company's own pricing page, checked 23 Oct 2026.
         </p>
 
@@ -161,9 +152,6 @@ const frustrations = [
       <!-- Section 2: True Labor Cost Breakdown (In-House vs Offshore vs Talkera) -->
       <div>
         <div class="max-w-3xl mb-10">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-            True Labor Cost Breakdown
-          </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-deep tracking-tight font-heading mb-3">
             In-House Staff vs. Offshore Freelancer vs. Talkera Desk
           </h2>
@@ -178,11 +166,10 @@ const frustrations = [
           <!-- Model 1: Local In-House Staff -->
           <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
             <div>
-              <span class="text-xs font-mono font-bold text-slate uppercase tracking-wider">Model 1: Local Employee</span>
-              <h3 class="font-heading font-bold text-xl text-ink-deep mt-2 mb-1">In-House Staff</h3>
+              <h3 class="font-heading font-bold text-xl text-ink-deep mb-1">In-House Staff</h3>
               <p class="text-xs text-slate mb-5">US Federal minimum wage ($7.25/hr + 15% mandatory taxes = ~$8.34/hr gross).</p>
 
-              <dl class="space-y-2 text-xs font-mono border-t border-sky-blue/60 pt-4">
+              <dl class="space-y-2 text-xs font-sans border-t border-sky-blue/60 pt-4">
                 <div class="flex justify-between"><dt class="text-slate">Gross Base Rate:</dt><dd class="font-bold text-ink-deep">$0.087 / min</dd></div>
                 <div class="flex justify-between"><dt class="text-slate">Real Rate (50% Occupancy):</dt><dd class="font-bold text-red-600">$0.170 / min</dd></div>
                 <div class="flex justify-between"><dt class="text-slate">Effective Monthly Labor:</dt><dd class="font-bold text-ink-deep">~$1,334 / mo</dd></div>
@@ -196,11 +183,10 @@ const frustrations = [
           <!-- Model 2: Offshore Freelancer -->
           <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
             <div>
-              <span class="text-xs font-mono font-bold text-slate uppercase tracking-wider">Model 2: Overseas Contractor</span>
-              <h3 class="font-heading font-bold text-xl text-ink-deep mt-2 mb-1">Offshore Freelancer</h3>
+              <h3 class="font-heading font-bold text-xl text-ink-deep mb-1">Offshore Freelancer</h3>
               <p class="text-xs text-slate mb-5">Minimum viable rate for an offshore virtual receptionist ($5.00/hr in Philippines or India).</p>
 
-              <dl class="space-y-2 text-xs font-mono border-t border-sky-blue/60 pt-4">
+              <dl class="space-y-2 text-xs font-sans border-t border-sky-blue/60 pt-4">
                 <div class="flex justify-between"><dt class="text-slate">Gross Base Rate:</dt><dd class="font-bold text-ink-deep">$0.052 / min</dd></div>
                 <div class="flex justify-between"><dt class="text-slate">Real Rate (50% Occupancy):</dt><dd class="font-bold text-amber-600">$0.100 / min</dd></div>
                 <div class="flex justify-between"><dt class="text-slate">Effective Monthly Labor:</dt><dd class="font-bold text-ink-deep">~$800 / mo</dd></div>
@@ -212,23 +198,19 @@ const frustrations = [
           </div>
 
           <!-- Model 3: Talkera Desk -->
-          <div class="p-6 rounded-2xl bg-white border-2 border-deep-green flex flex-col justify-between shadow-lg relative">
-            <span class="absolute -top-3 right-4 px-2.5 py-0.5 rounded-full bg-deep-green text-lime-accent text-[11px] font-mono font-bold tracking-wide uppercase">
-              Managed AI Phone Team
-            </span>
+          <div class="p-6 rounded-2xl bg-deep-green border-2 border-lime-accent flex flex-col justify-between shadow-lg relative">
             <div>
-              <span class="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">Model 3: Done-For-You AI</span>
-              <h3 class="font-heading font-bold text-xl text-ink-deep mt-2 mb-1">Talkera Desk</h3>
-              <p class="text-xs text-slate mb-5">Pay strictly for active call minutes. Zero payroll, zero idle minutes, zero shift constraints.</p>
+              <h3 class="font-heading font-bold text-xl text-lime-accent mb-1">Talkera Desk</h3>
+              <p class="text-xs text-gray-200 mb-5">Pay strictly for active call minutes. Zero payroll, zero idle minutes, zero shift constraints.</p>
 
-              <dl class="space-y-2 text-xs font-mono border-t border-sky-blue/60 pt-4">
-                <div class="flex justify-between"><dt class="text-slate">All-Inclusive Rate:</dt><dd class="font-bold text-deep-green">$0.410 to $0.590 / min</dd></div>
-                <div class="flex justify-between"><dt class="text-slate">Idle Time Billed:</dt><dd class="font-bold text-deep-green">$0.00 (Zero)</dd></div>
-                <div class="flex justify-between"><dt class="text-slate">Starting Monthly Base:</dt><dd class="font-bold text-deep-green">From $95 / mo</dd></div>
+              <dl class="space-y-2 text-xs font-sans border-t border-white/20 pt-4">
+                <div class="flex justify-between"><dt class="text-gray-300">All-Inclusive Rate:</dt><dd class="font-bold text-lime-accent">$0.410 to $0.590 / min</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-300">Idle Time Billed:</dt><dd class="font-bold text-lime-accent">$0.00 (Zero)</dd></div>
+                <div class="flex justify-between"><dt class="text-gray-300">Starting Monthly Base:</dt><dd class="font-bold text-lime-accent">From $95 / mo</dd></div>
               </dl>
             </div>
-            <p class="text-xs text-slate mt-5 pt-3 border-t border-sky-blue/60 leading-relaxed">
-              <strong class="text-ink-deep">The Talkera Advantage:</strong> You only pay for exact productive call seconds. Multiple concurrent lines answer simultaneously 24/7 with zero management overhead.
+            <p class="text-xs text-gray-200 mt-5 pt-3 border-t border-white/20 leading-relaxed">
+              <strong class="text-lime-accent">The Talkera Advantage:</strong> You only pay for exact productive call seconds. Multiple concurrent lines answer simultaneously 24/7 with zero management overhead.
             </p>
           </div>
 
@@ -245,23 +227,23 @@ const frustrations = [
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
             <div class="p-4 rounded-xl bg-paper border border-sky-blue">
-              <div class="font-mono font-bold text-ink-deep mb-1">1. VOIP Licenses</div>
-              <div class="text-red-600 font-mono font-bold mb-1.5">+$20 to $35 / user / mo</div>
+              <div class="font-sans font-bold text-ink-deep mb-1">1. VOIP Licenses</div>
+              <div class="text-red-600 font-sans font-bold mb-1.5">+$20 to $35 / user / mo</div>
               <p class="text-slate text-[11px] leading-relaxed">Dialer lines and seat licenses for RingCentral or Zoom Workplace.</p>
             </div>
             <div class="p-4 rounded-xl bg-paper border border-sky-blue">
-              <div class="font-mono font-bold text-ink-deep mb-1">2. CRM User Seats</div>
-              <div class="text-red-600 font-mono font-bold mb-1.5">+$15 to $30 / user / mo</div>
+              <div class="font-sans font-bold text-ink-deep mb-1">2. CRM User Seats</div>
+              <div class="text-red-600 font-sans font-bold mb-1.5">+$15 to $30 / user / mo</div>
               <p class="text-slate text-[11px] leading-relaxed">Seat licenses on HubSpot, Jobber, Zoho, or ServiceTitan to enter bookings.</p>
             </div>
             <div class="p-4 rounded-xl bg-paper border border-sky-blue">
-              <div class="font-mono font-bold text-ink-deep mb-1">3. SMS Gateways</div>
-              <div class="text-red-600 font-mono font-bold mb-1.5">API routing carrier fees</div>
+              <div class="font-sans font-bold text-ink-deep mb-1">3. SMS Gateways</div>
+              <div class="text-red-600 font-sans font-bold mb-1.5">API routing carrier fees</div>
               <p class="text-slate text-[11px] leading-relaxed">Twilio/Plivo fees ($0.0079 to $0.011/SMS) for tech dispatch texts.</p>
             </div>
             <div class="p-4 rounded-xl bg-paper border border-sky-blue">
-              <div class="font-mono font-bold text-ink-deep mb-1">4. Taxes & FX Spreads</div>
-              <div class="text-red-600 font-mono font-bold mb-1.5">+5% fee + 4% FX spread</div>
+              <div class="font-sans font-bold text-ink-deep mb-1">4. Taxes & FX Spreads</div>
+              <div class="text-red-600 font-sans font-bold mb-1.5">+5% fee + 4% FX spread</div>
               <p class="text-slate text-[11px] leading-relaxed">Platform marketplace fees, contract initiation, and currency spreads.</p>
             </div>
           </div>
@@ -272,10 +254,10 @@ const frustrations = [
           <table class="min-w-[800px] w-full text-xs sm:text-sm">
             <thead class="bg-paper border-b border-sky-blue/70">
               <tr>
-                <th class="p-4 text-left font-mono font-bold text-slate uppercase text-xs w-1/4">Operational Factor</th>
+                <th class="p-4 text-left font-sans font-bold text-slate uppercase text-xs w-1/4">Operational Factor</th>
                 <th class="p-4 text-left font-bold text-ink-deep w-1/4">In-House Local Employee</th>
                 <th class="p-4 text-left font-bold text-ink-deep w-1/4">Offshore Freelancer</th>
-                <th class="p-4 text-left font-bold text-deep-green bg-light-blue/40 border-l border-sky-blue w-1/4">Talkera Desk AI Team</th>
+                <th class="p-4 text-left font-bold text-lime-accent bg-deep-green border-l border-deep-green w-1/4">Talkera Desk AI Team</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-sky-blue/50">
@@ -284,7 +266,7 @@ const frustrations = [
                   <th class="p-4 text-left font-bold text-ink-deep align-top">{row.factor}</th>
                   <td class="p-4 align-top text-slate">{row.inHouse}</td>
                   <td class="p-4 align-top text-red-700/80">{row.offshore}</td>
-                  <td class="p-4 align-top font-semibold text-deep-green bg-light-blue/20 border-l border-sky-blue/60">{row.talkera}</td>
+                  <td class="p-4 align-top font-semibold text-deep-green bg-light-blue/50 border-l border-deep-green">{row.talkera}</td>
                 </tr>
               ))}
             </tbody>
@@ -295,9 +277,6 @@ const frustrations = [
       <!-- Section 3: What is Missing from Legacy Tools (Market Frustrations) -->
       <div>
         <div class="max-w-3xl mb-10">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-            Market Frustrations
-          </div>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-deep tracking-tight font-heading mb-3">
             What is missing from legacy tools
           </h2>

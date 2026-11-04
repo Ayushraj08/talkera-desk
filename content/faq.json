@@ -1,12 +1,62 @@
 [
-{"id":"faq-1","question":"Is it a person or an AI?","answer":"AI. It says so at the start of every call, sounds natural, and connects the caller to a person when your rules say so.","category":"Service"},
-{"id":"faq-2","question":"Does it answer every call?","answer":"Almost every call. More callers at once than your plan allows, a hang-up, a poor line or a carrier outage can get in the way. Then the caller gets a text and you get an alert.","category":"Service"},
-{"id":"faq-3","question":"How fast can I go live?","answer":"Up to 3 days. Day 1 we gather what is public and what you tell us and start building. Day 2 we tune it. Day 3 we test, connect your tools and go live.","category":"Setup"},
-{"id":"faq-4","question":"What does it cost?","answer":"Pay As You Go $0.59 a minute with a $95 monthly minimum, Growth $383, Pro $581, Expansion $950 a month. One price covers the agent, number, calls, texts and WhatsApp alerts, tool connection and upkeep. No setup fee.","category":"Pricing"},
-{"id":"faq-5","question":"What if more calls ring at once?","answer":"The extra caller gets a text and a call back, free. You can add an extra call at the same time for $23 a month.","category":"Service"},
-{"id":"faq-6","question":"Can I pause or cancel?","answer":"Cancel anytime. Your plan runs to the end of the period you paid for, then stops. No refund for unused days. In a quiet month, move to Pay As You Go.","category":"Billing"},
-{"id":"faq-7","question":"Who owns my number and data?","answer":"You do. If you leave, we export your data within 7 days and help you move your number.","category":"Data"},
-{"id":"faq-8","question":"How long do you keep recordings?","answer":"15 days on Pay As You Go, 30 on Growth, 45 on Pro, 60 on Expansion. Then they are deleted. Export before then.","category":"Data"},
-{"id":"faq-9","question":"What if something breaks?","answer":"We start at once and fix it as soon as possible, up to 72 hours. If it is our fault and takes more than a day, each extra day is added to your plan.","category":"Support"},
-{"id":"faq-10","question":"Where are you based?","answer":"India. Talkera Desk is a brand of DRUVA GROUP, a registered sole proprietorship. We serve the US, UK, Canada, Australia and India.","category":"Company"}
+  {
+    "id": "faq-1",
+    "question": "Is it a person or an AI?",
+    "answer": "AI. It says so at the start of each call. If your rules require it, it can transfer the caller to your team.",
+    "category": "Service"
+  },
+  {
+    "id": "faq-2",
+    "question": "Does it answer every call?",
+    "answer": "It answers almost every call. A full call limit, a dropped call or a phone outage can stop a call from getting through. The caller gets a text and your team gets an alert.",
+    "category": "Service"
+  },
+  {
+    "id": "faq-3",
+    "question": "How fast can I go live?",
+    "answer": "Up to 3 days. We set it up on day 1, make changes on day 2, then test it and connect your calendar on day 3.",
+    "category": "Setup"
+  },
+  {
+    "id": "faq-4",
+    "question": "What does it cost?",
+    "answer": "Pay as you go starts at $95 a month, then $0.59 per minute. Growth is $383, Pro is $581 and Expansion is $950 a month. Plans include your assistant, number, calls, texts, WhatsApp updates and support. No setup fee.",
+    "category": "Pricing"
+  },
+  {
+    "id": "faq-5",
+    "question": "What if more calls ring at once?",
+    "answer": "If more people call than your plan can answer at once, the extra caller gets a free text and call back. Add another call line for $23 a month.",
+    "category": "Service"
+  },
+  {
+    "id": "faq-6",
+    "question": "Can I pause or cancel?",
+    "answer": "Cancel any time. Service ends when your paid period ends. Unused days are not refunded. For a quiet month, switch to Pay as you go.",
+    "category": "Billing"
+  },
+  {
+    "id": "faq-7",
+    "question": "Who owns my number and data?",
+    "answer": "Your number and data belong to you. If you leave, we send you a copy within 7 days and help move your number.",
+    "category": "Data"
+  },
+  {
+    "id": "faq-8",
+    "question": "How long do you keep recordings?",
+    "answer": "We keep recordings for 15 days on Pay as you go, 30 on Growth, 45 on Pro and 60 on Expansion. Then we delete them. Ask for a copy before then.",
+    "category": "Data"
+  },
+  {
+    "id": "faq-9",
+    "question": "What if something breaks?",
+    "answer": "We start right away and aim to fix the problem within 72 hours. If a problem on our side takes more than 24 hours, we add a credit for each extra day.",
+    "category": "Support"
+  },
+  {
+    "id": "faq-10",
+    "question": "Where are you based?",
+    "answer": "We are based in India. Talkera Desk is run by DRUVA GROUP, a registered sole proprietorship. We serve the US, UK, Canada, Australia and India.",
+    "category": "Company"
+  }
 ]

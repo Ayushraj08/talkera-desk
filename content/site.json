@@ -3,9 +3,9 @@
   "domain": "talkeradesk.com",
   "canonicalUrl": "https://www.talkeradesk.com",
   "bookingUrl": "https://calendly.com/talkera-desk/15min",
-  "tagline": "Turning missed calls into business",
+  "tagline": "Answer calls. Book jobs. Keep your team updated.",
   "heroHeadline": "AI receptionist that answers every call, 24/7.",
-  "heroSubhead": "Talkera Desk is an AI receptionist for your business. It answers your phone day and night, even when you are asleep, busy or on a job. It books the appointment into your calendar and texts you the details, so the caller never lands in voicemail and then books your competitor. We build it around your business in up to 3 days.",
+  "heroSubhead": "Talkera answers customer calls, books jobs and texts your team. We set it up for your business in up to 3 days.",
   "enterpriseName": "DRUVA GROUP",
   "proprietor": "Ayush Raj",
   "legalForm": "Sole proprietorship",
@@ -36,5 +36,5 @@
     "Books appointments",
     "Texts you and your crew"
   ],
-  "disclaimerShort": "Answers almost every call. No phone system answers all of them; see why in our FAQ. 24/7 availability depends on phone carriers and platform providers."
+  "disclaimerShort": "Talkera answers almost every call. A full call limit or phone outage can still cause a missed call."
 }

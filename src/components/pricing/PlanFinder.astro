@@ -10,24 +10,17 @@
     <!-- Header with Live Status Pill -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-deep-green/5 border border-deep-green/15 text-xs font-mono font-bold text-deep-green uppercase tracking-wider mb-2">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Interactive Plan & ROI Simulator</span>
-        </div>
         <h2 id="finder-title" class="text-2xl sm:text-3xl font-extrabold text-ink-deep font-heading tracking-tight">
           Estimate your monthly cost
         </h2>
-        <p class="text-sm text-slate mt-1 max-w-xl">
-          Move the slider or pick a preset to see your exact rate and expected call capacity.
-        </p>
       </div>
 
       <!-- Quick Call-Duration Reference Badge -->
-      <div class="px-3.5 py-2 rounded-xl bg-paper border border-sky-blue text-xs font-mono text-slate flex items-center gap-2 self-start sm:self-auto shadow-2xs">
+      <div class="px-3.5 py-2 rounded-xl bg-paper border border-sky-blue text-xs font-sans text-slate flex items-center gap-2 self-start sm:self-auto shadow-2xs">
         <svg class="w-4 h-4 text-brand-green shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <span>Standard: <strong>3 min</strong> avg call length</span>
+        <span>Based on <strong>4 min</strong> per call</span>
       </div>
     </div>
 
@@ -41,17 +34,17 @@
         <div class="p-5 sm:p-6 rounded-2xl bg-paper border border-sky-blue/70 shadow-2xs space-y-4">
           <div class="flex flex-wrap items-baseline justify-between gap-2">
             <div>
-              <span class="text-xs font-mono font-bold text-slate uppercase tracking-wider block">Monthly Call Volume</span>
+              <span class="text-xs font-sans font-bold text-slate uppercase tracking-wider block">Monthly Call Volume</span>
               <div class="flex items-baseline gap-2 mt-1">
-                <span id="minutes-label" class="text-3xl sm:text-4xl font-extrabold text-ink-deep font-heading tabular">600</span>
+                <span id="minutes-label" class="text-3xl sm:text-4xl font-extrabold text-ink-deep font-sans tabular">240</span>
                 <span class="text-sm font-semibold text-slate">minutes / month</span>
               </div>
             </div>
             
-            <!-- Expected Calls Badge (Dynamic ~M/3 calls) -->
-            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-sky-blue text-xs font-mono font-bold text-deep-green shadow-2xs">
+            <!-- Expected Calls Badge (Dynamic ~M/4 calls) -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-sky-blue text-xs font-sans font-bold text-deep-green shadow-2xs">
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span id="calls-label">~200 calls / month</span>
+              <span id="calls-label">~60 calls / month</span>
             </div>
           </div>
 
@@ -63,7 +56,7 @@
               type="range"
               min="0"
               max="5000"
-              value="600"
+              value="240"
               step="1"
               aria-label="Monthly minutes slider"
             />
@@ -71,24 +64,23 @@
 
           <!-- Quick Volume Preset Chips -->
           <div class="flex flex-wrap items-center gap-2 pt-1">
-            <span class="text-[11px] font-mono text-slate uppercase mr-1">Presets:</span>
-            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="150">150m (~50 calls)</button>
-            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all active-preset" data-val="600">600m (~200 calls)</button>
-            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="1292">1,292m (~430 calls)</button>
-            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="1994">1,994m (~665 calls)</button>
-            <button type="button" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-mono font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="5001">5,000+m (Custom)</button>
+            <button type="button" aria-label="150 minutes" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-sans font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="150">150 min</button>
+            <button type="button" aria-label="600 minutes" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-sans font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="600">600 min</button>
+            <button type="button" aria-label="1,292 minutes" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-sans font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="1292">1,292 min</button>
+            <button type="button" aria-label="1,994 minutes" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-sans font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="1994">1,994 min</button>
+            <button type="button" aria-label="5,000 minutes or custom" class="preset-btn px-2.5 py-1 rounded-lg text-xs font-sans font-medium border border-sky-blue bg-white hover:border-deep-green hover:text-deep-green transition-all" data-val="5001">5,000+ min</button>
           </div>
 
           <!-- Direct Numeric Input -->
           <div class="flex items-center gap-3 pt-2">
-            <label for="minutes-number" class="text-xs font-mono text-slate whitespace-nowrap">Exact minutes:</label>
+            <label for="minutes-number" class="text-xs font-sans text-slate whitespace-nowrap">Enter minutes:</label>
             <div class="relative flex-1 max-w-[160px]">
               <input
                 id="minutes-number"
-                class="w-full rounded-xl border border-sky-blue bg-white px-3.5 py-2 text-sm font-mono font-bold text-ink-deep focus:border-deep-green focus:outline-none focus:ring-1 focus:ring-deep-green shadow-2xs"
+                class="w-full rounded-xl border border-sky-blue bg-white px-3.5 py-2 text-sm font-sans font-bold text-ink-deep focus:border-deep-green focus:outline-none focus:ring-1 focus:ring-deep-green shadow-2xs"
                 type="number"
                 min="0"
-                value="600"
+                value="240"
                 aria-label="Monthly minutes input"
               />
             </div>
@@ -98,33 +90,32 @@
         <!-- Concurrency Selector -->
         <div class="p-5 sm:p-6 rounded-2xl bg-paper border border-sky-blue/70 shadow-2xs space-y-3">
           <div class="flex items-center justify-between">
-            <label for="concurrency" class="block text-xs font-mono font-bold text-slate uppercase tracking-wider">
+            <label for="concurrency" class="block text-xs font-sans font-bold text-slate uppercase tracking-wider">
               Most Callers Ringing At Once
             </label>
-            <span class="text-[11px] font-mono text-deep-green">Each caller gets their own AI agent</span>
           </div>
 
           <!-- Visual Segmented Button Grid -->
           <div class="grid grid-cols-2 sm:grid-cols-5 gap-2" id="concurrency-pills">
             <button type="button" data-val="2" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all active-pill">
-              <span class="block text-sm font-bold font-heading text-ink-deep">2 calls</span>
-              <span class="block text-[10px] font-mono text-slate mt-0.5">Pay As You Go</span>
+              <span class="block text-sm font-bold font-sans text-ink-deep">2 calls</span>
+              <span class="block text-[10px] font-sans text-slate mt-0.5">Pay As You Go</span>
             </button>
             <button type="button" data-val="3" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
-              <span class="block text-sm font-bold font-heading text-ink-deep">3 calls</span>
-              <span class="block text-[10px] font-mono text-slate mt-0.5">Growth</span>
+              <span class="block text-sm font-bold font-sans text-ink-deep">3 calls</span>
+              <span class="block text-[10px] font-sans text-slate mt-0.5">Growth</span>
             </button>
             <button type="button" data-val="5" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
-              <span class="block text-sm font-bold font-heading text-ink-deep">5 calls</span>
-              <span class="block text-[10px] font-mono text-slate mt-0.5">Pro</span>
+              <span class="block text-sm font-bold font-sans text-ink-deep">5 calls</span>
+              <span class="block text-[10px] font-sans text-slate mt-0.5">Pro</span>
             </button>
             <button type="button" data-val="8" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all">
-              <span class="block text-sm font-bold font-heading text-ink-deep">8 calls</span>
-              <span class="block text-[10px] font-mono text-slate mt-0.5">Expansion</span>
+              <span class="block text-sm font-bold font-sans text-ink-deep">8 calls</span>
+              <span class="block text-[10px] font-sans text-slate mt-0.5">Expansion</span>
             </button>
             <button type="button" data-val="9" class="concurrency-pill p-3 rounded-xl border border-sky-blue bg-white text-center hover:border-deep-green transition-all col-span-2 sm:col-span-1">
-              <span class="block text-sm font-bold font-heading text-ink-deep">8+ calls</span>
-              <span class="block text-[10px] font-mono text-slate mt-0.5">Custom</span>
+              <span class="block text-sm font-bold font-sans text-ink-deep">8+ calls</span>
+              <span class="block text-[10px] font-sans text-slate mt-0.5">Custom</span>
             </button>
           </div>
 
@@ -149,8 +140,8 @@
                   </svg>
                 </div>
                 <div>
-                  <span class="font-heading font-bold text-sm sm:text-base block">Calculate ROI from missed calls</span>
-                  <span class="text-xs text-slate">Estimate booked jobs and net revenue recovered (15% conversion)</span>
+                  <span class="font-sans font-bold text-sm sm:text-base block">Estimate sales from missed calls</span>
+                  <span class="text-xs text-slate">Uses a 15% booking estimate and your average job value. Results vary.</span>
                 </div>
               </div>
               <span class="w-7 h-7 rounded-full bg-white border border-sky-blue flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform duration-200">
@@ -163,21 +154,21 @@
             <div class="p-5 sm:p-6 border-t border-sky-blue/60 bg-white space-y-5">
               <div class="grid sm:grid-cols-3 gap-4">
                 <div>
-                  <label for="missed" class="block text-xs font-mono font-bold text-slate mb-1">Missed calls / day</label>
+                  <label for="missed" class="block text-xs font-sans font-bold text-slate mb-1">Missed calls / day</label>
                   <input
                     id="missed"
-                    class="w-full rounded-xl border border-sky-blue px-3 py-2 text-sm font-mono font-bold text-ink-deep bg-paper focus:bg-white focus:border-deep-green focus:outline-none"
+                    class="w-full rounded-xl border border-sky-blue px-3 py-2 text-sm font-sans font-bold text-ink-deep bg-paper focus:bg-white focus:border-deep-green focus:outline-none"
                     type="number"
                     min="0"
                     step="0.5"
                     value="2"
                   />
-                  <span class="text-[10px] text-slate font-mono mt-1 block">= 240 mins/mo</span>
+                  <span id="missed-minutes-hint" class="text-[10px] text-slate font-sans mt-1 block">= 240 mins/mo</span>
                 </div>
 
                 <div>
-                  <label for="job-size" class="block text-xs font-mono font-bold text-slate mb-1">
-                    Avg job size (<span id="job-size-display" class="text-deep-green font-bold">$200</span>)
+                  <label for="job-size" class="block text-xs font-sans font-bold text-slate mb-1">
+                    Average job value (<span id="job-size-display" class="text-deep-green font-bold">$200</span>)
                   </label>
                   <input
                     id="job-size-slider"
@@ -190,7 +181,7 @@
                   />
                   <input
                     id="job-size"
-                    class="w-full rounded-xl border border-sky-blue px-3 py-1.5 text-xs font-mono font-bold text-ink-deep bg-paper focus:bg-white focus:border-deep-green focus:outline-none"
+                    class="w-full rounded-xl border border-sky-blue px-3 py-1.5 text-xs font-sans font-bold text-ink-deep bg-paper focus:bg-white focus:border-deep-green focus:outline-none"
                     type="number"
                     min="0"
                     value="200"
@@ -198,24 +189,23 @@
                 </div>
 
                 <div>
-                  <label for="margin" class="block text-xs font-mono font-bold text-slate mb-1">Profit margin (%)</label>
+                  <label for="margin" class="block text-xs font-sans font-bold text-slate mb-1">Profit margin (%)</label>
                   <input
                     id="margin"
-                    class="w-full rounded-xl border border-sky-blue px-3 py-2 text-sm font-mono font-bold text-ink-deep bg-paper focus:bg-white focus:border-deep-green focus:outline-none"
+                    class="w-full rounded-xl border border-sky-blue px-3 py-2 text-sm font-sans font-bold text-ink-deep bg-paper focus:bg-white focus:border-deep-green focus:outline-none"
                     type="number"
                     min="0"
                     max="100"
                     placeholder="e.g. 35"
                   />
-                  <span class="text-[10px] text-slate font-mono mt-1 block">Optional for net profit</span>
+                  <span class="text-[10px] text-slate font-sans mt-1 block">Add to estimate profit</span>
                 </div>
               </div>
 
               <!-- ROI Metric Highlights Grid -->
               <div class="p-4 rounded-xl bg-paper border border-sky-blue flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                 <div class="space-y-1">
-                  <span class="font-mono text-slate text-[11px] uppercase tracking-wider block">Simulator Projection</span>
-                  <p id="roi-result" class="text-sm font-bold text-deep-green leading-snug"></p>
+                  <p id="roi-result" aria-live="polite" class="text-sm font-bold text-deep-green leading-snug"></p>
                 </div>
               </div>
             </div>
@@ -234,11 +224,11 @@
           <div class="relative z-10">
             <!-- Header Badges -->
             <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-mono font-bold uppercase tracking-wider text-lime-accent">
+              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-sans font-bold uppercase tracking-wider text-lime-accent">
                 Lowest Cost Plan
               </span>
-              <span id="card-call-equiv" class="text-xs font-mono text-gray-300">
-                ~200 calls/mo
+              <span id="card-call-equiv" class="text-xs font-sans text-gray-300">
+                ~60 calls/mo
               </span>
             </div>
 
@@ -248,10 +238,10 @@
 
             <!-- Price Block -->
             <div class="mt-3 pb-5 border-b border-white/15">
-              <p id="plan-cost" class="text-4xl sm:text-5xl font-black font-heading text-lime-accent tracking-tight">
-                $354.00
+              <p id="plan-cost" class="text-4xl sm:text-5xl font-black font-sans text-lime-accent tracking-tight">
+                $141.60
               </p>
-              <p class="text-xs font-mono text-gray-300 mt-1">
+              <p class="text-xs font-sans text-gray-300 mt-1">
                 Estimated monthly fee (USD)
               </p>
             </div>
@@ -259,19 +249,19 @@
             <!-- Dynamic Plan Breakdown Specs -->
             <div class="py-5 space-y-3 text-xs sm:text-sm">
               <div class="flex items-center justify-between text-gray-200">
-                <span class="text-gray-300 font-mono">Plan Capacity:</span>
-                <span id="spec-capacity" class="font-bold text-white font-mono">600 mins (~200 calls)</span>
+                <span class="text-gray-300 font-sans">Plan Capacity:</span>
+                <span id="spec-capacity" class="font-bold text-white font-sans">240 mins (~60 calls)</span>
               </div>
               <div class="flex items-center justify-between text-gray-200">
-                <span class="text-gray-300 font-mono">Rate Structure:</span>
-                <span id="spec-rate" class="font-bold text-white font-mono">$0.59 / min</span>
+                <span class="text-gray-300 font-sans">Rate Structure:</span>
+                <span id="spec-rate" class="font-bold text-white font-sans">$0.59 / min</span>
               </div>
               <div class="flex items-center justify-between text-gray-200">
-                <span class="text-gray-300 font-mono">Calls at once:</span>
-                <span id="spec-calls" class="font-bold text-white font-mono">Up to 2 callers</span>
+                <span class="text-gray-300 font-sans">Calls at once:</span>
+                <span id="spec-calls" class="font-bold text-white font-sans">Up to 2 callers</span>
               </div>
               <div class="flex items-center justify-between text-gray-200">
-                <span class="text-gray-300 font-mono">Detail note:</span>
+                <span class="text-gray-300 font-sans">Detail note:</span>
                 <span id="plan-detail" class="font-medium text-gray-200 text-right max-w-[65%]"></span>
               </div>
             </div>
@@ -281,7 +271,7 @@
           <div class="relative z-10 pt-5 border-t border-white/15 space-y-3">
             <a
               href="/demo"
-              class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-full text-sm font-bold bg-lime-accent text-ink-deep hover:bg-[#E5FAA0] transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg font-heading"
+              class="w-full inline-flex items-center justify-center px-6 py-3.5 rounded-full text-sm font-bold bg-lime-accent text-ink-deep hover:bg-[#E5FAA0] transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg font-sans"
             >
               <span>Hear it work with real audio</span>
               <svg class="w-4 h-4 ml-2 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
@@ -289,7 +279,7 @@
               </svg>
             </a>
 
-            <div class="flex items-center justify-center gap-3 text-[11px] font-mono text-gray-300 text-center">
+            <div class="flex items-center justify-center gap-3 text-[11px] font-sans text-gray-300 text-center">
               <span>No contract</span>
               <span>&bull;</span>
               <span>No setup fee</span>
@@ -297,7 +287,7 @@
               <span>Month-to-month</span>
             </div>
             
-            <p class="text-[10px] text-gray-400 font-mono text-center pt-1">
+            <p class="text-[10px] text-gray-400 font-sans text-center pt-1">
               Estimate excludes optional add-ons and taxes. Calculations follow official Talkera Desk formulas.
             </p>
           </div>
@@ -395,6 +385,7 @@
   const jobSizeInput = document.querySelector<HTMLInputElement>('#job-size')!;
   const jobSizeDisplay = document.querySelector('#job-size-display')!;
   const marginInput = document.querySelector<HTMLInputElement>('#margin')!;
+  const missedMinutesHint = document.querySelector('#missed-minutes-hint')!;
   
   const planName = document.querySelector('#plan-name')!;
   const planCost = document.querySelector('#plan-cost')!;
@@ -408,23 +399,20 @@
   const roiResult = document.querySelector('#roi-result')!;
 
   function update() {
-    const isMissedOpen = roiDetails ? roiDetails.open : false;
-    const missedPerDay = Math.max(0, Number(missedInput.value) || 0);
-    const M = isMissedOpen
-      ? missedPerDay * 30 * 4
-      : Math.max(0, Number(minuteInput.value) || 0);
-
-    if (isMissedOpen) {
-      minuteInput.value = String(M);
-    }
-    minuteSlider.value = String(Math.min(5000, M));
+    const M = Math.max(0, Number(minuteInput.value) || 0);
+    const missedPerDay = M / 120;
+    const boundedM = Math.min(5000, M);
+    minuteSlider.value = String(boundedM);
+    if (M <= 5000 && Number(minuteInput.value) !== M) minuteInput.value = String(M);
+    missedInput.value = String(Number((M / 120).toFixed(3)));
+    missedMinutesHint.textContent = `= ${Math.round(missedPerDay * 120).toLocaleString()} mins/mo`;
     
     // Dynamic Slider Fill Background
     const percent = Math.min(100, Math.max(0, (Number(minuteSlider.value) / 5000) * 100));
-    minuteSlider.style.background = `linear-gradient(to right, #0E4D3A 0%, #0E4D3A ${percent}%, #DCEAF4 ${percent}%, #DCEAF4 100%)`;
+    minuteSlider.style.background = `linear-gradient(to right, #0E4D3A ${percent}%, #DCEAF4 ${percent}%)`;
 
     minutesLabel.textContent = M.toLocaleString();
-    const approxCalls = Math.round(M / 3);
+    const approxCalls = Math.round(M / 4);
     if (callsLabel) {
       callsLabel.textContent = `~${approxCalls.toLocaleString()} calls / month`;
     }
@@ -432,7 +420,7 @@
       cardCallEquiv.textContent = `~${approxCalls.toLocaleString()} calls / mo`;
     }
 
-    const currentJobSize = Number(jobSizeInput.value) || 200;
+    const currentJobSize = Math.max(0, Number(jobSizeInput.value) || 0);
     jobSizeSlider.value = String(Math.min(10000, Math.max(200, currentJobSize)));
     if (jobSizeDisplay) {
       jobSizeDisplay.textContent = `$${currentJobSize.toLocaleString()}`;
@@ -445,7 +433,7 @@
       planName.textContent = 'Custom';
       planCost.textContent = 'Quoted';
       planDetail.textContent = 'Volume above 5,000 mins or >8 callers at once.';
-      if (specCapacity) specCapacity.textContent = '5,000+ mins (1,600+ calls)';
+      if (specCapacity) specCapacity.textContent = '5,000+ mins (1,250+ calls)';
       if (specRate) specRate.textContent = 'Custom volume rate';
       if (specCalls) specCalls.textContent = '8+ callers at once';
     } else {
@@ -468,28 +456,39 @@
     }
 
     // ROI Breakdown
-    const jobsSaved = missedPerDay * 30 * 0.15;
-    const revenue = jobsSaved * currentJobSize;
-    const marginEntered = marginInput.value.trim() !== '';
+    const estimatedJobs = missedPerDay * 30 * 0.15;
+    const estimatedRevenue = estimatedJobs * currentJobSize;
+    const formatCurrency = (amount: number) => new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(amount);
+    const baseOutcome = `${estimatedJobs.toFixed(1)} estimated jobs booked, ${formatCurrency(estimatedRevenue)} potential revenue`;
+    const marginValue = marginInput.value.trim();
 
-    if (!marginEntered) {
-      roiResult.textContent = isMissedOpen
-        ? `${jobsSaved.toFixed(1)} estimated jobs booked, $${revenue.toFixed(2)} potential revenue.`
-        : '';
+    if (!marginValue) {
+      roiResult.textContent = `${baseOutcome}.`;
       return;
     }
 
-    const marginPct = Number(marginInput.value) || 0;
-    const profit = revenue * (marginPct / 100);
+    const marginPct = Number(marginValue);
+    if (!Number.isFinite(marginPct) || marginPct < 0 || marginPct > 100) {
+      roiResult.textContent = `${baseOutcome}. Enter a profit margin from 0 to 100 to estimate profit.`;
+      return;
+    }
 
+    const estimatedProfit = estimatedRevenue * (marginPct / 100);
     if (result.isCustom) {
-      roiResult.textContent = `${jobsSaved.toFixed(1)} jobs, $${revenue.toFixed(2)} revenue, $${profit.toFixed(2)} profit. Custom plan quote needed for net.`;
+      roiResult.textContent = `${baseOutcome}, ${formatCurrency(estimatedProfit)} estimated profit. Net needs a custom plan quote.`;
       return;
     }
 
-    const net = profit - result.cost;
-    const netFormatted = net < 0 ? `-$${Math.abs(net).toFixed(2)}` : `+$${net.toFixed(2)}`;
-    roiResult.textContent = `${jobsSaved.toFixed(1)} jobs, $${revenue.toFixed(2)} revenue, $${profit.toFixed(2)} profit. Net after plan: ${netFormatted}`;
+    const estimatedNet = estimatedProfit - result.cost;
+    const netLabel = estimatedNet < 0
+      ? `-${formatCurrency(Math.abs(estimatedNet))}`
+      : `+${formatCurrency(estimatedNet)}`;
+    roiResult.textContent = `${baseOutcome}, ${formatCurrency(estimatedProfit)} estimated profit. Net after plan: ${netLabel}.`;
   }
 
   // Preset Buttons Handling
@@ -499,8 +498,6 @@
       if (val) {
         minuteSlider.value = val;
         minuteInput.value = val;
-        presetBtns.forEach((b) => b.classList.remove('active-preset'));
-        btn.classList.add('active-preset');
         update();
       }
     });
@@ -512,8 +509,6 @@
       const val = pill.getAttribute('data-val');
       if (val) {
         concurrencyInput.value = val;
-        concurrencyPills.forEach((p) => p.classList.remove('active-pill'));
-        pill.classList.add('active-pill');
         update();
       }
     });
@@ -527,15 +522,32 @@
       }
       if (e.target === minuteSlider) {
         minuteInput.value = minuteSlider.value;
-        // Clear active presets if customized
-        presetBtns.forEach((b) => b.classList.remove('active-preset'));
       }
       if (e.target === minuteInput) {
         minuteSlider.value = minuteInput.value;
-        presetBtns.forEach((b) => b.classList.remove('active-preset'));
+      }
+      if (e.target === missedInput) {
+        const syncedMinutes = Math.round((Number(missedInput.value) || 0) * 120);
+        minuteInput.value = String(syncedMinutes);
+        minuteSlider.value = String(Math.min(5000, syncedMinutes));
       }
       update();
     }));
+
+  function syncActiveControls() {
+    const minutes = Number(minuteInput.value) || 0;
+    presetBtns.forEach((btn) => {
+      const value = Number(btn.dataset.val);
+      const selected = value === 5001 ? minutes > 5000 : value === minutes;
+      btn.classList.toggle('active-preset', selected);
+      btn.setAttribute('aria-pressed', String(selected));
+    });
+    concurrencyPills.forEach((pill) => {
+      const selected = pill.dataset.val === concurrencyInput.value;
+      pill.classList.toggle('active-pill', selected);
+      pill.setAttribute('aria-pressed', String(selected));
+    });
+  }
 
   roiDetails?.addEventListener('toggle', update);
   update();

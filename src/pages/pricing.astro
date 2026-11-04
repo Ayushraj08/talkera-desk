@@ -10,7 +10,7 @@ const allPlans = [
     fee: plan.id === 'payg' ? '$0.59 / min' : `$${plan.fee}`,
     feeSub: plan.id === 'payg' ? '$95 minimum' : '/ month',
     minutes: plan.id === 'payg' ? 'Pay as you use' : `${plan.minutes.toLocaleString()} mins`,
-    expectedCalls: plan.id === 'payg' ? '~30–50+ calls' : `~${Math.round(plan.minutes / 3)} calls`,
+    expectedCalls: plan.id === 'payg' ? '~30–50+ calls' : `~${Math.round(plan.minutes / 4)} calls`,
     perMinutePrice: plan.minutes ? `$${(plan.fee / plan.minutes).toFixed(3)}` : `$${(plan.perMinute ?? 0.59).toFixed(3)}`,
     extraMinutes: `$${plan.extra.toFixed(2)}`,
     callsAtOnce: `${plan.calls}`,
@@ -24,7 +24,7 @@ const allPlans = [
     fee: 'Quoted',
     feeSub: 'custom volume',
     minutes: '5,000 and up',
-    expectedCalls: '1,600+ calls',
+    expectedCalls: '1,250+ calls',
     perMinutePrice: 'Quoted',
     extraMinutes: 'Quoted',
     callsAtOnce: '8+',
@@ -71,14 +71,13 @@ const policies = [
   }
 ];
 ---
-<MainLayout title="Talkera Desk Pricing | One price, no setup fee" description="Pay As You Go from $95 a month, or choose Growth, Pro or Expansion. One price covers your agent, number, calls, messages, tool connection and upkeep." canonicalUrl="https://www.talkeradesk.com/pricing">
+<MainLayout title="Talkera Desk pricing | Plans from $95 a month" description="Compare Talkera plans. Pay as you go starts at $95 a month, with no setup fee." canonicalUrl="https://www.talkeradesk.com/pricing">
   <section class="py-14 lg:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mb-10">
-        <p class="text-xs font-mono uppercase tracking-wider text-deep-green mb-3">Pricing</p>
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-ink-deep tracking-tight mb-4">One price. Everything you need.</h1>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-ink-deep tracking-tight mb-4">Plans from $95 a month</h1>
         <p class="text-base text-slate leading-relaxed">{pricing.datedSentence}</p>
-        <a href="/compare" class="inline-block mt-4 text-sm font-semibold text-deep-green underline">Compare plans and services</a>
+        <a href="/compare" class="inline-block mt-4 text-sm font-semibold text-deep-green underline">Compare plans</a>
       </div>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 mb-14">
@@ -92,17 +91,16 @@ const policies = [
               
               <dl class="text-xs sm:text-sm mt-5 space-y-2.5 border-t border-current/15 pt-4">
                 <div class="flex justify-between items-center pb-1 border-b border-current/10">
-                  <dt class="opacity-80">Expected calls (3m avg)</dt>
-                  <dd class="font-bold font-mono">{plan.expectedCalls}</dd>
+                  <dt class="opacity-80">Estimated calls (4 min each)</dt>
+                  <dd class="font-bold font-sans">{plan.expectedCalls}</dd>
                 </div>
-                <div class="flex justify-between"><dt>Per-minute price</dt><dd class="font-mono">{plan.perMinutePrice}</dd></div>
-                <div class="flex justify-between"><dt>Extra minutes</dt><dd class="font-mono">{plan.extraMinutes}</dd></div>
-                <div class="flex justify-between"><dt>Calls at once</dt><dd class="font-mono">{plan.callsAtOnce}</dd></div>
-                <div class="flex justify-between"><dt>Messages</dt><dd class="font-mono">{plan.messages}</dd></div>
-                <div class="flex justify-between"><dt>Storage</dt><dd class="font-mono">{plan.storage}</dd></div>
+                <div class="flex justify-between"><dt>Per minute</dt><dd class="font-sans">{plan.perMinutePrice}</dd></div>
+                <div class="flex justify-between"><dt>Extra minutes</dt><dd class="font-sans">{plan.extraMinutes}</dd></div>
+                <div class="flex justify-between"><dt>Calls at once</dt><dd class="font-sans">{plan.callsAtOnce}</dd></div>
+                <div class="flex justify-between"><dt>Messages</dt><dd class="font-sans">{plan.messages}</dd></div>
+                <div class="flex justify-between"><dt>Call recordings</dt><dd class="font-sans">{plan.storage}</dd></div>
               </dl>
             </div>
-            <p class="text-xs mt-5 opacity-80 pt-3 border-t border-current/10 font-mono">One price includes your agent, number, calls, messages, tool connection and upkeep.</p>
           </article>
         ))}
       </div>
@@ -117,7 +115,7 @@ const policies = [
               {addonsList.map((item) => (
                 <tr class="border-b border-sky-blue/70 last:border-0 hover:bg-paper/50 transition-colors">
                   <th class="text-left p-4 font-semibold text-ink-deep">{item.name}</th>
-                  <td class="p-4 text-slate font-mono font-medium">{item.price}</td>
+                  <td class="p-4 text-slate font-sans font-medium">{item.price}</td>
                 </tr>
               ))}
             </tbody>
@@ -127,30 +125,28 @@ const policies = [
       
       <div class="mt-10 p-6 rounded-2xl bg-paper border border-sky-blue shadow-2xs">
         <h3 class="text-lg font-bold text-ink-deep mb-2">Calls at once</h3>
-        <p class="text-sm text-slate leading-relaxed">Each caller gets their own agent. Your plan answers up to a set number of callers at once. If one more rings, they get an instant text and a call back, free. If that happens often, add an extra call at the same time for $23 a month.</p>
+        <p class="text-sm text-slate leading-relaxed">Your plan answers a set number of calls at once. Extra callers get a free text and call back. Add another line for $23 a month.</p>
       </div>
 
-      <!-- Billing Structure & Protection Cards (Image 5) -->
+      <!-- Billing Structure & Protection Cards -->
       <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Card 1: 60-Second Pulse -->
         <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
           <div>
-            <span class="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">60-Second Pulse</span>
-            <h3 class="font-heading font-bold text-lg text-ink-deep mt-2 mb-2">How We Bill Call Time</h3>
+            <h3 class="font-heading font-bold text-lg text-ink-deep mb-2">How calls are billed</h3>
             <p class="text-xs text-slate leading-relaxed">
-              Our billing pulse is 60 seconds: every started minute counts as a minute. Calls under 10 seconds are zero charge. With trade calls averaging 3.5 minutes, expect roughly 4 billed minutes per call.
+              We bill by the minute. Each started minute counts as one minute. Calls under 10 seconds are free. A 3.5-minute call is billed as 4 minutes.
             </p>
           </div>
         </div>
 
-        <!-- Card 2: Zero Burst Fees -->
+        <!-- Card 2: No surge fees -->
         <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
           <div>
-            <span class="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">Zero Burst Fees</span>
-            <h3 class="font-heading font-bold text-lg text-ink-deep mt-2 mb-2">Handling Storm Surges</h3>
+            <h3 class="font-heading font-bold text-lg text-ink-deep mb-2">No extra fees when calls spike</h3>
             <p class="text-xs text-slate leading-relaxed">
-              Many vendors penalize emergency surges with inflated per-minute fees. We charge zero burst fees. Callers exceeding your concurrent channels get an instant text holding their place.
+              Your price stays the same when more people call. If all lines are busy, the caller gets a free text and call back.
             </p>
           </div>
         </div>
@@ -158,10 +154,9 @@ const policies = [
         <!-- Card 3: Quiet Month Protection -->
         <div class="p-6 rounded-2xl bg-paper border border-sky-blue flex flex-col justify-between shadow-2xs">
           <div>
-            <span class="text-xs font-mono font-bold text-brand-green uppercase tracking-wider">Quiet Month Protection</span>
-            <h3 class="font-heading font-bold text-lg text-ink-deep mt-2 mb-2">Flexible Continuity</h3>
+            <h3 class="font-heading font-bold text-lg text-ink-deep mb-2">For quiet months</h3>
             <p class="text-xs text-slate leading-relaxed">
-              Never forced to cancel or lose your setup for a quiet month. Shift easily to Pay As You Go ($95 monthly minimum) to keep your phone number, trained agent, and alerts active, then move back when volume rises.
+              Switch to Pay as you go to keep your number and service active. Move back to another plan when call volume rises.
             </p>
           </div>
         </div>
@@ -170,40 +165,36 @@ const policies = [
 
       <!-- Service Level Agreement: The 72-Hour Fix Credit Policy -->
       <div class="mt-8 p-6 sm:p-8 rounded-3xl bg-deep-green text-white shadow-lg relative overflow-hidden">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-lime-accent text-xs font-mono font-semibold uppercase tracking-wider mb-4 border border-white/15">
-          Service Level Agreement
-        </div>
         <h3 class="text-2xl sm:text-3xl font-extrabold font-heading text-white mb-3">
-          The 72-Hour Fix Credit Policy
+          If we take too long to fix a problem
         </h3>
         <p class="text-xs sm:text-sm text-gray-200 leading-relaxed max-w-4xl mb-6">
-          When you report a problem, our engineering team begins diagnosing at once and fixes it as soon as possible, up to 72 hours at most. If the cause is on our side and the resolution takes more than 24 hours, each additional day (rounded up to a whole day) is added directly to your plan as a service credit.
+          We start work as soon as you report a problem and aim to fix it within 72 hours. If a problem on our side takes more than 24 hours, we add a credit for each extra day.
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-white/15 text-xs font-mono">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-white/15 text-xs font-sans">
           <div>
-            <span class="text-lime-accent font-bold uppercase tracking-wider block mb-1">What is covered:</span>
-            <span class="text-gray-300">Our setup, our prompt logic, our webhook code, our delays.</span>
+            <span class="text-lime-accent font-bold uppercase tracking-wider block mb-1">What we cover:</span>
+            <span class="text-gray-300">Problems with our setup, call rules, connections or service.</span>
           </div>
           <div>
-            <span class="text-lime-accent font-bold uppercase tracking-wider block mb-1">Turnaround expectation:</span>
-            <span class="text-gray-300">We ask you to answer verification questions within 2 to 3 hours during your business day.</span>
+            <span class="text-lime-accent font-bold uppercase tracking-wider block mb-1">What we need from you:</span>
+            <span class="text-gray-300">Please answer our questions within 2 to 3 business hours.</span>
           </div>
         </div>
       </div>
 
-      <!-- Modern, Polished Plan Policies Accordion -->
+      <!-- Plan Policies Accordion -->
       <div class="mt-14" id="policies">
         <div class="max-w-2xl mb-6">
-          <p class="text-xs uppercase tracking-wider text-deep-green font-mono font-semibold">Policy Details</p>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-ink-deep font-heading mt-1">Plan policies</h2>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-ink-deep font-heading">Plan policies</h2>
         </div>
         <div class="space-y-3 max-w-4xl" id="policy-accordion">
           {policies.map((item, idx) => (
             <div class="rounded-2xl border border-sky-blue bg-paper transition-all overflow-hidden policy-card shadow-2xs">
               <button
                 type="button"
-                class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-heading font-bold text-base sm:text-lg text-ink-deep hover:text-deep-green transition-colors focus:outline-none policy-trigger"
+                class="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-sans font-bold text-base sm:text-lg text-ink-deep hover:text-deep-green transition-colors focus:outline-none policy-trigger"
                 aria-expanded="false"
                 data-policy={idx}
               >

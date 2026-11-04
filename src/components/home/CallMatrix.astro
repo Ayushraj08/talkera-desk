@@ -7,14 +7,11 @@ import scenarios from '@content/scenarios.json';
     
     <!-- Section Header -->
     <div class="max-w-3xl mb-14">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-        Runway-Style Intelligent Call Matrix
-      </div>
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-4">
-        What happens on every kind of call
+        What Talkera does with each call
       </h2>
       <p class="text-base sm:text-lg text-slate leading-relaxed">
-        We don't give you a rigid black box. Select any scenario below to inspect how the agent triages homeowner urgency, checks safety protocols, routes calls, and dispatches job records during and after hours.
+        Choose a call to see how Talkera answers, books a visit or alerts your team.
       </p>
     </div>
 
@@ -23,8 +20,8 @@ import scenarios from '@content/scenarios.json';
       
       <!-- Left Column: Scenario Selector Pills (Lovart / Runway Style) -->
       <div class="lg:col-span-4 space-y-2.5">
-        <div class="text-xs font-mono uppercase text-slate font-bold px-2 mb-2 tracking-wider">
-          Select Call Scenario:
+        <div class="text-xs font-sans uppercase text-slate font-bold px-2 mb-2 tracking-wider">
+          Choose a call:
         </div>
 
         {scenarios.map((sc, index) => (
@@ -36,10 +33,10 @@ import scenarios from '@content/scenarios.json';
             }`}
           >
             <div>
-              <div class="scenario-tag text-xs font-mono uppercase tracking-wider font-semibold">
+              <div class="scenario-tag text-xs font-sans uppercase tracking-wider font-semibold">
                 {sc.name}
               </div>
-              <div class="scenario-title text-sm font-heading font-bold mt-0.5">
+              <div class="scenario-title text-sm font-sans font-bold mt-0.5">
                 {sc.title}
               </div>
             </div>
@@ -51,14 +48,14 @@ import scenarios from '@content/scenarios.json';
 
         <!-- Safe Defaults Architectural Callout Card -->
         <div class="mt-6 p-5 rounded-2xl bg-light-blue/60 border border-sky-blue text-xs text-slate space-y-2">
-          <div class="font-bold text-deep-green font-heading uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+          <div class="font-bold text-deep-green font-sans uppercase tracking-wider text-[11px] flex items-center gap-1.5">
             <svg class="w-4 h-4 text-brand-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
-            <span>Safe Defaults Baked In</span>
+            <span>Safety rules</span>
           </div>
           <p class="leading-relaxed">
-            Unless you tell us otherwise, the voice agent never diagnoses mechanical or structural damage, never gives unsafe DIY instructions, never quotes unapproved prices, and always discloses it is an AI assistant.
+            Talkera does not diagnose damage or give repair advice. It only quotes prices you approve and tells callers it is AI.
           </p>
         </div>
       </div>
@@ -71,7 +68,7 @@ import scenarios from '@content/scenarios.json';
             <!-- Workbench Header: Dual Mode Toggle Indicator -->
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-sky-blue/80 mb-6">
               <div>
-                <span class="text-xs font-mono uppercase text-brand-green font-bold" id="wb-scenario-name">
+                <span class="text-xs font-sans uppercase text-brand-green font-bold" id="wb-scenario-name">
                   {scenarios[0].name}
                 </span>
                 <h3 class="text-xl font-heading font-bold text-ink-deep" id="wb-scenario-title">
@@ -81,17 +78,17 @@ import scenarios from '@content/scenarios.json';
               
               <!-- Behavior Comparison Indicator -->
               <div class="inline-flex rounded-xl bg-paper p-1 border border-sky-blue text-xs font-semibold self-start sm:self-auto">
-                <span class="px-3 py-1 rounded-lg bg-deep-green text-white shadow-xs">Active Mode</span>
-                <span class="px-3 py-1 text-slate">24/7 Monitored</span>
+                <span class="px-3 py-1 rounded-lg bg-deep-green text-white shadow-xs">Call example</span>
+                <span class="px-3 py-1 text-slate">Available day and night</span>
               </div>
             </div>
 
             <!-- Routing Logic Comparison (Working Hours vs After Hours) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div class="p-4 rounded-xl bg-light-blue/50 border border-sky-blue">
-                <div class="flex items-center gap-2 text-xs font-bold text-deep-green font-heading uppercase tracking-wider mb-1.5">
+                <div class="flex items-center gap-2 text-xs font-bold text-deep-green font-sans uppercase tracking-wider mb-1.5">
                   <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                  <span>Working Hours Protocol</span>
+                  <span>During business hours</span>
                 </div>
                 <p class="text-xs text-slate leading-relaxed" id="wb-working-hours">
                   {scenarios[0].workingHours}
@@ -99,9 +96,9 @@ import scenarios from '@content/scenarios.json';
               </div>
 
               <div class="p-4 rounded-xl bg-paper border border-sky-blue">
-                <div class="flex items-center gap-2 text-xs font-bold text-ink-deep font-heading uppercase tracking-wider mb-1.5">
+                <div class="flex items-center gap-2 text-xs font-bold text-ink-deep font-sans uppercase tracking-wider mb-1.5">
                   <span class="w-2 h-2 rounded-full bg-slate"></span>
-                  <span>After-Hours Protocol</span>
+                  <span>After hours</span>
                 </div>
                 <p class="text-xs text-slate leading-relaxed" id="wb-after-hours">
                   {scenarios[0].afterHours}
@@ -111,13 +108,13 @@ import scenarios from '@content/scenarios.json';
 
             <!-- Interactive Transcript Simulation Window -->
             <div class="bg-[#F8FAFC] border border-sky-blue rounded-xl p-4 sm:p-5 mb-6 space-y-3.5">
-              <div class="text-[11px] font-mono uppercase text-gray-400 font-bold tracking-wider">
-                Live Dialogue Stream
+              <div class="text-[11px] font-sans uppercase text-gray-400 font-bold tracking-wider">
+                Sample call
               </div>
 
               <!-- Caller Prompt -->
               <div class="flex items-start gap-2.5">
-                <div class="w-6 h-6 rounded bg-slate text-white text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded bg-slate text-white text-[10px] font-sans font-bold flex items-center justify-center shrink-0 mt-0.5">
                   John
                 </div>
                 <div class="bg-white border border-sky-blue/80 rounded-xl rounded-tl-none p-3 text-xs text-ink leading-relaxed shadow-2xs max-w-[90%] break-words" id="wb-caller-prompt">
@@ -127,7 +124,7 @@ import scenarios from '@content/scenarios.json';
 
               <!-- Agent Response -->
               <div class="flex items-start gap-2.5">
-                <div class="w-6 h-6 rounded bg-deep-green text-lime-accent text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded bg-deep-green text-lime-accent text-[10px] font-sans font-bold flex items-center justify-center shrink-0 mt-0.5">
                   AI
                 </div>
                 <div class="bg-light-blue/80 border border-sky-blue rounded-xl rounded-tl-none p-3 text-xs text-ink-deep leading-relaxed shadow-2xs max-w-[90%] break-words" id="wb-agent-response">
@@ -137,7 +134,7 @@ import scenarios from '@content/scenarios.json';
 
               <!-- Caller Followup -->
               <div class="flex items-start gap-2.5">
-                <div class="w-6 h-6 rounded bg-slate text-white text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded bg-slate text-white text-[10px] font-sans font-bold flex items-center justify-center shrink-0 mt-0.5">
                   John
                 </div>
                 <div class="bg-white border border-sky-blue/80 rounded-xl rounded-tl-none p-3 text-xs text-ink leading-relaxed shadow-2xs max-w-[90%] break-words" id="wb-caller-followup">
@@ -147,7 +144,7 @@ import scenarios from '@content/scenarios.json';
 
               <!-- Agent Resolution -->
               <div class="flex items-start gap-2.5">
-                <div class="w-6 h-6 rounded bg-deep-green text-lime-accent text-[10px] font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <div class="w-6 h-6 rounded bg-deep-green text-lime-accent text-[10px] font-sans font-bold flex items-center justify-center shrink-0 mt-0.5">
                   AI
                 </div>
                 <div class="bg-light-blue/80 border border-sky-blue rounded-xl rounded-tl-none p-3 text-xs text-ink-deep leading-relaxed shadow-2xs max-w-[90%] break-words" id="wb-agent-resolution">
@@ -157,7 +154,7 @@ import scenarios from '@content/scenarios.json';
             </div>
 
             <!-- System Output & Dispatch Payload (Runway Style Architecture) -->
-            <div class="p-4 rounded-xl bg-deep-green text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
+            <div class="p-4 rounded-xl bg-deep-green text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-sans">
               <div class="space-y-1">
                 <div class="text-lime-accent font-bold uppercase tracking-wider text-[11px] flex items-center gap-1.5">
                   <span class="w-2 h-2 rounded-full bg-lime-accent"></span>
@@ -172,7 +169,7 @@ import scenarios from '@content/scenarios.json';
               </div>
 
               <div class="sm:text-right shrink-0">
-                <div class="text-[10px] text-gray-400 uppercase tracking-wider">Lead Tag</div>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider">Job type</div>
                 <div class="text-lime-accent font-bold text-xs" id="wb-output-tag">
                   {scenarios[0].systemOutput.leadTag}
                 </div>

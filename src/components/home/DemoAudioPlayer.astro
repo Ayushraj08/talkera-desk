@@ -7,9 +7,6 @@ import demos from '@content/demos.json';
     
     <!-- Section Header -->
     <div class="max-w-3xl mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-        Lovart-Style Audio Command Bar
-      </div>
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-4">
         Hear how your callers will experience it
       </h2>
@@ -22,7 +19,7 @@ import demos from '@content/demos.json';
     <div class="mb-10 space-y-4">
       <!-- Trade Filter -->
       <div class="flex flex-wrap items-center gap-2">
-        <span class="text-xs font-mono font-bold text-slate uppercase mr-2">Trade:</span>
+        <span class="text-xs font-sans font-bold text-slate uppercase mr-2">Trade:</span>
         <button type="button" data-filter-type="trade" data-filter-val="all" class="trade-filter-btn filter-pill is-active px-3.5 py-1.5 rounded-full text-xs font-semibold border">
           All Trades
         </button>
@@ -42,7 +39,7 @@ import demos from '@content/demos.json';
 
       <!-- Accent Filter -->
       <div class="flex flex-wrap items-center gap-2">
-        <span class="text-xs font-mono font-bold text-slate uppercase mr-2">Accent:</span>
+        <span class="text-xs font-sans font-bold text-slate uppercase mr-2">Accent:</span>
         <button type="button" data-filter-type="accent" data-filter-val="all" class="accent-filter-btn filter-pill is-active px-3 py-1 rounded-full text-xs font-semibold border">
           All Accents
         </button>
@@ -75,10 +72,10 @@ import demos from '@content/demos.json';
             <!-- Card Header -->
             <div>
               <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-deep-green/10 text-deep-green">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-sans font-bold bg-deep-green/10 text-deep-green">
                   {dm.badge}
                 </span>
-                <span class="text-[11px] font-mono text-gray-500 uppercase tracking-wider">
+                <span class="text-[11px] font-sans text-gray-500 uppercase tracking-wider">
                   {dm.accent} Accent &bull; {dm.voice} Voice
                 </span>
               </div>
@@ -91,7 +88,7 @@ import demos from '@content/demos.json';
               </p>
 
               <!-- Mandatory Disclosure Label -->
-              <div class="inline-block px-2.5 py-1 rounded bg-paper border border-sky-blue/60 text-[10px] text-slate font-mono mb-4">
+              <div class="inline-block px-2.5 py-1 rounded bg-paper border border-sky-blue/60 text-[10px] text-slate font-sans mb-4">
                 Recorded test call. AI answering for a sample business.
               </div>
             </div>
@@ -134,13 +131,13 @@ import demos from '@content/demos.json';
                 </div>
 
                 <!-- Duration Tracker -->
-                <span class="font-mono text-xs font-semibold text-deep-green tabular">
+                <span class="font-sans text-xs font-semibold text-deep-green tabular">
                   {dm.durationFormatted}
                 </span>
               </div>
 
               <!-- Result Notice -->
-              <div class="text-xs font-mono text-slate mb-3">
+              <div class="text-xs font-sans text-slate mb-3">
                 <strong class="text-deep-green">Result:</strong> {dm.result}
               </div>
 
@@ -153,7 +150,7 @@ import demos from '@content/demos.json';
                 <div class="mt-2.5 p-3 rounded-lg bg-paper border border-sky-blue/50 space-y-2 max-h-48 overflow-y-auto">
                   {dm.transcript.map((line) => (
                     <div class="flex items-start gap-2 text-[11px] leading-relaxed">
-                      <span class={`font-bold font-mono shrink-0 ${line.speaker === 'Agent' ? 'text-deep-green' : 'text-slate'}`}>
+                      <span class={`font-bold font-sans shrink-0 ${line.speaker === 'Agent' ? 'text-deep-green' : 'text-slate'}`}>
                         {line.speaker} ({line.time}):
                       </span>
                       <span class="text-ink">{line.text}</span>

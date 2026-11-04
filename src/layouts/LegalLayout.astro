@@ -35,7 +35,7 @@ const legalLinks = [
       
       <!-- Top Legal Header -->
       <div class="border-b border-sky-blue/70 pb-8 mb-12">
-        <div class="flex items-center gap-2 text-xs font-mono text-slate mb-3">
+        <div class="flex items-center gap-2 text-xs font-sans text-slate mb-3">
           <a href="/" class="hover:text-deep-green">Home</a>
           <span>/</span>
           <span class="text-deep-green font-bold">Legal & Governance</span>
@@ -43,7 +43,7 @@ const legalLinks = [
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink-deep tracking-tight mb-2">
           {title}
         </h1>
-        <div class="text-xs font-mono text-slate">
+        <div class="text-xs font-sans text-slate">
           Last Updated: <span class="text-ink font-semibold">{lastUpdated}</span> &bull; DRUVA GROUP &bull; GSTIN: <span class="text-ink font-semibold">{site.gstin}</span>
         </div>
       </div>
@@ -51,7 +51,7 @@ const legalLinks = [
       <!-- Mobile Document Switcher (< lg) -->
       <div class="lg:hidden mb-8">
         <details class="group bg-paper border border-sky-blue rounded-2xl p-4 shadow-xs">
-          <summary class="font-heading font-bold text-xs uppercase tracking-wider text-ink-deep flex items-center justify-between cursor-pointer select-none">
+          <summary class="font-sans font-bold text-xs uppercase tracking-wider text-ink-deep flex items-center justify-between cursor-pointer select-none">
             <span class="flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-deep-green"></span>
               <span>All Legal Documents ({legalLinks.length})</span>
@@ -80,7 +80,7 @@ const legalLinks = [
         <!-- Desktop Sidebar Legal Navigation (lg+) -->
         <aside class="hidden lg:block lg:col-span-3 sticky top-24">
           <div class="p-4 rounded-2xl bg-paper border border-sky-blue">
-            <div class="text-[11px] font-mono uppercase text-slate font-bold mb-3 px-2 tracking-wider">
+            <div class="text-[11px] font-sans uppercase text-slate font-bold mb-3 px-2 tracking-wider">
               Legal Documents
             </div>
             <nav class="space-y-1">
@@ -98,7 +98,7 @@ const legalLinks = [
               ))}
             </nav>
 
-            <div class="mt-6 pt-4 border-t border-sky-blue/60 text-[11px] font-mono text-slate px-2">
+            <div class="mt-6 pt-4 border-t border-sky-blue/60 text-[11px] font-sans text-slate px-2">
               <div>Questions:</div>
               <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline font-bold mt-0.5 block break-all">{site.supportEmail}</a>
             </div>

@@ -1,33 +1,28 @@
 ---
-// Section 2: Three Proof Facts (one line each, clean and premium)
-const proofs = [
+const facts = [
   {
-    tag: '24/7 Voice Answering',
-    fact: 'Answers on the second ring, day or night, with natural conversation.',
+    label: '24/7 voice answering',
+    text: 'Answers on the second ring, day or night, with natural conversation.',
   },
   {
-    tag: 'Automated Booking',
-    fact: 'Books appointments into your calendar or CRM and secures customer intake.',
+    label: 'Automated booking',
+    text: 'Books appointments into your calendar or CRM and secures customer intake.',
   },
   {
-    tag: 'Instant Crew Alerts',
-    fact: 'Texts confirmation to your caller and alerts your on-call technician immediately.',
-  }
+    label: 'Instant crew alerts',
+    text: 'Texts confirmation to your caller and alerts your on-call technician immediately.',
+  },
 ];
 ---
 
-<section class="py-10 bg-white border-b border-sky-blue/50">
+<section class="bg-white py-8 sm:py-10 border-b border-sky-blue/50" aria-label="What Talkera Desk does">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {proofs.map((p) => (
-        <div class="p-6 rounded-2xl bg-paper border border-sky-blue shadow-2xs flex flex-col justify-between">
-          <span class="text-[11px] font-mono uppercase font-bold text-brand-green tracking-wider mb-2">
-            {p.tag}
-          </span>
-          <p class="text-sm font-semibold text-ink-deep leading-snug">
-            {p.fact}
-          </p>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+      {facts.map((fact) => (
+        <article class="rounded-2xl border border-sky-blue bg-paper px-6 py-5 sm:px-7 sm:py-6">
+          <h2 class="text-xs uppercase tracking-widest text-brand-green font-bold font-sans mb-3">{fact.label}</h2>
+          <p class="text-base font-semibold leading-relaxed text-ink-deep">{fact.text}</p>
+        </article>
       ))}
     </div>
   </div>

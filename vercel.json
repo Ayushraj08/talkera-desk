@@ -1,3 +1,22 @@
 {
-  "redirects": []
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "talkeradesk.in" }],
+      "destination": "https://www.talkeradesk.com/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "talkeradesk.co" }],
+      "destination": "https://www.talkeradesk.com/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "talkdeskera.com" }],
+      "destination": "https://www.talkeradesk.com/:path*",
+      "statusCode": 301
+    }
+  ]
 }

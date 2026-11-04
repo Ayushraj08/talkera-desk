@@ -17,8 +17,7 @@ export default {
       },
       fontFamily: {
         sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['"Plus Jakarta Sans"', '"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
-        mono: ['"JetBrains Mono"', '"Geist Mono"', 'monospace'],
+        heading: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         'card': '20px',

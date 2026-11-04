@@ -13,9 +13,6 @@ import FinalCta from '../components/home/FinalCta.astro';
       
       <!-- Page Header -->
       <div class="max-w-3xl mb-14">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-          Trade Contracting Vertical
-        </div>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink-deep tracking-tight mb-4">
           AI call answering for plumbing, HVAC and electrical contractors.
         </h1>
@@ -30,21 +27,21 @@ import FinalCta from '../components/home/FinalCta.astro';
           <button
             type="button"
             data-trade-tab="plumbing"
-            class="trade-nav-btn py-2.5 px-2 text-center rounded-xl text-xs font-bold font-mono transition-all bg-deep-green text-white shadow-xs"
+            class="trade-nav-btn py-2.5 px-2 text-center rounded-xl text-xs font-bold font-sans transition-all bg-deep-green text-white shadow-xs"
           >
             Plumbing
           </button>
           <button
             type="button"
             data-trade-tab="hvac"
-            class="trade-nav-btn py-2.5 px-2 text-center rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
+            class="trade-nav-btn py-2.5 px-2 text-center rounded-xl text-xs font-bold font-sans transition-all text-slate hover:text-ink-deep"
           >
             HVAC
           </button>
           <button
             type="button"
             data-trade-tab="electrical"
-            class="trade-nav-btn py-2.5 px-2 text-center rounded-xl text-xs font-bold font-mono transition-all text-slate hover:text-ink-deep"
+            class="trade-nav-btn py-2.5 px-2 text-center rounded-xl text-xs font-bold font-sans transition-all text-slate hover:text-ink-deep"
           >
             Electrical
           </button>
@@ -55,21 +52,21 @@ import FinalCta from '../components/home/FinalCta.astro';
         <div id="panel-plumbing" class="trade-panel space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
-              <span class="text-xs font-mono font-bold text-deep-green uppercase">Urgent Flow</span>
+              <span class="text-xs font-sans font-bold text-deep-green uppercase">Urgent Flow</span>
               <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Sewer Backups & Freeze Bursts</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 The agent determines if water is actively overflowing, instructs on shutoff locations, holds the earliest emergency slot, and immediately dials on-call plumbers.
               </p>
-              <div class="text-xs font-mono text-brand-green font-semibold">Holds Urgent Dispatch Slot</div>
+              <div class="text-xs font-sans text-brand-green font-semibold">Holds Urgent Dispatch Slot</div>
             </div>
 
             <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
-              <span class="text-xs font-mono font-bold text-slate uppercase">Routine Quote Flow</span>
+              <span class="text-xs font-sans font-bold text-slate uppercase">Routine Quote Flow</span>
               <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Water Heater & Repiping Estimates</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Collects tank gallon size, fuel type (gas vs electric), accessibility details, and books scheduled estimator visits directly into your CRM.
               </p>
-              <div class="text-xs font-mono text-slate font-semibold">Captures Unit Specs & Books Site Visit</div>
+              <div class="text-xs font-sans text-slate font-semibold">Captures Unit Specs & Books Site Visit</div>
             </div>
           </div>
         </div>
@@ -78,21 +75,21 @@ import FinalCta from '../components/home/FinalCta.astro';
         <div id="panel-hvac" class="trade-panel hidden space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
-              <span class="text-xs font-mono font-bold text-deep-green uppercase">Heatwave Emergency</span>
+              <span class="text-xs font-sans font-bold text-deep-green uppercase">Heatwave Emergency</span>
               <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Total AC Cooling Failure</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Identifies elderly occupants or children in high heat, gathers condenser error codes, and books immediate 2-hour diagnostic arrival windows.
               </p>
-              <div class="text-xs font-mono text-brand-green font-semibold">Heatwave Surge Protection</div>
+              <div class="text-xs font-sans text-brand-green font-semibold">Heatwave Surge Protection</div>
             </div>
 
             <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
-              <span class="text-xs font-mono font-bold text-slate uppercase">Preventative Tune-Ups</span>
+              <span class="text-xs font-sans font-bold text-slate uppercase">Preventative Tune-Ups</span>
               <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Seasonal Maintenance Booking</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Answers pre-approved promotional tune-up pricing, locks off-peak schedule slots, and confirms homeowner availability via text.
               </p>
-              <div class="text-xs font-mono text-slate font-semibold">Direct Routing to Neighborhood Tech</div>
+              <div class="text-xs font-sans text-slate font-semibold">Direct Routing to Neighborhood Tech</div>
             </div>
           </div>
         </div>
@@ -101,21 +98,21 @@ import FinalCta from '../components/home/FinalCta.astro';
         <div id="panel-electrical" class="trade-panel hidden space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
-              <span class="text-xs font-mono font-bold text-deep-green uppercase">Panel Hazards</span>
+              <span class="text-xs font-sans font-bold text-deep-green uppercase">Panel Hazards</span>
               <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">Breaker Trips & Burning Odors</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Warns homeowner to step back from the panel, assesses fire hazards, and triggers an immediate warm transfer to your master electrician.
               </p>
-              <div class="text-xs font-mono text-brand-green font-semibold">Safety Warm Handoff First</div>
+              <div class="text-xs font-sans text-brand-green font-semibold">Safety Warm Handoff First</div>
             </div>
 
             <div class="p-5 sm:p-7 lg:p-8 rounded-panel bg-paper border border-sky-blue">
-              <span class="text-xs font-mono font-bold text-slate uppercase">Commercial & Rewires</span>
+              <span class="text-xs font-sans font-bold text-slate uppercase">Commercial & Rewires</span>
               <h3 class="font-heading font-bold text-lg sm:text-xl text-ink-deep my-2">EV Charger & Service Upgrades</h3>
               <p class="text-xs sm:text-sm text-slate leading-relaxed mb-4">
                 Collects electrical service amperage (100A vs 200A), vehicle charger model, and schedules an on-site master electrician consultation.
               </p>
-              <div class="text-xs font-mono text-slate font-semibold">Detailed Scope Notes to Estimator</div>
+              <div class="text-xs font-sans text-slate font-semibold">Detailed Scope Notes to Estimator</div>
             </div>
           </div>
         </div>

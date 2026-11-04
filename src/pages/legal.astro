@@ -15,12 +15,12 @@ import site from '@content/site.json';
     </div>
 
     <!-- Mobile horizontal scroll hint -->
-    <div class="sm:hidden flex items-center justify-between text-[11px] font-mono text-slate bg-paper px-3 py-1.5 rounded-lg border border-sky-blue/60">
+    <div class="sm:hidden flex items-center justify-between text-[11px] font-sans text-slate bg-paper px-3 py-1.5 rounded-lg border border-sky-blue/60">
       <span>Scroll horizontally to view legal records &rarr;</span>
       <span class="text-deep-green font-bold">&bull; Swipe</span>
     </div>
 
-    <div class="table-responsive-wrapper border border-sky-blue rounded-2xl bg-white shadow-2xs font-mono text-xs">
+    <div class="table-responsive-wrapper border border-sky-blue rounded-2xl bg-white shadow-2xs font-sans text-xs">
       <table class="w-full min-w-[560px] divide-y divide-sky-blue/60">
         <tbody class="divide-y divide-gray-100 text-slate">
           <tr>
@@ -69,7 +69,7 @@ import site from '@content/site.json';
           <tr>
             <td class="py-3.5 px-5 font-bold text-ink-deep">Goods & Services Tax (GST)</td>
             <td class="py-3.5 px-5">
-              <span class="font-bold text-emerald-700 font-mono whitespace-nowrap">{site.gstin}</span>
+              <span class="font-bold text-emerald-700 font-sans whitespace-nowrap">{site.gstin}</span>
               <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-deep-green underline font-normal text-xs ml-3 whitespace-nowrap">Verify at GST Portal &rarr;</a>
               <span class="text-slate block text-[11px] font-sans mt-0.5">Active and issued. Exports of services are invoiced without IGST under a Letter of Undertaking (LUT).</span>
             </td>

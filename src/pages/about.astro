@@ -14,9 +14,6 @@ import site from '@content/site.json';
       
       <!-- Page Header -->
       <div class="max-w-3xl mb-14">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-          Company & Origins
-        </div>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink-deep tracking-tight mb-4">
           A small team that runs your phones.<br />Here is who we are.
         </h1>
@@ -40,14 +37,14 @@ import site from '@content/site.json';
                   loading="lazy"
                 />
                 <h2 class="font-heading font-extrabold text-2xl sm:text-3xl text-ink-deep tracking-tight">Ayush Raj</h2>
-                <div class="text-xs font-mono text-brand-green font-bold mt-1">Proprietor & Lead Engineer</div>
+                <div class="text-xs font-sans text-brand-green font-bold mt-1">Proprietor & Lead Engineer</div>
                 <p class="text-xs sm:text-sm text-slate mt-4 leading-relaxed">
                   Based in India, Ayush leads engineering, systems integration, and voice model calibration for DRUVA GROUP from our operational base in Kolkata.
                 </p>
               </div>
 
               <!-- Contact & Direct Details (Pinned to bottom) -->
-              <div class="pt-6 border-t border-sky-blue/70 mt-8 font-mono text-xs text-slate space-y-1.5">
+              <div class="pt-6 border-t border-sky-blue/70 mt-8 font-sans text-xs text-slate space-y-1.5">
                 <div>Contact: <a href={`mailto:${site.supportEmail}`} class="text-deep-green underline font-semibold">{site.supportEmail}</a></div>
                 <div>WhatsApp: <span class="font-semibold text-ink">{site.whatsappFormatted}</span></div>
               </div>
@@ -56,7 +53,7 @@ import site from '@content/site.json';
             <!-- Right Column: Editorial Transparency & Registered Base (stretches full height) -->
             <div class="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
               <div>
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-deep-green/10 text-deep-green text-xs font-mono font-bold mb-3">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-deep-green/10 text-deep-green text-xs font-sans font-bold mb-3">
                   Direct Engineering & Physical Roots
                 </div>
                 <h3 class="font-heading font-bold text-2xl sm:text-3xl text-ink-deep tracking-tight leading-snug mb-4">
@@ -74,7 +71,7 @@ import site from '@content/site.json';
 
               <!-- Operational Base & Verification Banner (Bottom aligned flush with left column contact block) -->
               <div class="pt-6 border-t border-sky-blue/70">
-                <div class="p-4 rounded-xl bg-white border border-sky-blue shadow-2xs font-mono text-xs">
+                <div class="p-4 rounded-xl bg-white border border-sky-blue shadow-2xs font-sans text-xs">
                   <span class="text-gray-400 block text-[10px] uppercase font-bold tracking-wider mb-1">Operational Base (Udyam Registered)</span>
                   <div class="text-ink-deep font-medium text-[11px] leading-relaxed">
                     {site.teamLocations}
@@ -99,9 +96,6 @@ import site from '@content/site.json';
       <!-- Legal & Registration Details Table (Spec B1 & B6) -->
       <div class="my-20">
         <div class="max-w-2xl mb-8">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-mono font-bold text-deep-green uppercase tracking-wider mb-2">
-            Verified Legal Entity
-          </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-ink-deep">
             Registration & Entity Verification
           </h2>
@@ -111,12 +105,12 @@ import site from '@content/site.json';
         </div>
 
         <!-- Mobile horizontal scroll hint -->
-        <div class="sm:hidden flex items-center justify-between text-[11px] font-mono text-slate bg-paper px-3 py-1.5 rounded-lg border border-sky-blue/60 mb-2">
+        <div class="sm:hidden flex items-center justify-between text-[11px] font-sans text-slate bg-paper px-3 py-1.5 rounded-lg border border-sky-blue/60 mb-2">
           <span>Scroll horizontally to view entity records &rarr;</span>
           <span class="text-deep-green font-bold">&bull; Swipe</span>
         </div>
 
-        <div class="table-responsive-wrapper border border-sky-blue rounded-2xl bg-white shadow-tactile font-mono text-xs">
+        <div class="table-responsive-wrapper border border-sky-blue rounded-2xl bg-white shadow-tactile font-sans text-xs">
           <table class="w-full min-w-[560px] divide-y divide-sky-blue/60">
             <tbody class="divide-y divide-gray-100 text-slate">
               <tr class="hover:bg-light-blue/20">
@@ -141,7 +135,7 @@ import site from '@content/site.json';
               <tr class="hover:bg-light-blue/20">
                 <td class="py-3.5 px-6 font-bold text-ink-deep">Active Issued GSTIN</td>
                 <td class="py-3.5 px-6 font-bold text-emerald-700">
-                  <span class="font-mono whitespace-nowrap">{site.gstin}</span>
+                  <span class="font-sans whitespace-nowrap">{site.gstin}</span>
                   <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-deep-green underline font-normal text-xs ml-3 whitespace-nowrap">Verify at GST Portal &rarr;</a>
                 </td>
               </tr>

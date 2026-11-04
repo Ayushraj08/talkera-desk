@@ -6,9 +6,6 @@ import faqs from '@content/faq.json';
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <div class="text-center max-w-2xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-light-blue border border-sky-blue text-xs font-semibold text-deep-green uppercase tracking-wider font-mono mb-4">
-        Direct Answers First
-      </div>
       <h2 class="text-3xl sm:text-4xl font-extrabold text-ink-deep tracking-tight mb-3">
         Frequently asked questions
       </h2>
@@ -25,9 +22,9 @@ import faqs from '@content/faq.json';
           class="home-faq-item group bg-white border border-sky-blue rounded-2xl p-6 shadow-2xs open:border-deep-green/60 transition-colors"
           open={index === 0}
         >
-          <summary class="font-heading font-bold text-base sm:text-lg text-ink-deep cursor-pointer flex items-center justify-between select-none group-hover:text-deep-green">
+          <summary class="font-sans font-bold text-base sm:text-lg text-ink-deep cursor-pointer flex items-center justify-between select-none group-hover:text-deep-green">
             <span>{faq.question}</span>
-            <span class="w-7 h-7 rounded-full bg-paper text-deep-green flex items-center justify-center text-sm font-mono group-open:rotate-180 transition-transform shrink-0 ml-4">
+            <span class="w-7 h-7 rounded-full bg-paper text-deep-green flex items-center justify-center text-sm font-sans group-open:rotate-180 transition-transform shrink-0 ml-4">
               &darr;
             </span>
           </summary>
