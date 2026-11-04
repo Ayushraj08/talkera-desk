@@ -1,7 +1,7 @@
 source,target,code
-https://talkeradesk.in/*,https://talkeradesk.com/:splat,301
-https://talkeradesk.co/*,https://talkeradesk.com/:splat,301
-https://talkdeskera.com/*,https://talkeradesk.com/:splat,301
+https://talkeradesk.in/*,https://www.talkeradesk.com/:splat,301
+https://talkeradesk.co/*,https://www.talkeradesk.com/:splat,301
+https://talkdeskera.com/*,https://www.talkeradesk.com/:splat,301
 /pricing/,/pricing,301
 /terms-and-conditions,/terms,301
 /privacy-policy,/privacy,301

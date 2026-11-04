@@ -42,6 +42,6 @@ User-agent: Bingbot
 Allow: /
 
 # Sitemaps & Machine-Readable Context
-Sitemap: https://talkera-desk.vercel.app/sitemap.xml
+Sitemap: https://www.talkeradesk.com/sitemap.xml
 # LLMs context file (AEO Standard)
-# https://talkera-desk.vercel.app/llms.txt
+# https://www.talkeradesk.com/llms.txt

@@ -43,21 +43,21 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={site.brandName} />
-    <meta property="og:image" content="https://talkeradesk.com/logo.png" />
+    <meta property="og:image" content="https://www.talkeradesk.com/logo.png" />
 
     <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://talkeradesk.com/logo.png" />
+    <meta name="twitter:image" content="https://www.talkeradesk.com/logo.png" />
 
     <!-- International Regional Alternates -->
-    <link rel="alternate" hreflang="en-US" href="https://talkeradesk.com/" />
-    <link rel="alternate" hreflang="en-GB" href="https://talkeradesk.com/" />
-    <link rel="alternate" hreflang="en-CA" href="https://talkeradesk.com/" />
-    <link rel="alternate" hreflang="en-AU" href="https://talkeradesk.com/" />
-    <link rel="alternate" hreflang="en-IN" href="https://talkeradesk.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://talkeradesk.com/" />
+    <link rel="alternate" hreflang="en-US" href="https://www.talkeradesk.com/" />
+    <link rel="alternate" hreflang="en-GB" href="https://www.talkeradesk.com/" />
+    <link rel="alternate" hreflang="en-CA" href="https://www.talkeradesk.com/" />
+    <link rel="alternate" hreflang="en-AU" href="https://www.talkeradesk.com/" />
+    <link rel="alternate" hreflang="en-IN" href="https://www.talkeradesk.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.talkeradesk.com/" />
 
     <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -70,11 +70,11 @@ const {
       "@graph": [
         {
           "@type": "Organization",
-          "@id": "https://talkeradesk.com/#organization",
+          "@id": "https://www.talkeradesk.com/#organization",
           "name": site.brandName,
           "alternateName": ["Talkera", "TalkeraDesk", "Talkera Desk AI"],
           "url": site.canonicalUrl,
-          "logo": "https://talkeradesk.com/logo.png",
+          "logo": "https://www.talkeradesk.com/logo.png",
           "sameAs": Object.values(site.socials).filter(Boolean),
           "areaServed": [
             {"@type": "Country", "name": "United States", "identifier": "US"},
@@ -93,11 +93,11 @@ const {
         },
         {
           "@type": "Service",
-          "@id": "https://talkeradesk.com/#service",
+          "@id": "https://www.talkeradesk.com/#service",
           "name": "Talkera Desk AI Receptionist & Voice Answering",
           "serviceType": "Inbound Call Answering, 24/7 AI Receptionist, Emergency Triage, Automated Calendar Booking",
           "description": "AI phone agent for trade & service businesses. Answers calls 24/7, books appointments into your calendar or CRM, and texts crew dispatch notes.",
-          "provider": {"@id": "https://talkeradesk.com/#organization"},
+          "provider": {"@id": "https://www.talkeradesk.com/#organization"},
           "areaServed": ["US", "GB", "CA", "AU", "IN"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -108,7 +108,7 @@ const {
               "priceCurrency": "USD",
               "price": String(plan.monthlyFee),
               "description": `${plan.includedMin || plan.minutes || 0} included minutes, ${plan.concurrentCalls || plan.calls} simultaneous calls`,
-              "url": "https://talkeradesk.com/pricing"
+              "url": "https://www.talkeradesk.com/pricing"
             }))
           }
         },

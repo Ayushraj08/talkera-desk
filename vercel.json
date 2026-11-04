@@ -1,16 +1,3 @@
 {
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.talkeradesk.com"
-        }
-      ],
-      "destination": "https://talkeradesk.com/:path*",
-      "permanent": true
-    }
-  ]
+  "redirects": []
 }
-

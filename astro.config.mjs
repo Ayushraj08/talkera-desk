@@ -5,5 +5,5 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false,
   })],
-  site: 'https://talkeradesk.com',
+  site: 'https://www.talkeradesk.com',
 });
