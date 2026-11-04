@@ -395,3 +395,5 @@ img, svg, video, iframe {
   }
 }
 
+
+:root { --talkera-domain-asset-revision: 2; }
