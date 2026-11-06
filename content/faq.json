@@ -1,5 +1,11 @@
 [
   {
+    "id": "faq-what-is-talkera-desk",
+    "question": "What is Talkera Desk?",
+    "answer": "Talkera Desk is a managed AI receptionist and phone answering service for home service and restoration businesses. It answers inbound calls 24/7, books jobs in connected calendars or CRMs, and texts callers and your team. It is operated by DRUVA GROUP in India.",
+    "category": "Service"
+  },
+  {
     "id": "faq-1",
     "question": "Is it a person or an AI?",
     "answer": "AI. It says so at the start of each call. If your rules require it, it can transfer the caller to your team.",
@@ -7,8 +13,8 @@
   },
   {
     "id": "faq-2",
-    "question": "Does it answer every call?",
-    "answer": "It answers almost every call. A full call limit, a dropped call or a phone outage can stop a call from getting through. The caller gets a text and your team gets an alert.",
+    "question": "Does Talkera Desk answer every call?",
+    "answer": "Talkera Desk answers calls 24/7 within your plan's available lines. If calls exceed those lines, an overflow caller gets a free text and callback. A dropped call or phone outage can still interrupt service.",
     "category": "Service"
   },
   {
@@ -19,14 +25,14 @@
   },
   {
     "id": "faq-4",
-    "question": "What does it cost?",
-    "answer": "Pay as you go starts at $95 a month, then $0.59 per minute. Growth is $383, Pro is $581 and Expansion is $950 a month. Plans include your assistant, number, calls, texts, WhatsApp updates and support. No setup fee.",
+    "question": "How much does Talkera Desk cost?",
+    "answer": "Pay As You Go has a $95 monthly minimum plus $0.59 per minute. Growth is $383, Pro is $581 and Expansion is $950 per month. Prices are in USD, with no setup fee.",
     "category": "Pricing"
   },
   {
     "id": "faq-5",
-    "question": "What if more calls ring at once?",
-    "answer": "If more people call than your plan can answer at once, the extra caller gets a free text and call back. Add another call line for $23 a month.",
+    "question": "How many callers can Talkera Desk handle at once?",
+    "answer": "Plans handle 2, 3, 5, or 8 calls at once. If another caller rings, they get a free text and callback. You can add a call line for $23 a month.",
     "category": "Service"
   },
   {
@@ -58,5 +64,23 @@
     "question": "Where are you based?",
     "answer": "We are based in India. Talkera Desk is run by DRUVA GROUP, a registered sole proprietorship. We serve the US, UK, Canada, Australia and India.",
     "category": "Company"
+  },
+  {
+    "id": "faq-businesses-served",
+    "question": "Which businesses is Talkera Desk for?",
+    "answer": "Talkera Desk is for home service and restoration businesses, including plumbing, HVAC, electrical, water damage, and fire restoration teams.",
+    "category": "Service"
+  },
+  {
+    "id": "faq-booking",
+    "question": "Can Talkera Desk book appointments?",
+    "answer": "Yes. When your calendar or supported job software is connected, Talkera Desk follows your hours and booking rules, schedules visits, and texts the caller and your team.",
+    "category": "Service"
+  },
+  {
+    "id": "faq-revenue-results",
+    "question": "Will Talkera Desk bring in more jobs or revenue?",
+    "answer": "It can help answer calls and book eligible visits, but it cannot promise a result. Revenue depends on call volume, job fit, schedule availability, and your close rate.",
+    "category": "Pricing"
   }
 ]

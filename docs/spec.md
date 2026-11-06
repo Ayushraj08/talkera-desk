@@ -2,7 +2,7 @@
 
 # Update pack for the live site (24 Oct 2026)
 
-**Read this first. It wins over everything below it.** The site is already built (talkera-desk.vercel.app) and is moving to talkeradesk.com. Change only what this pack names. The older spec's Part D (the heavy design direction) is not used, except the anti-slop rules in U6.
+**Read this first. It wins over everything below it.** The site is live at https://www.talkeradesk.com/. The legacy Vercel preview hostname is not canonical and must redirect to the www domain. Change only what this pack names. The older spec's Part D (the heavy design direction) is not used, except the anti-slop rules in U6.
 
 ## U1. Five rules
 
@@ -138,8 +138,8 @@ Take only the anti-slop rules: no stock-icon card grids that repeat, no invented
 
 ## U8. Domain, typos and company facts
 
-1. In Vercel add talkeradesk.com and www.talkeradesk.com; make the bare domain primary; use exactly the DNS records Vercel shows for your project.
-2. Then 301 redirect www to the bare domain and talkera-desk.vercel.app to talkeradesk.com.
+1. In Vercel add talkeradesk.com and www.talkeradesk.com; make www.talkeradesk.com primary; use exactly the DNS records Vercel shows for your project.
+2. Permanently redirect the bare domain and the legacy Vercel preview hostname to https://www.talkeradesk.com/, keeping each page path.
 3. Update site.json domain, canonical tags, social preview URL, sitemap, robots.txt, structured data and every mailto to support@talkeradesk.com.
 4. Email: SPF, DKIM and DMARC before sending anything; warm up slowly.
 5. **Typo and variant domains** (each totals 32 on the Chaldean table, which reduces to 5, as talkeradesk does): talkera-desk, talkeradeks, talekradesk, talkaredesk, takleradesk, tlakeradesk, talkeradsek, talkerdaesk; plus talkeradesk on .net, .co, .in and .ai. Redirect all to talkeradesk.com with a 301. Do not buy talkera.\* (another company uses it) or talkerdesk (too close to Talkdesk). Check availability and renewal prices first.
@@ -150,7 +150,7 @@ Take only the anti-slop rules: no stock-icon card grids that repeat, no invented
 Paste this as the first message. Run one task at a time and approve each before the next. Flash models drift on long jobs, so the prompt forces small steps, a read-only audit first, and a report after every task.
 
 ```text
-You are updating an EXISTING, already-built website for Talkera Desk (live at talkera-desk.vercel.app, moving to talkeradesk.com). Read /docs/spec.md, but the section called "Update pack for the live site" at the top wins over everything else in it.
+You are updating an EXISTING website for Talkera Desk (canonical domain: https://www.talkeradesk.com/). The legacy Vercel preview hostname must redirect to the canonical domain. Read /docs/spec.md, but the section called "Update pack for the live site" at the top wins over everything else in it.
 
 GOLDEN RULES
 1. Change ONLY what a task below names. Everything else stays byte-for-byte: layout, copy, colours, fonts, spacing, animations, components, legal wording, dependencies, config. Do not refactor, rename files, reformat, reorder imports or run a formatter on the repo.
@@ -191,7 +191,7 @@ TASK 6: LEGAL AND CANCELLATION (numbers only)
 In Terms, the Cancellation page and wherever plans are described, change ONLY: retention days to 15, 30, 45, 60 by plan; extra-minute rates; message allowances; remove any mention of Standby and burst; state no setup fee; state unused minutes do not carry over; delete rupee text; swap the email and domain to talkeradesk.com. Do not edit any other wording. Show me each changed sentence before and after. STOP.
 
 TASK 7: DOMAIN AND SEO (code side only)
-I will connect talkeradesk.com in the Vercel dashboard myself. In code: update site.json domain; canonical tags; social preview URL; sitemap; robots.txt (allow Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot, PerplexityBot); JSON-LD Organization with areaServed US, GB, CA, AU, IN and sameAs, one Offer per plan with priceCurrency USD; add redirects in vercel.json: www to bare domain and talkera-desk.vercel.app to talkeradesk.com (301). Do not change page copy. STOP.
+I will manage domain and DNS settings in the Vercel dashboard. In code: use https://www.talkeradesk.com/ as the canonical site; keep canonical tags, social previews, sitemap, robots.txt and structured data on that domain; allow Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User, Claude-SearchBot and PerplexityBot; use one USD Offer per plan. Permanently redirect the bare domain and legacy Vercel preview hostname to the matching www URL. Do not publish preview host URLs. STOP.
 
 TASK 8: SWEEP
 Search the whole repo for: the rupee sign, INR, Rs., lakh, crore, Regent, getregent, team@, Starter, Core, Command, "setup fee", rollover, "live call". For each hit, say whether it belongs to a task above; fix only those that do; list the rest. STOP.

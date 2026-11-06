@@ -11,10 +11,13 @@ interface Props {
 }
 
 const {
-  title = "Talkera Desk | Answer more customer calls",
-  description = "Talkera Desk answers calls, books jobs and texts your team. Set up for restoration, plumbing, HVAC and electrical businesses.",
+  title = "Talkera Desk | AI receptionist for home services",
+  description = "Talkera Desk is a managed AI receptionist for home service and restoration businesses. It answers calls, books appointments and texts your team.",
   canonicalUrl = site.canonicalUrl,
 } = Astro.props;
+const pageTitle = title.toLowerCase().includes(site.brandName.toLowerCase())
+  ? title
+  : `${title} | ${site.brandName}`;
 ---
 
 <!DOCTYPE html>
@@ -22,7 +25,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
 
@@ -30,34 +33,25 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/logo-icon.png" />
 
-    <!-- Search Engine & Regional Geo Targeting (US, UK, CA, AU, IN) -->
+    <!-- Search engine and operating location -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="geo.region" content="US;GB;CA;AU;IN" />
-    <meta name="geo.placename" content="United States, United Kingdom, Canada, Australia, India" />
-    <meta name="coverage" content="Worldwide" />
+    <meta name="geo.region" content="IN-WB" />
+    <meta name="geo.placename" content="Kolkata, West Bengal, India" />
     <meta name="audience" content="Contractors, restoration companies, plumbers, HVAC technicians, electricians, tradespeople, tradies, service businesses" />
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={site.brandName} />
     <meta property="og:image" content="https://www.talkeradesk.com/logo.png" />
 
     <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://www.talkeradesk.com/logo.png" />
-
-    <!-- International Regional Alternates -->
-    <link rel="alternate" hreflang="en-US" href="https://www.talkeradesk.com/" />
-    <link rel="alternate" hreflang="en-GB" href="https://www.talkeradesk.com/" />
-    <link rel="alternate" hreflang="en-CA" href="https://www.talkeradesk.com/" />
-    <link rel="alternate" hreflang="en-AU" href="https://www.talkeradesk.com/" />
-    <link rel="alternate" hreflang="en-IN" href="https://www.talkeradesk.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.talkeradesk.com/" />
 
     <!-- Inter for body text; Plus Jakarta Sans for headings. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -69,13 +63,23 @@ const {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "WebSite",
+          "@id": "https://www.talkeradesk.com/#website",
+          "url": site.canonicalUrl,
+          "name": site.brandName,
+          "description": "Managed AI receptionist and phone answering for home service and restoration businesses.",
+          "inLanguage": "en",
+          "publisher": {"@id": "https://www.talkeradesk.com/#organization"}
+        },
+        {
           "@type": "Organization",
           "@id": "https://www.talkeradesk.com/#organization",
-          "name": site.brandName,
-          "alternateName": ["Talkera", "TalkeraDesk", "Talkera Desk AI"],
+          "name": site.enterpriseName,
+          "description": `${site.enterpriseName} is an India-based sole proprietorship owned by ${site.proprietor} and the operator of ${site.brandName}, a managed AI receptionist service for home service and restoration businesses.`,
           "url": site.canonicalUrl,
           "logo": "https://www.talkeradesk.com/logo.png",
-          "sameAs": Object.values(site.socials).filter(Boolean),
+          "brand": {"@id": "https://www.talkeradesk.com/#brand"},
+          "founder": {"@type": "Person", "name": site.proprietor},
           "areaServed": [
             {"@type": "Country", "name": "United States", "identifier": "US"},
             {"@type": "Country", "name": "United Kingdom", "identifier": "GB"},
@@ -92,12 +96,22 @@ const {
           }
         },
         {
+          "@type": "Brand",
+          "@id": "https://www.talkeradesk.com/#brand",
+          "name": site.brandName,
+          "description": "A managed AI receptionist and inbound phone answering service for home service and restoration businesses. Answers calls, books appointments into connected calendars or CRMs, and sends text updates to callers and crews.",
+          "url": site.canonicalUrl,
+          "logo": "https://www.talkeradesk.com/logo.png",
+          "sameAs": Object.values(site.socials).filter(Boolean)
+        },
+        {
           "@type": "Service",
           "@id": "https://www.talkeradesk.com/#service",
-          "name": "Talkera Desk AI Receptionist & Voice Answering",
-          "serviceType": "Inbound Call Answering, 24/7 AI Receptionist, Emergency Triage, Automated Calendar Booking",
-          "description": "AI phone agent for trade & service businesses. Answers calls 24/7, books appointments into your calendar or CRM, and texts crew dispatch notes.",
+          "name": "Talkera Desk AI Receptionist and Call Answering",
+          "serviceType": "Managed AI receptionist and inbound call answering for home service businesses",
+          "description": "Talkera Desk answers inbound calls 24/7, gathers job details, books appointments into connected calendars or CRMs, and texts callers and crews. Setup takes up to 3 days.",
           "provider": {"@id": "https://www.talkeradesk.com/#organization"},
+          "brand": {"@id": "https://www.talkeradesk.com/#brand"},
           "areaServed": ["US", "GB", "CA", "AU", "IN"],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -116,7 +130,7 @@ const {
           "@type": "BreadcrumbList",
           "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": site.canonicalUrl},
-            ...(canonicalUrl === site.canonicalUrl ? [] : [{"@type": "ListItem", "position": 2, "name": title, "item": canonicalUrl}])
+            ...(canonicalUrl === site.canonicalUrl ? [] : [{"@type": "ListItem", "position": 2, "name": pageTitle, "item": canonicalUrl}])
           ]
         }
       ]
@@ -210,27 +224,29 @@ const {
           <a href="/pricing" class="py-2.5 px-3 rounded-xl text-base font-semibold text-ink-deep hover:bg-light-blue/40 transition-colors text-left w-full block">
             Pricing & Plans
           </a>
-          <a href="/water-damage-restoration" class="py-2.5 px-3 rounded-xl text-base font-semibold text-ink-deep hover:bg-light-blue/40 transition-colors text-left w-full block">
-            Water Damage Restoration
-          </a>
-          <a href="/plumbing-hvac-electrical" class="py-2.5 px-3 rounded-xl text-base font-semibold text-ink-deep hover:bg-light-blue/40 transition-colors text-left w-full block">
-            Plumbing, HVAC & Electrical
-          </a>
-          <a href="/integrations" class="py-2.5 px-3 rounded-xl text-base font-semibold text-ink-deep hover:bg-light-blue/40 transition-colors text-left w-full block">
-            Integrations
-          </a>
-          <a href="/compare" class="py-2.5 px-3 rounded-xl text-base font-semibold text-ink-deep hover:bg-light-blue/40 transition-colors text-left w-full block">
-            Compare Solutions
-          </a>
-          <a href="/demo" class="py-2.5 px-3 rounded-xl text-base font-semibold text-ink-deep hover:bg-light-blue/40 transition-colors text-left w-full block">
-            Recorded Demos
-          </a>
-          <a href="/faq" class="py-2.5 px-3 rounded-xl text-base font-semibold text-ink-deep hover:bg-light-blue/40 transition-colors text-left w-full block">
-            FAQ
-          </a>
-          <a href="/about" class="py-2.5 px-3 rounded-xl text-base font-semibold text-ink-deep hover:bg-light-blue/40 transition-colors text-left w-full block">
-            About DRUVA GROUP
-          </a>
+          <details class="group rounded-xl">
+            <summary class="flex cursor-pointer list-none items-center justify-between rounded-xl px-3 py-2.5 text-left text-base font-semibold text-ink-deep transition-colors hover:bg-light-blue/40 [&::-webkit-details-marker]:hidden">
+              Industries
+              <svg aria-hidden="true" class="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="ml-3 border-l border-sky-blue/60 py-1 pl-3">
+              <a href="/water-damage-restoration" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate hover:bg-light-blue/40 hover:text-ink-deep transition-colors">Water Damage Restoration</a>
+              <a href="/plumbing-hvac-electrical" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate hover:bg-light-blue/40 hover:text-ink-deep transition-colors">Plumbing, HVAC & Electrical</a>
+            </div>
+          </details>
+          <details class="group rounded-xl">
+            <summary class="flex cursor-pointer list-none items-center justify-between rounded-xl px-3 py-2.5 text-left text-base font-semibold text-ink-deep transition-colors hover:bg-light-blue/40 [&::-webkit-details-marker]:hidden">
+              Explore
+              <svg aria-hidden="true" class="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="ml-3 border-l border-sky-blue/60 py-1 pl-3">
+              <a href="/about" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate hover:bg-light-blue/40 hover:text-ink-deep transition-colors">About</a>
+              <a href="/faq" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate hover:bg-light-blue/40 hover:text-ink-deep transition-colors">FAQ</a>
+              <a href="/compare" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate hover:bg-light-blue/40 hover:text-ink-deep transition-colors">Compare Solutions</a>
+              <a href="/integrations" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate hover:bg-light-blue/40 hover:text-ink-deep transition-colors">Integrations</a>
+              <a href="/demo" class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate hover:bg-light-blue/40 hover:text-ink-deep transition-colors">Recorded Demos</a>
+            </div>
+          </details>
         </nav>
 
         <!-- Two Perfectly Aligned & Centered CTAs -->
@@ -285,7 +301,7 @@ const {
             <div class="mb-5 max-w-sm">
               <h3 class="font-heading text-lg sm:text-xl font-extrabold tracking-tight text-lime-accent">Turning missed calls into business</h3>
               <p class="mt-2 text-sm leading-relaxed text-gray-300">
-                Your in-house phone team for home service and restoration businesses. We build your voice agent, connect your calendar or CRM, answer calls 24/7, review calls, and text your crew and callers.
+                Managed AI receptionist for home service and restoration businesses. Answers calls 24/7, books jobs into your calendar or CRM, and texts your team.
               </p>
             </div>
 
@@ -310,12 +326,12 @@ const {
               <h4 class="font-heading text-xs uppercase tracking-wider text-lime-accent font-bold mb-3 sm:mb-4">Platform</h4>
               <ul class="space-y-2 sm:space-y-2.5 text-xs text-gray-300">
                 <li><a href="/how-it-works" class="hover:text-white transition-colors py-0.5 block">How it works</a></li>
+                <li><a href="/about" class="hover:text-white transition-colors py-0.5 block">About</a></li>
+                <li><a href="/faq" class="hover:text-white transition-colors py-0.5 block">FAQ</a></li>
                 <li><a href="/pricing" class="hover:text-white transition-colors py-0.5 block">Pricing</a></li>
                 <li><a href="/compare" class="hover:text-white transition-colors py-0.5 block">Compare</a></li>
                 <li><a href="/integrations" class="hover:text-white transition-colors py-0.5 block">Integrations</a></li>
                 <li><a href="/demo" class="hover:text-white transition-colors py-0.5 block">Demos</a></li>
-                <li><a href="/faq" class="hover:text-white transition-colors py-0.5 block">FAQ</a></li>
-                <li><a href="/about" class="hover:text-white transition-colors py-0.5 block">About</a></li>
               </ul>
             </div>
 
@@ -353,27 +369,27 @@ const {
         </div>
 
         <!-- Official Registration & Verification Bar: Dedicated Full-Width Row (Guarantees GSTIN 0 never wraps on any device) -->
-        <div class="py-5 border-b border-white/10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 text-xs">
-          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
+        <div class="py-5 border-b border-white/10 flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-3 text-xs">
+          <div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-3 w-full xl:w-auto">
             
-            <!-- Active GSTIN Card: whitespace-nowrap ensures 10FGTPR7427G1Z0 stays completely intact -->
-            <div class="px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between sm:justify-start gap-3 shadow-sm">
-              <div class="flex items-center gap-2 whitespace-nowrap">
+            <!-- Verification links wrap below the numbers on narrow screens to stay inside each card. -->
+            <div class="min-w-0 grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 shadow-sm">
+              <div class="min-w-0 flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
-                <span class="text-gray-300 text-xs whitespace-nowrap">Active GSTIN: <strong class="text-white font-sans font-bold whitespace-nowrap tracking-wider tabular">{site.gstin}</strong></span>
+                <span class="min-w-0 text-gray-300 text-xs">Active GSTIN: <strong class="text-white font-sans font-bold whitespace-nowrap tracking-wider tabular">{site.gstin}</strong></span>
               </div>
-              <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-lime-accent hover:text-white underline text-xs font-semibold whitespace-nowrap shrink-0">
+              <a href={site.gstVerificationUrl} target="_blank" rel="noopener noreferrer" class="justify-self-end text-lime-accent hover:text-white underline text-xs font-semibold whitespace-nowrap">
                 Verify Portal &rarr;
               </a>
             </div>
 
             <!-- Udyam Registration Card -->
-            <div class="px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between sm:justify-start gap-3 shadow-sm">
-              <div class="flex items-center gap-2 whitespace-nowrap">
+            <div class="min-w-0 grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 shadow-sm">
+              <div class="min-w-0 flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
-                <span class="text-gray-300 text-[11px] sm:text-xs whitespace-nowrap">Udyam Reg: <strong class="text-white font-sans font-bold text-[11px] sm:text-xs whitespace-nowrap tracking-wider tabular">{site.udyamNumber}</strong></span>
+                <span class="min-w-0 text-gray-300 text-[11px] sm:text-xs">Udyam Reg: <strong class="text-white font-sans font-bold text-[11px] sm:text-xs whitespace-nowrap tracking-wider tabular">{site.udyamNumber}</strong></span>
               </div>
-              <a href={site.udyamVerificationUrl} target="_blank" rel="noopener noreferrer" class="text-lime-accent hover:text-white underline text-[10px] sm:text-xs font-semibold whitespace-nowrap shrink-0">
+              <a href={site.udyamVerificationUrl} target="_blank" rel="noopener noreferrer" class="justify-self-end text-lime-accent hover:text-white underline text-[10px] sm:text-xs font-semibold whitespace-nowrap">
                 Verify Portal &rarr;
               </a>
             </div>

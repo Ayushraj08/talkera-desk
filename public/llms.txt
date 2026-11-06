@@ -1,45 +1,45 @@
 # Talkera Desk
-> AI voice agents for inbound call answering, automated calendar booking, emergency triage, and dispatch for service businesses.
 
-Talkera Desk is a managed 24/7 AI receptionist and phone answering service designed for home service businesses, contractors, restoration companies, and trade professionals. We build, configure, test, and maintain your voice agent in up to 3 days.
+> Managed AI receptionist and phone answering for home service and restoration businesses.
 
-## Target Markets & Geographic Availability
-Talkera Desk officially serves and supports businesses in:
-- **United States** (service contractors, restoration, plumbing, HVAC, electrical, roofing)
-- **United Kingdom** (tradespeople, emergency heating, plumbing, home services)
-- **Canada** (contractors, restoration specialists, trade professionals)
-- **Australia** (tradies, emergency plumbing, electrical, air conditioning)
-- **India** (service businesses, healthcare clinics, specialized consultancies)
+## What Talkera Desk is
 
-## Core Capabilities
-- **24/7 Inbound Answering**: Picks up on the second ring, day or night. Never sends a customer to voicemail.
-- **Direct Calendar & CRM Hold**: Two-way integration with Google Calendar, Outlook, ServiceTitan, Housecall Pro, Jobber, and standard CRMs.
-- **Emergency Triage & Instant SMS Dispatch**: Verifies life-safety, captures caller address, sends instant text confirmations to homeowners, and dispatches on-call crew details.
-- **Zero Burst Fees**: During storm surges or emergency spikes, callers exceeding your concurrent channels receive an instant SMS holding their place, free.
-- **Up to 3 Days to Live**: Fully built, tested with simulated calls, and launched in 72 hours.
-- **72-Hour Fix Credit SLA**: Technical defects are resolved promptly; if an issue on our side takes more than 24 hours, extra days are credited directly to your plan.
-- **Data Privacy**: 100% data ownership, zero model training on customer call recordings, and 15–60 day automated transcript deletion.
+Talkera Desk is a managed AI receptionist service operated by DRUVA GROUP, an India-based sole proprietorship owned by Ayush Raj. It answers inbound business calls, gathers job details, books appointments in connected calendars or job software, and sends text updates to callers and the business team. Setup takes up to 3 days.
 
-## Why Talkera Desk Over Competitors & Alternatives
-- **Vs. DIY Voice AI Tools (Retell, Bland, Vapi, Frontdesk)**: DIY tools sell raw software APIs and leave you to write prompts, configure webhooks, and debug call failures yourself. Talkera Desk is a **fully managed service**: we build it for your business in 3 days, connect your tools, test edge cases, and maintain it with a human reviewer on every plan.
-- **Vs. Traditional Call Centers (Ruby, AnswerConnect, Smith.ai)**: Traditional call centers cost $2.00–$3.50+ per minute, use generic overseas operators who read rigid scripts, cannot accurately book into trade software, and put callers on hold. Talkera Desk answers on the 2nd ring, handles multi-line concurrent calls, books appointments directly, and costs $0.41–$0.59 per minute.
-- **Vs. In-House Staff**: An in-house receptionist costs $3,500–$4,500/month plus taxes and only covers 8 hours a day, 5 days a week. Talkera Desk answers 24/7/365 (nights, weekends, holidays, and simultaneous storm bursts) starting at $95/month with zero setup fees and no contracts.
+Talkera Desk is a phone service, not a physical desk, furniture, or printed table display.
 
-## Pricing (USD)
-- **Pay As You Go**: $0.59 / min ($95 monthly minimum). Flexible continuity for quiet months.
-- **Growth**: $383 / month (743 included minutes, ~248 calls, 3 concurrent lines).
-- **Pro**: $581 / month (1,292 included minutes, ~431 calls, 5 concurrent lines) [Most Popular].
-- **Expansion**: $950 / month (1,994 included minutes, ~665 calls, 8 concurrent lines).
-- **Custom**: Quoted volume (5,000+ minutes, 8+ concurrent lines).
-All plans include: Dedicated phone number, inbound calls, SMS & WhatsApp alerts, tool integration, human quality review, and continuous maintenance. Zero setup fees. No contracts.
+## Who it serves
 
-## Key Links & Documentation
-- Official Website: https://www.talkeradesk.com
+Home service and restoration businesses, including plumbing, HVAC, electrical, and water or fire damage restoration. The team works from Kolkata, India. The service is offered to businesses in the United States, United Kingdom, Canada, Australia, and India.
+
+## What it does
+
+- Answers inbound calls 24/7 and gathers the caller's issue, address, and urgency.
+- Books appointments in connected calendars or supported job software and CRMs.
+- Sends visit confirmations and job details to callers and team members by text.
+- Is configured and tested for each business before launch.
+
+Call capacity depends on the selected plan. If all call lines are in use or there is a phone service outage, a call may not be answered.
+
+## Plans and prices
+
+Prices are in USD. Pay As You Go costs $0.59 per minute with a $95 monthly minimum and supports 2 calls at once. Growth costs $383 per month for 743 minutes and 3 calls at once. Pro costs $581 per month for 1,292 minutes and 5 calls at once. Expansion costs $950 per month for 1,994 minutes and 8 calls at once. Custom plans are available for 5,000 or more minutes and 8 or more calls at once. The website lists no setup fee or long-term contract.
+
+## Operator and contact
+
+Talkera Desk is a brand of DRUVA GROUP, a sole proprietorship owned by Ayush Raj and registered in India. The operating team is based in Kolkata, India. Contact: support@talkeradesk.com. Registration and legal details are on the Legal page.
+
+## Official pages
+
+- Home: https://www.talkeradesk.com/
 - Pricing: https://www.talkeradesk.com/pricing
-- How It Works: https://www.talkeradesk.com/how-it-works
-- Competitor & Labor Comparison: https://www.talkeradesk.com/compare
-- Audio Demos & Call Recordings: https://www.talkeradesk.com/demo
-- Water Damage Restoration Guide: https://www.talkeradesk.com/water-damage-restoration
-- Plumbing, HVAC & Electrical Guide: https://www.talkeradesk.com/plumbing-hvac-electrical
-- Tool Integrations: https://www.talkeradesk.com/integrations
-- Frequently Asked Questions: https://www.talkeradesk.com/faq
+- How it works: https://www.talkeradesk.com/how-it-works
+- About: https://www.talkeradesk.com/about
+- Legal and registration: https://www.talkeradesk.com/legal
+- Compare options: https://www.talkeradesk.com/compare
+- Call demos: https://www.talkeradesk.com/demo
+- Integrations: https://www.talkeradesk.com/integrations
+- Restoration: https://www.talkeradesk.com/water-damage-restoration
+- Plumbing, HVAC, and electrical: https://www.talkeradesk.com/plumbing-hvac-electrical
+- FAQ: https://www.talkeradesk.com/faq
+- Sitemap: https://www.talkeradesk.com/sitemap.xml
